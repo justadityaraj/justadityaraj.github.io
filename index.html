@@ -1,231 +1,935 @@
-<!DOCTYPE HTML>
-<!--
-	https://AdityaRaj.com
--->
-<html>
-	<head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-145125490-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARS Starred Projects</title>
+  <meta name="description" content="A curated collection of 170+ open source projects I love, use, or plan to self-host. By Aditya Raj Singh.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  gtag('config', 'UA-145125490-2');
-</script>
-		<title>Aditya Raj Projects</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
-		<!-- Wrapper -->
-			<div id="wrapper">
+    :root {
+      --bg: #0a0a0f;
+      --bg-card: #12121a;
+      --bg-card-hover: #1a1a26;
+      --bg-nav: rgba(10, 10, 15, 0.92);
+      --bg-sidebar: #0e0e16;
+      --border: #1e1e2e;
+      --border-hover: #2a2a3e;
+      --text: #e4e4e7;
+      --text-muted: #71717a;
+      --text-dim: #52525b;
+      --accent: #6366f1;
+      --accent-dim: rgba(99, 102, 241, 0.12);
+      --star: #eab308;
+      --sidebar-w: 280px;
+    }
 
-					<!-- Header -->
-						<header id="header">
-							<div class="inner">
-	
-								<!-- Logo -->
-									<a href="index.html" class="logo">
-										<span class="symbol"><img src="images/logo.png" alt="" /></span><span class="title">Aditya Raj</span>
-									</a>
-	
-								<!-- Nav -->
-									<nav>
-										<ul>
-											<li><a href="#menu">Menu</a></li>
-										</ul>
-									</nav>
-	
-							</div>
-						</header>
-	
-				<!-- Menu -->
-					<nav id="menu">
-						<h2>Menu</h2>
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="https://adityaraj.com/#about" target="_blank">About</a></li>
-							<li><a href="https://adityaraj.com/#portfolio" target="_blank">Portfolio</a></li>
-							<li><a href="https://adityaraj.com/#contact" target="_blank">Contact</a></li>
-						</ul>
-					</nav>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-							<header>
-								<h1>Open Source Projects.</h1>
-								<!-- <p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p> -->
-							</header>
-							<section class="tiles">
-								<article class="style1">
-									<span class="image">
-										<img src="images/pic01.jpg" alt="" />
-									</span>
-									<a href="https://github.adityaraj.com/zeroxfood">
-										<h2>ZeroxFood</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style2">
-									<span class="image">
-										<img src="images/pic02.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Google</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style3">
-									<span class="image">
-										<img src="images/pic03.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Coming soon</h2>
-										<div class="content">
-											<!-- <p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p> -->
-										</div>
-									</a>
-								</article>
-								<article class="style4">
-									<span class="image">
-										<img src="images/pic04.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Coming soon</h2>
-										<div class="content">
-											<!-- <p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p> -->
-										</div>
-									</a>
-								<!-- </article>
-								<article class="style5">
-									<span class="image">
-										<img src="images/pic05.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Aliquam</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style6">
-									<span class="image">
-										<img src="images/pic06.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Veroeros</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style2">
-									<span class="image">
-										<img src="images/pic07.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Ipsum</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style3">
-									<span class="image">
-										<img src="images/pic08.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Dolor</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style1">
-									<span class="image">
-										<img src="images/pic09.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Nullam</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style5">
-									<span class="image">
-										<img src="images/pic10.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Ultricies</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style6">
-									<span class="image">
-										<img src="images/pic11.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Dictum</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style4">
-									<span class="image">
-										<img src="images/pic12.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Pretium</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article> -->
-							</section>
-						</div>
-					</div>
+    /* Top nav */
+    nav.top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-nav);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
 
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<section>
-								<h2>Follow</h2>
-								<ul class="icons">
-									<li><a href="https://twitter.com/justadityaraj" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="https://www.facebook.com/adityaraj.com" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="https://www.instagram.com/justadityaraj/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
-									<!-- <li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li> -->
-									<li><a href="https://github.com/justadityaraj" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
-									<!-- <li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li> -->
-									<!-- <li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li> -->
-									<li><a href="mailto:hello@adityaraj.com?Subject=GitHub" target="_top" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
-								</ul>
-							</section>
-							<ul class="copyright">
-								<li>&copy; Aditya Raj. All rights reserved</li>
-							</ul>
-						</div>
-					</footer>
+    .nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      height: 56px;
+      gap: 16px;
+    }
 
-			</div>
+    .nav-brand {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text);
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    .nav-brand span { color: var(--accent); }
 
-	</body>
+    .search-box {
+      position: relative;
+      max-width: 320px;
+      width: 100%;
+      margin-left: auto;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 8px 12px 8px 36px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 13px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-box input:focus { border-color: var(--accent); }
+    .search-box input::placeholder { color: var(--text-dim); }
+
+    .search-box svg {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-dim);
+      width: 16px;
+      height: 16px;
+    }
+
+    .search-kbd {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-muted);
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 13px;
+      font-family: inherit;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .menu-toggle svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Layout */
+    .layout {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      min-height: calc(100vh - 56px);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: var(--sidebar-w);
+      flex-shrink: 0;
+      border-right: 1px solid var(--border);
+      position: sticky;
+      top: 56px;
+      height: calc(100vh - 56px);
+      overflow-y: auto;
+      padding: 16px 0;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+    }
+
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-track { background: transparent; }
+    .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+    .sidebar-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: all 0.15s;
+      border-left: 3px solid transparent;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .sidebar-item:hover {
+      background: var(--accent-dim);
+    }
+
+    .sidebar-item.active {
+      background: var(--accent-dim);
+      border-left-color: var(--accent);
+    }
+
+    .sidebar-item-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.15s;
+    }
+
+    .sidebar-item.active .sidebar-item-name {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .sidebar-item:hover .sidebar-item-name {
+      color: var(--text);
+    }
+
+    .sidebar-item-count {
+      font-size: 11px;
+      color: var(--text-dim);
+      background: rgba(255,255,255,0.05);
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    .sidebar-item-arrow {
+      color: var(--text-dim);
+      font-size: 14px;
+      margin-left: 8px;
+    }
+
+    /* Content area */
+    .content {
+      flex: 1;
+      min-width: 0;
+      padding: 32px;
+    }
+
+    /* Bio */
+    .bio {
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+
+    .bio p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .bio a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .bio a:hover { text-decoration: underline; }
+
+    /* Section header */
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .section-count {
+      font-size: 14px;
+      color: var(--text-dim);
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    /* Card */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .card-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .card-owner {
+      font-size: 11px;
+      color: var(--text-dim);
+      font-weight: 400;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    .card-stars {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .card-stars svg {
+      width: 13px;
+      height: 13px;
+      color: var(--star);
+      fill: var(--star);
+    }
+
+    .card-lang {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .lang-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .badge-mine {
+      font-size: 10px;
+      font-weight: 600;
+      background: var(--accent-dim);
+      color: var(--accent);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+    }
+
+    /* Section divider */
+    .section {
+      margin-bottom: 48px;
+    }
+
+    /* No results */
+    .no-results {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-dim);
+      font-size: 14px;
+      display: none;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--text); }
+
+    /* Mobile overlay */
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 200;
+    }
+
+    .sidebar-overlay.open { display: block; }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle { display: flex; }
+      .search-kbd { display: none; }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 280px;
+        height: 100vh;
+        z-index: 300;
+        background: var(--bg-sidebar);
+        border-right: 1px solid var(--border);
+        transition: left 0.25s ease;
+        padding-top: 20px;
+      }
+
+      .sidebar.open { left: 0; }
+
+      .sidebar-close {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 20px 20px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 8px;
+      }
+
+      .sidebar-close-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .sidebar-close-btn {
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        cursor: pointer;
+        font-size: 20px;
+        padding: 4px;
+        line-height: 1;
+      }
+
+      .content {
+        padding: 20px 16px;
+      }
+
+      .grid { grid-template-columns: 1fr; }
+
+      .layout { display: block; }
+
+      .section-title { font-size: 20px; }
+    }
+
+    @media (min-width: 769px) {
+      .sidebar-close { display: none; }
+    }
+
+    /* Hidden by search */
+    .section.hidden { display: none; }
+    .sidebar-item.hidden { display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Top nav -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <button class="menu-toggle" id="menu-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        Categories
+      </button>
+      <a href="/" class="nav-brand"><span>ARS</span> Starred Projects</a>
+      <div class="search-box">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="search" placeholder="Search projects..." autocomplete="off">
+        <span class="search-kbd">/</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar overlay (mobile) -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Layout -->
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-close">
+        <span class="sidebar-close-title">Categories</span>
+        <button class="sidebar-close-btn" id="sidebar-close">&times;</button>
+      </div>
+      <div id="sidebar-items"></div>
+    </aside>
+
+    <!-- Content -->
+    <div class="content">
+      <div class="bio">
+        <p>A collection of open source projects I love, use, or plan to self-host eventually. Curated by <a href="https://adityarajsingh.com" target="_blank" rel="noopener">Aditya Raj Singh</a>.</p>
+        <p style="font-size:12px;color:var(--text-dim);margin-top:8px">Last updated: 22 March 2026</p>
+      </div>
+      <div id="sections"></div>
+      <div class="no-results" id="no-results">No projects found matching your search.</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p><a href="https://github.com/justadityaraj" target="_blank" rel="noopener">GitHub</a> &middot; <a href="https://adityarajsingh.com" target="_blank" rel="noopener">Website</a> &middot; <a href="https://linkedin.com/in/justadityaraj" target="_blank" rel="noopener">LinkedIn</a></p>
+  </footer>
+
+  <script>
+    const langColors = {
+      "JavaScript": "#f1e05a", "TypeScript": "#3178c6", "Python": "#3572A5",
+      "Go": "#00ADD8", "Rust": "#dea584", "C": "#555555", "C++": "#f34b7d",
+      "C#": "#178600", "Java": "#b07219", "Kotlin": "#A97BFF", "Swift": "#F05138",
+      "PHP": "#4F5D95", "Shell": "#89e051", "PowerShell": "#012456",
+      "Dart": "#00B4AB", "Scala": "#c22d40", "Clojure": "#db5855",
+      "Ruby": "#701516", "Objective-C": "#438eff", "HTML": "#e34c26",
+      "CSS": "#563d7c", "Astro": "#ff5a03", "EJS": "#a91e50",
+      "Batchfile": "#C1F12E", "AppleScript": "#101F1F", "Liquid": "#67b8de",
+      "Text": "#888888"
+    };
+
+    const catColors = {
+      "Privacy & Security": "#ef4444",
+      "Self-Hosted & Homelab": "#f97316",
+      "AI & LLM Tools": "#a855f7",
+      "MCP Servers": "#8b5cf6",
+      "Claude Code & Agent Skills": "#6366f1",
+      "n8n & Automation": "#22c55e",
+      "macOS Utilities": "#3b82f6",
+      "Windows Utilities": "#38bdf8",
+      "Developer Tools": "#14b8a6",
+      "Productivity": "#eab308",
+      "Media & Photos": "#ec4899",
+      "Multimedia": "#d946ef",
+      "Download Managers": "#84cc16",
+      "Note-Taking & Knowledge": "#f59e0b",
+      "Networking & DNS": "#06b6d4",
+      "File Transfer": "#34d399",
+      "Typing & Keyboard": "#818cf8",
+      "Browsers & Search": "#f43f5e",
+      "System Utilities": "#fb923c",
+      "WordPress": "#3b82f6",
+      "Curated Lists": "#a78bfa",
+      "Other Tools": "#71717a",
+      "My Projects": "#6366f1"
+    };
+
+    const repos = [
+      { cat: "Privacy & Security", owner: "pi-hole", name: "pi-hole", desc: "A black hole for Internet advertisements", lang: "Shell", stars: 56200 },
+      { cat: "Privacy & Security", owner: "pi-hole", name: "docker-pi-hole", desc: "Pi-hole in a Docker container", lang: "Shell", stars: 10900 },
+      { cat: "Privacy & Security", owner: "hagezi", name: "dns-blocklists", desc: "DNS-based host blocklists", lang: "Text", stars: 21000 },
+      { cat: "Privacy & Security", owner: "StevenBlack", name: "hosts", desc: "Unified hosts file with base extensions", lang: "Python", stars: 30100 },
+      { cat: "Privacy & Security", owner: "mullvad", name: "dns-blocklists", desc: "Mullvad DNS blocklists", lang: "Shell", stars: 1800 },
+      { cat: "Privacy & Security", owner: "AdguardTeam", name: "AdGuardSDNSFilter", desc: "AdGuard DNS filter", lang: null, stars: 1200 },
+      { cat: "Privacy & Security", owner: "arkenfox", name: "user.js", desc: "Firefox privacy, security and anti-tracking configuration", lang: "JavaScript", stars: 12300 },
+      { cat: "Privacy & Security", owner: "privacytests", name: "privacytests.org", desc: "Open-source tests of web browser privacy", lang: "HTML", stars: 1150 },
+      { cat: "Privacy & Security", owner: "brave", name: "brave-browser", desc: "Brave browser for Android, iOS, Linux, macOS, Windows", lang: null, stars: 22000 },
+      { cat: "Privacy & Security", owner: "safing", name: "portmaster", desc: "Free and open-source application firewall", lang: "Go", stars: 12100 },
+      { cat: "Privacy & Security", owner: "henrypp", name: "simplewall", desc: "Simple tool to configure Windows Filtering Platform (WFP)", lang: "C", stars: 8200 },
+      { cat: "Privacy & Security", owner: "objective-see", name: "LuLu", desc: "LuLu is the free macOS firewall", lang: "Objective-C", stars: 12200 },
+      { cat: "Privacy & Security", owner: "evilsocket", name: "opensnitch", desc: "OpenSnitch is a GNU/Linux interactive application firewall", lang: "Python", stars: 13000 },
+      { cat: "Privacy & Security", owner: "crowdsecurity", name: "crowdsec", desc: "Open-source and participative security engine", lang: "Go", stars: 12800 },
+      { cat: "Privacy & Security", owner: "builtbybel", name: "privatezilla", desc: "Perform a privacy & security check of Windows 10", lang: "C#", stars: 3700 },
+      { cat: "Privacy & Security", owner: "simple-login", name: "app", desc: "SimpleLogin - the open-source email alias solution", lang: "Python", stars: 6500 },
+      { cat: "Privacy & Security", owner: "anonaddy", name: "anonaddy", desc: "Anonymous email forwarding", lang: "PHP", stars: 4500 },
+      { cat: "Privacy & Security", owner: "Lissy93", name: "awesome-privacy", desc: "A curated list of privacy-focused services and software", lang: "Astro", stars: 9100 },
+      { cat: "Privacy & Security", owner: "pluja", name: "awesome-privacy", desc: "A list of privacy-respecting services and alternatives", lang: null, stars: 18300 },
+      { cat: "Privacy & Security", owner: "sbilly", name: "awesome-security", desc: "A collection of awesome software and resources for security", lang: null, stars: 14100 },
+      { cat: "Privacy & Security", owner: "drduh", name: "macOS-Security-and-Privacy-Guide", desc: "Guide to securing and improving privacy on macOS", lang: null, stars: 22500 },
+      { cat: "Privacy & Security", owner: "paulmillr", name: "encrypted-dns", desc: "DNS over HTTPS config profiles for iOS & macOS", lang: "JavaScript", stars: 4500 },
+      { cat: "Privacy & Security", owner: "DNSCrypt", name: "dnscrypt-resolvers", desc: "Lists of public DNSCrypt and DoH DNS resolvers", lang: "Go", stars: 1500 },
+      { cat: "Privacy & Security", owner: "VirusTotal", name: "yara", desc: "The pattern matching swiss knife", lang: "C", stars: 9500 },
+      { cat: "Self-Hosted & Homelab", owner: "awesome-selfhosted", name: "awesome-selfhosted", desc: "A list of Free Software network services and web apps to self-host", lang: null, stars: 281300 },
+      { cat: "Self-Hosted & Homelab", owner: "community-scripts", name: "ProxmoxVE", desc: "Proxmox VE Helper Scripts", lang: "Shell", stars: 27200 },
+      { cat: "Self-Hosted & Homelab", owner: "coollabsio", name: "coolify", desc: "An open-source & self-hostable Heroku / Netlify / Vercel alternative", lang: "PHP", stars: 51900 },
+      { cat: "Self-Hosted & Homelab", owner: "louislam", name: "dockge", desc: "A fancy, easy-to-use and reactive self-hosted docker compose.yaml manager", lang: "TypeScript", stars: 22500 },
+      { cat: "Self-Hosted & Homelab", owner: "jesseduffield", name: "lazydocker", desc: "The lazier way to manage everything docker", lang: "Go", stars: 50300 },
+      { cat: "Self-Hosted & Homelab", owner: "henrygd", name: "beszel", desc: "Lightweight server monitoring hub with Docker stats", lang: "Go", stars: 20100 },
+      { cat: "Self-Hosted & Homelab", owner: "gethomepage", name: "homepage", desc: "A highly customizable homepage with service integrations", lang: "JavaScript", stars: 29100 },
+      { cat: "Self-Hosted & Homelab", owner: "JamesTurland", name: "JimsGarage", desc: "Homelab guides, scripts, and resources", lang: "Shell", stars: 4500 },
+      { cat: "Self-Hosted & Homelab", owner: "juanfont", name: "headscale", desc: "An open source implementation of the Tailscale control server", lang: "Go", stars: 36700 },
+      { cat: "Self-Hosted & Homelab", owner: "cloudflare", name: "cloudflared", desc: "Cloudflare Tunnel client", lang: "Go", stars: 13600 },
+      { cat: "Self-Hosted & Homelab", owner: "cockpit-project", name: "cockpit", desc: "Cockpit is a web-based graphical interface for servers", lang: "JavaScript", stars: 13700 },
+      { cat: "Self-Hosted & Homelab", owner: "AnalogJ", name: "scrutiny", desc: "Hard Drive S.M.A.R.T Monitoring, Historical Trends & Real World Failure Thresholds", lang: "Go", stars: 7600 },
+      { cat: "Self-Hosted & Homelab", owner: "alexjustesen", name: "speedtest-tracker", desc: "Self-hosted internet performance tracking application", lang: "PHP", stars: 5400 },
+      { cat: "Self-Hosted & Homelab", owner: "filebrowser", name: "filebrowser", desc: "Web file browser", lang: "Go", stars: 33900 },
+      { cat: "Self-Hosted & Homelab", owner: "openmediavault", name: "openmediavault", desc: "The open network attached storage solution", lang: "PHP", stars: 6600 },
+      { cat: "Self-Hosted & Homelab", owner: "haiwen", name: "seafile", desc: "High performance file syncing and sharing", lang: "C", stars: 14500 },
+      { cat: "Self-Hosted & Homelab", owner: "minio", name: "minio", desc: "High performance S3-compatible object storage", lang: "Go", stars: 60500 },
+      { cat: "Self-Hosted & Homelab", owner: "Stirling-Tools", name: "Stirling-PDF", desc: "Self-hosted locally running PDF manipulation tool", lang: "TypeScript", stars: 75600 },
+      { cat: "Self-Hosted & Homelab", owner: "monicahq", name: "monica", desc: "Personal CRM. Remember everything about your friends, family and contacts", lang: "PHP", stars: 24400 },
+      { cat: "Self-Hosted & Homelab", owner: "Tarsnap", name: "tarsnap", desc: "Online backups for the truly paranoid", lang: "C", stars: 950 },
+      { cat: "AI & LLM Tools", owner: "openclaw", name: "openclaw", desc: "Personal AI assistant that works across all your devices", lang: "TypeScript", stars: 328400 },
+      { cat: "AI & LLM Tools", owner: "open-webui", name: "open-webui", desc: "User-friendly AI interface for Ollama and OpenAI-compatible APIs", lang: "Python", stars: 128100 },
+      { cat: "AI & LLM Tools", owner: "ollama", name: "ollama", desc: "Get up and running with Llama, DeepSeek, Gemma, and other large language models", lang: "Go", stars: 165800 },
+      { cat: "AI & LLM Tools", owner: "psugihara", name: "FreeChat", desc: "llama.cpp based AI chat app for macOS", lang: "Swift", stars: 500 },
+      { cat: "AI & LLM Tools", owner: "MoonshotAI", name: "Kimi-k1.5", desc: "Kimi k1.5: Scaling Reinforcement Learning with LLMs", lang: null, stars: 3500 },
+      { cat: "AI & LLM Tools", owner: "seofernando25", name: "ulauncher-gpt", desc: "ChatGPT extension for ULauncher", lang: "Python", stars: 28 },
+      { cat: "AI & LLM Tools", owner: "firecrawl", name: "firecrawl", desc: "Turn entire websites into LLM-ready markdown or structured data", lang: "TypeScript", stars: 96100 },
+      { cat: "AI & LLM Tools", owner: "dream-num", name: "univer", desc: "AI-native collaborative spreadsheets, docs, and slides", lang: "TypeScript", stars: 12600 },
+      { cat: "AI & LLM Tools", owner: "cjpais", name: "Handy", desc: "Simple offline speech-to-text transcription", lang: "Rust", stars: 18300 },
+      { cat: "MCP Servers", owner: "punkpeye", name: "awesome-mcp-servers", desc: "A curated list of MCP servers", lang: null, stars: 83700 },
+      { cat: "MCP Servers", owner: "github", name: "github-mcp-server", desc: "GitHub's official MCP server", lang: "Go", stars: 28100 },
+      { cat: "MCP Servers", owner: "taylorwilsdon", name: "google_workspace_mcp", desc: "A Model Context Protocol server for Google Workspace", lang: "Python", stars: 1900 },
+      { cat: "MCP Servers", owner: "lharries", name: "whatsapp-mcp", desc: "WhatsApp MCP server for AI assistants", lang: "Go", stars: 5400 },
+      { cat: "MCP Servers", owner: "alondmnt", name: "joplin-mcp", desc: "MCP server for Joplin notes", lang: "Python", stars: 78 },
+      { cat: "MCP Servers", owner: "nerding-io", name: "n8n-nodes-mcp", desc: "n8n custom node for Model Context Protocol", lang: "TypeScript", stars: 3000 },
+      { cat: "MCP Servers", owner: "czlonkowski", name: "n8n-mcp", desc: "MCP server for n8n workflow automation", lang: "TypeScript", stars: 15600 },
+      { cat: "Claude Code & Agent Skills", owner: "anthropics", name: "skills", desc: "Official Anthropic skills for Claude Code agent", lang: "Python", stars: 99200 },
+      { cat: "Claude Code & Agent Skills", owner: "hesreallyhim", name: "awesome-claude-code", desc: "A curated list of awesome Claude Code resources", lang: "Python", stars: 29700 },
+      { cat: "Claude Code & Agent Skills", owner: "travisvn", name: "awesome-claude-skills", desc: "Curated list of skills for Claude Code", lang: null, stars: 9400 },
+      { cat: "Claude Code & Agent Skills", owner: "ChrisWiles", name: "claude-code-showcase", desc: "Claude Code configuration showcase and examples", lang: "JavaScript", stars: 5600 },
+      { cat: "Claude Code & Agent Skills", owner: "AgriciDaniel", name: "skill-forge", desc: "Skill creator and publisher for Claude Code", lang: "Python", stars: 23 },
+      { cat: "Claude Code & Agent Skills", owner: "AgriciDaniel", name: "claude-code-essentials-vs-code", desc: "Claude Code + VS Code setup essentials", lang: "PowerShell", stars: 36 },
+      { cat: "n8n & Automation", owner: "n8n-io", name: "n8n", desc: "Free and source-available fair-code workflow automation tool", lang: "TypeScript", stars: 180300 },
+      { cat: "n8n & Automation", owner: "czlonkowski", name: "n8n-skills", desc: "n8n skills for Claude Code", lang: "Shell", stars: 3700 },
+      { cat: "n8n & Automation", owner: "enescingoz", name: "awesome-n8n-templates", desc: "280+ n8n workflow templates and examples", lang: null, stars: 20400 },
+      { cat: "n8n & Automation", owner: "open-rpa", name: "openrpa", desc: "Free open source enterprise grade RPA", lang: "C#", stars: 2900 },
+      { cat: "Media & Photos", owner: "immich-app", name: "immich", desc: "High performance self-hosted photo and video management", lang: "TypeScript", stars: 95400 },
+      { cat: "Media & Photos", owner: "photoprism", name: "photoprism", desc: "AI-powered photos app for the decentralized web", lang: "Go", stars: 39500 },
+      { cat: "Media & Photos", owner: "LibrePhotos", name: "librephotos", desc: "A self-hosted open source photo management service", lang: "Python", stars: 8000 },
+      { cat: "Media & Photos", owner: "RazgrizHsu", name: "immich-deduper", desc: "Duplicate photo finder for Immich", lang: "Python", stars: 480 },
+      { cat: "Media & Photos", owner: "jellyfin", name: "jellyfin", desc: "The Free Software Media System", lang: "C#", stars: 49500 },
+      { cat: "Media & Photos", owner: "CyferShepard", name: "Jellystat", desc: "A free and open source statistics app for Jellyfin", lang: "JavaScript", stars: 2200 },
+      { cat: "Media & Photos", owner: "intro-skipper", name: "intro-skipper", desc: "Fingerprint-based intro skipper for Jellyfin", lang: "C#", stars: 2200 },
+      { cat: "Media & Photos", owner: "advplyr", name: "audiobookshelf", desc: "Self-hosted audiobook and podcast server", lang: "JavaScript", stars: 12200 },
+      { cat: "macOS Utilities", owner: "lwouis", name: "alt-tab-macos", desc: "Windows alt-tab on macOS", lang: "Swift", stars: 15200 },
+      { cat: "macOS Utilities", owner: "rxhanson", name: "Rectangle", desc: "Move and resize windows on macOS with keyboard shortcuts", lang: "Swift", stars: 28600 },
+      { cat: "macOS Utilities", owner: "jordanbaird", name: "Ice", desc: "Powerful menu bar manager for macOS", lang: "Swift", stars: 26700 },
+      { cat: "macOS Utilities", owner: "leits", name: "MeetingBar", desc: "Your meetings at your fingertips in the menu bar", lang: "Swift", stars: 5200 },
+      { cat: "macOS Utilities", owner: "mangerlahn", name: "Latest", desc: "A small utility app for macOS that checks if all your apps are up to date", lang: "Swift", stars: 4500 },
+      { cat: "macOS Utilities", owner: "Beingpax", name: "VoiceInk", desc: "AI-powered voice-to-text for macOS", lang: "Swift", stars: 4300 },
+      { cat: "macOS Utilities", owner: "pqrs-org", name: "Karabiner-Elements", desc: "A powerful and stable keyboard customizer for macOS", lang: "C++", stars: 21800 },
+      { cat: "macOS Utilities", owner: "biati-digital", name: "alfred-calculate-anything", desc: "Alfred workflow to calculate anything", lang: "PHP", stars: 607 },
+      { cat: "macOS Utilities", owner: "vitorgalvao", name: "alfred-workflows", desc: "Collection of Alfred workflows", lang: null, stars: 2400 },
+      { cat: "Windows Utilities", owner: "Raphire", name: "Win11Debloat", desc: "A simple PowerShell script to debloat Windows", lang: "PowerShell", stars: 42400 },
+      { cat: "Windows Utilities", owner: "hellzerg", name: "optimizer", desc: "The finest Windows Optimizer", lang: "C#", stars: 18100 },
+      { cat: "Windows Utilities", owner: "Klocman", name: "Bulk-Crap-Uninstaller", desc: "Remove large amounts of unwanted applications quickly", lang: "C#", stars: 18000 },
+      { cat: "Windows Utilities", owner: "MicaForEveryone", name: "MicaForEveryone", desc: "Mica backdrop for Win32 apps on Windows 11", lang: "C#", stars: 5000 },
+      { cat: "Windows Utilities", owner: "ArcadeRenegade", name: "SidebarDiagnostics", desc: "A simple sidebar for Windows desktop with hardware diagnostics", lang: "C#", stars: 2500 },
+      { cat: "Windows Utilities", owner: "Tyrrrz", name: "LightBulb", desc: "Reduces eye strain by adjusting gamma based on time of day", lang: "C#", stars: 2600 },
+      { cat: "Windows Utilities", owner: "LGUG2Z", name: "komorebi", desc: "A tiling window manager for Windows", lang: "Rust", stars: 14300 },
+      { cat: "Windows Utilities", owner: "moudey", name: "Shell", desc: "Powerful manager for Windows File Explorer context menu", lang: "C++", stars: 6400 },
+      { cat: "Developer Tools", owner: "usebruno", name: "bruno", desc: "Opensource IDE for exploring and testing APIs", lang: "JavaScript", stars: 42000 },
+      { cat: "Developer Tools", owner: "micro-editor", name: "micro", desc: "A modern and intuitive terminal-based text editor", lang: "Go", stars: 28200 },
+      { cat: "Developer Tools", owner: "notepad-plus-plus", name: "notepad-plus-plus", desc: "Notepad++ is a free source code editor", lang: "C++", stars: 27400 },
+      { cat: "Developer Tools", owner: "highlightjs", name: "highlight.js", desc: "JavaScript syntax highlighter with language auto-detection", lang: "JavaScript", stars: 24900 },
+      { cat: "Developer Tools", owner: "GoogleChrome", name: "lighthouse", desc: "Automated auditing, performance metrics, and best practices for the web", lang: "JavaScript", stars: 29900 },
+      { cat: "Developer Tools", owner: "YellowLabTools", name: "YellowLabTools", desc: "Online tool to audit web pages for performance", lang: "JavaScript", stars: 2400 },
+      { cat: "Developer Tools", owner: "openreplay", name: "openreplay", desc: "Session replay and product analytics you can self-host", lang: "TypeScript", stars: 11900 },
+      { cat: "Productivity", owner: "ActivityWatch", name: "activitywatch", desc: "The best free and open-source automated time tracker", lang: "Python", stars: 17000 },
+      { cat: "Productivity", owner: "espanso", name: "espanso", desc: "Cross-platform text expander written in Rust", lang: "Rust", stars: 13400 },
+      { cat: "Productivity", owner: "alyssaxuu", name: "screenity", desc: "The free and privacy-friendly screen recorder", lang: "JavaScript", stars: 18000 },
+      { cat: "Productivity", owner: "hluk", name: "CopyQ", desc: "Clipboard manager with advanced features", lang: "C++", stars: 11400 },
+      { cat: "Productivity", owner: "sabrogden", name: "Ditto", desc: "Ditto is an extension to the Windows Clipboard", lang: "C", stars: 6100 },
+      { cat: "Productivity", owner: "hovancik", name: "stretchly", desc: "The break time reminder app", lang: "JavaScript", stars: 6100 },
+      { cat: "Productivity", owner: "slgobinath", name: "safeeyes", desc: "Protect your eyes from eye strain", lang: "Python", stars: 1700 },
+      { cat: "Download Managers", owner: "yt-dlp", name: "yt-dlp", desc: "A feature-rich command-line audio/video downloader", lang: "Python", stars: 152400 },
+      { cat: "Download Managers", owner: "aria2", name: "aria2", desc: "Ultra fast download utility supporting multiple protocols", lang: "C++", stars: 40300 },
+      { cat: "Download Managers", owner: "ziahamza", name: "webui-aria2", desc: "The aim for this project is to create the best interface for aria2", lang: "JavaScript", stars: 10300 },
+      { cat: "Download Managers", owner: "amir1376", name: "ab-download-manager", desc: "A desktop app to download files from the internet", lang: "Kotlin", stars: 14100 },
+      { cat: "Download Managers", owner: "filecxx", name: "FileCentipede", desc: "Cross-platform internet upload/download manager", lang: "C++", stars: 10800 },
+      { cat: "Download Managers", owner: "giantpinkrobots", name: "varia", desc: "A simple download manager based on aria2 and GTK", lang: "Python", stars: 1600 },
+      { cat: "Download Managers", owner: "persepolisdm", name: "persepolis", desc: "Persepolis Download Manager is a GUI for aria2", lang: "Python", stars: 7300 },
+      { cat: "Multimedia", owner: "videolan", name: "vlc", desc: "VLC media player - the open source multimedia player", lang: "C", stars: 17900 },
+      { cat: "Multimedia", owner: "audacity", name: "audacity", desc: "Audio editor and recorder", lang: "C++", stars: 16700 },
+      { cat: "Multimedia", owner: "mltframework", name: "shotcut", desc: "Cross-platform open source video editor", lang: "C++", stars: 13600 },
+      { cat: "Multimedia", owner: "musescore", name: "MuseScore", desc: "Free and open-source music notation software", lang: "C++", stars: 14400 },
+      { cat: "Multimedia", owner: "clementine-player", name: "Clementine", desc: "Clementine Music Player", lang: "C++", stars: 4200 },
+      { cat: "Multimedia", owner: "wwmm", name: "easyeffects", desc: "Audio effects for PipeWire applications", lang: "HTML", stars: 9000 },
+      { cat: "Note-Taking & Knowledge", owner: "logseq", name: "logseq", desc: "A privacy-first, open-source knowledge base", lang: "Clojure", stars: 41700 },
+      { cat: "Note-Taking & Knowledge", owner: "streetwriters", name: "notesnook", desc: "A fully open source & end-to-end encrypted note taking app", lang: "TypeScript", stars: 13900 },
+      { cat: "Note-Taking & Knowledge", owner: "pbek", name: "QOwnNotes", desc: "Plain-text file markdown note taking with Nextcloud integration", lang: "C++", stars: 5600 },
+      { cat: "Note-Taking & Knowledge", owner: "ankitects", name: "anki", desc: "Anki's shared backend and web components for spaced repetition", lang: "Rust", stars: 27000 },
+      { cat: "Networking & DNS", owner: "pivpn", name: "pivpn", desc: "The simplest VPN installer for Raspberry Pi", lang: "Shell", stars: 8000 },
+      { cat: "Networking & DNS", owner: "netalertx", name: "NetAlertX", desc: "Network intruder and device monitor", lang: "Python", stars: 5900 },
+      { cat: "Networking & DNS", owner: "cleanbrowsing", name: "dnsperftest", desc: "DNS performance test tool", lang: "Shell", stars: 2500 },
+      { cat: "Networking & DNS", owner: "lovelaze", name: "nebula-sync", desc: "Synchronize multiple Pi-hole instances", lang: "Go", stars: 1400 },
+      { cat: "Networking & DNS", owner: "mattwebbio", name: "orbital-sync", desc: "Synchronize multiple Pi-hole instances", lang: "TypeScript", stars: 1000 },
+      { cat: "File Transfer", owner: "localsend", name: "localsend", desc: "An open-source cross-platform AirDrop alternative", lang: "Dart", stars: 76800 },
+      { cat: "File Transfer", owner: "iterate-ch", name: "cyberduck", desc: "FTP, SFTP, WebDAV, S3, Azure & OpenStack client", lang: "Java", stars: 4300 },
+      { cat: "File Transfer", owner: "winscp", name: "winscp", desc: "WinSCP is a popular free SFTP and FTP client for Windows", lang: "C", stars: 3500 },
+      { cat: "Typing & Keyboard", owner: "aradzie", name: "keybr.com", desc: "The smartest way to learn touch typing", lang: "TypeScript", stars: 4200 },
+      { cat: "Typing & Keyboard", owner: "bloznelis", name: "typioca", desc: "Cozy typing speed tester in terminal", lang: "Go", stars: 940 },
+      { cat: "Typing & Keyboard", owner: "ColemakMods", name: "mod-dh", desc: "Colemak-DH ergonomic keyboard layout mod", lang: "Shell", stars: 830 },
+      { cat: "Browsers & Search", owner: "zen-browser", name: "desktop", desc: "A beautifully designed Firefox-based browser", lang: "JavaScript", stars: 40800 },
+      { cat: "Browsers & Search", owner: "Alex313031", name: "thorium", desc: "Chromium fork with compiler optimizations and patches", lang: "C++", stars: 6900 },
+      { cat: "System Utilities", owner: "qarmin", name: "czkawka", desc: "Multi-functional app to find duplicates, big files, and more", lang: "Rust", stars: 30100 },
+      { cat: "System Utilities", owner: "bleachbit", name: "bleachbit", desc: "System cleaner for Windows and Linux", lang: "Python", stars: 4500 },
+      { cat: "System Utilities", owner: "flameshot-org", name: "flameshot", desc: "Powerful yet simple to use screenshot software", lang: "C++", stars: 29500 },
+      { cat: "System Utilities", owner: "cboxdoerfer", name: "fsearch", desc: "A fast file search utility for GNU/Linux", lang: "C", stars: 4100 },
+      { cat: "System Utilities", owner: "CalcProgrammer1", name: "OpenRGB", desc: "Open source RGB lighting control that doesn't depend on vendor software", lang: "C++", stars: 3900 },
+      { cat: "System Utilities", owner: "sezanzeb", name: "input-remapper", desc: "An easy to use tool to change the behaviour of your input devices", lang: "Python", stars: 5500 },
+      { cat: "System Utilities", owner: "Caesium", name: "caesium-image-compressor", desc: "Image compression software", lang: "C++", stars: 5700 },
+      { cat: "System Utilities", owner: "JanDeDobbeleer", name: "oh-my-posh", desc: "The most customisable and low-latency cross platform prompt theme engine", lang: "Go", stars: 21900 },
+      { cat: "System Utilities", owner: "fish-shell", name: "fish-shell", desc: "The user-friendly command line shell", lang: "Rust", stars: 32900 },
+      { cat: "System Utilities", owner: "Ulauncher", name: "Ulauncher", desc: "Linux application launcher", lang: "Python", stars: 4400 },
+      { cat: "System Utilities", owner: "StreamController", name: "StreamController", desc: "An elegant Linux app for the Elgato Stream Deck", lang: "Python", stars: 970 },
+      { cat: "Analytics & Monitoring", owner: "umami-software", name: "umami", desc: "A simple, fast, privacy-focused web analytics alternative", lang: "TypeScript", stars: 35800 },
+      { cat: "Analytics & Monitoring", owner: "dubinc", name: "dub", desc: "Open-source link attribution platform", lang: "TypeScript", stars: 23200 },
+      { cat: "RSS & News", owner: "miniflux", name: "v2", desc: "Minimalist and opinionated feed reader", lang: "Go", stars: 8900 },
+      { cat: "RSS & News", owner: "samuelclay", name: "NewsBlur", desc: "NewsBlur is a personal news reader", lang: "Python", stars: 7400 },
+      { cat: "WordPress", owner: "WordPress", name: "WordPress", desc: "WordPress, Git-ified. This repository is just a mirror", lang: "PHP", stars: 21000 },
+      { cat: "WordPress", owner: "pronamic", name: "advanced-custom-fields-pro", desc: "Advanced Custom Fields Pro mirror", lang: "PHP", stars: 1300 },
+      { cat: "Curated Lists", owner: "sindresorhus", name: "awesome", desc: "Awesome lists about all kinds of interesting topics", lang: null, stars: 447600 },
+      { cat: "Curated Lists", owner: "d3ward", name: "toolz", desc: "Collection of web testing tools", lang: "EJS", stars: 1500 },
+      { cat: "Other Tools", owner: "tonsky", name: "FiraCode", desc: "Free monospaced font with programming ligatures", lang: "Clojure", stars: 81300 },
+      { cat: "Other Tools", owner: "lichess-org", name: "lila", desc: "lichess.org: the forever free, adless and open source chess server", lang: "Scala", stars: 17900 },
+      { cat: "Other Tools", owner: "FlightGear", name: "flightgear", desc: "FlightGear open source flight simulator", lang: "C++", stars: 670 },
+      { cat: "Other Tools", owner: "vinceliuice", name: "Orchis-theme", desc: "Material design theme for GNOME/GTK based desktop environments", lang: "CSS", stars: 3800 },
+      { cat: "Other Tools", owner: "gristlabs", name: "grist-core", desc: "The evolution of spreadsheets", lang: "TypeScript", stars: 10800 },
+      { cat: "Other Tools", owner: "Jackett", name: "Jackett", desc: "API support for your favorite torrent trackers", lang: "C#", stars: 15100 },
+      { cat: "My Projects", owner: "justadityaraj", name: "no-bs-maintenance", desc: "A no-nonsense WordPress maintenance mode plugin", lang: "PHP", stars: 1, mine: true },
+      { cat: "My Projects", owner: "justadityaraj", name: "tarmak-karbiner-alfred", desc: "Tarmak keyboard layouts for Karabiner-Elements", lang: null, stars: 3, mine: true },
+      { cat: "My Projects", owner: "StallionCognitive", name: "WordBuzz", desc: "WordBuzz project", lang: null, stars: 1, mine: true },
+    ];
+
+    const categoryOrder = [
+      "Self-Hosted & Homelab", "Privacy & Security", "AI & LLM Tools",
+      "MCP Servers", "Claude Code & Agent Skills", "n8n & Automation",
+      "Media & Photos", "macOS Utilities", "Windows Utilities",
+      "System Utilities", "Developer Tools", "Productivity",
+      "Download Managers", "Multimedia", "Note-Taking & Knowledge",
+      "Networking & DNS", "Typing & Keyboard", "File Transfer",
+      "Browsers & Search", "Analytics & Monitoring", "RSS & News",
+      "WordPress", "Curated Lists", "Other Tools", "My Projects"
+    ];
+
+    function formatStars(n) {
+      if (n >= 1000) return (n / 1000).toFixed(n >= 10000 ? 0 : 1) + 'k';
+      return n.toString();
+    }
+
+    function slugify(s) {
+      return s.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    }
+
+    function renderCard(repo) {
+      const langHTML = repo.lang
+        ? `<span class="card-lang"><span class="lang-dot" style="background:${langColors[repo.lang] || '#888'}"></span>${repo.lang}</span>`
+        : '';
+      const mineHTML = repo.mine ? `<span class="badge-mine">MY PROJECT</span>` : '';
+      return `
+        <a class="card" href="https://github.com/${repo.owner}/${repo.name}" target="_blank" rel="noopener" data-name="${repo.name.toLowerCase()}" data-desc="${(repo.desc || '').toLowerCase()}" data-owner="${repo.owner.toLowerCase()}">
+          <div class="card-header">
+            <img class="card-icon" src="https://github.com/${repo.owner}.png?size=80" alt="${repo.owner}" loading="lazy">
+            <div>
+              <div class="card-name">${repo.name}${mineHTML}</div>
+              <div class="card-owner">${repo.owner}</div>
+            </div>
+          </div>
+          <div class="card-desc">${repo.desc || ''}</div>
+          <div class="card-footer">
+            <span class="card-stars">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              ${formatStars(repo.stars)}
+            </span>
+            ${langHTML}
+          </div>
+        </a>
+      `;
+    }
+
+    function render() {
+      const sectionsEl = document.getElementById('sections');
+      const sidebarEl = document.getElementById('sidebar-items');
+      let sectionsHTML = '';
+      let sidebarHTML = '';
+
+      for (const cat of categoryOrder) {
+        const catRepos = repos.filter(r => r.cat === cat);
+        if (catRepos.length === 0) continue;
+        const slug = slugify(cat);
+        const color = catColors[cat] || '#71717a';
+
+        sidebarHTML += `
+          <div class="sidebar-item" data-cat="${slug}">
+            <div>
+              <div class="sidebar-item-name" style="color: var(--text-muted)">${cat}</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px">
+              <span class="sidebar-item-count">${catRepos.length}</span>
+              <span class="sidebar-item-arrow">&#8250;</span>
+            </div>
+          </div>
+        `;
+
+        sectionsHTML += `
+          <div class="section" id="${slug}" data-cat="${cat}">
+            <div class="section-header">
+              <div class="section-title" style="color:${color}">${cat}</div>
+              <div class="section-count">${catRepos.length} projects</div>
+            </div>
+            <div class="grid">
+              ${catRepos.map(renderCard).join('')}
+            </div>
+          </div>
+        `;
+      }
+
+      sectionsEl.innerHTML = sectionsHTML;
+      sidebarEl.innerHTML = sidebarHTML;
+    }
+
+    // Sidebar click to scroll
+    function setupSidebar() {
+      const sidebarEl = document.getElementById('sidebar-items');
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebar-overlay');
+
+      sidebarEl.addEventListener('click', (e) => {
+        const item = e.target.closest('.sidebar-item');
+        if (!item) return;
+        const slug = item.dataset.cat;
+        const el = document.getElementById(slug);
+        if (el) {
+          const offset = 80;
+          const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+
+          // Highlight active
+          document.querySelectorAll('.sidebar-item').forEach(s => s.classList.remove('active'));
+          item.classList.add('active');
+
+          // Close mobile sidebar
+          sidebar.classList.remove('open');
+          overlay.classList.remove('open');
+        }
+      });
+
+      // Track scroll position to highlight sidebar
+      const sections = () => document.querySelectorAll('.section');
+      const sidebarItems = () => document.querySelectorAll('.sidebar-item');
+
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY + 120;
+        let currentSlug = '';
+        sections().forEach(s => {
+          if (s.offsetTop <= scrollY) currentSlug = s.id;
+        });
+        sidebarItems().forEach(item => {
+          item.classList.toggle('active', item.dataset.cat === currentSlug);
+        });
+      }, { passive: true });
+    }
+
+    // Mobile menu
+    function setupMobileMenu() {
+      const toggle = document.getElementById('menu-toggle');
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebar-overlay');
+      const closeBtn = document.getElementById('sidebar-close');
+
+      toggle.addEventListener('click', () => {
+        sidebar.classList.add('open');
+        overlay.classList.add('open');
+      });
+
+      overlay.addEventListener('click', () => {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('open');
+      });
+
+      closeBtn.addEventListener('click', () => {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('open');
+      });
+    }
+
+    // Search
+    function setupSearch() {
+      const input = document.getElementById('search');
+      const noResults = document.getElementById('no-results');
+
+      input.addEventListener('input', () => {
+        const q = input.value.toLowerCase().trim();
+        const sections = document.querySelectorAll('.section');
+        const sidebarItems = document.querySelectorAll('.sidebar-item');
+        let totalVisible = 0;
+
+        sections.forEach((section, i) => {
+          const cards = section.querySelectorAll('.card');
+          let sectionVisible = 0;
+          cards.forEach(card => {
+            const match = !q || card.dataset.name.includes(q) || card.dataset.desc.includes(q) || card.dataset.owner.includes(q);
+            card.style.display = match ? '' : 'none';
+            if (match) sectionVisible++;
+          });
+          section.classList.toggle('hidden', sectionVisible === 0);
+          if (sidebarItems[i]) sidebarItems[i].classList.toggle('hidden', sectionVisible === 0);
+          totalVisible += sectionVisible;
+        });
+
+        noResults.style.display = totalVisible === 0 ? 'block' : 'none';
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === '/' && document.activeElement !== input) {
+          e.preventDefault();
+          input.focus();
+        }
+        if (e.key === 'Escape' && document.activeElement === input) {
+          input.value = '';
+          input.dispatchEvent(new Event('input'));
+          input.blur();
+        }
+      });
+    }
+
+    render();
+    setupSidebar();
+    setupMobileMenu();
+    setupSearch();
+  </script>
+</body>
 </html>
