@@ -509,9 +509,211 @@
     /* Hidden by search */
     .section.hidden { display: none; }
     .sidebar-item.hidden { display: none; }
+
+    /* Particle background */
+    #tsparticles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Cursor spotlight */
+    .cursor-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 600px;
+      height: 600px;
+      margin: -300px 0 0 -300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99,102,241,0.18) 0%, rgba(168,85,247,0.10) 30%, transparent 65%);
+      pointer-events: none;
+      z-index: 2;
+      mix-blend-mode: screen;
+      opacity: 0;
+      transition: opacity 0.4s;
+      will-change: transform;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 56vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px 32px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 36px;
+    }
+
+    .hero-title {
+      font-size: clamp(80px, 18vw, 220px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      filter: drop-shadow(0 0 60px rgba(99, 102, 241, 0.35));
+    }
+
+    .hero-title span {
+      display: inline-block;
+      opacity: 0;
+      background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 90%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      will-change: transform, opacity;
+    }
+    .hero-title.no-anim span { opacity: 1; }
+
+    .hero-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 18px;
+      max-width: 520px;
+      line-height: 1.6;
+    }
+
+    .hero-sub a { color: var(--accent); text-decoration: none; }
+    .hero-sub a:hover { text-decoration: underline; }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 20px;
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      animation: bob 2.2s ease-in-out infinite;
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); opacity: 0.6; }
+      50% { transform: translateY(6px); opacity: 1; }
+    }
+
+    nav.top-nav,
+    .layout,
+    footer { position: relative; z-index: 1; }
+
+    /* OSS Contributions */
+    .oss-contribs {
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 36px;
+    }
+
+    .oss-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .oss-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .oss-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .oss-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+
+    .oss-card {
+      display: block;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s, border-color 0.15s, transform 0.15s;
+    }
+
+    .oss-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .oss-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .oss-repo {
+      font-size: 12px;
+      color: var(--text-muted);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      min-width: 0;
+    }
+
+    .oss-repo strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .oss-badge {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 3px 8px;
+      border-radius: 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .oss-badge.merged {
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ade80;
+    }
+
+    .oss-badge.open {
+      background: rgba(234, 179, 8, 0.15);
+      color: #facc15;
+    }
+
+    .oss-pr-title {
+      font-size: 13px;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .oss-meta {
+      display: flex;
+      gap: 14px;
+      font-size: 11px;
+      color: var(--text-dim);
+    }
   </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/slim@3/tsparticles.slim.bundle.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 </head>
 <body>
+  <div id="tsparticles" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
 
   <!-- Top nav -->
   <nav class="top-nav">
@@ -545,10 +747,91 @@
 
     <!-- Content -->
     <div class="content">
-      <div class="bio">
+      <section class="hero">
+        <h1 class="hero-title">ARS</h1>
+        <p class="hero-sub">170+ open source projects I love, use, or plan to self-host. Curated by <a href="https://adityarajsingh.com" target="_blank" rel="noopener">Aditya Raj Singh</a>.</p>
+        <div class="hero-scroll">scroll to explore ↓</div>
+      </section>
+      <noscript><style>.hero-title { opacity: 1 !important; } .hero-title span { opacity: 1 !important; }</style></noscript>
+      <script>
+        (function splitHero() {
+          var el = document.querySelector('.hero-title');
+          if (!el || el.dataset.split === '1') return;
+          var text = el.textContent;
+          el.textContent = '';
+          for (var i = 0; i < text.length; i++) {
+            var s = document.createElement('span');
+            s.textContent = text[i];
+            el.appendChild(s);
+          }
+          el.dataset.split = '1';
+          // Safety net: if GSAP never animates, reveal anyway
+          setTimeout(function () {
+            if (el.dataset.animated !== '1') el.classList.add('no-anim');
+          }, 2500);
+        })();
+      </script>
+      <div class="bio" style="display:none">
         <p>A collection of open source projects I love, use, or plan to self-host eventually. Curated by <a href="https://adityarajsingh.com" target="_blank" rel="noopener">Aditya Raj Singh</a>.</p>
         <p style="font-size:12px;color:var(--text-dim);margin-top:8px">Last updated: 22 March 2026</p>
       </div>
+
+      <section class="oss-contribs">
+        <div class="oss-header">
+          <h2 class="oss-title">Open Source Contributions</h2>
+          <span class="oss-subtitle">PRs I've shipped to projects I use</span>
+        </div>
+        <div class="oss-grid">
+          <a class="oss-card" href="https://github.com/taylorwilsdon/google_workspace_mcp/pull/799" target="_blank" rel="noopener">
+            <div class="oss-card-top">
+              <div class="oss-repo"><strong>taylorwilsdon/google_workspace_mcp</strong> #799</div>
+              <span class="oss-badge merged">Merged</span>
+            </div>
+            <div class="oss-pr-title">fix(gcalendar): include creator and organizer in get_events detailed output</div>
+            <div class="oss-meta">
+              <span>★ 2.5k</span>
+              <span>Merged May 19, 2026</span>
+            </div>
+          </a>
+
+          <a class="oss-card" href="https://github.com/taylorwilsdon/google_workspace_mcp/pull/811" target="_blank" rel="noopener">
+            <div class="oss-card-top">
+              <div class="oss-repo"><strong>taylorwilsdon/google_workspace_mcp</strong> #811</div>
+              <span class="oss-badge open">Open</span>
+            </div>
+            <div class="oss-pr-title">feat(permissions): non-cumulative union mode for --permissions</div>
+            <div class="oss-meta">
+              <span>★ 2.5k</span>
+              <span>Opened May 24, 2026</span>
+            </div>
+          </a>
+
+          <a class="oss-card" href="https://github.com/czlonkowski/n8n-mcp/pull/794" target="_blank" rel="noopener">
+            <div class="oss-card-top">
+              <div class="oss-repo"><strong>czlonkowski/n8n-mcp</strong> #794</div>
+              <span class="oss-badge open">Open</span>
+            </div>
+            <div class="oss-pr-title">fix(diff-engine): accept undefined as property-removal marker</div>
+            <div class="oss-meta">
+              <span>★ 21k</span>
+              <span>Opened May 19, 2026</span>
+            </div>
+          </a>
+
+          <a class="oss-card" href="https://github.com/punkpeye/awesome-mcp-servers/pull/6605" target="_blank" rel="noopener">
+            <div class="oss-card-top">
+              <div class="oss-repo"><strong>punkpeye/awesome-mcp-servers</strong> #6605</div>
+              <span class="oss-badge open">Open</span>
+            </div>
+            <div class="oss-pr-title">Add justadityaraj/amazon-in-mcp to E-Commerce</div>
+            <div class="oss-meta">
+              <span>★ 87k</span>
+              <span>Opened May 19, 2026</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
       <div id="sections"></div>
       <div class="no-results" id="no-results">No projects found matching your search.</div>
     </div>
@@ -964,6 +1247,141 @@
     setupSidebar();
     setupMobileMenu();
     setupSearch();
+
+    // Ambient particles + GSAP scroll reveals
+    function initMotion() {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) {
+        const t = document.querySelector('.hero-title');
+        if (t) { t.classList.add('no-anim'); t.dataset.animated = '1'; }
+      }
+
+      if (window.tsParticles && !prefersReduced) {
+        tsParticles.load({
+          id: 'tsparticles',
+          options: {
+            background: { color: 'transparent' },
+            fullScreen: { enable: false },
+            fpsLimit: 60,
+            interactivity: {
+              detectsOn: 'window',
+              events: { onHover: { enable: true, mode: 'grab' }, resize: { enable: true } },
+              modes: { grab: { distance: 180, links: { opacity: 0.5 } } }
+            },
+            particles: {
+              number: { value: 110, density: { enable: true, area: 900 } },
+              color: { value: ['#6366f1', '#a855f7', '#22c55e'] },
+              opacity: { value: { min: 0.15, max: 0.6 } },
+              size: { value: { min: 0.8, max: 2.4 } },
+              move: {
+                enable: true,
+                speed: 0.5,
+                direction: 'none',
+                random: true,
+                straight: false,
+                outModes: { default: 'out' }
+              },
+              links: { enable: true, distance: 140, color: '#6366f1', opacity: 0.18, width: 1 },
+              shape: { type: 'circle' }
+            },
+            detectRetina: true
+          }
+        });
+      }
+
+      // Cursor spotlight
+      const glow = document.querySelector('.cursor-glow');
+      if (glow && !prefersReduced && window.matchMedia('(pointer: fine)').matches) {
+        let tx = window.innerWidth / 2, ty = window.innerHeight / 2;
+        let cx = tx, cy = ty;
+        window.addEventListener('mousemove', (e) => {
+          tx = e.clientX; ty = e.clientY;
+          glow.style.opacity = '1';
+        });
+        document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+        (function loop() {
+          cx += (tx - cx) * 0.12;
+          cy += (ty - cy) * 0.12;
+          glow.style.transform = 'translate(' + cx + 'px, ' + cy + 'px)';
+          requestAnimationFrame(loop);
+        })();
+      }
+
+      if (!window.gsap || prefersReduced) return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero title letter reveal (split already done inline)
+      const heroTitle = document.querySelector('.hero-title');
+      if (heroTitle && heroTitle.querySelector('span')) {
+        heroTitle.dataset.animated = '1';
+        gsap.to('.hero-title span', {
+          opacity: 1,
+          duration: 1,
+          stagger: 0.1,
+          ease: 'power3.out'
+        });
+        gsap.from('.hero-title span', {
+          yPercent: 100,
+          rotateX: -70,
+          duration: 1,
+          stagger: 0.1,
+          ease: 'power3.out'
+        });
+        gsap.from('.hero-sub', { opacity: 0, y: 16, duration: 0.8, delay: 0.6, ease: 'power2.out' });
+        gsap.from('.hero-scroll', { opacity: 0, duration: 0.8, delay: 1.2 });
+      }
+
+      // OSS title letter reveal
+      const title = document.querySelector('.oss-title');
+      if (title) {
+        const chars = title.textContent.split('');
+        title.textContent = '';
+        chars.forEach(ch => {
+          const span = document.createElement('span');
+          span.textContent = ch === ' ' ? ' ' : ch;
+          span.style.display = 'inline-block';
+          span.style.opacity = '0';
+          span.style.transform = 'translateY(12px)';
+          title.appendChild(span);
+        });
+        gsap.to('.oss-title span', {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: 0.025,
+          ease: 'power2.out',
+          delay: 0.15
+        });
+      }
+
+      // OSS cards stagger on load
+      gsap.from('.oss-card', {
+        y: 24,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.08,
+        ease: 'power2.out',
+        delay: 0.4
+      });
+
+      // Project cards fade-up on scroll
+      gsap.utils.toArray('.card').forEach(card => {
+        gsap.from(card, {
+          y: 20,
+          opacity: 0,
+          duration: 0.45,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 92%',
+            toggleActions: 'play none none none'
+          }
+        });
+      });
+    }
+
+    if (document.readyState === 'complete') initMotion();
+    else window.addEventListener('load', initMotion);
   </script>
 </body>
 </html>
