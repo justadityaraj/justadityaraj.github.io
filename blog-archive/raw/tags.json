@@ -1,0 +1,57 @@
+[
+  {
+    "id": 7,
+    "name": "Agency",
+    "slug": "agency"
+  },
+  {
+    "id": 9,
+    "name": "Books",
+    "slug": "books"
+  },
+  {
+    "id": 37,
+    "name": "Claude",
+    "slug": "claude"
+  },
+  {
+    "id": 24,
+    "name": "Code Snippets",
+    "slug": "code"
+  },
+  {
+    "id": 32,
+    "name": "Linux Mint",
+    "slug": "linux-mint"
+  },
+  {
+    "id": 4,
+    "name": "Mac",
+    "slug": "mac"
+  },
+  {
+    "id": 35,
+    "name": "n8n",
+    "slug": "n8n"
+  },
+  {
+    "id": 34,
+    "name": "OpenMediaVault",
+    "slug": "openmediavault"
+  },
+  {
+    "id": 38,
+    "name": "OpenWrt",
+    "slug": "openwrt"
+  },
+  {
+    "id": 33,
+    "name": "Proxmox",
+    "slug": "proxmox"
+  },
+  {
+    "id": 26,
+    "name": "Windows",
+    "slug": "windows"
+  }
+]

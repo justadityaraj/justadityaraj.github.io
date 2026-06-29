@@ -1,0 +1,52 @@
+[
+  {
+    "id": 36,
+    "name": "AI Engineering",
+    "slug": "ai-engineering"
+  },
+  {
+    "id": 17,
+    "name": "Cyber Security",
+    "slug": "cybersecurity"
+  },
+  {
+    "id": 6,
+    "name": "Entrepreneurship",
+    "slug": "entrepreneurship"
+  },
+  {
+    "id": 13,
+    "name": "Finance",
+    "slug": "finance"
+  },
+  {
+    "id": 25,
+    "name": "Homelab",
+    "slug": "homelab"
+  },
+  {
+    "id": 15,
+    "name": "Learning",
+    "slug": "learning"
+  },
+  {
+    "id": 1,
+    "name": "Productivity",
+    "slug": "productivity"
+  },
+  {
+    "id": 29,
+    "name": "Tech Help",
+    "slug": "tech-help"
+  },
+  {
+    "id": 27,
+    "name": "Typing",
+    "slug": "typing"
+  },
+  {
+    "id": 23,
+    "name": "WordPress",
+    "slug": "wordpress"
+  }
+]
