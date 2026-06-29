@@ -1,0 +1,13 @@
+# Aditya Raj Singh — dev.adityarajsingh.com
+
+> Personal developer site of Aditya Raj Singh: open-source projects, MCP servers, automation, and homelab builds.
+
+## Projects
+
+- [Slack Lists MCP Server](https://dev.adityarajsingh.com/slack-lists-mcp/): Open-source Model Context Protocol (MCP) server that gives AI assistants like Claude full read AND write access to Slack Lists. Eight tools — create, read, filter, export, update (check off / reassign / reschedule / edit), delete, and discover columns. MIT-licensed, written in Python (FastMCP). A fork of maplehilllabs/mcp-slack-lists that adds the write side. Source: https://github.com/justadityaraj/slack-lists-mcp
+
+## About
+
+- [Aditya Raj Singh](https://adityarajsingh.com/): Builder focused on automation, MCP servers, and self-hosted infrastructure.
+
+<!-- by [Aditya Raj Singh](https://adityarajsingh.com/) -->

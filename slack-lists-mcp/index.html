@@ -3,17 +3,130 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Slack Lists MCP — let AI finish your Slack tasks, not just file them</title>
-<meta name="description" content="An open-source MCP server that gives AI assistants full read AND write access to Slack Lists. Create, update, check off, reassign, reschedule and delete tasks end to end — straight from Claude.">
+<title>Slack Lists MCP Server — Full Read/Write Slack Lists for AI</title>
+<meta name="description" content="Open-source MCP server giving Claude full read + write access to Slack Lists — create, check off, reassign, reschedule and delete tasks end to end.">
+<link rel="canonical" href="https://dev.adityarajsingh.com/slack-lists-mcp/">
+<meta name="author" content="Aditya Raj Singh">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#4A154B">
+<meta name="keywords" content="Slack Lists MCP, Slack Lists MCP server, Model Context Protocol, Claude Slack integration, AI Slack task management, Slack automation, MCP server">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 
 <!-- Open Graph / link previews -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Slack Lists MCP — full read/write Slack Lists for AI">
-<meta property="og:description" content="Upstream could only create and read. This fork adds update, delete and column discovery so AI can run Slack List tasks end to end.">
+<meta property="og:site_name" content="Aditya Raj Singh">
+<meta property="og:title" content="Slack Lists MCP Server — Full Read/Write Slack Lists for AI">
+<meta property="og:description" content="Upstream could only create and read. This fork adds update, delete and column discovery so Claude can run Slack List tasks end to end.">
 <meta property="og:image" content="https://dev.adityarajsingh.com/slack-lists-mcp/author-aditya.jpg">
-<meta property="og:url" content="https://dev.adityarajsingh.com/slack-lists-mcp">
+<meta property="og:image:alt" content="Aditya Raj Singh — builder of the Slack Lists MCP server">
+<meta property="og:image:width" content="320">
+<meta property="og:image:height" content="320">
+<meta property="og:url" content="https://dev.adityarajsingh.com/slack-lists-mcp/">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Slack Lists MCP Server — Full Read/Write Slack Lists for AI">
+<meta name="twitter:description" content="Open-source MCP that lets Claude create, check off, reassign and delete Slack List tasks end to end.">
+<meta name="twitter:image" content="https://dev.adityarajsingh.com/slack-lists-mcp/author-aditya.jpg">
+
+<!-- Structured data: software, author, breadcrumb, FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://dev.adityarajsingh.com/#website",
+      "url": "https://dev.adityarajsingh.com/",
+      "name": "Aditya Raj Singh",
+      "publisher": { "@id": "https://adityarajsingh.com/#person" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://dev.adityarajsingh.com/slack-lists-mcp/#webpage",
+      "url": "https://dev.adityarajsingh.com/slack-lists-mcp/",
+      "name": "Slack Lists MCP Server — Full Read/Write Slack Lists for AI",
+      "description": "Open-source MCP server giving Claude full read and write access to Slack Lists — create, check off, reassign, reschedule and delete tasks end to end.",
+      "isPartOf": { "@id": "https://dev.adityarajsingh.com/#website" },
+      "primaryImageOfPage": "https://dev.adityarajsingh.com/slack-lists-mcp/author-aditya.jpg",
+      "breadcrumb": { "@id": "https://dev.adityarajsingh.com/slack-lists-mcp/#breadcrumb" },
+      "about": { "@id": "https://dev.adityarajsingh.com/slack-lists-mcp/#software" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://dev.adityarajsingh.com/slack-lists-mcp/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dev.adityarajsingh.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Slack Lists MCP" }
+      ]
+    },
+    {
+      "@type": ["SoftwareSourceCode", "SoftwareApplication"],
+      "@id": "https://dev.adityarajsingh.com/slack-lists-mcp/#software",
+      "name": "Slack Lists MCP Server",
+      "description": "Open-source Model Context Protocol (MCP) server that gives AI assistants like Claude full read and write access to Slack Lists, with eight tools to create, read, filter, export, update, delete and discover list items.",
+      "codeRepository": "https://github.com/justadityaraj/slack-lists-mcp",
+      "url": "https://dev.adityarajsingh.com/slack-lists-mcp/",
+      "programmingLanguage": "Python",
+      "runtimePlatform": "Python 3.10+",
+      "operatingSystem": "Cross-platform",
+      "applicationCategory": "DeveloperApplication",
+      "license": "https://opensource.org/licenses/MIT",
+      "keywords": "Slack Lists, MCP server, Model Context Protocol, Claude, AI task management, Slack automation",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@id": "https://adityarajsingh.com/#person" },
+      "isBasedOn": "https://github.com/maplehilllabs/mcp-slack-lists"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://adityarajsingh.com/#person",
+      "name": "Aditya Raj Singh",
+      "url": "https://adityarajsingh.com/",
+      "image": "https://dev.adityarajsingh.com/slack-lists-mcp/author-aditya.jpg",
+      "jobTitle": "Builder — automation & MCP servers",
+      "sameAs": [
+        "https://github.com/justadityaraj",
+        "https://adityarajsingh.com/"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://dev.adityarajsingh.com/slack-lists-mcp/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the Slack Lists MCP server?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It is an open-source Model Context Protocol (MCP) server that connects AI assistants like Claude to Slack Lists, giving them full read and write access so they can manage tasks directly inside your Slack workspace." }
+        },
+        {
+          "@type": "Question",
+          "name": "What can AI do with Slack Lists through this MCP?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Eight tools: create one or many items, fetch and filter them, export to JSON or CSV, and — uniquely — update any cell (check off, reassign, reschedule, edit), delete rows, and auto-discover column IDs and select options." }
+        },
+        {
+          "@type": "Question",
+          "name": "How is this different from the original maplehilllabs Slack Lists MCP?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The upstream server was read and create only. This fork adds the write side — update_list_item, delete_list_item and discover_list_columns — plus full Slack field-type support for text, date, user, select, checkbox, number, email and phone." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I install the Slack Lists MCP with Claude Code?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Clone the repo, create a virtualenv and install requirements, add a Slack bot token with lists:read and lists:write scopes to a .env file, then run: claude mcp add slack-lists -s user -- .venv/bin/python src/slack_lists_server.py. Reload Claude and the tools appear." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the Slack Lists MCP server free and open source?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. It is MIT-licensed and free to use, derived from maplehilllabs/mcp-slack-lists and extended with the write tools." }
+        },
+        {
+          "@type": "Question",
+          "name": "What Slack permissions does it need?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A Slack app with the lists:read and lists:write bot scopes. The bot must also be given access to each List it should manage. Slack Lists is available on paid Slack plans." }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -264,6 +377,19 @@
   .author .meta a{color:var(--aubergine);font-weight:700;border-bottom:2px solid var(--slack-yellow);transition:color .2s}
   .author .meta a:hover{color:var(--slack-red)}
   @media(max-width:560px){.author .card{flex-direction:column;text-align:center;padding:30px 24px}.author .card::before{width:100%;height:5px;bottom:auto}.author .avatar{flex:0 0 auto}}
+
+  /* FAQ */
+  .faq{background:var(--paper-warm);border-top:1px solid var(--line)}
+  .faq-list{max-width:760px;margin:0 auto;display:grid;gap:14px}
+  .faq details{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .2s, border-color .2s}
+  .faq details[open]{box-shadow:var(--shadow-sm);border-color:#d9cdda}
+  .faq summary{list-style:none;cursor:pointer;padding:22px 24px;font-family:var(--display);font-weight:700;font-size:1.08rem;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .chev{flex:0 0 20px;width:20px;height:20px;transition:transform .25s}
+  .faq summary .chev svg{width:20px;height:20px;stroke:var(--cta);stroke-width:2.4;fill:none}
+  .faq details[open] summary .chev{transform:rotate(180deg)}
+  .faq .ans{padding:0 24px 22px;color:var(--ink-soft);font-size:.98rem;line-height:1.65}
+  .faq .ans code{font-family:var(--mono);font-size:.85em;background:#f1ebf1;padding:2px 6px;border-radius:5px;word-break:break-word}
 
   /* final CTA */
   .final{text-align:center;padding:104px 0}
@@ -526,6 +652,42 @@
         <div class="rl">builder · automation &amp; MCP servers · homelab tinkerer</div>
         <p>I fork the tools I actually use. Slack Lists were one Claude prompt away from running themselves, so I added the missing write side and tested it on a live workspace. More of what I build over at <a href="https://adityarajsingh.com" target="_blank" rel="noopener">adityarajsingh.com</a>.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Questions</div>
+      <h2>Slack Lists MCP, answered.</h2>
+    </div>
+    <div class="faq-list">
+      <details open>
+        <summary>What is the Slack Lists MCP server?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">It's an open-source <b>Model Context Protocol (MCP)</b> server that connects AI assistants like Claude to <b>Slack Lists</b>, giving them full read <em>and</em> write access — so they can manage tasks directly inside your Slack workspace instead of just reading them.</div>
+      </details>
+      <details>
+        <summary>What can AI do with Slack Lists through this MCP?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">Eight tools in total: create one or many items, fetch and filter them, export to JSON or CSV, and — uniquely — <b>update any cell</b> (check off, reassign, reschedule, edit), <b>delete rows</b>, and <b>auto-discover column IDs</b> and select options.</div>
+      </details>
+      <details>
+        <summary>How is this different from the original maplehilllabs Slack Lists MCP?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">The upstream server was read and create only. This fork adds the <b>write side</b> — <code>update_list_item</code>, <code>delete_list_item</code> and <code>discover_list_columns</code> — plus full Slack field-type support for text, date, user, select, checkbox, number, email and phone.</div>
+      </details>
+      <details>
+        <summary>How do I install the Slack Lists MCP with Claude Code?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">Clone the repo, create a virtualenv and install requirements, add a Slack bot token with <code>lists:read</code> and <code>lists:write</code> scopes to a <code>.env</code> file, then run <code>claude mcp add slack-lists -s user -- .venv/bin/python src/slack_lists_server.py</code>. Reload Claude and the tools appear. Full steps are in the <a href="#install" style="color:var(--aubergine);font-weight:700;border-bottom:2px solid var(--slack-yellow)">install section</a> above.</div>
+      </details>
+      <details>
+        <summary>Is the Slack Lists MCP server free and open source?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">Yes — it's <b>MIT-licensed</b> and free to use, derived from <a href="https://github.com/maplehilllabs/mcp-slack-lists" target="_blank" rel="noopener" style="color:var(--aubergine);font-weight:700;border-bottom:2px solid var(--slack-yellow)">maplehilllabs/mcp-slack-lists</a> and extended with the write tools.</div>
+      </details>
+      <details>
+        <summary>What Slack permissions does it need?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">A Slack app with the <code>lists:read</code> and <code>lists:write</code> bot scopes. The bot must also be given access to each List it should manage. Slack Lists itself is available on paid Slack plans.</div>
+      </details>
     </div>
   </div>
 </section>
