@@ -110,7 +110,7 @@
         {
           "@type": "Question",
           "name": "How do I install the Slack Lists MCP with Claude Code?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Clone the repo, create a virtualenv and install requirements, add a Slack bot token with lists:read and lists:write scopes to a .env file, then run: claude mcp add slack-lists -s user -- .venv/bin/python src/slack_lists_server.py. Reload Claude and the tools appear." }
+          "acceptedAnswer": { "@type": "Answer", "text": "It is published on PyPI as ars-slack-lists-mcp, so one command installs and registers it: claude mcp add slack-lists -s user -e SLACK_BOT_TOKEN=xoxb-... -- uvx ars-slack-lists-mcp. The token needs lists:read and lists:write scopes. You can also clone the repo and run it from a .env file if you prefer to keep the token out of your config." }
         },
         {
           "@type": "Question",
@@ -592,9 +592,9 @@
 <section class="install" id="install">
   <div class="wrap">
     <div class="sec-head">
-      <div class="kicker">Up in two minutes</div>
+      <div class="kicker">Up in one command</div>
       <h2>Point Claude at your workspace.</h2>
-      <p>Clone, drop in a bot token with <code style="font-family:var(--mono)">lists:read</code> + <code style="font-family:var(--mono)">lists:write</code>, and register the server. No secret ever touches your MCP config.</p>
+      <p>It's on <b>PyPI</b> — install and register in a single line. Just bring a Slack bot token with <code style="font-family:var(--mono)">lists:read</code> + <code style="font-family:var(--mono)">lists:write</code>.</p>
     </div>
     <div class="terminal reveal">
       <div class="term-bar">
@@ -602,15 +602,15 @@
         <span class="t">bash — setup</span>
       </div>
       <div class="term-body">
-<span class="c"># 1 · clone &amp; install</span><br>
+<span class="c"># fastest · straight from PyPI, no clone</span><br>
+<span class="p">$</span> <span class="w">claude mcp add <span class="b">slack-lists</span> -s user \</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="w">-e <span class="y">SLACK_BOT_TOKEN=xoxb-…</span> -- uvx <span class="b">ars-slack-lists-mcp</span></span><br><br>
+<span class="c"># prefer your token out of the config? run from source with a .env</span><br>
 <span class="p">$</span> <span class="w">git clone https://github.com/justadityaraj/slack-lists-mcp.git</span><br>
 <span class="p">$</span> <span class="w">cd slack-lists-mcp &amp;&amp; python3 -m venv .venv</span><br>
-<span class="p">$</span> <span class="w">.venv/bin/pip install -r requirements.txt</span><br><br>
-<span class="c"># 2 · add your Slack bot token</span><br>
-<span class="p">$</span> <span class="w">echo <span class="y">'SLACK_BOT_TOKEN=xoxb-…'</span> &gt; .env</span><br><br>
-<span class="c"># 3 · register with Claude Code (token auto-loads from .env)</span><br>
-<span class="p">$</span> <span class="w">claude mcp add <span class="b">slack-lists</span> -s user -- \</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="w">.venv/bin/python src/slack_lists_server.py</span><br><br>
+<span class="p">$</span> <span class="w">.venv/bin/pip install -r requirements.txt</span><br>
+<span class="p">$</span> <span class="w">echo <span class="y">'SLACK_BOT_TOKEN=xoxb-…'</span> &gt; .env</span><br>
+<span class="p">$</span> <span class="w">claude mcp add <span class="b">slack-lists</span> -s user -- .venv/bin/python src/slack_lists_server.py</span><br><br>
 <span class="c"># ✓ Status: Connected — 8 tools ready</span>
       </div>
     </div>
@@ -678,7 +678,7 @@
       </details>
       <details>
         <summary>How do I install the Slack Lists MCP with Claude Code?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="ans">Clone the repo, create a virtualenv and install requirements, add a Slack bot token with <code>lists:read</code> and <code>lists:write</code> scopes to a <code>.env</code> file, then run <code>claude mcp add slack-lists -s user -- .venv/bin/python src/slack_lists_server.py</code>. Reload Claude and the tools appear. Full steps are in the <a href="#install" style="color:var(--aubergine);font-weight:700;border-bottom:2px solid var(--slack-yellow)">install section</a> above.</div>
+        <div class="ans">It's published on PyPI, so one line does it: <code>claude mcp add slack-lists -s user -e SLACK_BOT_TOKEN=xoxb-… -- uvx ars-slack-lists-mcp</code> (the token needs <code>lists:read</code> and <code>lists:write</code> scopes). Prefer keeping the token out of your config? Clone the repo and run it from a <code>.env</code> instead — both paths are in the <a href="#install" style="color:var(--aubergine);font-weight:700;border-bottom:2px solid var(--slack-yellow)">install section</a> above.</div>
       </details>
       <details>
         <summary>Is the Slack Lists MCP server free and open source?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
