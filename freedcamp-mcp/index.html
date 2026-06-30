@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freedcamp MCP Server — Run Every Freedcamp Project from Claude</title>
+<meta name="description" content="Open-source MCP server giving Claude full read + write access to all your Freedcamp projects — discover, create and update tasks, manage projects, and comment, in bulk across every project.">
+<link rel="canonical" href="https://dev.adityarajsingh.com/freedcamp-mcp/">
+<meta name="author" content="Aditya Raj Singh">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#2448b1">
+<meta name="keywords" content="Freedcamp MCP, Freedcamp MCP server, Model Context Protocol, Claude Freedcamp integration, AI project management, Freedcamp API, Freedcamp automation, MCP server">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<!-- Open Graph / link previews -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aditya Raj Singh">
+<meta property="og:title" content="Freedcamp MCP Server — Run Every Freedcamp Project from Claude">
+<meta property="og:description" content="The upstream MCP was locked to one project. This fork opens up every project and adds project + comment tools, so Claude can run your whole Freedcamp.">
+<meta property="og:image" content="https://dev.adityarajsingh.com/freedcamp-mcp/og-image.jpg">
+<meta property="og:image:alt" content="Freedcamp MCP — let Claude run every Freedcamp project, not just one">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:url" content="https://dev.adityarajsingh.com/freedcamp-mcp/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Freedcamp MCP Server — Run Every Freedcamp Project from Claude">
+<meta name="twitter:description" content="Open-source MCP that lets Claude manage tasks, projects and comments across every Freedcamp project — in bulk.">
+<meta name="twitter:image" content="https://dev.adityarajsingh.com/freedcamp-mcp/og-image.jpg">
+<meta name="twitter:image:alt" content="Freedcamp MCP — let Claude run every Freedcamp project, not just one">
+
+<!-- Structured data: software, author, breadcrumb, FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://dev.adityarajsingh.com/#website",
+      "url": "https://dev.adityarajsingh.com/",
+      "name": "Aditya Raj Singh",
+      "publisher": { "@id": "https://adityarajsingh.com/#person" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://dev.adityarajsingh.com/freedcamp-mcp/#webpage",
+      "url": "https://dev.adityarajsingh.com/freedcamp-mcp/",
+      "name": "Freedcamp MCP Server — Run Every Freedcamp Project from Claude",
+      "description": "Open-source MCP server giving Claude full read and write access to all your Freedcamp projects — discover, create and update tasks, manage projects, and comment, in bulk across every project.",
+      "isPartOf": { "@id": "https://dev.adityarajsingh.com/#website" },
+      "primaryImageOfPage": "https://dev.adityarajsingh.com/freedcamp-mcp/og-image.jpg",
+      "breadcrumb": { "@id": "https://dev.adityarajsingh.com/freedcamp-mcp/#breadcrumb" },
+      "about": { "@id": "https://dev.adityarajsingh.com/freedcamp-mcp/#software" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://dev.adityarajsingh.com/freedcamp-mcp/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dev.adityarajsingh.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Freedcamp MCP" }
+      ]
+    },
+    {
+      "@type": ["SoftwareSourceCode", "SoftwareApplication"],
+      "@id": "https://dev.adityarajsingh.com/freedcamp-mcp/#software",
+      "name": "Freedcamp MCP Server",
+      "description": "Open-source Model Context Protocol (MCP) server that gives AI assistants like Claude full read and write access to Freedcamp across every project, with 12 tools to discover projects, lists and users, create, list, update and delete tasks, create and update projects, and add, edit and delete comments — in bulk.",
+      "codeRepository": "https://github.com/justadityaraj/freedcamp-mcp",
+      "url": "https://dev.adityarajsingh.com/freedcamp-mcp/",
+      "programmingLanguage": "TypeScript",
+      "runtimePlatform": "Node.js 17+",
+      "operatingSystem": "Cross-platform",
+      "applicationCategory": "DeveloperApplication",
+      "license": "https://opensource.org/licenses/MIT",
+      "keywords": "Freedcamp, MCP server, Model Context Protocol, Claude, AI project management, Freedcamp automation",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@id": "https://adityarajsingh.com/#person" },
+      "isBasedOn": "https://github.com/gabeosx/freedmcpcamp"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://adityarajsingh.com/#person",
+      "name": "Aditya Raj Singh",
+      "url": "https://adityarajsingh.com/",
+      "image": "https://dev.adityarajsingh.com/freedcamp-mcp/author-aditya.jpg",
+      "jobTitle": "Builder — automation & MCP servers",
+      "sameAs": [
+        "https://github.com/justadityaraj",
+        "https://adityarajsingh.com/"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://dev.adityarajsingh.com/freedcamp-mcp/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the Freedcamp MCP server?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It is an open-source Model Context Protocol (MCP) server that connects AI assistants like Claude to Freedcamp, giving them full read and write access across every project so they can manage tasks, projects and comments directly inside your Freedcamp workspace." }
+        },
+        {
+          "@type": "Question",
+          "name": "What can AI do with Freedcamp through this MCP?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Twelve tools: discover projects, task lists and users; create, list, update and delete tasks; create and update projects (including archive and unarchive); and add, edit and delete comments. Everything supports bulk operations and works across all of your accessible projects, not just one." }
+        },
+        {
+          "@type": "Question",
+          "name": "How is this different from the original gabeosx Freedcamp MCP?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The upstream server was locked to a single project and focused on tasks. This fork removes the single-project lock (a per-call project_id always wins), and adds discovery tools, project write tools, comment tools, pagination-aware listing, per-item error isolation in bulk operations, an AWS SSM credential launcher, and optional bearer-token auth on the HTTP transport." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I install the Freedcamp MCP with Claude Code?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It is installed from source (it is a fork, so npx freedcamp-mcp would fetch the upstream package). Clone the repo, run npm install and npm run build, then register it: claude mcp add freedcamp -s user -e FREEDCAMP_API_KEY=... -e FREEDCAMP_API_SECRET=... -- node dist/server.js. You can also keep secrets out of your config by storing them in AWS SSM and pointing at dist/ssm-launch.js." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the Freedcamp MCP server free and open source?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. It is MIT-licensed and free to use, forked from gabeosx/freedmcpcamp and extended with multi-project support plus project and comment tools." }
+        },
+        {
+          "@type": "Question",
+          "name": "Where do the Freedcamp credentials live?",
+          "acceptedAnswer": { "@type": "Answer", "text": "You provide a Freedcamp API key and secret (Freedcamp → avatar → Settings → API). They can be passed as environment variables, or stored in AWS SSM Parameter Store so the config references only the parameter names and never the secret values. The optional HTTP transport can require a bearer token." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* Freedcamp brand */
+    --fc-blue:#3B5BBA;
+    --fc-blue-deep:#2A47A0;
+    --fc-blue-ink:#1c3380;
+    --fc-blue-night:#16275f;
+    --fc-sky:#4A86F7;
+    --fc-sky-soft:#eaf1ff;
+    --fc-green:#5AAE46;
+    --fc-green-accent:#83BF6E;
+    --fc-green-soft:#e8f5e2;
+    --amber:#E08A36;
+    --amber-soft:#fbeed9;
+    --violet:#6C6CF0;
+    --violet-soft:#ebe9fd;
+
+    --ink:#1b2440;
+    --ink-soft:#3f4869;
+    --muted:#6A7185;
+    --paper:#ffffff;
+    --paper-soft:#f4f7fd;
+    --paper-blue:#eef3fc;
+    --line:#e6eaf2;
+    --line-soft:#eef1f7;
+    --white:#ffffff;
+
+    --shadow-sm:0 1px 2px rgba(27,36,64,.06), 0 6px 18px rgba(27,36,64,.05);
+    --shadow-md:0 16px 38px rgba(36,71,160,.13), 0 3px 8px rgba(27,36,64,.06);
+    --shadow-lg:0 36px 72px rgba(22,39,95,.20);
+
+    --display:"Poppins", system-ui, sans-serif;
+    --body:"Inter", system-ui, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, monospace;
+
+    --maxw:1120px;
+    --radius:16px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--fc-sky);color:#fff}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.08;letter-spacing:-.02em;color:var(--ink)}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.86);
+    backdrop-filter:saturate(160%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:11px;color:var(--ink);font-family:var(--mono);font-weight:500;font-size:.95rem;letter-spacing:-.01em}
+  .brand .apps{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+  .brand .apps span{width:9px;height:9px;border-radius:3px;display:block}
+  .a1{background:var(--fc-blue)} .a2{background:var(--fc-sky)} .a3{background:var(--fc-green-accent)} .a4{background:var(--amber)}
+  .nav-right{display:flex;align-items:center;gap:24px}
+  .nav-link{color:var(--muted);font-size:.92rem;font-weight:500;transition:color .2s}
+  .nav-link:hover{color:var(--ink)}
+  .nav-gh{display:inline-flex;align-items:center;gap:8px;background:var(--fc-blue);color:#fff!important;padding:9px 16px;border-radius:10px;font-weight:600;font-size:.88rem;transition:transform .18s, box-shadow .18s, background .2s;box-shadow:0 8px 18px rgba(59,91,186,.28)}
+  .nav-gh:hover{background:var(--fc-blue-deep);transform:translateY(-1px);box-shadow:0 12px 24px rgba(59,91,186,.36)}
+  @media(max-width:640px){.nav-right .nav-link{display:none}}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(820px 460px at 86% -10%, rgba(74,134,247,.18), transparent 60%),
+      radial-gradient(680px 460px at 4% 112%, rgba(131,191,110,.20), transparent 55%),
+      linear-gradient(180deg,#f1f6ff 0%, #ffffff 72%);
+    color:var(--ink);
+    overflow:hidden;
+    padding:78px 0 100px;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:radial-gradient(rgba(36,71,160,.05) 1px, transparent 1px);
+    background-size:24px 24px;
+    -webkit-mask-image:linear-gradient(180deg,#000,transparent 78%);
+            mask-image:linear-gradient(180deg,#000,transparent 78%);
+    opacity:.7;
+  }
+  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero-visual{position:relative}
+  .hero .wrap>*{min-width:0}
+  @media(max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:48px}}
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--fc-blue-ink);background:#fff;border:1px solid var(--line);
+    padding:7px 14px;border-radius:100px;margin-bottom:24px;box-shadow:var(--shadow-sm);
+  }
+  .eyebrow b{color:var(--fc-green);font-weight:700}
+  h1.hero-title{font-size:clamp(2.5rem,5.4vw,4.05rem);color:var(--ink);letter-spacing:-.035em;font-weight:800}
+  h1.hero-title .hl{color:var(--fc-blue);position:relative;white-space:nowrap}
+  h1.hero-title .hl::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.26em;background:rgba(131,191,110,.38);z-index:-1;border-radius:3px}
+  .hero-sub{margin-top:22px;font-size:1.16rem;color:var(--ink-soft);max-width:34ch}
+  .hero-sub b{color:var(--ink);font-weight:700}
+
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-weight:600;font-size:1rem;padding:14px 24px;border-radius:12px;cursor:pointer;transition:transform .18s, box-shadow .18s, background .2s;border:0}
+  .btn-primary{background:var(--fc-blue);color:#fff;box-shadow:0 12px 26px rgba(59,91,186,.34)}
+  .btn-primary:hover{background:var(--fc-blue-deep);transform:translateY(-2px);box-shadow:0 18px 34px rgba(59,91,186,.42)}
+  .btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow-sm)}
+  .btn-ghost:hover{border-color:var(--fc-sky);color:var(--fc-blue);transform:translateY(-2px)}
+  .hero-meta{margin-top:26px;display:flex;gap:20px;flex-wrap:wrap;font-size:.84rem;color:var(--muted);font-family:var(--mono)}
+  .hero-meta span{display:inline-flex;align-items:center;gap:7px}
+  .hero-meta svg{width:15px;height:15px;stroke:var(--fc-green);stroke-width:2.5;fill:none}
+
+  /* hero mock card */
+  .mock{
+    position:relative;background:#fff;color:var(--ink);border-radius:18px;
+    box-shadow:var(--shadow-lg);overflow:hidden;border:1px solid var(--line);
+    transform:rotate(.5deg);
+  }
+  .mock-bar{display:flex;align-items:center;gap:9px;padding:14px 16px;border-bottom:1px solid var(--line);background:#fbfcfe}
+  .mock-bar .tl{display:flex;gap:6px}
+  .mock-bar .tl i{width:11px;height:11px;border-radius:50%;display:block}
+  .mock-title{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-left:4px;display:flex;align-items:center;gap:7px}
+  .mock-title b{color:var(--ink)}
+  .mock-proj{margin-left:auto;font-family:var(--mono);font-size:.66rem;color:var(--fc-blue);background:var(--fc-sky-soft);padding:3px 9px;border-radius:100px;font-weight:600}
+  .list-head{display:grid;grid-template-columns:26px 1fr 64px 30px 60px;gap:10px;padding:11px 18px;font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;border-bottom:1px solid var(--line)}
+  .row{display:grid;grid-template-columns:26px 1fr 64px 30px 60px;gap:10px;align-items:center;padding:13px 18px;border-bottom:1px solid var(--line-soft);font-size:.9rem}
+  .row:last-child{border-bottom:0}
+  .cbx{width:19px;height:19px;border-radius:6px;border:2px solid #c7d0e4;display:grid;place-items:center}
+  .cbx.on{background:var(--fc-green);border-color:var(--fc-green)}
+  .cbx.on svg{width:12px;height:12px;stroke:#fff;stroke-width:3.2;fill:none}
+  .row.done .task{color:var(--muted);text-decoration:line-through;text-decoration-color:#c7d0e4}
+  .pill{font-size:.68rem;font-weight:700;padding:3px 8px;border-radius:100px;text-align:center;white-space:nowrap}
+  .pill.done{background:var(--fc-green-soft);color:#3c7a2c}
+  .pill.prog{background:var(--fc-sky-soft);color:var(--fc-blue)}
+  .pill.todo{background:#eef1f7;color:#6b7589}
+  .flag{width:14px;height:14px;display:block}
+  .flag.hi{fill:#e0483b} .flag.med{fill:var(--amber)} .flag.lo{fill:#9aa3b7}
+  .who{width:23px;height:23px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:.66rem;font-weight:800;font-family:var(--body)}
+  .due{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+  /* AI command floating chip */
+  .ai-chip{
+    position:absolute;left:-20px;bottom:-24px;z-index:5;
+    background:var(--fc-blue-ink);color:#fff;border-radius:14px;
+    padding:14px 17px;max-width:300px;box-shadow:var(--shadow-md);
+    border:1px solid rgba(255,255,255,.14);transform:rotate(-1.3deg);
+  }
+  .ai-chip .who-ai{display:flex;align-items:center;gap:8px;font-size:.72rem;color:#9ec3ff;font-weight:700;font-family:var(--mono);margin-bottom:6px}
+  .ai-chip .who-ai .glow{width:8px;height:8px;border-radius:50%;background:var(--fc-green-accent);box-shadow:0 0 0 0 rgba(131,191,110,.6);animation:pulse 2s infinite}
+  .ai-chip p{font-size:.86rem;line-height:1.5;color:rgba(255,255,255,.94)}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(131,191,110,.55)}70%{box-shadow:0 0 0 9px rgba(131,191,110,0)}100%{box-shadow:0 0 0 0 rgba(131,191,110,0)}}
+  @media(max-width:900px){.ai-chip{position:static;max-width:none;margin-top:18px;transform:none}.mock{transform:none}}
+
+  /* ---------- PROOF STRIP ---------- */
+  .strip{background:var(--fc-blue-night);color:rgba(255,255,255,.78);padding:18px 0}
+  .strip .wrap{display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:center;align-items:center;font-family:var(--mono);font-size:.82rem}
+  .strip b{color:#fff}
+  .strip .dot{width:5px;height:5px;border-radius:50%;background:var(--fc-green-accent);display:inline-block;margin-right:9px;vertical-align:middle}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:96px 0}
+  .sec-head{max-width:680px;margin:0 auto 56px;text-align:center}
+  .kicker{font-family:var(--mono);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--fc-blue);margin-bottom:14px}
+  .sec-head h2{font-size:clamp(2rem,3.8vw,2.85rem)}
+  .sec-head p{margin-top:18px;font-size:1.12rem;color:var(--ink-soft)}
+
+  /* problem → solution */
+  .ps{background:var(--paper-soft)}
+  .ps-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:920px;margin:0 auto}
+  @media(max-width:760px){.ps-grid{grid-template-columns:1fr}}
+  .ps-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px;position:relative;overflow:hidden}
+  .ps-card .tag{font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:5px 11px;border-radius:100px;display:inline-block;margin-bottom:18px}
+  .ps-before .tag{background:#fde8e6;color:#c0392b}
+  .ps-after{border-color:#c7e6bb;box-shadow:0 0 0 1px #c7e6bb, var(--shadow-sm)}
+  .ps-after .tag{background:var(--fc-green-soft);color:#3c7a2c}
+  .ps-card h3{font-size:1.4rem;margin-bottom:12px}
+  .ps-card p{color:var(--ink-soft)}
+  .ps-card ul{list-style:none;margin-top:16px;display:grid;gap:9px}
+  .ps-card li{display:flex;gap:10px;align-items:flex-start;font-size:.96rem;color:var(--ink-soft)}
+  .ps-card li svg{width:17px;height:17px;flex:0 0 17px;margin-top:4px;fill:none}
+  .ps-before li svg{stroke:#d98b82} .ps-after li svg{stroke:var(--fc-green)}
+  .ps-after::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--fc-blue),var(--fc-sky),var(--fc-green-accent),var(--amber))}
+
+  /* tools grid */
+  .grp{max-width:1040px;margin:0 auto}
+  .grp + .grp{margin-top:30px}
+  .grp-h{display:flex;align-items:center;gap:12px;margin:0 0 18px 4px}
+  .grp-h .gi{width:30px;height:30px;border-radius:8px;display:grid;place-items:center}
+  .grp-h .gi svg{width:16px;height:16px;stroke-width:2.2;fill:none}
+  .grp-h h3{font-family:var(--display);font-size:1.12rem;font-weight:700}
+  .grp-h .ct{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+  .grp-h .nb{font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:.06em;background:var(--fc-green-soft);color:#3c7a2c;padding:3px 8px;border-radius:100px;margin-left:auto}
+  .tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  @media(max-width:980px){.tools-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.tools-grid{grid-template-columns:1fr}}
+  .tool{
+    background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 20px;position:relative;
+    transition:transform .22s cubic-bezier(.2,.7,.3,1), box-shadow .22s, border-color .22s;
+  }
+  .tool:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:transparent}
+  .tool .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;margin-bottom:16px}
+  .tool .ic svg{width:22px;height:22px;stroke-width:2;fill:none}
+  .tool h4{font-family:var(--mono);font-size:.92rem;font-weight:700;letter-spacing:-.02em;word-break:break-word;color:var(--ink)}
+  .tool p{margin-top:9px;font-size:.88rem;color:var(--ink-soft);line-height:1.5}
+  .tool .new{position:absolute;top:15px;right:15px;font-family:var(--mono);font-size:.58rem;font-weight:700;letter-spacing:.07em;background:var(--fc-green);color:#fff;padding:3px 8px;border-radius:100px}
+  .c-blue .ic{background:var(--fc-sky-soft);color:var(--fc-blue)} .c-blue .ic svg{stroke:var(--fc-blue)}
+  .c-indigo .ic{background:#e6ebfa;color:var(--fc-blue-ink)} .c-indigo .ic svg{stroke:var(--fc-blue-ink)}
+  .c-green .ic{background:var(--fc-green-soft);color:#3c7a2c} .c-green .ic svg{stroke:#3c7a2c}
+  .c-amber .ic{background:var(--amber-soft);color:#b86a1f} .c-amber .ic svg{stroke:#b86a1f}
+  .c-blue:hover{box-shadow:0 16px 34px rgba(74,134,247,.20)} .c-indigo:hover{box-shadow:0 16px 34px rgba(59,91,186,.20)}
+  .c-green:hover{box-shadow:0 16px 34px rgba(131,191,110,.24)} .c-amber:hover{box-shadow:0 16px 34px rgba(224,138,54,.20)}
+  .gi.b-blue{background:var(--fc-sky-soft);color:var(--fc-blue)} .gi.b-blue svg{stroke:var(--fc-blue)}
+  .gi.b-indigo{background:#e6ebfa;color:var(--fc-blue-ink)} .gi.b-indigo svg{stroke:var(--fc-blue-ink)}
+  .gi.b-green{background:var(--fc-green-soft);color:#3c7a2c} .gi.b-green svg{stroke:#3c7a2c}
+  .gi.b-amber{background:var(--amber-soft);color:#b86a1f} .gi.b-amber svg{stroke:#b86a1f}
+
+  /* install */
+  .install{background:linear-gradient(165deg,var(--fc-blue-deep) 0%, var(--fc-blue-night) 100%);color:#fff}
+  .install .sec-head h2{color:#fff} .install .kicker{color:var(--fc-green-accent)} .install .sec-head p{color:rgba(255,255,255,.82)}
+  .install .sec-head p code{font-family:var(--mono);font-size:.88em;background:rgba(255,255,255,.12);padding:2px 7px;border-radius:6px;color:#fff}
+  .terminal{max-width:780px;margin:0 auto;background:#10204a;border:1px solid rgba(255,255,255,.14);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg)}
+  .term-bar{display:flex;align-items:center;gap:8px;padding:13px 16px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.09)}
+  .term-bar i{width:11px;height:11px;border-radius:50%;display:block}
+  .term-bar .t{margin-left:8px;font-family:var(--mono);font-size:.76rem;color:rgba(255,255,255,.55)}
+  .term-body{padding:22px 22px 26px;font-family:var(--mono);font-size:.85rem;line-height:1.85;overflow-x:auto}
+  .term-body .c{color:rgba(255,255,255,.46)}
+  .term-body .p{color:var(--fc-green-accent)}
+  .term-body .w{color:#fff}
+  .term-body .y{color:#ffd479}
+  .term-body .b{color:#7fb0ff}
+  .steps{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:30px auto 0;max-width:780px}
+  .step{flex:1;min-width:158px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:16px 18px}
+  .step .n{font-family:var(--mono);color:var(--fc-green-accent);font-weight:700;font-size:.8rem}
+  .step p{font-size:.88rem;color:rgba(255,255,255,.85);margin-top:6px}
+  .step p code{font-family:var(--mono);font-size:.86em;background:rgba(255,255,255,.1);padding:1px 5px;border-radius:5px}
+
+  /* trust row */
+  .trust .tg{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:920px;margin:0 auto}
+  @media(max-width:760px){.trust .tg{grid-template-columns:repeat(2,1fr)}}
+  .stat{text-align:center;padding:28px 16px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm)}
+  .stat .num{font-family:var(--display);font-weight:800;font-size:2.4rem;letter-spacing:-.03em;background:linear-gradient(120deg,var(--fc-blue),var(--fc-green));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .stat .lbl{font-size:.86rem;color:var(--muted);margin-top:6px}
+
+  /* author signature */
+  .author{background:var(--paper-soft);border-top:1px solid var(--line)}
+  .author .card{
+    max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:20px;
+    padding:34px 38px;display:flex;gap:24px;align-items:center;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;
+  }
+  .author .card::before{content:"";position:absolute;top:0;left:0;bottom:0;width:5px;background:linear-gradient(180deg,var(--fc-blue),var(--fc-sky),var(--fc-green-accent),var(--amber))}
+  .author .avatar{flex:0 0 76px}
+  .author .avatar img{width:76px;height:76px;border-radius:50%;object-fit:cover;box-shadow:0 6px 18px rgba(22,39,95,.2);border:3px solid #fff}
+  .author .meta .nm{font-family:var(--display);font-weight:700;font-size:1.18rem}
+  .author .meta .rl{font-family:var(--mono);font-size:.76rem;color:var(--fc-blue);margin:2px 0 10px;letter-spacing:.02em}
+  .author .meta p{font-size:.95rem;color:var(--ink-soft)}
+  .author .meta a{color:var(--fc-blue);font-weight:700;border-bottom:2px solid var(--fc-green-accent);transition:color .2s}
+  .author .meta a:hover{color:var(--fc-blue-ink)}
+  @media(max-width:560px){.author .card{flex-direction:column;text-align:center;padding:30px 24px}.author .card::before{width:100%;height:5px;bottom:auto}.author .avatar{flex:0 0 auto}}
+
+  /* FAQ */
+  .faq{background:var(--paper-soft);border-top:1px solid var(--line)}
+  .faq-list{max-width:760px;margin:0 auto;display:grid;gap:14px}
+  .faq details{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .2s, border-color .2s}
+  .faq details[open]{box-shadow:var(--shadow-sm);border-color:#d3ddf0}
+  .faq summary{list-style:none;cursor:pointer;padding:22px 24px;font-family:var(--display);font-weight:600;font-size:1.06rem;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .chev{flex:0 0 20px;width:20px;height:20px;transition:transform .25s}
+  .faq summary .chev svg{width:20px;height:20px;stroke:var(--fc-blue);stroke-width:2.4;fill:none}
+  .faq details[open] summary .chev{transform:rotate(180deg)}
+  .faq .ans{padding:0 24px 22px;color:var(--ink-soft);font-size:.98rem;line-height:1.65}
+  .faq .ans code{font-family:var(--mono);font-size:.85em;background:var(--paper-blue);padding:2px 6px;border-radius:5px;word-break:break-word;color:var(--fc-blue-ink)}
+  .faq .ans a{color:var(--fc-blue);font-weight:700;border-bottom:2px solid var(--fc-green-accent)}
+
+  /* final CTA */
+  .final{text-align:center;padding:104px 0}
+  .final h2{font-size:clamp(2.1rem,4.4vw,3.2rem);max-width:15ch;margin:0 auto}
+  .final p{margin:20px auto 0;font-size:1.12rem;color:var(--ink-soft);max-width:48ch}
+  .final .cta-row{justify-content:center}
+
+  /* footer */
+  footer{background:var(--fc-blue-night);color:rgba(255,255,255,.66);padding:40px 0;font-size:.88rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+  footer .fl{display:flex;align-items:center;gap:10px;font-family:var(--mono);color:#fff}
+  footer a{color:rgba(255,255,255,.8);transition:color .2s}
+  footer a:hover{color:var(--fc-green-accent)}
+  footer .fr{display:flex;gap:22px;flex-wrap:wrap}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.ai-chip .glow{animation:none}}
+</style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="apps"><span class="a1"></span><span class="a2"></span><span class="a3"></span><span class="a4"></span></span>
+      freedcamp-mcp
+    </a>
+    <div class="nav-right">
+      <a class="nav-link" href="#tools">Tools</a>
+      <a class="nav-link" href="#install">Install</a>
+      <a class="nav-link" href="#author">Who built this</a>
+      <a class="nav-gh" href="https://github.com/justadityaraj/freedcamp-mcp" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38l-.01-1.49c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        View on GitHub
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow"><b>FORK</b> · every project, not just one</span>
+      <h1 class="hero-title">Let Claude run <span class="hl">every</span> Freedcamp project.</h1>
+      <p class="hero-sub">An open-source MCP server that hands Claude your whole Freedcamp: <b>discover projects, create &amp; update tasks, manage projects, and comment</b> — in bulk, across every project.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/justadityaraj/freedcamp-mcp" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38l-.01-1.49c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          View on GitHub
+        </a>
+        <a class="btn btn-ghost" href="#install">Quick install</a>
+      </div>
+      <div class="hero-meta">
+        <span><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>MIT licensed</span>
+        <span><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Node · TypeScript</span>
+        <span><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Multi-project</span>
+      </div>
+    </div>
+
+    <!-- hero mock -->
+    <div class="hero-visual">
+      <div class="mock">
+        <div class="mock-bar">
+          <span class="tl"><i style="background:#ff5f56"></i><i style="background:#ffbd2e"></i><i style="background:#27c93f"></i></span>
+          <span class="mock-title">📁 <b>Launch Plan</b></span>
+          <span class="mock-proj">1 of 6 projects</span>
+        </div>
+        <div class="list-head"><span></span><span>Task</span><span>Status</span><span></span><span>Due</span></div>
+        <div class="row done">
+          <span class="cbx on"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <span class="task">Finalize Q3 roadmap</span>
+          <span class="pill done">Done</span>
+          <svg class="flag hi" viewBox="0 0 24 24"><path d="M4 2v20M4 3h13l-2 4 2 4H4"/></svg>
+          <span class="due">Sep 20</span>
+        </div>
+        <div class="row">
+          <span class="cbx"></span>
+          <span class="task">Design landing hero</span>
+          <span class="pill prog">In&nbsp;prog</span>
+          <svg class="flag med" viewBox="0 0 24 24"><path d="M4 2v20M4 3h13l-2 4 2 4H4"/></svg>
+          <span class="who" style="background:var(--fc-sky)">P</span>
+        </div>
+        <div class="row">
+          <span class="cbx"></span>
+          <span class="task">Write API docs</span>
+          <span class="pill todo">To&nbsp;do</span>
+          <svg class="flag lo" viewBox="0 0 24 24"><path d="M4 2v20M4 3h13l-2 4 2 4H4"/></svg>
+          <span class="due">Sep 26</span>
+        </div>
+      </div>
+      <div class="ai-chip">
+        <div class="who-ai"><span class="glow"></span>CLAUDE → freedcamp-mcp</div>
+        <p>“Create a <b>Launch Plan</b> project, add these 3 tasks, assign the hero to <b>Priya</b>, due Friday.” <b style="color:var(--fc-green-accent)">✓ Done.</b></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PROOF STRIP -->
+<div class="strip">
+  <div class="wrap">
+    <span><span class="dot"></span>12 tools shipped</span>
+    <span><span class="dot"></span>every project, not just one</span>
+    <span><span class="dot"></span>stdio · HTTP · AWS&nbsp;SSM</span>
+    <span><span class="dot"></span>fork of <b>gabeosx/freedmcpcamp</b></span>
+  </div>
+</div>
+
+<!-- PROBLEM → SOLUTION -->
+<section class="ps">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Why this fork exists</div>
+      <h2>Freedcamp's API is deep. The original MCP only touched the surface.</h2>
+      <p>The upstream server was locked to a single project and focused on tasks. This fork opens up every project and adds the write tools Claude was missing — projects, comments, and bulk-safe operations.</p>
+    </div>
+    <div class="ps-grid">
+      <div class="ps-card ps-before reveal">
+        <span class="tag">Upstream — one project</span>
+        <h3>One project. Tasks only.</h3>
+        <p>Pinned to a single <code style="font-family:var(--mono);font-size:.85em">FREEDCAMP_PROJECT_ID</code>, with no way to discover or manage anything beyond tasks.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg>Locked to one project at a time</li>
+          <li><svg viewBox="0 0 24 24" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg>No project or comment tools</li>
+          <li><svg viewBox="0 0 24 24" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg>First 200 items, silently truncated</li>
+        </ul>
+      </div>
+      <div class="ps-card ps-after reveal">
+        <span class="tag">This fork — whole workspace</span>
+        <h3>Every project. Full lifecycle.</h3>
+        <p>A per-call <code style="font-family:var(--mono);font-size:.85em">project_id</code> always wins, plus project and comment write tools turn Claude into a real Freedcamp operator.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Works across every accessible project</li>
+          <li><svg viewBox="0 0 24 24" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Adds project + comment write tools</li>
+          <li><svg viewBox="0 0 24 24" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Pagination-aware &amp; bulk-safe</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">The toolbox</div>
+      <h2>Twelve tools. Four jobs.</h2>
+      <p>Everything an assistant needs to discover, build, and run a Freedcamp workspace — sensible JSON in, structured results out, bulk by default.</p>
+    </div>
+
+    <!-- Discovery -->
+    <div class="grp reveal">
+      <div class="grp-h">
+        <span class="gi b-blue"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+        <h3>Discovery</h3>
+        <span class="ct">find the IDs to act on</span>
+        <span class="nb">NEW IN FORK</span>
+      </div>
+      <div class="tools-grid">
+        <div class="tool c-blue">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+          <h4>list_projects</h4>
+          <p>Every project you can access — active and archived.</p>
+        </div>
+        <div class="tool c-blue">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div>
+          <h4>list_task_groups</h4>
+          <p>The task lists in a project, with their list IDs.</p>
+        </div>
+        <div class="tool c-blue">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+          <h4>list_users</h4>
+          <p>Project members, with the user IDs for assignment.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tasks -->
+    <div class="grp reveal">
+      <div class="grp-h">
+        <span class="gi b-indigo"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+        <h3>Tasks</h3>
+        <span class="ct">create, list, update, delete — in bulk</span>
+      </div>
+      <div class="tools-grid">
+        <div class="tool c-indigo">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div>
+          <h4>add_task</h4>
+          <p>Create one or many tasks — across projects in a single call.</p>
+        </div>
+        <div class="tool c-indigo">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg></div>
+          <h4>update_task</h4>
+          <p>Status, due date, assignee, list, priority — bulk edits too.</p>
+        </div>
+        <div class="tool c-indigo">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div>
+          <h4>list_tasks</h4>
+          <p>One project or all of them — fully paginated, no truncation.</p>
+        </div>
+        <div class="tool c-indigo">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
+          <h4>delete_task</h4>
+          <p>Permanently remove one or many tasks at once.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="grp reveal">
+      <div class="grp-h">
+        <span class="gi b-green"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
+        <h3>Projects</h3>
+        <span class="ct">spin up &amp; reshape projects</span>
+        <span class="nb">NEW IN FORK</span>
+      </div>
+      <div class="tools-grid">
+        <div class="tool c-green">
+          <span class="new">NEW</span>
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M12 11v6M9 14h6"/></svg></div>
+          <h4>add_project</h4>
+          <p>Create projects — name, colour, group, and view — in bulk.</p>
+        </div>
+        <div class="tool c-green">
+          <span class="new">NEW</span>
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg></div>
+          <h4>update_project</h4>
+          <p>Rename, recolour, regroup, archive or unarchive — mandatory fields auto-backfilled.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comments -->
+    <div class="grp reveal">
+      <div class="grp-h">
+        <span class="gi b-amber"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <h3>Comments</h3>
+        <span class="ct">talk on tasks &amp; items</span>
+        <span class="nb">NEW IN FORK</span>
+      </div>
+      <div class="tools-grid">
+        <div class="tool c-amber">
+          <span class="new" style="background:var(--amber)">NEW</span>
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M12 7v6M9 10h6"/></svg></div>
+          <h4>add_comment</h4>
+          <p>Comment on tasks and other items — HTML supported, in bulk.</p>
+        </div>
+        <div class="tool c-amber">
+          <span class="new" style="background:var(--amber)">NEW</span>
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg></div>
+          <h4>update_comment</h4>
+          <p>Edit the text of any existing comment.</p>
+        </div>
+        <div class="tool c-amber">
+          <span class="new" style="background:var(--amber)">NEW</span>
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
+          <h4>delete_comment</h4>
+          <p>Permanently remove one or many comments.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTALL -->
+<section class="install" id="install">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Up and running</div>
+      <h2>Point Claude at your Freedcamp.</h2>
+      <p>Installed from source — it's a fork, so <code>npx freedcamp-mcp</code> would fetch the upstream. Clone, build, and register with your API key + secret.</p>
+    </div>
+    <div class="terminal reveal">
+      <div class="term-bar">
+        <i style="background:#ff5f56"></i><i style="background:#ffbd2e"></i><i style="background:#27c93f"></i>
+        <span class="t">bash — setup</span>
+      </div>
+      <div class="term-body">
+<span class="c"># clone &amp; build the fork</span><br>
+<span class="p">$</span> <span class="w">git clone https://github.com/justadityaraj/freedcamp-mcp.git</span><br>
+<span class="p">$</span> <span class="w">cd freedcamp-mcp &amp;&amp; npm install &amp;&amp; npm run build</span><br><br>
+<span class="c"># register with Claude (credentials in env)</span><br>
+<span class="p">$</span> <span class="w">claude mcp add <span class="b">freedcamp</span> -s user \</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="w">-e <span class="y">FREEDCAMP_API_KEY=…</span> -e <span class="y">FREEDCAMP_API_SECRET=…</span> \</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="w">-- node dist/server.js</span><br><br>
+<span class="c"># prefer secrets out of the config? pull them from AWS SSM at startup</span><br>
+<span class="p">$</span> <span class="w">claude mcp add <span class="b">freedcamp</span> -s user -e <span class="y">AWS_PROFILE=…</span> -- node dist/ssm-launch.js</span><br><br>
+<span class="c"># ✓ Status: Connected — 12 tools ready</span>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">01</div><p>Grab your API key + secret: <b>Freedcamp → avatar → Settings → API</b>.</p></div>
+      <div class="step reveal"><div class="n">02</div><p>Optionally store them in AWS SSM and point at <code>dist/ssm-launch.js</code>.</p></div>
+      <div class="step reveal"><div class="n">03</div><p>Reload Claude — all 12 tools appear in your session.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Built to be used</div>
+      <h2>Not a toy.</h2>
+      <p>Live-tested against the Freedcamp API, with the API's awkward edges (mandatory edit fields, archive-only flags, due-date formats) handled so Claude doesn't have to.</p>
+    </div>
+    <div class="tg">
+      <div class="stat reveal"><div class="num">12</div><div class="lbl">tools shipped</div></div>
+      <div class="stat reveal"><div class="num">8</div><div class="lbl">new over upstream</div></div>
+      <div class="stat reveal"><div class="num">3</div><div class="lbl">ways to run</div></div>
+      <div class="stat reveal"><div class="num">38</div><div class="lbl">offline tests</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHOR / SIGNATURE -->
+<section class="author" id="author">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:36px">
+      <div class="kicker">Who built this</div>
+    </div>
+    <div class="card reveal">
+      <div class="avatar"><img src="author-aditya.jpg" alt="Aditya Raj Singh" width="76" height="76" loading="lazy"></div>
+      <div class="meta">
+        <div class="nm">Aditya Raj Singh</div>
+        <div class="rl">builder · automation &amp; MCP servers · homelab tinkerer</div>
+        <p>I fork the tools I actually run my work on. Freedcamp was one prompt away from being driven by Claude, so I lifted the single-project lock and added the project and comment tools it was missing — then live-tested it. More of what I build over at <a href="https://adityarajsingh.com" target="_blank" rel="noopener">adityarajsingh.com</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Questions</div>
+      <h2>Freedcamp MCP, answered.</h2>
+    </div>
+    <div class="faq-list">
+      <details open>
+        <summary>What is the Freedcamp MCP server?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">It's an open-source <b>Model Context Protocol (MCP)</b> server that connects AI assistants like Claude to <b>Freedcamp</b>, with full read <em>and</em> write access across every project — so Claude can manage tasks, projects and comments directly inside your workspace.</div>
+      </details>
+      <details>
+        <summary>What can AI do with Freedcamp through this MCP?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">Twelve tools: <b>discover</b> projects, task lists and users; <b>create, list, update and delete tasks</b>; <b>create and update projects</b> (including archive / unarchive); and <b>add, edit and delete comments</b>. Everything supports bulk operations and works across all your projects — not just one.</div>
+      </details>
+      <details>
+        <summary>How is this different from the original gabeosx Freedcamp MCP?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">Upstream was locked to a single project and tasks-only. This fork removes the lock (a per-call <code>project_id</code> always wins), and adds <b>discovery tools</b>, <b>project write tools</b>, <b>comment tools</b>, pagination-aware listing, per-item error isolation in bulk operations, an <b>AWS SSM</b> credential launcher and optional bearer-token auth on the HTTP transport.</div>
+      </details>
+      <details>
+        <summary>How do I install the Freedcamp MCP with Claude Code?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">It installs from source (it's a fork, so <code>npx freedcamp-mcp</code> would fetch the upstream). Clone the repo, run <code>npm install &amp;&amp; npm run build</code>, then <code>claude mcp add freedcamp -s user -e FREEDCAMP_API_KEY=… -e FREEDCAMP_API_SECRET=… -- node dist/server.js</code>. Both paths are in the <a href="#install">install section</a> above.</div>
+      </details>
+      <details>
+        <summary>Is the Freedcamp MCP server free and open source?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">Yes — it's <b>MIT-licensed</b> and free to use, forked from <a href="https://github.com/gabeosx/freedmcpcamp" target="_blank" rel="noopener">gabeosx/freedmcpcamp</a> and extended with multi-project support plus the project and comment tools.</div>
+      </details>
+      <details>
+        <summary>Where do the Freedcamp credentials live?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">You bring a Freedcamp <b>API key + secret</b> (<b>Freedcamp → avatar → Settings → API</b>). Pass them as environment variables, or store them in <b>AWS SSM Parameter Store</b> so your config references only the parameter names — never the secret values. The optional HTTP transport can also require a bearer token.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <h2>Hand your Freedcamp to Claude.</h2>
+    <p>Open source, MIT licensed, every project in reach. Wire it into Claude Code today.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://github.com/justadityaraj/freedcamp-mcp" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38l-.01-1.49c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        Star it on GitHub
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/justadityaraj/freedcamp-mcp#readme" target="_blank" rel="noopener">Read the docs</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="fl">
+      <span class="apps" style="display:inline-grid;grid-template-columns:1fr 1fr;gap:3px;margin-right:4px"><span style="width:9px;height:9px;border-radius:3px;background:var(--fc-blue)"></span><span style="width:9px;height:9px;border-radius:3px;background:var(--fc-sky)"></span><span style="width:9px;height:9px;border-radius:3px;background:var(--fc-green-accent)"></span><span style="width:9px;height:9px;border-radius:3px;background:var(--amber)"></span></span>
+      freedcamp-mcp
+    </div>
+    <div class="fr">
+      <a href="https://github.com/justadityaraj/freedcamp-mcp" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/justadityaraj/freedcamp-mcp#readme" target="_blank" rel="noopener">Docs</a>
+      <a href="https://github.com/gabeosx/freedmcpcamp" target="_blank" rel="noopener">Upstream</a>
+      <a href="https://adityarajsingh.com" target="_blank" rel="noopener">adityarajsingh.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // staggered scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach((e)=>{
+      if(e.isIntersecting){
+        const sibs = [...e.target.parentElement.children].filter(c=>c.classList.contains('reveal'));
+        const idx = sibs.indexOf(e.target);
+        e.target.style.transitionDelay = (idx>=0 ? Math.min(idx,6)*70 : 0) + 'ms';
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.16, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
+<!-- by [Aditya Raj Singh](https://adityarajsingh.com/) -->
