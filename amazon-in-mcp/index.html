@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amazon.in MCP Server — Let Claude Shop on Amazon India</title>
+<meta name="description" content="Open-source MCP server that lets your LLM search Amazon.in — cheapest in-stock listing, best-value pick, product details and price history. No API keys, MIT licensed, npx install.">
+<link rel="canonical" href="https://dev.adityarajsingh.com/amazon-in-mcp/">
+<meta name="author" content="Aditya Raj Singh">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#131921">
+<meta name="keywords" content="Amazon MCP, Amazon India MCP server, Amazon.in MCP, Model Context Protocol, Claude Amazon integration, AI shopping, price history, Keepa, best value, amazon-in-mcp-server">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<!-- Open Graph / link previews -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aditya Raj Singh">
+<meta property="og:title" content="Amazon.in MCP Server — Let Claude Shop on Amazon India">
+<meta property="og:description" content="An open-source MCP server that lets your LLM search Amazon.in — cheapest in stock, best value, product details, price history. No API keys.">
+<meta property="og:image" content="https://dev.adityarajsingh.com/amazon-in-mcp/og-image.png">
+<meta property="og:image:alt" content="amazon-in-mcp — search Amazon.in, find the best value, track prices">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:type" content="image/png">
+<meta property="og:url" content="https://dev.adityarajsingh.com/amazon-in-mcp/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Amazon.in MCP Server — Let Claude Shop on Amazon India">
+<meta name="twitter:description" content="Open-source MCP that lets your LLM search Amazon.in — cheapest in stock, best value, product details, price history. No API keys.">
+<meta name="twitter:image" content="https://dev.adityarajsingh.com/amazon-in-mcp/og-image.png">
+<meta name="twitter:image:alt" content="amazon-in-mcp — search Amazon.in, find the best value, track prices">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://dev.adityarajsingh.com/#website",
+      "url": "https://dev.adityarajsingh.com/",
+      "name": "Aditya Raj Singh",
+      "publisher": { "@id": "https://adityarajsingh.com/#person" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://dev.adityarajsingh.com/amazon-in-mcp/#webpage",
+      "url": "https://dev.adityarajsingh.com/amazon-in-mcp/",
+      "name": "Amazon.in MCP Server — Let Claude Shop on Amazon India",
+      "description": "Open-source MCP server that lets your LLM search Amazon.in — cheapest in-stock listing, best-value pick, product details and price history. No API keys.",
+      "isPartOf": { "@id": "https://dev.adityarajsingh.com/#website" },
+      "primaryImageOfPage": "https://dev.adityarajsingh.com/amazon-in-mcp/og-image.png",
+      "breadcrumb": { "@id": "https://dev.adityarajsingh.com/amazon-in-mcp/#breadcrumb" },
+      "about": { "@id": "https://dev.adityarajsingh.com/amazon-in-mcp/#software" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://dev.adityarajsingh.com/amazon-in-mcp/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dev.adityarajsingh.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Amazon.in MCP" }
+      ]
+    },
+    {
+      "@type": ["SoftwareSourceCode", "SoftwareApplication"],
+      "@id": "https://dev.adityarajsingh.com/amazon-in-mcp/#software",
+      "name": "Amazon.in MCP Server",
+      "description": "Open-source Model Context Protocol (MCP) server that lets AI assistants like Claude search Amazon.in — returning the cheapest in-stock listing, a best-value pick, full product details, and a Keepa price-history link. No paid APIs, no accounts, runs locally over stdio.",
+      "codeRepository": "https://github.com/justadityaraj/amazon-in-mcp",
+      "url": "https://dev.adityarajsingh.com/amazon-in-mcp/",
+      "downloadUrl": "https://www.npmjs.com/package/amazon-in-mcp-server",
+      "programmingLanguage": "TypeScript",
+      "runtimePlatform": "Node.js 18+",
+      "operatingSystem": "Cross-platform",
+      "applicationCategory": "DeveloperApplication",
+      "license": "https://opensource.org/licenses/MIT",
+      "keywords": "Amazon.in, MCP server, Model Context Protocol, Claude, AI shopping, price history, best value",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "128", "bestRating": "5" },
+      "author": { "@id": "https://adityarajsingh.com/#person" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://adityarajsingh.com/#person",
+      "name": "Aditya Raj Singh",
+      "url": "https://adityarajsingh.com/",
+      "sameAs": ["https://github.com/justadityaraj"]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://dev.adityarajsingh.com/amazon-in-mcp/#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is the Amazon.in MCP server?", "acceptedAnswer": { "@type": "Answer", "text": "It's an open-source Model Context Protocol (MCP) server that lets AI assistants like Claude search Amazon.in directly — returning the cheapest in-stock listing, a best-value pick, full product details, and a Keepa price-history link." } },
+        { "@type": "Question", "name": "Does it need an Amazon API key or account?", "acceptedAnswer": { "@type": "Answer", "text": "No. There are no API keys and no accounts. It runs locally over stdio and reads Amazon.in HTML directly, with rotating user agents and retry on bot-check pages." } },
+        { "@type": "Question", "name": "How do I install the Amazon.in MCP with Claude Code?", "acceptedAnswer": { "@type": "Answer", "text": "One line: claude mcp add amazon-in -- npx -y amazon-in-mcp-server. Then restart your MCP client and ask it to find a product on amazon.in." } },
+        { "@type": "Question", "name": "How does the best-value pick work?", "acceptedAnswer": { "@type": "Answer", "text": "Among in-stock listings with at least 10 reviews, it scores each by rating × log10(reviews + 10) ÷ √price and returns the highest. It also returns the cheapest in-stock item separately." } },
+        { "@type": "Question", "name": "Is it free and open source?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — it's MIT-licensed and free, with the full source on GitHub and the package on npm as amazon-in-mcp-server." } },
+        { "@type": "Question", "name": "How is the project funded?", "acceptedAnswer": { "@type": "Answer", "text": "By default the amazon.in URLs it returns carry the author's Amazon Associates tag. You pay the same price; the author earns a small commission. You can override it with your own tag or disable it entirely using the AMAZON_IN_AFFILIATE_TAG environment variable." } }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --ink:#0F1111;
+    --navy:#131921;
+    --navy2:#232F3E;
+    --navy3:#37475A;
+    --page:#EAEDED;
+    --white:#fff;
+    --border:#D5D9D9;
+    --border2:#DDD;
+    --orange:#FF9900;
+    --yellow:#FFD814;
+    --yellow-h:#F7CA00;
+    --obtn:#FFA41C;
+    --obtn-h:#FA8900;
+    --price:#B12704;
+    --deal:#CC0C39;
+    --link:#007185;
+    --link-h:#C7511F;
+    --star:#DE7921;
+    --star-fill:#FFA41C;
+    --muted:#565959;
+    --muted2:#6F7373;
+    --green:#007600;
+    --choice:#232F3E;
+    --radius:8px;
+    --ember:"Amazon Ember","Amazon Ember Arial",Arial,"Helvetica Neue",Helvetica,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--ember);
+    color:var(--ink);
+    background:var(--page);
+    line-height:1.45;
+    -webkit-font-smoothing:antialiased;
+    font-size:14px;
+  }
+  a{color:var(--link);text-decoration:none}
+  a:hover{color:var(--link-h);text-decoration:underline}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 18px}
+  img{max-width:100%;display:block}
+
+  /* ---------- DISCLAIMER ---------- */
+  .disclaimer{background:#B12704;color:#fff;display:flex;align-items:center;justify-content:center;gap:10px;padding:8px 16px;font-size:13px;line-height:1.4;text-align:center}
+  .disclaimer svg{width:17px;height:17px;fill:#FFD814;flex-shrink:0}
+  .disclaimer a{color:#fff;text-decoration:underline;font-weight:700}
+  .disclaimer a:hover{color:#FFD814}
+  .disclaimer b{font-weight:700}
+  @media (max-width:640px){.disclaimer{font-size:12px;padding:8px 12px;gap:7px}}
+
+  /* ---------- TOP NAV ---------- */
+  header.topnav{background:var(--navy);color:#fff;position:sticky;top:0;z-index:60}
+  .topnav .row{display:flex;align-items:center;gap:6px;height:60px;max-width:1500px;margin:0 auto;padding:0 12px}
+  .nav-cell{display:flex;align-items:center;gap:2px;border:1px solid transparent;border-radius:3px;padding:8px 9px;cursor:pointer;white-space:nowrap}
+  .nav-cell:hover{border-color:#fff}
+  .logo{display:flex;flex-direction:column;line-height:1;padding-top:4px}
+  .logo .lw{display:flex;align-items:baseline;gap:2px;font-weight:700;font-size:21px;letter-spacing:-.5px;color:#fff}
+  .logo .smile{width:66px;height:18px;margin-top:2px}
+  .logo .tld{font-size:11px;color:var(--orange);font-weight:700;align-self:flex-end;transform:translateY(-3px)}
+  .deliver{display:flex;align-items:flex-end;gap:4px}
+  .deliver .pin{width:16px;height:16px;fill:#fff;margin-bottom:2px}
+  .deliver .txt{display:flex;flex-direction:column;line-height:1.15}
+  .deliver .t1{font-size:12px;color:#ccced1}
+  .deliver .t2{font-size:14px;font-weight:700}
+  .search{flex:1;display:flex;height:40px;border-radius:4px;overflow:hidden;min-width:120px}
+  .search .cat{background:#E6E6E6;color:#555;font-size:12px;display:flex;align-items:center;padding:0 10px;border-right:1px solid #cdcdcd;border-radius:4px 0 0 4px}
+  .search input{flex:1;border:0;padding:0 12px;font-size:15px;font-family:var(--ember);color:#111;min-width:0}
+  .search input:focus{outline:3px solid var(--orange);outline-offset:-3px}
+  .search button{background:var(--orange);border:0;width:45px;display:flex;align-items:center;justify-content:center;cursor:pointer;border-radius:0 4px 4px 0}
+  .search button:hover{background:#f3a847}
+  .search button svg{width:20px;height:20px;fill:#111}
+  .lang{display:flex;align-items:center;gap:4px;font-weight:700}
+  .flag{width:22px;height:15px;border-radius:2px;overflow:hidden;display:inline-block;box-shadow:0 0 0 1px rgba(255,255,255,.2)}
+  .acct .t1{font-size:12px}
+  .acct .t2{font-size:14px;font-weight:700}
+  .cart{display:flex;align-items:flex-end;gap:4px;position:relative}
+  .cart svg{width:30px;height:30px;fill:#fff}
+  .cart .count{position:absolute;left:20px;top:-4px;color:var(--orange);font-weight:700;font-size:16px}
+  .cart .lbl{font-weight:700;font-size:14px;margin-bottom:3px}
+  .nav-hide{display:flex;align-items:center;gap:6px}
+
+  /* ---------- SUB NAV ---------- */
+  .subnav{background:var(--navy2);color:#fff}
+  .subnav .row{display:flex;align-items:center;gap:2px;height:39px;max-width:1500px;margin:0 auto;padding:0 8px;overflow-x:auto;scrollbar-width:none}
+  .subnav .row::-webkit-scrollbar{display:none}
+  .subnav a{color:#fff;font-size:14px;padding:8px 9px;border:1px solid transparent;border-radius:3px;white-space:nowrap;display:flex;align-items:center;gap:6px}
+  .subnav a:hover{border-color:#fff;text-decoration:none}
+  .subnav .allmenu{font-weight:700;display:flex;align-items:center;gap:6px}
+  .subnav .allmenu svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2}
+  .subnav code{font-family:var(--mono);font-size:13px}
+  .subnav .push{margin-left:auto;color:#f0c14b;font-weight:700}
+
+  /* ---------- BREADCRUMB ---------- */
+  .crumb{padding:8px 0;color:var(--muted);font-size:13px}
+  .crumb a{color:var(--link)}
+  .crumb .sep{color:#ccc;margin:0 6px}
+
+  /* ---------- PRODUCT HERO ---------- */
+  .pdp{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr) 300px;gap:26px;background:var(--white);border-radius:var(--radius);padding:26px 30px 34px;border:1px solid var(--border)}
+  .gallery{position:sticky;top:112px;align-self:start}
+  .stage{border:1px solid #eaeaea;border-radius:10px;padding:22px;background:linear-gradient(160deg,#fff 0%,#f7f9fa 100%);position:relative;overflow:hidden}
+  .stage .brandmark{display:flex;align-items:baseline;gap:3px;font-size:30px;font-weight:800;letter-spacing:-1px;justify-content:center;margin-bottom:4px}
+  .stage .brandmark .in{color:var(--orange)}
+  .stage .smile2{width:120px;height:32px;margin:0 auto 20px;display:block}
+  .resultcard{border:1px solid var(--border);border-radius:8px;background:#fff;padding:13px 14px;box-shadow:0 1px 2px rgba(15,17,17,.08)}
+  .resultcard .badge{display:inline-block;background:var(--deal);color:#fff;font-size:11px;font-weight:700;padding:2px 7px;border-radius:3px;margin-bottom:8px}
+  .resultcard .pt{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:6px;line-height:1.3}
+  .resultcard .stars{display:flex;align-items:center;gap:5px;margin-bottom:7px}
+  .rating-inline{font-size:12px;color:var(--link)}
+  .resultcard .price{color:var(--ink);font-weight:400}
+  .resultcard .price .sym{font-size:12px;position:relative;top:-6px}
+  .resultcard .price .big{font-size:26px;font-weight:500;letter-spacing:-.5px}
+  .resultcard .mrp{font-size:12px;color:var(--muted);margin-top:2px}
+  .resultcard .mrp s{color:var(--muted)}
+  .resultcard .deliv{font-size:12px;color:var(--muted);margin-top:8px}
+  .resultcard .deliv b{color:var(--ink)}
+  .resultcard .stock{color:var(--green);font-size:13px;font-weight:500;margin-top:6px}
+  .thumbs{display:flex;gap:8px;margin-top:14px;justify-content:center;flex-wrap:wrap}
+  .thumbs .th{width:46px;height:46px;border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;color:var(--muted);background:#fff;cursor:pointer;text-align:center;padding:3px;line-height:1.1}
+  .thumbs .th.on,.thumbs .th:hover{border:2px solid var(--orange);color:var(--ink)}
+
+  .info h1{font-size:26px;font-weight:500;line-height:1.25;letter-spacing:-.3px;margin-bottom:5px}
+  .info .byline{font-size:14px;margin-bottom:6px}
+  .info .byline a{color:var(--link)}
+  .info .ratingrow{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding-bottom:9px;border-bottom:1px solid #e7e7e7;margin-bottom:12px}
+  .info .ratingrow .num{font-size:15px;color:var(--ink)}
+  .badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+  .amz-choice{display:inline-flex;align-items:center;gap:6px;background:var(--choice);color:#fff;font-size:12px;font-weight:600;padding:4px 8px 4px 6px;border-radius:3px}
+  .amz-choice b{color:var(--orange)}
+  .tag-mit{display:inline-flex;align-items:center;background:#F0F2F2;border:1px solid var(--border);color:var(--ink);font-size:12px;font-weight:600;padding:4px 9px;border-radius:14px}
+  .pricewrap{margin-bottom:6px}
+  .save{color:var(--deal);font-size:14px}
+  .bigprice{color:var(--ink);margin:2px 0 4px}
+  .bigprice .sym{font-size:14px;position:relative;top:-14px;font-weight:500}
+  .bigprice .amt{font-size:34px;font-weight:500;letter-spacing:-1px}
+  .bigprice .free{font-size:34px;font-weight:500;color:var(--ink)}
+  .mrpline{font-size:13px;color:var(--muted)}
+  .mrpline s{color:var(--muted)}
+  .taxnote{font-size:12px;color:var(--muted);margin-top:3px}
+  .about{margin-top:18px}
+  .about h2{font-size:17px;font-weight:700;margin-bottom:9px}
+  .about ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .about li{position:relative;padding-left:20px;font-size:14px;color:#111;line-height:1.5}
+  .about li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:#333}
+  .about li b{font-weight:700}
+  .about code{font-family:var(--mono);font-size:12.5px;background:#f2f4f4;border:1px solid #e3e6e6;border-radius:4px;padding:1px 5px;color:#0f1111}
+
+  /* buy box */
+  .buybox{border:1px solid var(--border);border-radius:var(--radius);padding:15px 16px 17px;height:fit-content;position:sticky;top:112px}
+  .buybox .bp{margin-bottom:6px}
+  .buybox .bp .sym{font-size:12px;position:relative;top:-8px}
+  .buybox .bp .amt{font-size:26px;font-weight:500}
+  .buybox .ship{font-size:13px;color:var(--muted);margin-bottom:10px}
+  .buybox .ship b{color:var(--ink)}
+  .buybox .ship a{color:var(--link)}
+  .buybox .free-deliv{font-size:14px;margin-bottom:3px}
+  .buybox .free-deliv b{font-weight:700}
+  .buybox .instock{color:var(--green);font-size:18px;font-weight:500;margin:9px 0 4px}
+  .buybox .qty{font-size:13px;color:var(--muted);margin-bottom:12px}
+  .cmdline{background:#f7f8f8;border:1px solid var(--border);border-radius:8px;padding:9px 10px;font-family:var(--mono);font-size:12px;color:#0f1111;display:flex;align-items:center;gap:8px;margin-bottom:12px;overflow-x:auto;white-space:nowrap}
+  .cmdline .dollar{color:var(--muted2);user-select:none}
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:0;border-radius:100px;padding:9px 14px;font-size:14px;font-family:var(--ember);font-weight:500;cursor:pointer;margin-bottom:9px;color:#0f1111;box-shadow:0 2px 5px rgba(15,17,17,.15)}
+  .btn.add{background:var(--yellow)}
+  .btn.add:hover{background:var(--yellow-h)}
+  .btn.buy{background:var(--obtn)}
+  .btn.buy:hover{background:var(--obtn-h)}
+  .btn.buy svg{fill:#0f1111}
+  .btn.ghost{background:#fff;border:1px solid #888c8c;box-shadow:0 2px 5px rgba(15,17,17,.08)}
+  .btn.ghost:hover{background:#f7fafa}
+  .secure{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--link);margin:11px 0 12px}
+  .secure svg{width:13px;height:13px;fill:var(--muted)}
+  .meta-list{font-size:13px;line-height:1.9;border-top:1px solid #e7e7e7;padding-top:10px}
+  .meta-list .k{color:var(--muted);display:inline-block;width:74px}
+  .meta-list .v{color:#0f1111}
+
+  /* ---------- SECTION SHELL ---------- */
+  section.band{padding:26px 0}
+  .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px}
+  .sec-title{font-size:21px;font-weight:700;margin-bottom:2px}
+  .sec-sub{color:var(--muted);font-size:14px;margin-bottom:18px}
+
+  /* tools = search results */
+  .results{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .rescard{border:1px solid var(--border);border-radius:10px;background:#fff;padding:18px 18px 20px;display:flex;flex-direction:column;transition:box-shadow .18s ease,transform .18s ease}
+  .rescard:hover{box-shadow:0 6px 22px rgba(15,17,17,.13);transform:translateY(-2px)}
+  .rescard .rbadge{align-self:flex-start;font-size:11px;font-weight:700;padding:3px 8px;border-radius:3px;margin-bottom:12px;letter-spacing:.2px}
+  .rbadge.best{background:#232F3E;color:#fff}
+  .rbadge.best b{color:var(--orange)}
+  .rbadge.deal{background:var(--deal);color:#fff}
+  .rbadge.fast{background:#E3F2E9;color:var(--green);border:1px solid #bfe3cd}
+  .rescard .tool{font-family:var(--mono);font-size:15px;font-weight:600;color:#0f1111;margin-bottom:4px;word-break:break-word}
+  .rescard .tool .args{color:var(--muted)}
+  .rescard .rstars{display:flex;align-items:center;gap:6px;margin-bottom:11px}
+  .rescard .rstars .c{font-size:12px;color:var(--link)}
+  .rescard .desc{font-size:13.5px;color:#333;line-height:1.5;flex:1;margin-bottom:14px}
+  .rescard .returns{border-top:1px dashed #e0e3e3;padding-top:12px;display:flex;flex-direction:column;gap:6px}
+  .rescard .returns .rr{display:flex;gap:8px;font-size:12.5px}
+  .rescard .returns .rr .dot{color:var(--orange);font-weight:700}
+  .rescard .returns .rr code{font-family:var(--mono);font-size:12px;color:#0f1111}
+
+  /* stars component */
+  .stars5{--val:5;position:relative;display:inline-block;font-size:15px;line-height:1;width:5em;height:1em;color:#e2e4e4}
+  .stars5::before{content:"★★★★★";letter-spacing:1px}
+  .stars5 i{position:absolute;left:0;top:0;overflow:hidden;white-space:nowrap;width:calc(var(--val)/5*100%);color:var(--star-fill)}
+  .stars5 i::before{content:"★★★★★";letter-spacing:1px}
+  .stars-sm{font-size:13px}
+
+  /* json result terminal */
+  .jsonwrap{background:#0f1111;border-radius:10px;padding:0;overflow:hidden;border:1px solid #2a2f2f}
+  .jsonwrap .bar{display:flex;align-items:center;gap:7px;padding:11px 14px;background:#1c2020;border-bottom:1px solid #2a2f2f}
+  .jsonwrap .bar .d{width:11px;height:11px;border-radius:50%}
+  .jsonwrap .bar .lbl{margin-left:8px;color:#9aa0a0;font-family:var(--mono);font-size:12px}
+  .jsonwrap pre{margin:0;padding:18px 20px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.7;color:#d4d8d8}
+  .jsonwrap .k{color:#7cd3c0}
+  .jsonwrap .s{color:#f4b860}
+  .jsonwrap .n{color:#c1a3ff}
+  .jsonwrap .b{color:#7fd4ff}
+  .jsonwrap .cm{color:#5f6a6a}
+
+  /* two-col split */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+  .split .card{display:flex;flex-direction:column}
+
+  /* formula */
+  .formula{text-align:center;padding:14px 0 6px}
+  .formula .eq{display:inline-flex;align-items:center;gap:16px;font-size:15px;color:#0f1111}
+  .formula .frac{display:inline-flex;flex-direction:column;align-items:center}
+  .formula .frac .top{padding:0 8px 6px;border-bottom:2px solid #0f1111}
+  .formula .frac .bot{padding:6px 8px 0}
+  .formula var{font-style:italic;font-family:Georgia,serif}
+  .formula .lead{font-size:26px;font-weight:500;color:var(--orange)}
+
+  /* spec / technical details table */
+  table.spec{width:100%;border-collapse:collapse;font-size:13.5px}
+  table.spec tr:nth-child(odd){background:#F7F8F8}
+  table.spec th{text-align:left;color:#565959;font-weight:700;padding:9px 14px;width:34%;vertical-align:top}
+  table.spec td{padding:9px 14px;color:#0f1111;vertical-align:top}
+  table.spec code{font-family:var(--mono);font-size:12.5px}
+
+  /* install steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .step{background:#fff;border:1px solid var(--border);border-radius:10px;padding:18px}
+  .step .n{width:26px;height:26px;border-radius:50%;background:var(--navy2);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;margin-bottom:10px}
+  .step h3{font-size:15px;font-weight:700;margin-bottom:8px}
+  .step p{font-size:13px;color:#333;margin-bottom:10px;line-height:1.5}
+  .codeblk{background:#0f1111;border-radius:8px;padding:12px 13px;font-family:var(--mono);font-size:12px;color:#e5e8e8;overflow-x:auto;line-height:1.7;position:relative}
+  .codeblk .cp{color:#f4b860}
+  .codeblk .cm{color:#6b7575}
+  .copymini{position:absolute;top:8px;right:8px;background:#2a2f2f;border:1px solid #3a4040;color:#c5cccc;font-size:11px;padding:3px 8px;border-radius:5px;cursor:pointer;font-family:var(--ember)}
+  .copymini:hover{background:#3a4040}
+
+  /* env table */
+  .envnote{font-size:13px;color:#333;line-height:1.6}
+  .envnote code{font-family:var(--mono);font-size:12.5px;background:#f2f4f4;border:1px solid #e3e6e6;border-radius:4px;padding:1px 5px}
+
+  /* Q&A / FAQ */
+  .qa{display:flex;flex-direction:column}
+  .qa .qitem{padding:16px 0;border-bottom:1px solid #e7e7e7;display:grid;grid-template-columns:56px 1fr;gap:14px}
+  .qa .qitem:last-child{border-bottom:0}
+  .votes{display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--muted);font-size:12px}
+  .votes .up{font-size:18px}
+  .votes .cnt{font-weight:700;color:#0f1111;font-size:15px}
+  .qbody .q{font-size:15px;font-weight:600;margin-bottom:7px}
+  .qbody .q .badge{background:#F0C14B;color:#0f1111;font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;margin-right:7px;vertical-align:middle}
+  .qbody .a{font-size:14px;color:#111;line-height:1.6}
+  .qbody .a code{font-family:var(--mono);font-size:12.5px;background:#f2f4f4;border:1px solid #e3e6e6;border-radius:4px;padding:1px 5px}
+
+  /* seller / author */
+  .seller{display:grid;grid-template-columns:96px 1fr;gap:20px;align-items:start}
+  .seller img{width:96px;height:96px;border-radius:12px;object-fit:cover;border:1px solid var(--border)}
+  .seller .sname{font-size:17px;font-weight:700;margin-bottom:3px}
+  .seller .sname .verified{color:var(--link);font-size:12px;font-weight:600;margin-left:8px}
+  .seller .smeta{color:var(--muted);font-size:13px;margin-bottom:10px}
+  .seller p{font-size:14px;color:#222;line-height:1.6;margin-bottom:12px}
+  .seller .slinks a{margin-right:16px;font-size:14px}
+
+  /* toast */
+  .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:#0f1111;color:#fff;padding:12px 20px;border-radius:8px;font-size:14px;box-shadow:0 10px 30px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:.25s;z-index:120;display:flex;align-items:center;gap:9px}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .toast svg{width:16px;height:16px;fill:#5fd08a}
+
+  /* back to top */
+  .backtop{background:var(--navy3);color:#fff;text-align:center;padding:15px;font-size:13px;cursor:pointer}
+  .backtop:hover{background:#485769}
+
+  /* footer */
+  footer{background:var(--navy2);color:#fff}
+  footer .cols{max-width:1100px;margin:0 auto;padding:38px 20px 30px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  footer h4{font-size:15px;margin-bottom:14px}
+  footer ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  footer ul a{color:#DDD;font-size:13px}
+  footer ul a:hover{text-decoration:underline;color:#fff}
+  footer .rule{border-top:1px solid #3a4553}
+  footer .brandbar{max-width:1100px;margin:0 auto;padding:22px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  footer .brandbar .lw{display:flex;align-items:baseline;gap:2px;font-weight:700;font-size:20px}
+  footer .brandbar .lw .in{color:var(--orange)}
+  .bottombar{background:var(--navy);color:#ccced1;text-align:center;padding:22px;font-size:12px}
+  .bottombar a{color:#8ab4f8}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* responsive */
+  @media (max-width:1000px){
+    .pdp{grid-template-columns:1fr;gap:22px}
+    .gallery,.buybox{position:static}
+    .buybox{max-width:420px}
+    .results,.steps{grid-template-columns:1fr}
+    .split{grid-template-columns:1fr}
+    .nav-hide{display:none}
+  }
+  @media (max-width:640px){
+    .topnav .row{height:52px}
+    .logo .lw{font-size:18px}
+    .search .cat{display:none}
+    .deliver,.lang{display:none}
+    .info h1{font-size:22px}
+    .qa .qitem{grid-template-columns:40px 1fr}
+    .seller{grid-template-columns:1fr}
+    .seller img{width:80px;height:80px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== DISCLAIMER BANNER ===== -->
+<div class="disclaimer">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 21h22L12 2zm0 4.5L19 19H5l7-12.5zM11 10v5h2v-5h-2zm0 6v2h2v-2h-2z"/></svg>
+  <span><b>Not Amazon.</b> This is <b>amazon-in-mcp</b> — an unofficial, open-source MCP server by <a href="https://adityarajsingh.com" target="_blank" rel="noopener">Aditya Raj Singh</a>. Not affiliated with, endorsed by, or connected to Amazon.com or Amazon.in.</span>
+</div>
+
+<!-- ===== TOP NAV ===== -->
+<header class="topnav">
+  <div class="row">
+    <a href="#" class="nav-cell logo" aria-label="amazon-in-mcp home">
+      <span class="lw">amazon-in-mcp</span>
+      <svg class="smile" viewBox="0 0 120 22" aria-hidden="true"><path d="M4 13c22 12 78 12 108 0" fill="none" stroke="#FF9900" stroke-width="4" stroke-linecap="round"/><path d="M104 8l10 5-6 8" fill="none" stroke="#FF9900" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <div class="nav-cell deliver nav-hide">
+      <svg class="pin" viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+      <div class="txt"><span class="t1">Deliver to</span><span class="t2">Claude · 🇮🇳 India</span></div>
+    </div>
+    <form class="search" onsubmit="return doSearch(event)">
+      <span class="cat">All tools</span>
+      <input type="text" id="q" placeholder="Search amazon.in — “1TB SSD under ₹10,000, best value”" aria-label="Search">
+      <button type="submit" aria-label="Search"><svg viewBox="0 0 24 24"><path d="M10 2a8 8 0 1 0 4.9 14.3l5.4 5.4 1.4-1.4-5.4-5.4A8 8 0 0 0 10 2zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12z"/></svg></button>
+    </form>
+    <div class="nav-cell lang nav-hide">
+      <span class="flag"><svg viewBox="0 0 22 15"><rect width="22" height="5" fill="#FF9933"/><rect y="5" width="22" height="5" fill="#fff"/><rect y="10" width="22" height="5" fill="#138808"/><circle cx="11" cy="7.5" r="2" fill="none" stroke="#000080" stroke-width=".6"/></svg></span>
+      EN
+    </div>
+    <a class="nav-cell acct nav-hide" href="https://www.npmjs.com/package/amazon-in-mcp-server" target="_blank" rel="noopener" style="color:#fff">
+      <div><span class="t1">Hello, install</span><br><span class="t2">Package &amp; Registry ▾</span></div>
+    </a>
+    <a class="nav-cell cart" href="https://github.com/justadityaraj/amazon-in-mcp" target="_blank" rel="noopener" aria-label="View on GitHub" style="color:#fff">
+      <svg viewBox="0 0 24 24"><path d="M7 4h-2l-1 2h2l3.6 7.6-1.35 2.44C7.5 17 8.2 18 9.2 18H19v-2H9.4l1.1-2h6.45c.75 0 1.4-.42 1.73-1.05L21.7 7H6.2L5.3 5H2V4h5zM9 20a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm9 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+      <span class="count">3</span><span class="lbl">Tools</span>
+    </a>
+  </div>
+</header>
+
+<!-- ===== SUB NAV ===== -->
+<nav class="subnav">
+  <div class="row">
+    <a href="#tools" class="allmenu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg> All</a>
+    <a href="#tools"><code>search_amazon_in</code></a>
+    <a href="#tools"><code>get_product</code></a>
+    <a href="#tools"><code>price_history_link</code></a>
+    <a href="#value">Best Value</a>
+    <a href="#specs">Technical Details</a>
+    <a href="#install">Install</a>
+    <a href="#faq">Q&amp;A</a>
+    <span class="push">MIT · Free · No API keys</span>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- breadcrumb -->
+  <div class="crumb reveal">
+    <a href="https://dev.adityarajsingh.com/">MCP Servers</a><span class="sep">›</span>
+    <a href="#tools">Shopping &amp; Retail</a><span class="sep">›</span>
+    <a href="https://amazon.in" target="_blank" rel="noopener nofollow">Amazon.in</a><span class="sep">›</span>
+    <span>amazon-in-mcp</span>
+  </div>
+
+  <!-- ===== PRODUCT DETAIL ===== -->
+  <div class="pdp reveal">
+
+    <!-- gallery -->
+    <div class="gallery">
+      <div class="stage">
+        <div class="brandmark">amazon<span class="in">.in</span></div>
+        <svg class="smile2" viewBox="0 0 120 22" aria-hidden="true"><path d="M4 13c22 12 78 12 108 0" fill="none" stroke="#FF9900" stroke-width="4" stroke-linecap="round"/><path d="M104 8l10 5-6 8" fill="none" stroke="#FF9900" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="resultcard">
+          <span class="badge">Best value pick</span>
+          <div class="pt">SanDisk Extreme 1TB Portable SSD, USB-C, up to 1050 MB/s</div>
+          <div class="stars"><span class="stars5" style="--val:4.5"><i></i></span> <a href="#value" class="rating-inline">8,412</a></div>
+          <div class="price"><span class="sym">₹</span><span class="big">8,999</span></div>
+          <div class="mrp">M.R.P: <s>₹14,999</s> &nbsp;(40% off)</div>
+          <div class="stock">In stock</div>
+          <div class="deliv"><b>FREE delivery</b> Tomorrow · price history via Keepa</div>
+        </div>
+      </div>
+      <div class="thumbs">
+        <div class="th on">search_<br>amazon_in</div>
+        <div class="th">get_<br>product</div>
+        <div class="th">price_<br>history</div>
+        <div class="th">stdio<br>no keys</div>
+      </div>
+    </div>
+
+    <!-- info -->
+    <div class="info">
+      <h1>amazon-in-mcp — Amazon.in MCP Server</h1>
+      <div class="byline">by <a href="https://adityarajsingh.com" target="_blank" rel="noopener">Aditya Raj Singh</a> · <a href="https://github.com/justadityaraj/amazon-in-mcp" target="_blank" rel="noopener">Visit the GitHub repo</a></div>
+      <div class="ratingrow">
+        <span class="stars5" style="--val:4.9"><i></i></span>
+        <span class="num">4.9</span>
+        <a href="#faq" class="rating-inline">128 ratings</a>
+        <span style="color:#ccc">|</span>
+        <a href="#tools" class="rating-inline">3 tools answered</a>
+      </div>
+
+      <div class="badges">
+        <span class="amz-choice"><b>Open source</b> Choice</span>
+        <span class="tag-mit">MIT License</span>
+        <span class="tag-mit">Node.js 18+</span>
+        <span class="tag-mit">stdio</span>
+      </div>
+
+      <div class="pricewrap">
+        <span class="save">-100%</span>
+        <div class="bigprice"><span class="sym">₹</span><span class="free">Free</span></div>
+        <div class="mrpline">M.R.P: <s>₹ paid shopping APIs</s></div>
+        <div class="taxnote">Inclusive of all 3 tools. No API keys, no accounts, no rate-limit invoices.</div>
+      </div>
+
+      <div class="about">
+        <h2>About this item</h2>
+        <ul>
+          <li>Lets your LLM <b>shop on Amazon.in</b> directly — it returns real listings with current price, MRP, discount, rating, reviews, stock and delivery.</li>
+          <li>Every search hands back two convenience picks: the <b>cheapest in-stock</b> item and the <b>best-value</b> pick, scored by rating, review count and price.</li>
+          <li><b>No paid APIs, no accounts.</b> Runs locally over <code>stdio</code>, scraping HTML directly with rotating user agents and retry on bot-check pages.</li>
+          <li>Ships a <b>Keepa price-history link</b> for any product — no network call, instant.</li>
+          <li>Works in <b>Claude Code, Claude Desktop, Cursor, Windsurf</b> and any MCP-capable client.</li>
+          <li>Funded by an optional Amazon Associates tag — <b>you pay the same price</b>, and you can swap in your own tag or turn it off with one env var.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- buy box -->
+    <aside class="buybox">
+      <div class="bp"><span class="sym">₹</span><span class="amt">0.00</span></div>
+      <div class="free-deliv"><b>FREE</b> install over stdio</div>
+      <div class="ship">No API key required. <a href="#install">Setup in under a minute ›</a></div>
+      <div class="instock">In stock</div>
+      <div class="qty">Ships from <b>npm</b> · Sold by <b>Open Source</b></div>
+
+      <div class="cmdline" id="cmd-hero"><span class="dollar">$</span><span>claude mcp add amazon-in -- npx -y amazon-in-mcp-server</span></div>
+
+      <button class="btn add" onclick="copyCmd('claude mcp add amazon-in -- npx -y amazon-in-mcp-server')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#0f1111"><path d="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+        Add to Cart — copy install
+      </button>
+      <a class="btn buy" href="https://github.com/justadityaraj/amazon-in-mcp" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="m12 17.27 5.18 3.13-1.37-5.9L20.5 9.5l-6.06-.52L12 3.5 9.56 8.98 3.5 9.5l4.69 5-1.37 5.9z"/></svg>
+        Buy Now — Star on GitHub
+      </a>
+      <a class="btn ghost" href="https://www.npmjs.com/package/amazon-in-mcp-server" target="_blank" rel="noopener">View on npm</a>
+
+      <div class="secure">
+        <svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4zm0 10.9h7c-.5 4.1-3.3 7.8-7 8.9V12H5V6.3l7-3.1v8.7z"/></svg>
+        Secure &amp; local · your prompts never leave your machine
+      </div>
+
+      <div class="meta-list">
+        <div><span class="k">Package</span><span class="v"><code style="font-family:var(--mono);font-size:12px">amazon-in-mcp-server</code></span></div>
+        <div><span class="k">Version</span><span class="v">0.1.1</span></div>
+        <div><span class="k">Transport</span><span class="v">stdio</span></div>
+        <div><span class="k">Registry</span><span class="v"><a href="https://github.com/modelcontextprotocol/registry" target="_blank" rel="noopener">MCP Registry</a> · npm</span></div>
+        <div><span class="k">License</span><span class="v">MIT</span></div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ===== TOOLS = SEARCH RESULTS ===== -->
+  <section class="band" id="tools">
+    <div class="card reveal">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:10px">
+        <div>
+          <div class="sec-title">3 results for “tools your LLM can call”</div>
+          <div class="sec-sub">Sorted by: <b style="color:#0f1111">Featured</b> · all in stock over stdio</div>
+        </div>
+        <div style="font-size:13px;color:var(--muted)">Amazon.in domain · rotating UAs · retry on bot-check</div>
+      </div>
+      <div class="results">
+
+        <div class="rescard reveal">
+          <span class="rbadge best">#1 <b>Best Seller</b> in Shopping</span>
+          <div class="tool">search_amazon_in<span class="args">(query, max_results=5)</span></div>
+          <div class="rstars"><span class="stars5 stars-sm" style="--val:5"><i></i></span><span class="c">the workhorse</span></div>
+          <div class="desc">Ranked listings for any query, plus two convenience picks in the same response: <b>cheapest_in_stock</b> and <b>best_value</b>.</div>
+          <div class="returns">
+            <div class="rr"><span class="dot">›</span><span>Ranked <code>results[]</code> with price, MRP, rating, reviews</span></div>
+            <div class="rr"><span class="dot">›</span><span><code>cheapest_in_stock</code> — lowest price, in stock</span></div>
+            <div class="rr"><span class="dot">›</span><span><code>best_value</code> — the balance pick</span></div>
+          </div>
+        </div>
+
+        <div class="rescard reveal">
+          <span class="rbadge deal">Amazon's Choice</span>
+          <div class="tool">get_product<span class="args">(asin_or_url)</span></div>
+          <div class="rstars"><span class="stars5 stars-sm" style="--val:4.8"><i></i></span><span class="c">full detail</span></div>
+          <div class="desc">Everything about one product from its ASIN or a full amazon.in URL — the complete spec sheet.</div>
+          <div class="returns">
+            <div class="rr"><span class="dot">›</span><span>price, MRP, <code>discount_percent</code>, rating, reviews</span></div>
+            <div class="rr"><span class="dot">›</span><span><code>bullets[]</code>, brand, seller, availability</span></div>
+            <div class="rr"><span class="dot">›</span><span>stock status + delivery estimate</span></div>
+          </div>
+        </div>
+
+        <div class="rescard reveal">
+          <span class="rbadge fast">⚡ Zero latency</span>
+          <div class="tool">price_history_link<span class="args">(asin_or_url)</span></div>
+          <div class="rstars"><span class="stars5 stars-sm" style="--val:4.7"><i></i></span><span class="c">instant</span></div>
+          <div class="desc">A Keepa.com price-history chart URL for the amazon.in domain. Pure string-building — <b>no network call</b>.</div>
+          <div class="returns">
+            <div class="rr"><span class="dot">›</span><span>Keepa chart URL for the ASIN</span></div>
+            <div class="rr"><span class="dot">›</span><span>Scoped to the <code>amazon.in</code> domain</span></div>
+            <div class="rr"><span class="dot">›</span><span>Returns instantly — nothing to fetch</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LIVE RESULT + BEST VALUE ===== -->
+  <section class="band" id="value">
+    <div class="split">
+      <div class="card reveal">
+        <div class="sec-title">What a real call returns</div>
+        <div class="sec-sub"><code style="font-family:var(--mono)">search_amazon_in("wireless mouse", 3)</code></div>
+        <div class="jsonwrap">
+          <div class="bar"><span class="d" style="background:#ff5f57"></span><span class="d" style="background:#febc2e"></span><span class="d" style="background:#28c840"></span><span class="lbl">mcp · stdio</span></div>
+<pre><span class="cm">// trimmed to the good part</span>
+{
+  <span class="k">"query"</span>: <span class="s">"wireless mouse"</span>,
+  <span class="k">"total_results"</span>: <span class="n">3</span>,
+  <span class="k">"results"</span>: [{
+    <span class="k">"asin"</span>: <span class="s">"B0CQRNWJM2"</span>,
+    <span class="k">"title"</span>: <span class="s">"ZEBRONICS Blanc Slim Wireless…"</span>,
+    <span class="k">"price_inr"</span>: <span class="n">423</span>,
+    <span class="k">"mrp_inr"</span>: <span class="n">799</span>,
+    <span class="k">"rating"</span>: <span class="n">4.0</span>,
+    <span class="k">"review_count"</span>: <span class="n">7801</span>,
+    <span class="k">"in_stock"</span>: <span class="b">true</span>,
+    <span class="k">"delivery"</span>: <span class="s">"FREE delivery Tomorrow"</span>
+  }],
+  <span class="k">"cheapest_in_stock"</span>: { <span class="k">"price_inr"</span>: <span class="n">199</span> },
+  <span class="k">"best_value"</span>:        { <span class="k">"rating"</span>: <span class="n">4.3</span> }
+}</pre>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="sec-title">How “best value” is scored</div>
+        <div class="sec-sub">Among in-stock listings with 10+ reviews, highest score wins.</div>
+        <div class="formula">
+          <div class="eq">
+            <span class="lead">score</span>
+            <span style="font-size:26px">=</span>
+            <span class="frac">
+              <span class="top"><var>rating</var> × log<sub>10</sub>(<var>reviews</var> + 10)</span>
+              <span class="bot">√<var>price</var></span>
+            </span>
+          </div>
+        </div>
+        <div class="about" style="margin-top:22px">
+          <ul>
+            <li><b>Rewards genuine quality</b> — a high rating counts, but only when it's backed by a real volume of reviews.</li>
+            <li><b>The log tames review count</b> — 50,000 reviews doesn't bulldoze a great 800-review product.</li>
+            <li><b>√price keeps it honest</b> — cheaper wins ties, without letting price alone dominate.</li>
+            <li>Want raw cheapness instead? <code>cheapest_in_stock</code> is right there in the same response.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TECHNICAL DETAILS ===== -->
+  <section class="band" id="specs">
+    <div class="card reveal">
+      <div class="sec-title">Technical Details</div>
+      <div class="sec-sub">Product information · robustness &amp; behaviour</div>
+      <table class="spec">
+        <tr><th>Transport</th><td>stdio — no HTTP server, no ports, no cookies, no session state</td></tr>
+        <tr><th>User-agent rotation</th><td>5 modern desktop UAs (Chrome / Safari / Firefox on Mac, Windows, Linux)</td></tr>
+        <tr><th>Retries</th><td>3 attempts with exponential backoff on 5xx, 429 and bot-check pages</td></tr>
+        <tr><th>Bot detection</th><td>Scans the first 8&nbsp;KB of each response for known CAPTCHA / robot markers</td></tr>
+        <tr><th>Timeout</th><td>20&nbsp;seconds per request</td></tr>
+        <tr><th>Runtime</th><td>Node.js 18+ · TypeScript · <code>@modelcontextprotocol/sdk</code> + <code>cheerio</code> + <code>zod</code></td></tr>
+        <tr><th>Image search</th><td>Provider-agnostic by design — paste an image into your LLM, it describes it and calls <code>search_amazon_in</code> with the right keywords</td></tr>
+        <tr><th>Reliability note</th><td>Expect ~1–5% of requests to hit a bot-check under heavy use. Wait 30–60&nbsp;s and retry, or switch networks.</td></tr>
+        <tr><th>License</th><td>MIT — free to use, fork and ship</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== INSTALL ===== -->
+  <section class="band" id="install">
+    <div class="card reveal">
+      <div class="sec-title">Get it in 3 steps</div>
+      <div class="sec-sub">Delivered over stdio · usually installs in under a minute</div>
+      <div class="steps">
+        <div class="step">
+          <div class="n">1</div>
+          <h3>Add the server</h3>
+          <p>One line in Claude Code — installs straight from npm:</p>
+          <div class="codeblk"><button class="copymini" onclick="copyCmd('claude mcp add amazon-in -- npx -y amazon-in-mcp-server')">Copy</button><span class="cp">claude</span> mcp add amazon-in -- <span class="cp">npx</span> -y amazon-in-mcp-server</div>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <h3>Restart your client</h3>
+          <p>Restart Claude Code, Claude Desktop, Cursor or Windsurf so it picks up the new MCP server.</p>
+          <div class="codeblk"><span class="cm"># Claude Desktop config</span><br>~/Library/Application Support/<br>Claude/claude_desktop_config.json</div>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <h3>Ask it to shop</h3>
+          <p>Just talk to your LLM — it picks the right tool automatically:</p>
+          <div class="codeblk"><span class="cm">“Find a good 1TB external SSD on<br>amazon.in under ₹10,000. Best<br>value pick, and a price history link.”</span></div>
+        </div>
+      </div>
+
+      <div style="margin-top:22px;border-top:1px solid #e7e7e7;padding-top:18px">
+        <h3 style="font-size:15px;font-weight:700;margin-bottom:10px">Optional: bring your own affiliate tag</h3>
+        <p class="envnote">By default the amazon.in URLs carry the author's Associates tag (<code>artech-21</code>) — <b>you pay the same price</b>, and it's the only thing keeping the project free and maintained. Override it with the <code>AMAZON_IN_AFFILIATE_TAG</code> env var: set <code>yourtag-21</code> for your own, or <code>none</code> / <code>off</code> / <code>""</code> to emit raw amazon.in URLs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Q&A ===== -->
+  <section class="band" id="faq">
+    <div class="card reveal">
+      <div class="sec-title">Customer questions &amp; answers</div>
+      <div class="sec-sub">Everything people ask before they wire it in</div>
+      <div class="qa">
+        <div class="qitem">
+          <div class="votes"><span class="up">▲</span><span class="cnt">42</span><span>votes</span></div>
+          <div class="qbody">
+            <div class="q"><span class="badge">Q</span>Does it need an Amazon API key or account?</div>
+            <div class="a">No. There are <b>no API keys and no accounts</b>. It runs locally over <code>stdio</code> and reads Amazon.in HTML directly, with rotating user agents and automatic retry on bot-check pages.</div>
+          </div>
+        </div>
+        <div class="qitem">
+          <div class="votes"><span class="up">▲</span><span class="cnt">38</span><span>votes</span></div>
+          <div class="qbody">
+            <div class="q"><span class="badge">Q</span>How do I install it with Claude Code?</div>
+            <div class="a">One line: <code>claude mcp add amazon-in -- npx -y amazon-in-mcp-server</code>. Restart your client and ask it to find something on amazon.in. Full steps are in the <a href="#install">Install section</a> above.</div>
+          </div>
+        </div>
+        <div class="qitem">
+          <div class="votes"><span class="up">▲</span><span class="cnt">31</span><span>votes</span></div>
+          <div class="qbody">
+            <div class="q"><span class="badge">Q</span>How does the “best value” pick actually work?</div>
+            <div class="a">Among in-stock listings with at least 10 reviews, each is scored by <code>rating × log10(reviews + 10) ÷ √price</code> and the highest wins. The <code>cheapest_in_stock</code> item is returned separately for when you just want the lowest price.</div>
+          </div>
+        </div>
+        <div class="qitem">
+          <div class="votes"><span class="up">▲</span><span class="cnt">27</span><span>votes</span></div>
+          <div class="qbody">
+            <div class="q"><span class="badge">Q</span>Which clients does it work with?</div>
+            <div class="a">Any MCP-capable client — <b>Claude Code, Claude Desktop, Cursor, Windsurf</b> and others. Claude Desktop / Cursor use the same JSON config; drop it into the client's MCP settings file.</div>
+          </div>
+        </div>
+        <div class="qitem">
+          <div class="votes"><span class="up">▲</span><span class="cnt">24</span><span>votes</span></div>
+          <div class="qbody">
+            <div class="q"><span class="badge">Q</span>Is it free and open source?</div>
+            <div class="a">Yes — <b>MIT-licensed</b> and free, with the full source on <a href="https://github.com/justadityaraj/amazon-in-mcp" target="_blank" rel="noopener">GitHub</a> and the package on <a href="https://www.npmjs.com/package/amazon-in-mcp-server" target="_blank" rel="noopener">npm</a>.</div>
+          </div>
+        </div>
+        <div class="qitem">
+          <div class="votes"><span class="up">▲</span><span class="cnt">19</span><span>votes</span></div>
+          <div class="qbody">
+            <div class="q"><span class="badge">Q</span>How is the project funded?</div>
+            <div class="a">By default the amazon.in URLs carry the author's Amazon Associates tag. <b>You pay the same price</b>; the author earns a small commission that keeps it free and maintained. Swap in your own tag or disable it entirely with the <code>AMAZON_IN_AFFILIATE_TAG</code> env var.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SELLER / AUTHOR ===== -->
+  <section class="band">
+    <div class="card reveal">
+      <div class="sec-title" style="margin-bottom:16px">From the seller</div>
+      <div class="seller">
+        <img src="author-aditya.jpg" alt="Aditya Raj Singh" loading="lazy">
+        <div>
+          <div class="sname">Aditya Raj Singh <span class="verified">✓ Verified open-source author</span></div>
+          <div class="smeta">Builder · runs several D2C stores on amazon.in · ships MCP servers for the tools he actually uses</div>
+          <p>I shop on Amazon.in constantly, so I wanted my LLM to do it properly — not just search, but tell me the cheapest in-stock option and the genuinely best-value pick, with a price-history link so I know I'm not buying at a fake-discount peak. No paid APIs, no accounts, just HTML and a scoring function. More of what I build over at <a href="https://adityarajsingh.com" target="_blank" rel="noopener">adityarajsingh.com</a>.</p>
+          <div class="slinks">
+            <a href="https://github.com/justadityaraj/amazon-in-mcp" target="_blank" rel="noopener">GitHub repo ›</a>
+            <a href="https://www.npmjs.com/package/amazon-in-mcp-server" target="_blank" rel="noopener">npm package ›</a>
+            <a href="https://adityarajsingh.com" target="_blank" rel="noopener">adityarajsingh.com ›</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="band">
+    <div class="card reveal" style="text-align:center;background:linear-gradient(180deg,#fff 0%,#fff8ec 100%)">
+      <div class="sec-title" style="font-size:24px">Ready to check out?</div>
+      <div class="sec-sub" style="margin-bottom:20px">Free, MIT, no API keys. Give Claude the run of Amazon.in.</div>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:520px;margin:0 auto">
+        <button class="btn add" style="max-width:250px" onclick="copyCmd('claude mcp add amazon-in -- npx -y amazon-in-mcp-server')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#0f1111"><path d="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2z"/></svg>
+          Copy install command
+        </button>
+        <a class="btn buy" style="max-width:250px" href="https://github.com/justadityaraj/amazon-in-mcp" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24"><path d="m12 17.27 5.18 3.13-1.37-5.9L20.5 9.5l-6.06-.52L12 3.5 9.56 8.98 3.5 9.5l4.69 5-1.37 5.9z"/></svg>
+          Star it on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== BACK TO TOP ===== -->
+<div class="backtop" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="cols">
+    <div>
+      <h4>The server</h4>
+      <ul>
+        <li><a href="#tools">The 3 tools</a></li>
+        <li><a href="#value">Best-value scoring</a></li>
+        <li><a href="#specs">Technical details</a></li>
+        <li><a href="#install">Install guide</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get it</h4>
+      <ul>
+        <li><a href="https://github.com/justadityaraj/amazon-in-mcp" target="_blank" rel="noopener">GitHub repository</a></li>
+        <li><a href="https://www.npmjs.com/package/amazon-in-mcp-server" target="_blank" rel="noopener">npm package</a></li>
+        <li><a href="https://github.com/justadityaraj/amazon-in-mcp#readme" target="_blank" rel="noopener">Read the docs</a></li>
+        <li><a href="https://github.com/modelcontextprotocol/registry" target="_blank" rel="noopener">MCP Registry</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <ul>
+        <li><a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">What is MCP?</a></li>
+        <li><a href="#faq">Questions &amp; answers</a></li>
+        <li><a href="https://keepa.com" target="_blank" rel="noopener nofollow">Keepa price history</a></li>
+        <li><a href="#install">Affiliate tag &amp; funding</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Author</h4>
+      <ul>
+        <li><a href="https://adityarajsingh.com" target="_blank" rel="noopener">adityarajsingh.com</a></li>
+        <li><a href="https://dev.adityarajsingh.com/" target="_blank" rel="noopener">More MCP servers</a></li>
+        <li><a href="https://github.com/justadityaraj" target="_blank" rel="noopener">GitHub profile</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="rule"></div>
+  <div class="brandbar">
+    <span class="lw">amazon-in-mcp <span class="in">.</span></span>
+    <span style="color:#9aa7b3;font-size:13px">Not affiliated with, or endorsed by, Amazon. “Amazon” and “amazon.in” are trademarks of Amazon.com, Inc.</span>
+  </div>
+</footer>
+<div class="bottombar">
+  © 2026 <a href="https://adityarajsingh.com" target="_blank" rel="noopener">Aditya Raj Singh</a> · MIT licensed · Built for the LLMs that shop.
+</div>
+
+<!-- toast -->
+<div class="toast" id="toast"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span id="toast-msg">Copied to clipboard</span></div>
+
+<script>
+  function showToast(msg){
+    const t=document.getElementById('toast');
+    document.getElementById('toast-msg').textContent=msg;
+    t.classList.add('show');
+    clearTimeout(window.__tt);
+    window.__tt=setTimeout(()=>t.classList.remove('show'),1900);
+  }
+  function copyCmd(cmd){
+    navigator.clipboard.writeText(cmd).then(()=>showToast('Added to cart — install command copied'))
+      .catch(()=>showToast('Copy failed — select it manually'));
+  }
+  function doSearch(e){
+    e.preventDefault();
+    const q=document.getElementById('q').value.trim();
+    showToast(q ? 'Your LLM would call search_amazon_in("'+q.slice(0,32)+(q.length>32?'…':'')+'")' : 'Type what you want to buy — your LLM does the rest');
+    document.getElementById('tools').scrollIntoView({behavior:'smooth'});
+    return false;
+  }
+  // staggered scroll reveal
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach((en)=>{
+      if(en.isIntersecting){
+        const sibs=[...en.target.parentElement.children].filter(c=>c.classList.contains('reveal'));
+        const idx=sibs.indexOf(en.target);
+        en.target.style.transitionDelay=(idx>=0?Math.min(idx,6)*70:0)+'ms';
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      }
+    });
+  },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
+<!-- by [Aditya Raj Singh](https://adityarajsingh.com/) -->
