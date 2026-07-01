@@ -10,15 +10,15 @@
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#4A154B">
 <meta name="keywords" content="Slack Lists MCP, Slack Lists MCP server, Model Context Protocol, Claude Slack integration, AI Slack task management, Slack automation, MCP server">
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="slack-logo.svg" type="image/svg+xml">
 
 <!-- Open Graph / link previews -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Aditya Raj Singh">
 <meta property="og:title" content="Slack Lists MCP Server — Full Read/Write Slack Lists for AI">
-<meta property="og:description" content="Upstream could only create and read. This fork adds update, delete and column discovery so Claude can run Slack List tasks end to end.">
+<meta property="og:description" content="Eight tools give Claude the full Slack Lists lifecycle — create, read, filter, export, update, delete and auto-discover columns — so it runs tasks end to end in your workspace.">
 <meta property="og:image" content="https://dev.adityarajsingh.com/slack-lists-mcp/og-image.jpg">
-<meta property="og:image:alt" content="Slack Lists MCP — let AI finish your Slack tasks, not just file them">
+<meta property="og:image:alt" content="Slack Lists MCP — let AI finish your Slack tasks end to end">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/jpeg">
@@ -28,7 +28,7 @@
 <meta name="twitter:title" content="Slack Lists MCP Server — Full Read/Write Slack Lists for AI">
 <meta name="twitter:description" content="Open-source MCP that lets Claude create, check off, reassign and delete Slack List tasks end to end.">
 <meta name="twitter:image" content="https://dev.adityarajsingh.com/slack-lists-mcp/og-image.jpg">
-<meta name="twitter:image:alt" content="Slack Lists MCP — let AI finish your Slack tasks, not just file them">
+<meta name="twitter:image:alt" content="Slack Lists MCP — let AI finish your Slack tasks end to end">
 
 <!-- Structured data: software, author, breadcrumb, FAQ -->
 <script type="application/ld+json">
@@ -106,8 +106,8 @@
         },
         {
           "@type": "Question",
-          "name": "How is this different from the original maplehilllabs Slack Lists MCP?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The upstream server was read and create only. This fork adds the write side — update_list_item, delete_list_item and discover_list_columns — plus full Slack field-type support for text, date, user, select, checkbox, number, email and phone." }
+          "name": "Does the Slack Lists MCP cover the full lifecycle?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — read and write. On top of creating, fetching and filtering items it handles the write side too: update_list_item, delete_list_item and discover_list_columns, with full Slack field-type support for text, date, user, select, checkbox, number, email and phone. It builds on the community maplehilllabs/mcp-slack-lists server." }
         },
         {
           "@type": "Question",
@@ -193,10 +193,8 @@
     border-bottom:1px solid rgba(255,255,255,.08);
   }
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{display:flex;align-items:center;gap:11px;color:#fff;font-family:var(--mono);font-weight:500;font-size:.95rem;letter-spacing:-.01em}
-  .brand .dots{display:flex;gap:3px}
-  .brand .dots span{width:9px;height:9px;border-radius:50%;display:block}
-  .d1{background:var(--slack-blue)} .d2{background:var(--slack-green)} .d3{background:var(--slack-yellow)} .d4{background:var(--slack-red)}
+  .brand{display:flex;align-items:center;gap:10px;color:#fff;font-family:var(--mono);font-weight:500;font-size:.95rem;letter-spacing:-.01em}
+  .slack-mark{display:block;flex:0 0 auto}
   .nav-right{display:flex;align-items:center;gap:22px}
   .nav-link{color:rgba(255,255,255,.78);font-size:.92rem;transition:color .2s}
   .nav-link:hover{color:#fff}
@@ -317,6 +315,10 @@
   .ps-card li svg{width:17px;height:17px;flex:0 0 17px;margin-top:4px}
   .ps-before li svg{stroke:#c98aa0} .ps-after li svg{stroke:var(--cta)}
   .ps-after::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--slack-blue),var(--slack-green),var(--slack-yellow),var(--slack-red))}
+  .ps-read{border-color:#bcdff0;box-shadow:0 0 0 1px #bcdff0, var(--shadow-sm)}
+  .ps-read .tag{background:#e2f6fd;color:#0b6f92}
+  .ps-read li svg{stroke:#0b89b5}
+  .ps-read::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--slack-blue),var(--slack-green))}
 
   /* tools grid */
   .tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -420,7 +422,7 @@
 <nav>
   <div class="wrap">
     <a class="brand" href="#top">
-      <span class="dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span><span class="d4"></span></span>
+      <svg class="slack-mark" width="22" height="22" viewBox="0 0 122.8 122.8" aria-hidden="true"><path d="M25.8 77.6c0 7.1-5.8 12.9-12.9 12.9S0 84.7 0 77.6s5.8-12.9 12.9-12.9h12.9v12.9zm6.5 0c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9v32.3c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9V77.6z" fill="#E01E5A"/><path d="M45.2 25.8c-7.1 0-12.9-5.8-12.9-12.9S38.1 0 45.2 0s12.9 5.8 12.9 12.9v12.9H45.2zm0 6.5c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H12.9C5.8 58.1 0 52.3 0 45.2s5.8-12.9 12.9-12.9h32.3z" fill="#36C5F0"/><path d="M97 45.2c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9-5.8 12.9-12.9 12.9H97V45.2zm-6.5 0c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9V12.9C64.7 5.8 70.5 0 77.6 0s12.9 5.8 12.9 12.9v32.3z" fill="#2EB67D"/><path d="M77.6 97c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9-12.9-5.8-12.9-12.9V97h12.9zm0-6.5c-7.1 0-12.9-5.8-12.9-12.9s5.8-12.9 12.9-12.9h32.3c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H77.6z" fill="#ECB22E"/></svg>
       slack-lists-mcp
     </a>
     <div class="nav-right">
@@ -440,7 +442,7 @@
   <div class="wrap">
     <div class="hero-copy">
       <span class="eyebrow"><b>NEW</b> · full read <i style="font-style:normal;opacity:.5">/</i> write for Slack Lists</span>
-      <h1 class="hero-title">Let AI <span class="hl">finish</span> your Slack tasks — not just file them.</h1>
+      <h1 class="hero-title">Let AI <span class="hl">finish</span> your Slack tasks — end to end.</h1>
       <p class="hero-sub">An open-source MCP server that hands Claude the full Slack Lists API: <b>create, check off, reassign, reschedule, and delete</b> — end to end, right inside your workspace.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="https://github.com/justadityaraj/slack-lists-mcp" target="_blank" rel="noopener">
@@ -497,7 +499,7 @@
     <span><span class="dot"></span>8 tools shipped</span>
     <span><span class="dot"></span>46 unit tests passing</span>
     <span><span class="dot"></span>verified on a live workspace</span>
-    <span><span class="dot"></span>derived from <b>maplehilllabs/mcp-slack-lists</b></span>
+    <span><span class="dot"></span>all <b>8 Slack field types</b> supported</span>
   </div>
 </div>
 
@@ -505,25 +507,25 @@
 <section class="ps">
   <div class="wrap">
     <div class="sec-head">
-      <div class="kicker">Why this fork exists</div>
-      <h2>Slack Lists are great. Read-only AI isn't.</h2>
-      <p>The original community server could create and read items — so an AI could file a task but never actually finish it. This fork adds the write side, so Claude can run real task management in Slack.</p>
+      <div class="kicker">What it does</div>
+      <h2>Full read <em>and</em> write for Slack Lists.</h2>
+      <p>Eight tools give Claude everything it needs to run a Slack List end to end — open and filter items, then check them off, reassign, reschedule, and clean up, all without leaving the workspace.</p>
     </div>
     <div class="ps-grid">
-      <div class="ps-card ps-before reveal">
-        <span class="tag">Upstream — read only</span>
-        <h3>Files tasks. Then stops.</h3>
-        <p>AI could open items and list them, but the moment a task needed updating it had to hand control back to you.</p>
+      <div class="ps-card ps-read reveal">
+        <span class="tag">Read &amp; organise</span>
+        <h3>See the whole list.</h3>
+        <p>Pull items on demand and slice them any way Claude needs before it acts.</p>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg>No check-off, no reassign, no reschedule</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg>No delete</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg>Column IDs hunted by hand in dev tools</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Fetch and paginate every item, with metadata</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Filter by any column with rich operators</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Export the whole list to JSON or CSV</li>
         </ul>
       </div>
       <div class="ps-card ps-after reveal">
-        <span class="tag">This fork — full lifecycle</span>
-        <h3>Runs tasks end to end.</h3>
-        <p>Three new write tools plus full field-type support turn Claude into an actual project manager for your Slack Lists.</p>
+        <span class="tag">Write &amp; finish</span>
+        <h3>Run tasks end to end.</h3>
+        <p>Full write tools plus every Slack field type turn Claude into an actual project manager for your Lists.</p>
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Update any cell — check off, reassign, reschedule, edit</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Permanently delete rows</li>
@@ -675,8 +677,8 @@
         <div class="ans">Eight tools in total: create one or many items, fetch and filter them, export to JSON or CSV, and — uniquely — <b>update any cell</b> (check off, reassign, reschedule, edit), <b>delete rows</b>, and <b>auto-discover column IDs</b> and select options.</div>
       </details>
       <details>
-        <summary>How is this different from the original maplehilllabs Slack Lists MCP?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="ans">The upstream server was read and create only. This fork adds the <b>write side</b> — <code>update_list_item</code>, <code>delete_list_item</code> and <code>discover_list_columns</code> — plus full Slack field-type support for text, date, user, select, checkbox, number, email and phone.</div>
+        <summary>Does it cover the full Slack Lists lifecycle?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">Yes — read <em>and</em> write. On top of creating, fetching and filtering items it handles the <b>write side</b> too: <code>update_list_item</code>, <code>delete_list_item</code> and <code>discover_list_columns</code>, with full Slack field-type support for text, date, user, select, checkbox, number, email and phone. It builds on the community <a href="https://github.com/maplehilllabs/mcp-slack-lists" target="_blank" rel="noopener" style="color:var(--aubergine);font-weight:700;border-bottom:2px solid var(--slack-yellow)">maplehilllabs/mcp-slack-lists</a> server.</div>
       </details>
       <details>
         <summary>How do I install the Slack Lists MCP with Claude Code?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
@@ -713,7 +715,7 @@
 <footer>
   <div class="wrap">
     <div class="fl">
-      <span class="dots" style="display:inline-flex;gap:3px;margin-right:4px"><span class="d1" style="width:9px;height:9px;border-radius:50%;background:var(--slack-blue)"></span><span class="d2" style="width:9px;height:9px;border-radius:50%;background:var(--slack-green)"></span><span class="d3" style="width:9px;height:9px;border-radius:50%;background:var(--slack-yellow)"></span><span class="d4" style="width:9px;height:9px;border-radius:50%;background:var(--slack-red)"></span></span>
+      <svg class="slack-mark" width="18" height="18" viewBox="0 0 122.8 122.8" aria-hidden="true" style="margin-right:4px"><path d="M25.8 77.6c0 7.1-5.8 12.9-12.9 12.9S0 84.7 0 77.6s5.8-12.9 12.9-12.9h12.9v12.9zm6.5 0c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9v32.3c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9V77.6z" fill="#E01E5A"/><path d="M45.2 25.8c-7.1 0-12.9-5.8-12.9-12.9S38.1 0 45.2 0s12.9 5.8 12.9 12.9v12.9H45.2zm0 6.5c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H12.9C5.8 58.1 0 52.3 0 45.2s5.8-12.9 12.9-12.9h32.3z" fill="#36C5F0"/><path d="M97 45.2c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9-5.8 12.9-12.9 12.9H97V45.2zm-6.5 0c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9V12.9C64.7 5.8 70.5 0 77.6 0s12.9 5.8 12.9 12.9v32.3z" fill="#2EB67D"/><path d="M77.6 97c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9-12.9-5.8-12.9-12.9V97h12.9zm0-6.5c-7.1 0-12.9-5.8-12.9-12.9s5.8-12.9 12.9-12.9h32.3c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H77.6z" fill="#ECB22E"/></svg>
       slack-lists-mcp
     </div>
     <div class="fr">
