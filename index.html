@@ -631,6 +631,11 @@
     .mcp-card:hover { transform: translateY(-4px); border-color: var(--accent-b); background: var(--surface-2); }
     .mcp-card-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
     .mcp-icon { width: 46px; height: 46px; border-radius: 14px; background: var(--surface-2); border: 1px solid var(--stroke-2); display: inline-flex; align-items: center; justify-content: center; font-size: 24px; }
+    .mcp-icon svg { display: block; }
+    .logo-az { width: 34px; height: auto; }
+    .logo-slack { width: 26px; height: 26px; }
+    .fc-mark { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+    .fc-mark i { width: 9px; height: 9px; border-radius: 3px; display: block; }
     .mcp-lang { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
     .mcp-name { font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
     .mcp-desc { font-size: 13.5px; color: var(--muted); line-height: 1.55; flex: 1; margin-bottom: 16px; }
@@ -661,6 +666,7 @@
     <span class="loader-count" id="loader-count">000</span>
     <div class="loader-bar"><div class="loader-bar-fill" id="loader-bar-fill"></div></div>
   </div>
+  <script>try{if(localStorage.getItem('ars_loaded')){document.getElementById('loader').style.display='none';}}catch(e){}</script>
   <noscript><style>#loader{display:none!important}</style></noscript>
 
   <!-- Top nav -->
@@ -706,7 +712,7 @@
       <div class="mcp-grid">
           <div class="mcp-card">
             <div class="mcp-card-head">
-              <div class="mcp-icon">🛒</div>
+              <div class="mcp-icon"><svg class="logo-az" viewBox="0 0 120 22" aria-hidden="true"><path d="M4 13c22 12 78 12 108 0" fill="none" stroke="#FF9900" stroke-width="5" stroke-linecap="round"/><path d="M104 8l10 5-6 8" fill="none" stroke="#FF9900" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
               <div class="mcp-lang"><span class="lang-dot" style="background:#3178c6"></span>TypeScript</div>
             </div>
             <h3 class="mcp-name">Amazon.in MCP</h3>
@@ -719,7 +725,7 @@
           </div>
           <div class="mcp-card">
             <div class="mcp-card-head">
-              <div class="mcp-icon">📋</div>
+              <div class="mcp-icon"><span class="fc-mark"><i style="background:#2c80f8"></i><i style="background:#6f50ff"></i><i style="background:#eba4c4"></i><i style="background:#83bf6e"></i></span></div>
               <div class="mcp-lang"><span class="lang-dot" style="background:#3178c6"></span>TypeScript</div>
             </div>
             <h3 class="mcp-name">Freedcamp MCP</h3>
@@ -732,7 +738,7 @@
           </div>
           <div class="mcp-card">
             <div class="mcp-card-head">
-              <div class="mcp-icon">💬</div>
+              <div class="mcp-icon"><svg class="logo-slack" viewBox="0 0 122.8 122.8" aria-hidden="true"><path d="M25.8 77.6c0 7.1-5.8 12.9-12.9 12.9S0 84.7 0 77.6s5.8-12.9 12.9-12.9h12.9v12.9zm6.5 0c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9v32.3c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9V77.6z" fill="#E01E5A"/><path d="M45.2 25.8c-7.1 0-12.9-5.8-12.9-12.9S38.1 0 45.2 0s12.9 5.8 12.9 12.9v12.9H45.2zm0 6.5c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H12.9C5.8 58.1 0 52.3 0 45.2s5.8-12.9 12.9-12.9h32.3z" fill="#36C5F0"/><path d="M97 45.2c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9-5.8 12.9-12.9 12.9H97V45.2zm-6.5 0c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9V12.9C64.7 5.8 70.5 0 77.6 0s12.9 5.8 12.9 12.9v32.3z" fill="#2EB67D"/><path d="M77.6 97c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9-12.9-5.8-12.9-12.9V97h12.9zm0-6.5c-7.1 0-12.9-5.8-12.9-12.9s5.8-12.9 12.9-12.9h32.3c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H77.6z" fill="#ECB22E"/></svg></div>
               <div class="mcp-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</div>
             </div>
             <h3 class="mcp-name">Slack Lists MCP</h3>
@@ -893,6 +899,7 @@
       const wordEl = document.getElementById('loader-word');
       const barEl = document.getElementById('loader-bar-fill');
       if (!loader) return;
+      try { if (localStorage.getItem('ars_loaded')) { loader.style.display = 'none'; return; } localStorage.setItem('ars_loaded', '1'); } catch (e) {}
 
       const words = ['Build', 'Ship', 'Contribute'];
       let wi = 0;

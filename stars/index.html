@@ -633,6 +633,7 @@
     <span class="loader-count" id="loader-count">000</span>
     <div class="loader-bar"><div class="loader-bar-fill" id="loader-bar-fill"></div></div>
   </div>
+  <script>try{if(localStorage.getItem('ars_loaded')){document.getElementById('loader').style.display='none';}}catch(e){}</script>
   <noscript><style>#loader{display:none!important}</style></noscript>
 
   <!-- Top nav -->
@@ -1131,6 +1132,7 @@
       const wordEl = document.getElementById('loader-word');
       const barEl = document.getElementById('loader-bar-fill');
       if (!loader) return;
+      try { if (localStorage.getItem('ars_loaded')) { loader.style.display = 'none'; return; } localStorage.setItem('ars_loaded', '1'); } catch (e) {}
 
       const words = ['Curate', 'Build', 'Ship'];
       let wi = 0;
