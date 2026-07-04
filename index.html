@@ -569,8 +569,6 @@
     .footer-socials { display: flex; gap: 22px; }
     .footer-socials a { font-size: 14px; color: var(--muted); transition: color 0.2s ease; }
     .footer-socials a:hover { color: var(--text); }
-    .footer-status { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
-    .footer-status .dot { width: 8px; height: 8px; border-radius: 9999px; background: #4ade80; box-shadow: 0 0 8px rgba(74, 222, 128, 0.6); animation: pulse 2s ease-in-out infinite; }
 
     /* ============================ Sidebar overlay (mobile) ============================ */
     .sidebar-overlay {
@@ -694,7 +692,7 @@
       <p class="hero-desc blur-in">I build open-source MCP servers that connect AI assistants to real tools — and ship fixes back to the open source I run every day.</p>
       <div class="hero-cta blur-in">
         <a href="#mcps" class="btn btn-solid"><span class="btn-ring"></span><span class="btn-inner">See my MCPs</span></a>
-        <a href="mailto:aditya@bncw.in" class="btn btn-outline"><span class="btn-ring"></span><span class="btn-inner">Say hi ↗</span></a>
+        <a href="https://github.com/justadityaraj" target="_blank" rel="noopener" class="btn btn-outline"><span class="btn-ring"></span><span class="btn-inner">Say hi ↗</span></a>
       </div>
     </div>
     <div class="hero-scroll-indicator"><span>Scroll</span><div class="scroll-line"><div class="scroll-dot"></div></div></div>
@@ -756,9 +754,21 @@
       <section class="oss-contribs" id="contributions">
         <div class="oss-header">
           <h2 class="oss-title">Open Source Contributions</h2>
-          <span class="oss-subtitle">PRs I've shipped to projects I use</span>
+          <span class="oss-subtitle">PRs to the projects I use — merged and in-flight</span>
         </div>
         <div class="oss-grid">
+          <a class="oss-card" href="https://github.com/filebrowser/filebrowser/pull/6010" target="_blank" rel="noopener">
+            <div class="oss-card-top">
+              <div class="oss-repo"><strong>filebrowser/filebrowser</strong> #6010</div>
+              <span class="oss-badge merged">Merged</span>
+            </div>
+            <div class="oss-pr-title">fix(preview): keep the EPUB table-of-contents button clear of the header</div>
+            <div class="oss-meta">
+              <span>★ 35k</span>
+              <span>Merged Jul 4, 2026</span>
+            </div>
+          </a>
+
           <a class="oss-card" href="https://github.com/czlonkowski/n8n-mcp/pull/794" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>czlonkowski/n8n-mcp</strong> #794</div>
@@ -768,6 +778,18 @@
             <div class="oss-meta">
               <span>★ 22k</span>
               <span>Merged Jun 24, 2026</span>
+            </div>
+          </a>
+
+          <a class="oss-card" href="https://github.com/punkpeye/awesome-mcp-servers/pull/6605" target="_blank" rel="noopener">
+            <div class="oss-card-top">
+              <div class="oss-repo"><strong>punkpeye/awesome-mcp-servers</strong> #6605</div>
+              <span class="oss-badge merged">Merged</span>
+            </div>
+            <div class="oss-pr-title">Add justadityaraj/amazon-in-mcp to E-Commerce</div>
+            <div class="oss-meta">
+              <span>★ 90k</span>
+              <span>Merged Jun 6, 2026</span>
             </div>
           </a>
 
@@ -804,6 +826,42 @@
             <div class="oss-meta">
               <span>★ 541</span>
               <span>Merged Sep 26, 2024</span>
+            </div>
+          </a>
+
+          <a class="oss-card" href="https://github.com/miniflux/v2/pull/4428" target="_blank" rel="noopener">
+            <div class="oss-card-top">
+              <div class="oss-repo"><strong>miniflux/v2</strong> #4428</div>
+              <span class="oss-badge open">Open</span>
+            </div>
+            <div class="oss-pr-title">fix(css): add line-height to headings to prevent overlap when they wrap</div>
+            <div class="oss-meta">
+              <span>★ 9.4k</span>
+              <span>Opened Jul 1, 2026</span>
+            </div>
+          </a>
+
+          <a class="oss-card" href="https://github.com/netalertx/NetAlertX/pull/1695" target="_blank" rel="noopener">
+            <div class="oss-card-top">
+              <div class="oss-repo"><strong>netalertx/NetAlertX</strong> #1695</div>
+              <span class="oss-badge open">Open</span>
+            </div>
+            <div class="oss-pr-title">Add custom header and URL query string options to the ntfy publisher</div>
+            <div class="oss-meta">
+              <span>★ 6.7k</span>
+              <span>Opened Jul 1, 2026</span>
+            </div>
+          </a>
+
+          <a class="oss-card" href="https://github.com/gristlabs/grist-core/pull/2444" target="_blank" rel="noopener">
+            <div class="oss-card-top">
+              <div class="oss-repo"><strong>gristlabs/grist-core</strong> #2444</div>
+              <span class="oss-badge open">Open</span>
+            </div>
+            <div class="oss-pr-title">Show an indicator when a chart omits series past the display limit</div>
+            <div class="oss-meta">
+              <span>★ 11k</span>
+              <span>Opened Jul 1, 2026</span>
             </div>
           </a>
 
@@ -862,7 +920,7 @@
   <!-- Stats -->
   <section class="stats-strip">
     <div><div class="stat-value">3</div><div class="stat-label">MCP Servers</div></div>
-    <div><div class="stat-value">9</div><div class="stat-label">PRs Shipped</div></div>
+    <div><div class="stat-value">6</div><div class="stat-label">PRs Shipped</div></div>
     <a class="stat-link" href="/stars/"><div class="stat-value">170+</div><div class="stat-label">Tools Curated ↗</div></a>
   </section>
 
@@ -873,7 +931,7 @@
     <div class="marquee"><div class="marquee-track" id="marquee-track"></div></div>
     <div class="footer-cta">
       <p>Get in touch</p>
-      <a class="btn-email" href="mailto:aditya@bncw.in">aditya@bncw.in&nbsp;<span>&#8599;</span></a>
+      <a class="btn-email" href="https://github.com/justadityaraj" target="_blank" rel="noopener">github.com/justadityaraj&nbsp;<span>&#8599;</span></a>
     </div>
     <div class="footer-bar">
       <div class="footer-socials">
@@ -883,7 +941,6 @@
         <a href="/stars/">Starred Stack</a>
         <a href="/archived/">Archived</a>
       </div>
-      <div class="footer-status"><span class="dot"></span> Available for collaboration</div>
     </div>
   </footer>
 
