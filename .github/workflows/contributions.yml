@@ -1,0 +1,53 @@
+# Keeps the "Open Source Contributions" section on the homepage in sync with
+# GitHub. External maintainers can't notify us when they merge a PR, so this
+# polls hourly and commits only when something actually changed.
+name: Refresh OSS contributions
+
+on:
+  schedule:
+    - cron: '23 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: refresh-contributions
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Regenerate the contributions section
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/build-contributions.py
+
+      - name: Commit if anything changed
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "nothing to update"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "chore: refresh OSS contributions"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # A GITHUB_TOKEN push is not guaranteed to wake the Pages builder, so ask
+      # for the build explicitly rather than trusting it to happen on its own.
+      - name: Publish to GitHub Pages
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds"
+
+# by Aditya Raj Singh — https://adityarajsingh.com/
