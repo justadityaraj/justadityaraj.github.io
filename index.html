@@ -3,29 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aditya Raj Singh — Open-Source Builder & MCP Servers</title>
-  <meta name="description" content="I build open-source MCP servers that connect AI assistants to real tools — and ship fixes back to the open source I run every day.">
+  <title>Aditya Raj Singh · Open-Source Builder & MCP Servers</title>
+  <meta name="description" content="I build open-source MCP servers that connect AI assistants to real tools, and ship fixes back to the open source I run every day.">
   <link rel="canonical" href="https://dev.adityarajsingh.com/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/images/logo.png">
 
-  <!-- Fonts: Inter + Instrument Serif -->
+  <!-- Fonts: Inter (UI) + JetBrains Mono (repo identifiers) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Aditya Raj Singh — Open-Source Builder">
-  <meta property="og:description" content="I build open-source MCP servers that connect AI assistants to real tools — and ship fixes back to the open source I run every day.">
+  <meta property="og:title" content="Aditya Raj Singh · Open-Source Builder">
+  <meta property="og:description" content="I build open-source MCP servers that connect AI assistants to real tools, and ship fixes back to the open source I run every day.">
   <meta property="og:url" content="https://dev.adityarajsingh.com/">
   <meta property="og:image" content="https://dev.adityarajsingh.com/images/logo.png">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Aditya Raj Singh — Open-Source Builder">
-  <meta name="twitter:description" content="I build open-source MCP servers that connect AI assistants to real tools — and ship fixes back to the open source I run every day.">
+  <meta name="twitter:title" content="Aditya Raj Singh · Open-Source Builder">
+  <meta name="twitter:description" content="I build open-source MCP servers that connect AI assistants to real tools, and ship fixes back to the open source I run every day.">
   <meta name="twitter:image" content="https://dev.adityarajsingh.com/images/logo.png">
 
   <!-- JSON-LD -->
@@ -33,8 +33,8 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Aditya Raj Singh — Open-Source Builder",
-    "description": "I build open-source MCP servers that connect AI assistants to real tools — and ship fixes back to the open source I run every day.",
+    "name": "Aditya Raj Singh · Open-Source Builder",
+    "description": "I build open-source MCP servers that connect AI assistants to real tools, and ship fixes back to the open source I run every day.",
     "url": "https://dev.adityarajsingh.com/",
     "author": {
       "@type": "Person",
@@ -44,33 +44,37 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* ============================================================
-       ARS — dark editorial redesign
-       Design system: near-black canvas, Instrument Serif display,
-       Inter body, single cool-blue accent gradient (#89AACC→#4E85BF)
+       ARS. GitHub-themed
+       Design system: GitHub Primer dark palette, Inter throughout,
+       JetBrains Mono for repo identifiers, GitHub blue accent.
        ============================================================ */
 
     :root {
-      --bg: #0a0a0a;
-      --surface: #141414;
-      --surface-2: #1a1a1a;
-      --text: #f5f5f5;
-      --muted: #878787;
-      --stroke: #1f1f1f;
-      --stroke-2: #2a2a2a;
+      /* GitHub Primer dark */
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface-2: #21262d;
+      --text: #e6edf3;
+      --muted: #7d8590;
+      --stroke: #21262d;
+      --stroke-2: #30363d;
       /* compat aliases referenced by inline JS styles */
-      --text-muted: #878787;
-      --text-dim: #5c5c5c;
-      --border: #1f1f1f;
-      --accent-a: #89aacc;
-      --accent-b: #4e85bf;
-      --grad: linear-gradient(90deg, #89aacc 0%, #4e85bf 100%);
+      --text-muted: #7d8590;
+      --text-dim: #6e7681;
+      --border: #21262d;
+      --accent-a: #2f81f7;
+      --accent-b: #1f6feb;
+      --grad: linear-gradient(90deg, #2f81f7 0%, #1f6feb 100%);
+      /* GitHub state colors */
+      --gh-done-bg: #8957e5;
+      --gh-open-bg: #238636;
+      --gh-open-hover: #2ea043;
+      --gh-star: #e3b341;
       --font-body: "Inter", system-ui, sans-serif;
-      --font-display: "Instrument Serif", Georgia, serif;
+      --font-display: "Inter", system-ui, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -90,71 +94,19 @@
 
     a { color: inherit; text-decoration: none; }
 
-    ::selection { background: rgba(137, 170, 204, 0.3); color: #fff; }
+    ::selection { background: rgba(47, 129, 247, 0.35); color: #fff; }
 
     /* Scrollbars */
     ::-webkit-scrollbar { width: 10px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--stroke-2); border-radius: 9999px; }
-    ::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
+    ::-webkit-scrollbar-thumb:hover { background: #484f58; }
 
     .accent-text {
       background: var(--grad);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-    }
-
-    /* ============================ Loading screen ============================ */
-    .loader {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: var(--bg);
-      display: flex;
-      opacity: 1;
-      transition: opacity 0.6s ease;
-    }
-    .loader.done { opacity: 0; pointer-events: none; }
-    .loader-label {
-      position: absolute;
-      top: 28px; left: 28px;
-      font-size: 11px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .loader-word {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      color: rgba(245, 245, 245, 0.85);
-    }
-    .loader-count {
-      position: absolute;
-      bottom: 16px; right: 28px;
-      font-family: var(--font-display);
-      font-size: clamp(4rem, 16vw, 9rem);
-      line-height: 1;
-      font-variant-numeric: tabular-nums;
-      color: var(--text);
-    }
-    .loader-bar {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 3px;
-      background: rgba(31, 31, 31, 0.5);
-    }
-    .loader-bar-fill {
-      height: 100%;
-      width: 100%;
-      background: var(--grad);
-      transform: scaleX(0);
-      transform-origin: left;
-      box-shadow: 0 0 8px rgba(137, 170, 204, 0.35);
     }
 
     /* ============================ Nav (glass pill) ============================ */
@@ -200,11 +152,10 @@
       width: 30px; height: 30px;
       border-radius: 9999px;
       background: var(--grad);
-      color: #0a0a0a;
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 14px;
-      font-weight: 400;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       flex: none;
       transition: transform 0.3s ease;
     }
@@ -266,13 +217,12 @@
     /* ============================ Hero ============================ */
     .hero {
       position: relative;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 120px 20px 80px;
+      padding: 116px 20px 46px;
       overflow: hidden;
     }
     .hero-video {
@@ -287,45 +237,35 @@
     .hero-overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.35); z-index: 1; }
     .hero-fade {
       position: absolute; bottom: 0; left: 0; right: 0;
-      height: 240px;
+      height: 130px;
       background: linear-gradient(to top, var(--bg), transparent);
       z-index: 2;
     }
     .hero-content { position: relative; z-index: 3; max-width: 760px; }
-    .hero-eyebrow {
-      font-size: 12px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 28px;
-    }
     .hero-name {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-weight: 400;
-      font-size: clamp(3.2rem, 11vw, 8rem);
-      line-height: 0.9;
-      letter-spacing: -0.02em;
-      margin-bottom: 22px;
+      font-weight: 700;
+      font-size: clamp(2.1rem, 6vw, 3.5rem);
+      line-height: 1.06;
+      letter-spacing: -0.035em;
+      margin-bottom: 12px;
     }
     .hero-role {
-      font-size: clamp(1rem, 2.4vw, 1.35rem);
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
       color: var(--muted);
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
     .hero-role strong { color: var(--text); font-weight: 600; }
     .role-word {
       display: inline-block;
-      font-family: var(--font-display);
-      font-style: italic;
-      color: var(--text);
+      font-weight: 600;
+      color: var(--accent-a);
       animation: role-fade-in 0.4s ease-out;
     }
     .hero-desc {
-      font-size: clamp(0.85rem, 1.6vw, 1rem);
+      font-size: clamp(0.85rem, 1.6vw, 0.97rem);
       color: var(--muted);
-      max-width: 460px;
-      margin: 0 auto 44px;
+      max-width: 520px;
+      margin: 0 auto 26px;
     }
     .hero-cta { display: inline-flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
 
@@ -370,25 +310,6 @@
     .btn-outline { border: 2px solid var(--stroke-2); background: var(--bg); color: var(--text); }
     .btn-outline:hover { border-color: transparent; }
 
-    .hero-scroll-indicator {
-      position: absolute;
-      bottom: 34px; left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-    .hero-scroll-indicator span {
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .scroll-line { width: 1px; height: 42px; background: var(--stroke-2); position: relative; overflow: hidden; }
-    .scroll-dot { position: absolute; left: 0; top: 0; width: 100%; height: 50%; background: var(--text); animation: scroll-down 1.5s ease-in-out infinite; }
-
     /* ============================ Layout ============================ */
     .layout { display: flex; max-width: 1320px; margin: 0 auto; padding: 0 20px; gap: 32px; position: relative; }
 
@@ -431,15 +352,13 @@
     /* ============================ OSS contributions ============================ */
     .oss-contribs { margin: 8px 0 56px; }
     .oss-header { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 24px; }
-    .oss-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.8rem, 4vw, 2.6rem); }
+    .oss-title { font-weight: 600; font-size: clamp(1.35rem, 3vw, 1.9rem); letter-spacing: -0.02em; }
     .oss-subtitle { font-size: 13px; color: var(--muted); }
     .oss-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 16px; }
     .oss-group + .oss-group { margin-top: 36px; }
     .oss-group-title {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-weight: 400;
-      font-size: 1.4rem;
+      font-weight: 600;
+      font-size: 1.05rem;
       display: flex;
       align-items: baseline;
       gap: 10px;
@@ -447,7 +366,7 @@
       padding-bottom: 10px;
       border-bottom: 1px solid var(--stroke);
     }
-    .oss-group-count { font-family: var(--font-body); font-style: normal; font-size: 12px; color: var(--muted); }
+    .oss-group-count { font-family: var(--font-mono); font-size: 12px; color: var(--muted); background: var(--surface-2); border: 1px solid var(--stroke-2); border-radius: 2em; padding: 1px 8px; }
     .oss-card {
       display: block;
       background: var(--surface);
@@ -458,24 +377,37 @@
     }
     .oss-card:hover { transform: translateY(-3px); border-color: var(--accent-b); background: var(--surface-2); }
     .oss-card-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
-    .oss-repo { font-size: 12px; color: var(--muted); }
-    .oss-repo strong { color: var(--text); font-weight: 600; }
-    .oss-badge { font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 9px; border-radius: 9999px; white-space: nowrap; }
-    .oss-badge.merged { background: rgba(137, 170, 204, 0.15); color: #a9c4e0; border: 1px solid rgba(137, 170, 204, 0.3); }
-    .oss-badge.open { background: rgba(255, 255, 255, 0.05); color: var(--muted); border: 1px solid var(--stroke-2); }
+    .oss-repo { font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); min-width: 0; overflow-wrap: anywhere; }
+    .oss-repo strong { color: var(--text); font-weight: 500; }
+    .oss-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 18px;
+      padding: 2px 9px;
+      border-radius: 2em;
+      white-space: nowrap;
+      color: #fff;
+      flex: none;
+    }
+    .oss-badge svg { width: 13px; height: 13px; fill: currentColor; flex: none; }
+    .oss-badge.merged { background: var(--gh-done-bg); }
+    .oss-badge.open { background: var(--gh-open-bg); }
     .oss-pr-title { font-size: 14.5px; color: var(--text); margin-bottom: 14px; line-height: 1.4; }
-    .oss-meta { display: flex; gap: 14px; font-size: 12px; color: var(--muted); }
+    .oss-meta { display: flex; gap: 14px; font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); }
+    .oss-meta span:first-child { color: var(--gh-star); }
 
     /* ============================ Sections + cards ============================ */
     .section { margin-bottom: 52px; scroll-margin-top: 100px; }
     .section.hidden { display: none; }
     .section-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--stroke); }
     .section-title {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-weight: 400;
-      font-size: clamp(1.5rem, 3.4vw, 2.1rem);
-      line-height: 1.1;
+      font-weight: 600;
+      font-size: clamp(1.25rem, 2.8vw, 1.7rem);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
     }
     .section-count { font-size: 12px; color: var(--muted); }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
@@ -497,14 +429,14 @@
     .card-desc { font-size: 13px; color: var(--muted); line-height: 1.5; flex: 1; margin-bottom: 14px; }
     .card-footer { display: flex; align-items: center; gap: 14px; font-size: 12px; color: var(--muted); }
     .card-stars { display: inline-flex; align-items: center; gap: 5px; }
-    .card-stars svg { width: 13px; height: 13px; fill: #d4a72c; }
+    .card-stars svg { width: 13px; height: 13px; fill: var(--gh-star); }
     .card-lang { display: inline-flex; align-items: center; gap: 5px; }
     .lang-dot { width: 9px; height: 9px; border-radius: 9999px; display: inline-block; }
     .badge-mine {
       font-size: 9px;
       letter-spacing: 0.06em;
       background: var(--grad);
-      color: #0a0a0a;
+      color: #fff;
       font-weight: 600;
       padding: 2px 7px;
       border-radius: 9999px;
@@ -522,7 +454,7 @@
       padding: 40px 20px;
       border-top: 1px solid var(--stroke);
     }
-    .stat-value { font-family: var(--font-display); font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1; }
+    .stat-value { font-weight: 700; font-size: clamp(1.9rem, 5vw, 2.9rem); line-height: 1; letter-spacing: -0.03em; }
     .stat-label { font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
 
     /* ============================ Footer ============================ */
@@ -543,11 +475,11 @@
     .marquee { position: relative; z-index: 2; overflow: hidden; width: 100%; padding: 40px 0; }
     .marquee-track { display: flex; white-space: nowrap; will-change: transform; }
     .marquee-track span {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: clamp(2.4rem, 7vw, 4.5rem);
-      color: rgba(245, 245, 245, 0.9);
-      padding-right: 24px;
+      font-family: var(--font-mono);
+      font-size: clamp(1rem, 2.4vw, 1.5rem);
+      color: rgba(230, 237, 243, 0.62);
+      padding-right: 22px;
+      letter-spacing: 0.01em;
     }
     .footer-cta { position: relative; z-index: 2; text-align: center; margin: 30px 0 50px; }
     .footer-cta p { font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
@@ -595,7 +527,6 @@
     .sidebar-overlay.open { opacity: 1; pointer-events: auto; }
 
     /* ============================ Animations ============================ */
-    @keyframes scroll-down { 0% { transform: translateY(-100%); } 100% { transform: translateY(200%); } }
     @keyframes role-fade-in { 0% { opacity: 0; transform: translateY(8px); } 100% { opacity: 1; transform: translateY(0); } }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
@@ -655,9 +586,9 @@
     .mcp-tags span { font-size: 11px; color: var(--muted); background: rgba(255,255,255,0.04); border: 1px solid var(--stroke-2); border-radius: 9999px; padding: 3px 10px; }
     .mcp-links { display: flex; align-items: center; gap: 10px; }
     .mcp-links a { font-size: 13px; padding: 9px 16px; border-radius: 9999px; transition: transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease; }
-    .mcp-open { background: var(--text); color: var(--bg); font-weight: 500; }
-    .mcp-open:hover { transform: scale(1.04); }
-    .mcp-gh { color: var(--muted); border: 1px solid var(--stroke-2); }
+    .mcp-open { background: var(--gh-open-bg); color: #fff; font-weight: 500; border: 1px solid rgba(240,246,252,0.1); }
+    .mcp-open:hover { background: var(--gh-open-hover); transform: scale(1.04); }
+    .mcp-gh { color: var(--text); background: var(--surface-2); border: 1px solid var(--stroke-2); }
     .mcp-gh:hover { color: var(--text); border-color: var(--accent-b); }
 
     .stat-link { display: block; }
@@ -671,16 +602,6 @@
   <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.15/dist/hls.min.js" defer></script>
 </head>
 <body>
-  <!-- Loading screen -->
-  <div class="loader" id="loader">
-    <span class="loader-label">Aditya Raj Singh</span>
-    <span class="loader-word" id="loader-word">Curate</span>
-    <span class="loader-count" id="loader-count">000</span>
-    <div class="loader-bar"><div class="loader-bar-fill" id="loader-bar-fill"></div></div>
-  </div>
-  <script>try{if(localStorage.getItem('ars_loaded')){document.getElementById('loader').style.display='none';}}catch(e){}</script>
-  <noscript><style>#loader{display:none!important}</style></noscript>
-
   <!-- Top nav -->
   <nav class="top-nav">
     <div class="nav-inner">
@@ -688,7 +609,8 @@
       <div class="nav-links">
         <a href="#mcps">MCPs</a>
         <a href="#contributions">Contributions</a>
-        <a href="/stars/">Stars ↗</a>
+        <a href="https://adityarajsingh.com/blog/" target="_blank" rel="noopener">Blog ↗</a>
+        <a href="https://github.com/justadityaraj?tab=stars" target="_blank" rel="noopener">Stars ↗</a>
       </div>
     </div>
   </nav>
@@ -700,16 +622,14 @@
     <div class="hero-overlay"></div>
     <div class="hero-fade"></div>
     <div class="hero-content">
-      <p class="hero-eyebrow blur-in">Building in the open — '26</p>
       <h1 class="hero-name name-reveal">Aditya Raj Singh</h1>
       <p class="hero-role blur-in">An open-source <span class="role-word" id="role-word">builder</span>.</p>
-      <p class="hero-desc blur-in">I build open-source MCP servers that connect AI assistants to real tools — and ship fixes back to the open source I run every day.</p>
+      <p class="hero-desc blur-in">I build open-source MCP servers that connect AI assistants to real tools, and ship fixes back to the open source I run every day.</p>
       <div class="hero-cta blur-in">
-        <a href="#mcps" class="btn btn-solid"><span class="btn-ring"></span><span class="btn-inner">See my MCPs</span></a>
-        <a href="https://github.com/justadityaraj" target="_blank" rel="noopener" class="btn btn-outline"><span class="btn-ring"></span><span class="btn-inner">Say hi ↗</span></a>
+        <a href="https://github.com/justadityaraj" target="_blank" rel="noopener" class="btn btn-outline"><span class="btn-ring"></span><span class="btn-inner">GitHub ↗</span></a>
+        <a href="https://adityarajsingh.com/blog/" target="_blank" rel="noopener" class="btn btn-outline"><span class="btn-ring"></span><span class="btn-inner">Blog ↗</span></a>
       </div>
     </div>
-    <div class="hero-scroll-indicator"><span>Scroll</span><div class="scroll-line"><div class="scroll-dot"></div></div></div>
   </section>
 
   <!-- Home content -->
@@ -728,7 +648,7 @@
               <div class="mcp-lang"><span class="lang-dot" style="background:#3178c6"></span>TypeScript</div>
             </div>
             <h3 class="mcp-name">Amazon.in MCP</h3>
-            <p class="mcp-desc">Lets AI assistants shop on Amazon.in — ranked search, full product detail, and Keepa price-history links. No API keys, runs locally over stdio.</p>
+            <p class="mcp-desc">Lets AI assistants shop on Amazon.in: ranked search, full product detail, and Keepa price-history links. No API keys, runs locally over stdio.</p>
             <div class="mcp-tags"><span>3 tools</span><span>MIT</span><span>npm</span></div>
             <div class="mcp-links">
               <a class="mcp-open" href="/amazon-in-mcp/">View ↗</a>
@@ -741,7 +661,7 @@
               <div class="mcp-lang"><span class="lang-dot" style="background:#3178c6"></span>TypeScript</div>
             </div>
             <h3 class="mcp-name">Freedcamp MCP</h3>
-            <p class="mcp-desc">Full read + write access to Freedcamp across every project — tasks, projects, and comments. 12 bulk-capable tools over stdio + HTTP.</p>
+            <p class="mcp-desc">Full read + write access to Freedcamp across every project: tasks, projects, and comments. 12 bulk-capable tools over stdio + HTTP.</p>
             <div class="mcp-tags"><span>12 tools</span><span>MIT</span><span>stdio + HTTP</span></div>
             <div class="mcp-links">
               <a class="mcp-open" href="/freedcamp-mcp/">View ↗</a>
@@ -754,7 +674,7 @@
               <div class="mcp-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</div>
             </div>
             <h3 class="mcp-name">Slack Lists MCP</h3>
-            <p class="mcp-desc">Read AND write access to Slack Lists for AI assistants — create, filter, export, update, and delete. Built on FastMCP.</p>
+            <p class="mcp-desc">Read AND write access to Slack Lists for AI assistants: create, filter, export, update, and delete. Built on FastMCP.</p>
             <div class="mcp-tags"><span>8 tools</span><span>MIT</span><span>FastMCP</span></div>
             <div class="mcp-links">
               <a class="mcp-open" href="/slack-lists-mcp/">View ↗</a>
@@ -768,7 +688,7 @@
       <section class="oss-contribs" id="contributions">
         <div class="oss-header">
           <h2 class="oss-title">Open Source Contributions</h2>
-          <span class="oss-subtitle">PRs to the projects I use — merged and in-flight</span>
+          <span class="oss-subtitle">PRs to the projects I use, merged and in-flight</span>
         </div>
         <!-- Cards below are generated by scripts/build-contributions.py -->
         <!-- and refreshed by .github/workflows/contributions.yml. Do not hand-edit. -->
@@ -779,7 +699,7 @@
           <a class="oss-card" href="https://github.com/mealie-recipes/mealie/pull/8170" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>mealie-recipes/mealie</strong> #8170</div>
-              <span class="oss-badge merged">Merged</span>
+              <span class="oss-badge merged"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"/></svg>Merged</span>
             </div>
             <div class="oss-pr-title">fix: registration with seed data returns a 500</div>
             <div class="oss-meta">
@@ -791,7 +711,7 @@
           <a class="oss-card" href="https://github.com/nicolargo/glances/pull/3671" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>nicolargo/glances</strong> #3671</div>
-              <span class="oss-badge merged">Merged</span>
+              <span class="oss-badge merged"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"/></svg>Merged</span>
             </div>
             <div class="oss-pr-title">fix(plugins): init containers, vms and smart stats as a list</div>
             <div class="oss-meta">
@@ -803,7 +723,7 @@
           <a class="oss-card" href="https://github.com/netalertx/NetAlertX/pull/1756" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>netalertx/NetAlertX</strong> #1756</div>
-              <span class="oss-badge merged">Merged</span>
+              <span class="oss-badge merged"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"/></svg>Merged</span>
             </div>
             <div class="oss-pr-title">feat(ntfy): allow more than one custom header</div>
             <div class="oss-meta">
@@ -815,7 +735,7 @@
           <a class="oss-card" href="https://github.com/henrygd/beszel/pull/2245" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>henrygd/beszel</strong> #2245</div>
-              <span class="oss-badge merged">Merged</span>
+              <span class="oss-badge merged"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"/></svg>Merged</span>
             </div>
             <div class="oss-pr-title">fix(agent): round load average to two decimals</div>
             <div class="oss-meta">
@@ -827,7 +747,7 @@
           <a class="oss-card" href="https://github.com/AnalogJ/scrutiny/pull/1062" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>AnalogJ/scrutiny</strong> #1062</div>
-              <span class="oss-badge merged">Merged</span>
+              <span class="oss-badge merged"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"/></svg>Merged</span>
             </div>
             <div class="oss-pr-title">fix(frontend): hide the host header when a host has no visible drives</div>
             <div class="oss-meta">
@@ -839,7 +759,7 @@
           <a class="oss-card" href="https://github.com/taylorwilsdon/google_workspace_mcp/pull/1028" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>taylorwilsdon/google_workspace_mcp</strong> #1028</div>
-              <span class="oss-badge merged">Merged</span>
+              <span class="oss-badge merged"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"/></svg>Merged</span>
             </div>
             <div class="oss-pr-title">fix(attachments): expire stored files by mtime so a restart stops orphaning them</div>
             <div class="oss-meta">
@@ -851,7 +771,7 @@
           <a class="oss-card" href="https://github.com/netalertx/NetAlertX/pull/1695" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>netalertx/NetAlertX</strong> #1695</div>
-              <span class="oss-badge merged">Merged</span>
+              <span class="oss-badge merged"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"/></svg>Merged</span>
             </div>
             <div class="oss-pr-title">Add custom header and URL query string options to the ntfy publisher</div>
             <div class="oss-meta">
@@ -863,7 +783,7 @@
           <a class="oss-card" href="https://github.com/AnalogJ/scrutiny/pull/1018" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>AnalogJ/scrutiny</strong> #1018</div>
-              <span class="oss-badge merged">Merged</span>
+              <span class="oss-badge merged"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"/></svg>Merged</span>
             </div>
             <div class="oss-pr-title">fix(frontend): sort all columns on drive details page</div>
             <div class="oss-meta">
@@ -875,7 +795,7 @@
           <a class="oss-card" href="https://github.com/Beingpax/VoiceInk/pull/855" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>Beingpax/VoiceInk</strong> #855</div>
-              <span class="oss-badge merged">Merged</span>
+              <span class="oss-badge merged"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"/></svg>Merged</span>
             </div>
             <div class="oss-pr-title">fix: Unicode-aware word boundaries in word replacements</div>
             <div class="oss-meta">
@@ -887,7 +807,7 @@
           <a class="oss-card" href="https://github.com/immich-app/immich/pull/29354" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>immich-app/immich</strong> #29354</div>
-              <span class="oss-badge merged">Merged</span>
+              <span class="oss-badge merged"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"/></svg>Merged</span>
             </div>
             <div class="oss-pr-title">fix(server): dissolve stack when its non-primary assets are deleted</div>
             <div class="oss-meta">
@@ -899,7 +819,7 @@
           <a class="oss-card" href="https://github.com/miniflux/v2/pull/4428" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>miniflux/v2</strong> #4428</div>
-              <span class="oss-badge merged">Merged</span>
+              <span class="oss-badge merged"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"/></svg>Merged</span>
             </div>
             <div class="oss-pr-title">fix(css): add line-height to headings to prevent overlap when they wrap</div>
             <div class="oss-meta">
@@ -911,7 +831,7 @@
           <a class="oss-card" href="https://github.com/filebrowser/filebrowser/pull/6010" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>filebrowser/filebrowser</strong> #6010</div>
-              <span class="oss-badge merged">Merged</span>
+              <span class="oss-badge merged"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"/></svg>Merged</span>
             </div>
             <div class="oss-pr-title">fix(preview): keep the EPUB table-of-contents button clear of the header</div>
             <div class="oss-meta">
@@ -923,7 +843,7 @@
           <a class="oss-card" href="https://github.com/czlonkowski/n8n-mcp/pull/794" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>czlonkowski/n8n-mcp</strong> #794</div>
-              <span class="oss-badge merged">Merged</span>
+              <span class="oss-badge merged"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"/></svg>Merged</span>
             </div>
             <div class="oss-pr-title">fix(diff-engine): accept undefined as property-removal marker</div>
             <div class="oss-meta">
@@ -935,7 +855,7 @@
           <a class="oss-card" href="https://github.com/punkpeye/awesome-mcp-servers/pull/6605" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>punkpeye/awesome-mcp-servers</strong> #6605</div>
-              <span class="oss-badge merged">Merged</span>
+              <span class="oss-badge merged"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"/></svg>Merged</span>
             </div>
             <div class="oss-pr-title">Add justadityaraj/amazon-in-mcp to E-Commerce</div>
             <div class="oss-meta">
@@ -947,7 +867,7 @@
           <a class="oss-card" href="https://github.com/taylorwilsdon/google_workspace_mcp/pull/799" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>taylorwilsdon/google_workspace_mcp</strong> #799</div>
-              <span class="oss-badge merged">Merged</span>
+              <span class="oss-badge merged"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"/></svg>Merged</span>
             </div>
             <div class="oss-pr-title">fix(gcalendar): include creator and organizer in get_events detailed output</div>
             <div class="oss-meta">
@@ -959,7 +879,7 @@
           <a class="oss-card" href="https://github.com/umami-software/umami/pull/3095" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>umami-software/umami</strong> #3095</div>
-              <span class="oss-badge merged">Merged</span>
+              <span class="oss-badge merged"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"/></svg>Merged</span>
             </div>
             <div class="oss-pr-title">Update hi-IN.json</div>
             <div class="oss-meta">
@@ -971,7 +891,7 @@
           <a class="oss-card" href="https://github.com/ActivityWatch/aw-watcher-web/pull/135" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>ActivityWatch/aw-watcher-web</strong> #135</div>
-              <span class="oss-badge merged">Merged</span>
+              <span class="oss-badge merged"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"/></svg>Merged</span>
             </div>
             <div class="oss-pr-title">docs(README): updated the broken Chrome extension link</div>
             <div class="oss-meta">
@@ -988,7 +908,7 @@
           <a class="oss-card" href="https://github.com/navidrome/navidrome/pull/5998" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>navidrome/navidrome</strong> #5998</div>
-              <span class="oss-badge open">Open</span>
+              <span class="oss-badge open"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"/></svg>Open</span>
             </div>
             <div class="oss-pr-title">fix(subsonic): report AAC streams as audio/aac instead of audio/mp4</div>
             <div class="oss-meta">
@@ -1000,7 +920,7 @@
           <a class="oss-card" href="https://github.com/miniflux/v2/pull/4513" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>miniflux/v2</strong> #4513</div>
-              <span class="oss-badge open">Open</span>
+              <span class="oss-badge open"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"/></svg>Open</span>
             </div>
             <div class="oss-pr-title">fix(fetcher): allow connecting to a proxy set through the environment</div>
             <div class="oss-meta">
@@ -1012,7 +932,7 @@
           <a class="oss-card" href="https://github.com/immich-app/immich/pull/30851" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>immich-app/immich</strong> #30851</div>
-              <span class="oss-badge open">Open</span>
+              <span class="oss-badge open"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"/></svg>Open</span>
             </div>
             <div class="oss-pr-title">fix(server): kill pg_dump when a backup fails so it stops holding table locks</div>
             <div class="oss-meta">
@@ -1024,7 +944,7 @@
           <a class="oss-card" href="https://github.com/advplyr/audiobookshelf/pull/5480" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>advplyr/audiobookshelf</strong> #5480</div>
-              <span class="oss-badge open">Open</span>
+              <span class="oss-badge open"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"/></svg>Open</span>
             </div>
             <div class="oss-pr-title">Fix sync request duration overriding the library item duration</div>
             <div class="oss-meta">
@@ -1036,7 +956,7 @@
           <a class="oss-card" href="https://github.com/gristlabs/grist-core/pull/2444" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>gristlabs/grist-core</strong> #2444</div>
-              <span class="oss-badge open">Open</span>
+              <span class="oss-badge open"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"/></svg>Open</span>
             </div>
             <div class="oss-pr-title">Show an indicator when a chart omits series past the display limit</div>
             <div class="oss-meta">
@@ -1048,7 +968,7 @@
           <a class="oss-card" href="https://github.com/usebruno/bruno/pull/8398" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>usebruno/bruno</strong> #8398</div>
-              <span class="oss-badge open">Open</span>
+              <span class="oss-badge open"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"/></svg>Open</span>
             </div>
             <div class="oss-pr-title">feat(app): add &quot;Ignore Folder&quot; sidebar context menu item</div>
             <div class="oss-meta">
@@ -1060,7 +980,7 @@
           <a class="oss-card" href="https://github.com/taylorwilsdon/google_workspace_mcp/pull/811" target="_blank" rel="noopener">
             <div class="oss-card-top">
               <div class="oss-repo"><strong>taylorwilsdon/google_workspace_mcp</strong> #811</div>
-              <span class="oss-badge open">Open</span>
+              <span class="oss-badge open"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"/></svg>Open</span>
             </div>
             <div class="oss-pr-title">feat(permissions): non-cumulative union mode for --permissions</div>
             <div class="oss-meta">
@@ -1079,7 +999,7 @@
   <section class="stats-strip">
     <div><div class="stat-value">3</div><div class="stat-label">MCP Servers</div></div>
     <div><div class="stat-value"><!-- oss:shipped:start -->17<!-- oss:shipped:end --></div><div class="stat-label">PRs Shipped</div></div>
-    <a class="stat-link" href="/stars/"><div class="stat-value">170+</div><div class="stat-label">Tools Curated ↗</div></a>
+    <a class="stat-link" href="https://github.com/justadityaraj?tab=stars" target="_blank" rel="noopener"><div class="stat-value">170+</div><div class="stat-label">Tools Starred ↗</div></a>
   </section>
 
   <!-- Footer -->
@@ -1095,8 +1015,9 @@
       <div class="footer-socials">
         <a href="https://github.com/justadityaraj" target="_blank" rel="noopener">GitHub</a>
         <a href="https://adityarajsingh.com" target="_blank" rel="noopener">Website</a>
+        <a href="https://adityarajsingh.com/blog/" target="_blank" rel="noopener">Blog</a>
         <a href="https://linkedin.com/in/justadityaraj" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="/stars/">Starred Stack</a>
+        <a href="https://github.com/justadityaraj?tab=stars" target="_blank" rel="noopener">Starred Stack</a>
         <a href="/archived/">Archived</a>
       </div>
     </div>
@@ -1106,40 +1027,6 @@
     /* ============ New design enhancements ============ */
     const HLS_SRC = 'https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8';
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    // Loading screen (runs immediately)
-    (function runLoader() {
-      const loader = document.getElementById('loader');
-      const countEl = document.getElementById('loader-count');
-      const wordEl = document.getElementById('loader-word');
-      const barEl = document.getElementById('loader-bar-fill');
-      if (!loader) return;
-      try { if (localStorage.getItem('ars_loaded')) { loader.style.display = 'none'; return; } localStorage.setItem('ars_loaded', '1'); } catch (e) {}
-
-      const words = ['Build', 'Ship', 'Contribute'];
-      let wi = 0;
-      const wordTimer = setInterval(() => {
-        wi = (wi + 1) % words.length;
-        if (wordEl) wordEl.textContent = words[wi];
-      }, 900);
-
-      const duration = prefersReduced ? 300 : 2700;
-      const start = performance.now();
-      let finished = false;
-      function tick(now) {
-        const p = Math.min(1, (now - start) / duration);
-        if (countEl) countEl.textContent = String(Math.round(p * 100)).padStart(3, '0');
-        if (barEl) barEl.style.transform = 'scaleX(' + p + ')';
-        if (p < 1) {
-          requestAnimationFrame(tick);
-        } else if (!finished) {
-          finished = true;
-          clearInterval(wordTimer);
-          setTimeout(() => loader.classList.add('done'), 400);
-        }
-      }
-      requestAnimationFrame(tick);
-    })();
 
     // Hero role cycler (runs immediately)
     (function roleCycler() {
@@ -1160,7 +1047,13 @@
     (function fillMarquee() {
       const track = document.getElementById('marquee-track');
       if (!track) return;
-      const chunk = 'Building in the open • '.repeat(8);
+      const repos = [
+        'immich', 'mealie', 'glances', 'NetAlertX', 'beszel', 'scrutiny',
+        'miniflux', 'filebrowser', 'navidrome', 'audiobookshelf', 'grist-core',
+        'bruno', 'umami', 'n8n-mcp', 'google_workspace_mcp', 'VoiceInk',
+        'aw-watcher-web', 'awesome-mcp-servers'
+      ];
+      const chunk = repos.join('  •  ') + '  •  ';
       track.innerHTML = '<span>' + chunk + '</span><span>' + chunk + '</span>';
     })();
 
