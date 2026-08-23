@@ -1,4 +1,4 @@
-# robots.txt — dev.adityarajsingh.com
+# robots.txt · dev.adityarajsingh.com
 # All crawlers welcome, including AI/LLM crawlers (GPTBot, ClaudeBot, PerplexityBot, etc.)
 
 User-agent: *
@@ -7,4 +7,4 @@ Disallow: /blog-archive/
 
 Sitemap: https://dev.adityarajsingh.com/sitemap.xml
 
-# by Aditya Raj Singh — https://adityarajsingh.com/
+# by Aditya Raj Singh · https://adityarajsingh.com/
