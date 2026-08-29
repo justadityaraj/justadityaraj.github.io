@@ -147,24 +147,24 @@ def splice(html, start, end, body):
 
 def main():
     prs = fetch_prs()
-    merged, opened = bucket(prs)
+    merged, _ = bucket(prs)
 
     repos = {}
-    for pr in merged + opened:
+    for pr in merged:
         if pr["repo"] not in repos:
             repos[pr["repo"]] = api_get(f"/repos/{pr['repo']}")
-    merged, opened = drop_private(merged, repos), drop_private(opened, repos)
-    for pr in merged + opened:
+    merged = drop_private(merged, repos)
+    for pr in merged:
         pr["stars"] = fmt_stars(repos[pr["repo"]]["stargazers_count"])
 
-    body = "\n\n".join(g for g in (group("Merged", merged), group("Open", opened)) if g)
+    body = group("Merged", merged)
     html = INDEX.read_text(encoding="utf-8")
     html = splice(html, CARDS_START, CARDS_END, f"\n{body}\n      ")
     html = splice(html, SHIPPED_START, SHIPPED_END, str(len(merged)))
     INDEX.write_text(html, encoding="utf-8")
 
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    print(f"{len(merged)} merged, {len(opened)} open, {len(repos)} repos at {stamp}")
+    print(f"{len(merged)} merged, {len(repos)} repos at {stamp}")
 
 
 def selfcheck():
