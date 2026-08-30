@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shim MCP: WordPress MCP Server for Claude Code &amp; Cursor</title>
+<meta name="description" content="Open-source WordPress plugin that turns your site into an MCP server. 58 abilities over WP-CLI stdio or authenticated Streamable HTTP. GPL-2.0, zero dependencies.">
+<link rel="canonical" href="https://dev.adityarajsingh.com/shim-mcp/">
+<meta name="author" content="Aditya Raj Singh">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#1d2327">
+<meta name="keywords" content="WordPress MCP server, WordPress MCP plugin, shim-mcp, WP-CLI MCP, Model Context Protocol WordPress, Claude Code WordPress, Cursor WordPress, WordPress Abilities API, MCP stdio transport">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<!-- Open Graph / link previews -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aditya Raj Singh">
+<meta property="og:title" content="Shim MCP: WordPress MCP Server for Claude Code &amp; Cursor">
+<meta property="og:description" content="A WordPress plugin that turns your site into an MCP server. WP-CLI is the transport, not a tool: no port bound, no application password issued, no HTTP request made.">
+<meta property="og:image" content="https://dev.adityarajsingh.com/shim-mcp/og-image.png">
+<meta property="og:image:alt" content="shim-mcp: WP-CLI is the transport, not a tool">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:url" content="https://dev.adityarajsingh.com/shim-mcp/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shim MCP: WordPress MCP Server for Claude Code &amp; Cursor">
+<meta name="twitter:description" content="A WordPress plugin that turns your site into an MCP server. WP-CLI is the transport, not a tool: no port, no token, no HTTP request.">
+<meta name="twitter:image" content="https://dev.adityarajsingh.com/shim-mcp/og-image.png">
+<meta name="twitter:image:alt" content="shim-mcp: WP-CLI is the transport, not a tool">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://dev.adityarajsingh.com/#website",
+      "url": "https://dev.adityarajsingh.com/",
+      "name": "Aditya Raj Singh",
+      "publisher": { "@id": "https://adityarajsingh.com/#person" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://dev.adityarajsingh.com/shim-mcp/#webpage",
+      "url": "https://dev.adityarajsingh.com/shim-mcp/",
+      "name": "Shim MCP: WordPress MCP Server for Claude Code & Cursor",
+      "description": "Open-source WordPress plugin that turns your site into an MCP server. 58 abilities over WP-CLI stdio or authenticated Streamable HTTP. GPL-2.0, zero dependencies.",
+      "isPartOf": { "@id": "https://dev.adityarajsingh.com/#website" },
+      "primaryImageOfPage": "https://dev.adityarajsingh.com/shim-mcp/og-image.png",
+      "breadcrumb": { "@id": "https://dev.adityarajsingh.com/shim-mcp/#breadcrumb" },
+      "about": { "@id": "https://dev.adityarajsingh.com/shim-mcp/#software" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://dev.adityarajsingh.com/shim-mcp/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dev.adityarajsingh.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Shim MCP" }
+      ]
+    },
+    {
+      "@type": ["SoftwareSourceCode", "SoftwareApplication"],
+      "@id": "https://dev.adityarajsingh.com/shim-mcp/#software",
+      "name": "Shim MCP",
+      "description": "A self-contained WordPress plugin that turns a site into a Model Context Protocol (MCP) server. 58 abilities across 13 domains registered through WordPress's own Abilities API, reachable over WP-CLI stdio or authenticated Streamable HTTP, with no companion plugins, no dependencies and no telemetry.",
+      "codeRepository": "https://github.com/justadityaraj/shim-mcp",
+      "url": "https://dev.adityarajsingh.com/shim-mcp/",
+      "programmingLanguage": "PHP",
+      "runtimePlatform": "WordPress",
+      "operatingSystem": "Cross-platform",
+      "applicationCategory": "DeveloperApplication",
+      "license": "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html",
+      "keywords": "WordPress, MCP server, Model Context Protocol, WP-CLI, Abilities API, Claude Code, Cursor, stdio transport",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@id": "https://adityarajsingh.com/#person" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://adityarajsingh.com/#person",
+      "name": "Aditya Raj Singh",
+      "url": "https://adityarajsingh.com/",
+      "image": "https://dev.adityarajsingh.com/shim-mcp/author-aditya.jpg",
+      "jobTitle": "Builder: automation & MCP servers",
+      "sameAs": ["https://github.com/justadityaraj", "https://adityarajsingh.com/"]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://dev.adityarajsingh.com/shim-mcp/#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is Shim MCP?", "acceptedAnswer": { "@type": "Answer", "text": "Shim MCP is an open-source WordPress plugin that turns a WordPress site into a Model Context Protocol (MCP) server. It registers 58 abilities across 13 domains through WordPress's own Abilities API and exposes them to MCP clients like Claude Code, Claude Desktop and Cursor over WP-CLI stdio or authenticated Streamable HTTP." } },
+        { "@type": "Question", "name": "Does Shim MCP need a companion plugin or a cloud service?", "acceptedAnswer": { "@type": "Answer", "text": "No. The MCP server, the 58 abilities and an Abilities API polyfill for WordPress 6.7 and 6.8 all ship in the one plugin. There is no composer.json, no vendor directory, no npm install and no companion plugin on any supported WordPress version. There is no relay, no vendor account and no telemetry: only two HTTP calls exist anywhere in the codebase: the Test Connection probe against the site's own REST route, and the plugin zip fetch that plugins-install-from-url makes against a URL you supply." } },
+        { "@type": "Question", "name": "Will I see 58 tools in my MCP client?", "acceptedAnswer": { "@type": "Answer", "text": "No. tools/list returns exactly three tools: shim-mcp-discover-abilities, shim-mcp-get-ability-info and shim-mcp-execute-ability (an MCP tool name cannot contain a slash, so the adapter rewrites the ability prefix to a hyphen). The 58 WordPress abilities are discovered at runtime and invoked through execute-ability, so the client's tool list stays small while the ability surface stays large." } },
+        { "@type": "Question", "name": "Does the stdio transport open a port or need an application password?", "acceptedAnswer": { "@type": "Answer", "text": "No. On the stdio path the server runs as a local process: JSON-RPC arrives on STDIN, responses leave on STDOUT and diagnostics go to STDERR. No port is bound, no application password is issued and no HTTP request is made. Note that installing the plugin still registers the HTTP route at /wp-json/mcp/shim-mcp; that route can only be disabled through the mcp_adapter_* PHP filters, not through a setting." } },
+        { "@type": "Question", "name": "What does the --user flag do, and is it required?", "acceptedAnswer": { "@type": "Answer", "text": "It sets the WordPress user the stdio session acts as, by calling wp_set_current_user() before the loop starts. It is effectively mandatory: without it no current user is set, is_user_logged_in() returns false and every ability's permission check fails. Pass --user with an ID, login or email." } },
+        { "@type": "Question", "name": "Is the stdio transport more secure than HTTP?", "acceptedAnswer": { "@type": "Answer", "text": "It is more accurate to say it removes the authentication surface rather than secures it. There is no authentication on the stdio path at all: the identity is whatever --user names, so the trust boundary is shell access to the machine. Authorization is identical on both transports, because both run off the same server object and the same permission chain." } },
+        { "@type": "Question", "name": "Does Shim MCP support SSE?", "acceptedAnswer": { "@type": "Answer", "text": "No. The SSE request handler returns HTTP 405 with an empty body and is marked not yet implemented in the source. The supported HTTP path is Streamable HTTP over POST, GET and DELETE against a single REST route." } },
+        { "@type": "Question", "name": "How do I install Shim MCP?", "acceptedAnswer": { "@type": "Answer", "text": "Clone the repository into wp-content/plugins/shim-mcp, run wp plugin activate shim-mcp, then register the server with your client, for example: claude mcp add shim -- wp shim-mcp serve --user=admin --path=/full/path/to/wordpress. There is no tagged release yet, so cloning is currently the install path." } },
+        { "@type": "Question", "name": "How much of Shim MCP is original code?", "acceptedAnswer": { "@type": "Answer", "text": "Roughly half the PHP by line count. The 58 abilities, the admin dashboard, the WP-CLI stdio bridge and the packaging are original. The MCP protocol layer under includes/Server/ is derived from the WordPress MCP Adapter, and the Abilities API polyfill reproduces the WordPress Abilities API: both GPL-2.0, both credited in CREDITS.md." } },
+        { "@type": "Question", "name": "Is Shim MCP on WordPress.org?", "acceptedAnswer": { "@type": "Answer", "text": "Not at the moment. There is no directory listing, no tagged release and no ratings. GitHub is the source of truth, and the plugin is GPL-2.0-or-later per its plugin header." } }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    /* dark surface: the wire */
+    --void:#0b0e10;
+    --admin:#1d2327;
+    --admin-2:#2c3338;
+    --rule:#3c434a;
+    --text:#f0f0f1;
+    --text-2:#c3c4c7;
+    --text-3:#8c8f94;
+    --text-3-up:#a7abb0;
+
+    /* light surface: wp-admin body */
+    --paper:#f0f0f1;
+    --card:#ffffff;
+    --paper-line:#c3c4c7;
+    --head:#f6f7f7;
+    --ink:#1d2327;
+    --ink-2:#50575e;
+    --line-soft:#dcdcde;
+
+    /* accents */
+    --wp-blue:#2271b1;
+    --wp-blue-h:#135e96;
+    --wp-blue-l:#72aee6;
+    --classic:#21759b;
+
+    /* terminal semantics: data, never decoration */
+    --stdin:#7ee787;
+    --stdout:#79c0ff;
+    --stderr:#e3b341;
+    --err:#f85149;
+    --j-key:#79c0ff;
+    --j-str:#a5d6ff;
+    --j-num:#ffa657;
+    --j-pun:#8b949e;
+
+    /* wp-admin notice colours, verbatim */
+    --n-info:#72aee6;
+    --n-warn:#dba617;
+    --n-err:#d63638;
+    --n-ok:#00a32a;
+
+    --shadow-sm:0 1px 1px rgba(0,0,0,.04);
+    --shadow-md:0 12px 30px rgba(0,0,0,.28);
+    --shadow-lg:0 30px 70px rgba(0,0,0,.42);
+
+    --mono:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Cascadia Mono", "DejaVu Sans Mono", monospace;
+    --ui:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:78px}
+  body{
+    font-family:var(--ui);
+    color:var(--text);
+    background:var(--void);
+    line-height:1.65;
+    font-size:16.5px;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--wp-blue);color:#fff}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  img{max-width:100%;display:block}
+
+  h1,h2,h3,h4{font-family:var(--mono);font-weight:600;line-height:1.18;letter-spacing:-.025em}
+  code,kbd{font-family:var(--mono)}
+
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+  /* ---------- SURFACES ---------- */
+  section{padding:82px 0}
+  .s-dark{background:var(--void);color:var(--text)}
+  .s-light{background:var(--paper);color:var(--ink)}
+  .s-light h1,.s-light h2,.s-light h3,.s-light h4{color:var(--ink)}
+
+  .sec-head{max-width:720px;margin:0 auto 44px}
+  .sec-head.center{text-align:center}
+  .kicker{font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--wp-blue-l);margin-bottom:13px}
+  .s-light .kicker{color:var(--wp-blue)}
+  .sec-head h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:600}
+  .sec-head p{margin-top:15px;font-size:1.02rem;color:var(--text-2)}
+  h2.kicker{font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;font-family:var(--mono)}
+  .s-light .sec-head p{color:var(--ink-2)}
+
+  /* ---------- NAV ---------- */
+  nav{position:sticky;top:0;z-index:60;background:rgba(29,35,39,.94);backdrop-filter:saturate(150%) blur(10px);border-bottom:1px solid var(--rule)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:inline-flex;align-items:center;gap:11px;font-family:var(--mono);font-size:.95rem;font-weight:600;color:var(--text);letter-spacing:-.02em}
+  .brand svg{width:22px;height:22px;flex:0 0 22px}
+  .nav-right{display:flex;align-items:center;gap:22px}
+  .nav-link{color:var(--text-3);font-size:.88rem;font-family:var(--mono);transition:color .18s}
+  .nav-link:hover{color:var(--text)}
+  .nav-gh{display:inline-flex;align-items:center;gap:8px;background:var(--wp-blue);color:#fff!important;padding:7px 15px;border-radius:3px;font-weight:600;font-size:.84rem;font-family:var(--ui);border:1px solid var(--wp-blue-h);transition:background .18s}
+  .nav-gh:hover{background:var(--wp-blue-h)}
+  @media(max-width:860px){.nav-right .nav-link{display:none}}
+
+  /* ---------- BREADCRUMB ---------- */
+  .crumb{font-family:var(--mono);font-size:.76rem;color:var(--text-3);padding:22px 0 0}
+  .crumb a{color:var(--wp-blue-l)}
+  .crumb a:hover{text-decoration:underline}
+  .crumb .sep{margin:0 8px;color:var(--rule)}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:26px 0 78px;background:linear-gradient(180deg,#12161a 0%,var(--void) 62%)}
+  .hero .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:46px;align-items:start;margin-top:34px}
+  @media(max-width:960px){.hero .grid{grid-template-columns:1fr;gap:38px}}
+
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-2);background:var(--admin);border:1px solid var(--rule);padding:6px 12px;border-radius:3px;margin-bottom:22px}
+  .eyebrow .pip{width:7px;height:7px;border-radius:50%;background:var(--stdin);display:block;flex:0 0 7px}
+  h1.hero-title{font-size:clamp(1.9rem,5vw,3.3rem);font-weight:600;letter-spacing:-.03em}
+  h1.hero-title .hl{color:var(--stdin)}
+  .hero-sub{margin-top:20px;font-size:1.06rem;color:var(--text-2);max-width:60ch}
+  .hero-sub code{background:var(--admin);border:1px solid var(--rule);border-radius:3px;padding:1px 6px;font-size:.86em;color:var(--text)}
+  .hero-sub b{color:var(--text);font-weight:600}
+
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--ui);font-weight:600;font-size:.94rem;padding:11px 20px;border-radius:3px;cursor:pointer;border:1px solid transparent;transition:background .18s,border-color .18s,color .18s}
+  .btn-primary{background:var(--wp-blue);color:#fff;border-color:var(--wp-blue-h)}
+  .btn-primary:hover{background:var(--wp-blue-h)}
+  .btn-ghost{background:transparent;color:var(--text);border-color:var(--rule)}
+  .btn-ghost:hover{border-color:var(--text-3);background:var(--admin)}
+  .s-light .btn-ghost{color:var(--ink);border-color:var(--paper-line);background:var(--card)}
+  .s-light .btn-ghost:hover{border-color:var(--wp-blue);color:var(--wp-blue)}
+
+  .meta-line{margin-top:26px;font-family:var(--mono);font-size:.78rem;color:var(--text-3);line-height:2}
+  .meta-line b{color:var(--text-2);font-weight:600}
+  .meta-line .dot{color:var(--rule);margin:0 8px}
+  .meta-honest{margin-top:10px;display:inline-block;font-family:var(--mono);font-size:.73rem;color:var(--text-3);border:1px dashed var(--rule);border-radius:3px;padding:5px 11px}
+
+  /* ---------- FRAME STEPPER ---------- */
+  .stepper{background:var(--admin);border:1px solid var(--rule);border-radius:4px;overflow:hidden;box-shadow:var(--shadow-lg)}
+  .stepper-bar{display:flex;align-items:center;gap:9px;padding:10px 14px;background:var(--admin-2);border-bottom:1px solid var(--rule)}
+  .stepper-bar .dots{display:flex;gap:6px}
+  .stepper-bar .dots i{width:10px;height:10px;border-radius:50%;display:block;background:var(--rule)}
+  .stepper-bar .t{font-family:var(--mono);font-size:.74rem;color:var(--text-3-up);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .log{background:var(--void);height:352px;overflow-y:auto;padding:14px 0;scrollbar-width:thin}
+  @media(max-width:960px){.log{height:300px}}
+  .frame{display:none;grid-template-columns:74px minmax(0,1fr);gap:10px;padding:7px 14px}
+  .frame.on{display:grid;animation:fr-in .3s ease both}
+  @keyframes fr-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){.frame.on{animation:none}}
+  .frame .gut{font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:.02em;padding-top:2px;white-space:nowrap}
+  .frame.in .gut{color:var(--stdin)}
+  .frame.out .gut{color:var(--stdout)}
+  .frame pre{font-family:var(--mono);font-size:.735rem;line-height:1.7;color:var(--text-2);white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere}
+  .frame .k{color:var(--j-key)}
+  .frame .s{color:var(--j-str)}
+  .frame .n{color:var(--j-num)}
+  .frame .p{color:var(--j-pun)}
+  .frame .cm{color:var(--text-3);font-style:normal}
+  .stepper-foot{display:flex;align-items:center;gap:8px;padding:11px 14px;background:var(--admin-2);border-top:1px solid var(--rule);flex-wrap:wrap}
+  .pill{font-family:var(--mono);font-size:.72rem;color:var(--text-3-up);background:transparent;border:1px solid var(--rule);border-radius:3px;padding:4px 9px;cursor:pointer;transition:border-color .16s,color .16s,background .16s}
+  .pill:hover{color:var(--text);border-color:var(--text-3)}
+  .pill[aria-current="true"]{background:var(--wp-blue);border-color:var(--wp-blue-h);color:#fff}
+  .pill:focus-visible{outline:2px solid var(--wp-blue-l);outline-offset:2px}
+  .stepper-foot .hint{margin-left:auto;font-family:var(--mono);font-size:.68rem;color:var(--text-3-up)}
+  @media(max-width:520px){.stepper-foot .hint{display:none}}
+
+  /* ---------- WP-ADMIN NOTICES ---------- */
+  .notice{background:var(--admin);border:1px solid var(--rule);border-left-width:4px;border-radius:2px;padding:15px 18px;font-size:.95rem;color:var(--text-2)}
+  .notice b,.notice strong{color:var(--text);font-weight:600}
+  .notice code{font-family:var(--mono);font-size:.86em;background:var(--admin-2);border-radius:2px;padding:1px 5px;color:var(--text)}
+  .s-light .notice{background:var(--card);border-color:var(--line-soft);color:var(--ink-2);box-shadow:var(--shadow-sm)}
+  .s-light .notice b,.s-light .notice strong{color:var(--ink)}
+  .s-light .notice code{background:var(--head);border:1px solid var(--line-soft);color:var(--ink)}
+  .n-info{border-left-color:var(--n-info)}
+  .n-warn{border-left-color:var(--n-warn)}
+  .n-err{border-left-color:var(--n-err)}
+  .n-ok{border-left-color:var(--n-ok)}
+  .notice-band{padding:0 0 82px}
+  .notice-band .notice{max-width:860px;margin:0 auto}
+
+  /* ---------- DIAGRAM ---------- */
+  .diagram{border:1px solid var(--rule);border-radius:4px;background:var(--admin);padding:8px}
+  .diagram-scroll{overflow-x:auto;scrollbar-width:thin}
+  .diagram svg{display:block;width:100%;min-width:880px;height:auto}
+  .diagram figcaption{font-family:var(--mono);font-size:.72rem;color:var(--text-3);padding:10px 8px 4px;text-align:center}
+  .scroll-hint{display:none}
+  @media(max-width:900px){.scroll-hint{display:block;color:var(--wp-blue-l);margin-bottom:4px}}
+  .d-node{fill:#16191c;stroke:var(--rule);stroke-width:1}
+  .d-node-live{fill:#111a14;stroke:#2f5d3f;stroke-width:1}
+  .d-lbl{font-family:var(--mono);font-size:13px;fill:var(--text-2)}
+  .d-dim{font-family:var(--mono);font-size:13px;fill:var(--text-3)}
+  .d-sm{font-family:var(--mono);font-size:11px;fill:var(--text-3)}
+  .d-sm-in{fill:var(--stdin)}
+  .d-sm-out{fill:var(--stdout)}
+  .d-sm-err{fill:var(--stderr)}
+  .d-head{font-family:var(--mono);font-size:12px;letter-spacing:.09em;fill:var(--text-3)}
+  .d-head-live{font-family:var(--mono);font-size:12px;letter-spacing:.09em;fill:var(--stdin)}
+  .d-hazard{font-family:var(--mono);font-size:11px;fill:var(--stderr)}
+  .d-conn{stroke:var(--rule);stroke-width:1.4;fill:none;stroke-dasharray:6 4}
+  .d-chan{fill:#0f1417;stroke:#2f5d3f;stroke-width:1}
+  .d-chan-b{fill:#0f1417;stroke:#2a4d6b;stroke-width:1}
+  .pkt-in{fill:var(--stdin)}
+  .pkt-out{fill:var(--stdout)}
+  .pkt-in,.pkt-out{animation:flow 2.8s linear infinite}
+  @keyframes flow{from{transform:translateX(0)}to{transform:translateX(366px)}}
+  .lane-b .pkt-out{animation-direction:reverse}
+  @media(prefers-reduced-motion:reduce){.pkt-in,.pkt-out{animation:none}}
+  .absences{margin-top:20px;display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:center;font-family:var(--mono);font-size:.8rem;color:var(--stdin)}
+
+  /* ---------- THREE-UP ---------- */
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+  @media(max-width:880px){.three{grid-template-columns:1fr}}
+  .panel{background:var(--admin);border:1px solid var(--rule);border-radius:4px;padding:22px 22px 24px}
+  .s-light .panel{background:var(--card);border-color:var(--line-soft);box-shadow:var(--shadow-sm)}
+  .panel h3{font-size:.98rem;margin-bottom:6px}
+  .panel .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;margin-bottom:11px}
+  .tag-in{color:var(--stdin)}
+  .tag-out{color:var(--stdout)}
+  .tag-off{color:var(--err)}
+  .panel p{font-size:.92rem;color:var(--text-2)}
+  .s-light .panel p{color:var(--ink-2)}
+  .panel code{font-family:var(--mono);font-size:.84em;background:var(--admin-2);border-radius:2px;padding:1px 5px;color:var(--text);word-break:break-word}
+  .s-light .panel code{background:var(--head);border:1px solid var(--line-soft);color:var(--ink)}
+
+  /* ---------- LIST TABLE ---------- */
+  .subsubsub{font-family:var(--mono);font-size:.8rem;color:var(--ink-2);margin:0 0 12px;list-style:none;display:flex;flex-wrap:wrap;gap:6px 12px}
+  .subsubsub li:not(:last-child)::after{content:"|";margin-left:12px;color:var(--paper-line)}
+  .subsubsub b{color:var(--ink);font-weight:600}
+  .widefat{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--paper-line);box-shadow:var(--shadow-sm);font-size:.88rem}
+  .widefat thead th{background:var(--head);border-bottom:1px solid var(--paper-line);text-align:left;padding:11px 13px;font-family:var(--mono);font-size:.76rem;font-weight:600;letter-spacing:.03em;color:var(--ink);white-space:nowrap}
+  .widefat td{border-top:1px solid var(--line-soft);padding:11px 13px;vertical-align:top;color:var(--ink-2)}
+  .widefat tbody tr:nth-child(odd){background:#fafafa}
+  .widefat .dom{color:var(--ink);font-weight:600;font-family:var(--mono);font-size:.84rem;white-space:nowrap}
+  .widefat .screen{display:block;font-family:var(--ui);font-size:.76rem;font-weight:400;color:var(--ink-2);margin-top:3px}
+  .widefat .cap{font-family:var(--mono);font-size:.78rem;color:var(--ink-2);word-break:break-word}
+  .widefat .obj{font-family:var(--mono);font-size:.78rem;color:var(--ink-2);word-break:break-word}
+  .widefat .ro{color:var(--wp-blue);font-family:var(--ui);font-size:.78rem}
+  .widefat thead th:nth-child(1){width:16%}
+  .widefat thead th:nth-child(2){width:13%}
+  .widefat thead th:nth-child(3){width:26%}
+  .widefat details summary{cursor:pointer;font-family:var(--mono);font-size:.8rem;color:var(--wp-blue);list-style:none;white-space:nowrap}
+  .widefat details summary::-webkit-details-marker{display:none}
+  .widefat details summary::before{content:"▸ ";color:var(--paper-line)}
+  .widefat details[open] summary::before{content:"▾ "}
+  .widefat details summary:focus-visible{outline:2px solid var(--wp-blue);outline-offset:2px}
+  .widefat details ul{margin:8px 0 2px;padding-left:14px;list-style:none}
+  .widefat details li{font-family:var(--mono);font-size:.74rem;color:var(--ink-2);line-height:1.8;word-break:break-word}
+  .table-scroll{overflow-x:auto;scrollbar-width:thin}
+  @media(max-width:760px){
+    .widefat,.widefat tbody,.widefat tr,.widefat td{display:block;width:100%}
+    .widefat thead{display:none}
+    .widefat tr{border-top:1px solid var(--paper-line);padding:6px 0}
+    .widefat td{border-top:0;padding:5px 13px}
+    .widefat td[data-th]::before{content:attr(data-th) " ";font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2);display:block;margin-bottom:2px}
+  }
+
+  /* ---------- TWO-UP ---------- */
+  .two{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;align-items:start}
+  @media(max-width:880px){.two{grid-template-columns:1fr}}
+  .codecard{background:var(--void);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+  .codecard .cc-bar{font-family:var(--mono);font-size:.72rem;color:var(--text-3-up);padding:9px 14px;background:var(--admin-2);border-bottom:1px solid var(--rule)}
+  .codecard pre{padding:16px 14px;overflow-x:auto;font-family:var(--mono);font-size:.78rem;line-height:1.75;color:var(--text-2);scrollbar-width:thin}
+  .codecard .kw{color:#ff7b72}
+  .codecard .fn{color:#d2a8ff}
+  .codecard .st{color:var(--j-str)}
+  .codecard .cm{color:var(--text-3)}
+
+  /* ---------- PERMISSION CHAIN ---------- */
+  .chain{display:grid;gap:0;max-width:760px;margin:0 auto}
+  .link{background:var(--card);border:1px solid var(--paper-line);border-left:4px solid var(--wp-blue);padding:15px 18px;box-shadow:var(--shadow-sm)}
+  .link + .link{margin-top:22px;position:relative}
+  .link + .link::before{content:"";position:absolute;left:26px;top:-22px;height:22px;width:1px;background:var(--paper-line)}
+  .link .n{font-family:var(--mono);font-size:.7rem;color:var(--ink-2);letter-spacing:.06em}
+  .link h3{font-size:.9rem;margin:4px 0 4px;font-family:var(--mono)}
+  .link p{font-size:.87rem;color:var(--ink-2)}
+  .link code{font-family:var(--mono);font-size:.85em;background:var(--head);border:1px solid var(--line-soft);border-radius:2px;padding:1px 5px;color:var(--ink)}
+  .chain-note{max-width:760px;margin:26px auto 0;font-size:.95rem;color:var(--ink-2);text-align:center}
+  .chain-note b{color:var(--ink)}
+
+  /* ---------- INSTALL TABS ---------- */
+  .tabs{max-width:860px;margin:0 auto;position:relative;border:0;padding:0;min-width:0}
+  .tabs > input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+  .tabbar{display:flex;gap:4px;border-bottom:1px solid var(--rule);flex-wrap:wrap}
+  .tabbar label{font-family:var(--mono);font-size:.82rem;color:var(--text-3);padding:9px 16px;border:1px solid transparent;border-bottom:0;border-radius:3px 3px 0 0;cursor:pointer;margin-bottom:-1px;transition:color .16s,background .16s}
+  .tabbar label:hover{color:var(--text)}
+  .tabpanel{display:none;background:var(--admin);border:1px solid var(--rule);border-top:0;border-radius:0 0 4px 4px;padding:20px 20px 22px}
+  #t-cc:checked ~ .tabbar label[for="t-cc"],
+  #t-cur:checked ~ .tabbar label[for="t-cur"],
+  #t-http:checked ~ .tabbar label[for="t-http"]{color:var(--text);background:var(--admin);border-color:var(--rule);border-bottom:1px solid var(--admin)}
+  #t-cc:focus-visible ~ .tabbar label[for="t-cc"],
+  #t-cur:focus-visible ~ .tabbar label[for="t-cur"],
+  #t-http:focus-visible ~ .tabbar label[for="t-http"]{outline:2px solid var(--wp-blue-l);outline-offset:2px}
+  #t-cc:checked ~ .tabpanel.p-cc,
+  #t-cur:checked ~ .tabpanel.p-cur,
+  #t-http:checked ~ .tabpanel.p-http{display:block}
+  .tabpanel pre{font-family:var(--mono);font-size:.78rem;line-height:1.85;color:var(--text-2);overflow-x:auto;scrollbar-width:thin}
+  .tabpanel pre .p{color:var(--stdin)}
+  .tabpanel pre .cm{color:var(--text-3)}
+  .tabpanel pre .st{color:var(--j-str)}
+  .tabpanel pre .k{color:var(--j-key)}
+  .tabpanel .desc{font-size:.84rem;color:var(--text-3);margin-top:12px;padding-top:12px;border-top:1px solid var(--rule)}
+  .tabpanel .desc code{font-family:var(--mono);background:var(--admin-2);border-radius:2px;padding:1px 5px;color:var(--text-2)}
+  .install-foot{max-width:860px;margin:16px auto 0;font-family:var(--mono);font-size:.78rem;color:var(--text-3);text-align:center}
+  @media(max-width:560px){.tabbar label{padding:9px 10px;font-size:.75rem}}
+
+  /* ---------- EDGES ---------- */
+  .edges{max-width:800px;margin:0 auto;display:grid;gap:2px;background:var(--paper-line);border:1px solid var(--paper-line);box-shadow:var(--shadow-sm)}
+  .edge{background:var(--card);padding:15px 18px}
+  .edge h3{font-family:var(--mono);font-size:.85rem;color:var(--ink);margin-bottom:3px}
+  .edge p{font-size:.87rem;color:var(--ink-2)}
+  .edge code{font-family:var(--mono);font-size:.85em;background:var(--head);border:1px solid var(--line-soft);border-radius:2px;padding:1px 5px;color:var(--ink);word-break:break-word}
+  .edge a{color:var(--wp-blue);border-bottom:1px solid var(--wp-blue-l)}
+
+  /* ---------- AUTHOR ---------- */
+  .author .card{max-width:760px;margin:0 auto;background:var(--card);border:1px solid var(--paper-line);border-left:4px solid var(--wp-blue);padding:30px 34px;display:flex;gap:24px;align-items:center;box-shadow:var(--shadow-sm)}
+  .author .avatar{flex:0 0 76px}
+  .author .avatar img{width:76px;height:76px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 4px 14px rgba(29,35,39,.18)}
+  .author .nm{font-family:var(--mono);font-weight:600;font-size:1.05rem;color:var(--ink)}
+  .author .rl{font-family:var(--mono);font-size:.75rem;color:var(--wp-blue);margin:3px 0 10px}
+  .author .meta p{font-size:.93rem;color:var(--ink-2)}
+  .author .meta a{color:var(--wp-blue);font-weight:600;border-bottom:1px solid var(--wp-blue-l)}
+  @media(max-width:560px){.author .card{flex-direction:column;text-align:center;padding:26px 22px}.author .avatar{flex:0 0 auto}}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{max-width:800px;margin:0 auto;display:grid;gap:10px}
+  .faq details{background:var(--card);border:1px solid var(--paper-line);border-radius:2px;box-shadow:var(--shadow-sm)}
+  .faq summary{list-style:none;cursor:pointer;padding:17px 20px;font-family:var(--mono);font-weight:600;font-size:.95rem;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary:focus-visible{outline:2px solid var(--wp-blue);outline-offset:-2px}
+  .faq summary .q{flex:1 1 auto;min-width:0}
+  .faq summary .chev{flex:0 0 18px;width:18px;height:18px;transition:transform .22s}
+  .faq summary .chev svg{width:18px;height:18px;stroke:var(--wp-blue);stroke-width:2.2;fill:none}
+  .faq details[open] summary .chev{transform:rotate(180deg)}
+  .faq .ans{padding:0 20px 18px;color:var(--ink-2);font-size:.93rem}
+  .faq .ans code{font-family:var(--mono);font-size:.85em;background:var(--head);border:1px solid var(--line-soft);border-radius:2px;padding:1px 5px;color:var(--ink);word-break:break-word}
+  .faq .ans a{color:var(--wp-blue);border-bottom:1px solid var(--wp-blue-l)}
+
+  /* ---------- FINAL ---------- */
+  .final{text-align:center;background:var(--void);border-top:1px solid var(--admin-2)}
+  .final .term{display:inline-flex;align-items:center;gap:12px;background:var(--admin);border:1px solid var(--rule);border-radius:4px;padding:15px 20px;font-family:var(--mono);font-size:.92rem;color:var(--text);margin-bottom:26px;max-width:100%;overflow-x:auto;scrollbar-width:thin}
+  .final .term .p{color:var(--stdin)}
+  .final .cta-row{justify-content:center}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--admin);border-top:1px solid var(--rule);padding:30px 0;font-size:.85rem;color:var(--text-3)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+  footer .fl{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);color:var(--text-2)}
+  footer .fl svg{width:18px;height:18px}
+  footer .fr{display:flex;gap:20px;flex-wrap:wrap;font-family:var(--mono);font-size:.8rem}
+  footer a:hover{color:var(--text)}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.frame{display:grid!important}</style></noscript>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="5" rx="2.5" fill="none" stroke="#7ee787" stroke-width="1.6"/><rect x="2" y="14" width="20" height="5" rx="2.5" fill="none" stroke="#79c0ff" stroke-width="1.6"/><circle cx="9" cy="7.5" r="1.6" fill="#7ee787"/><circle cx="15" cy="16.5" r="1.6" fill="#79c0ff"/></svg>
+      shim-mcp
+    </a>
+    <div class="nav-right">
+      <a class="nav-link" href="#pipe">Pipe</a>
+      <a class="nav-link" href="#abilities">Abilities</a>
+      <a class="nav-link" href="#security">Security</a>
+      <a class="nav-link" href="#install">Install</a>
+      <a class="nav-gh" href="https://github.com/justadityaraj/shim-mcp" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38l-.01-1.49c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero s-dark" id="top">
+  <div class="wrap">
+    <div class="crumb">
+      <a href="https://dev.adityarajsingh.com/">MCP Servers</a><span class="sep">&rsaquo;</span><span>shim-mcp</span>
+    </div>
+    <div class="grid">
+      <div>
+        <span class="eyebrow"><span class="pip"></span>WordPress plugin &middot; MCP server &middot; GPL-2.0-or-later</span>
+        <h1 class="hero-title">WP-CLI is the <span class="hl">transport</span>, not a tool.</h1>
+        <p class="hero-sub">Shim MCP turns a WordPress site into an MCP server. Point your client at <code>wp shim-mcp serve --user=admin</code> and JSON-RPC moves over stdin and stdout: <b>no port bound, no application password issued, no HTTP request made</b>. Authenticated Streamable HTTP is there too, off the same server object, with the same permission chain.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://github.com/justadityaraj/shim-mcp" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38l-.01-1.49c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+            Read the source
+          </a>
+          <a class="btn btn-ghost" href="#install">Install it</a>
+        </div>
+        <div class="meta-line">
+          <b>58</b> abilities<span class="dot">&middot;</span><b>13</b> domains<span class="dot">&middot;</span><b>3</b> meta-tools<span class="dot">&middot;</span><b>0</b> dependencies<span class="dot">&middot;</span><b>0</b> telemetry endpoints<span class="dot">&middot;</span><b>1</b> required binary (<code>wp</code>)
+        </div>
+        <div class="meta-honest">No tagged release yet &middot; not listed on WordPress.org &middot; no ratings</div>
+      </div>
+
+      <!-- SIGNATURE: the frame stepper -->
+      <div class="stepper" id="stepper">
+        <div class="stepper-bar">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="t">wp shim-mcp serve --user=admin</span>
+        </div>
+        <div class="log" id="log" role="region" aria-label="A JSON-RPC session over stdio, stepped frame by frame">
+          <div class="frame in" data-step="1"><span class="gut">&rarr; stdin</span><pre><span class="p">{</span><span class="k">"jsonrpc"</span><span class="p">:</span><span class="s">"2.0"</span><span class="p">,</span><span class="k">"id"</span><span class="p">:</span><span class="n">1</span><span class="p">,</span><span class="k">"method"</span><span class="p">:</span><span class="s">"initialize"</span><span class="p">,</span><span class="k">"params"</span><span class="p">:{</span><span class="k">"protocolVersion"</span><span class="p">:</span><span class="s">"2025-06-18"</span><span class="p">,</span><span class="k">"capabilities"</span><span class="p">:{},</span><span class="k">"clientInfo"</span><span class="p">:{</span><span class="k">"name"</span><span class="p">:</span><span class="s">"claude-code"</span><span class="p">}}}</span></pre></div>
+          <div class="frame out" data-step="2"><span class="gut">&larr; stdout</span><pre><span class="p">{</span><span class="k">"jsonrpc"</span><span class="p">:</span><span class="s">"2.0"</span><span class="p">,</span><span class="k">"id"</span><span class="p">:</span><span class="n">1</span><span class="p">,</span><span class="k">"result"</span><span class="p">:{</span><span class="k">"protocolVersion"</span><span class="p">:</span><span class="s">"2025-06-18"</span><span class="p">,</span><span class="k">"capabilities"</span><span class="p">:{</span><span class="k">"tools"</span><span class="p">:{}},</span><span class="k">"serverInfo"</span><span class="p">:{</span><span class="k">"name"</span><span class="p">:</span><span class="s">"Shim MCP"</span><span class="p">}}}</span></pre></div>
+          <div class="frame in" data-step="3"><span class="gut">&rarr; stdin</span><pre><span class="p">{</span><span class="k">"jsonrpc"</span><span class="p">:</span><span class="s">"2.0"</span><span class="p">,</span><span class="k">"id"</span><span class="p">:</span><span class="n">2</span><span class="p">,</span><span class="k">"method"</span><span class="p">:</span><span class="s">"tools/list"</span><span class="p">}</span></pre></div>
+          <div class="frame out" data-step="4"><span class="gut">&larr; stdout</span><pre><span class="p">{</span><span class="k">"jsonrpc"</span><span class="p">:</span><span class="s">"2.0"</span><span class="p">,</span><span class="k">"id"</span><span class="p">:</span><span class="n">2</span><span class="p">,</span><span class="k">"result"</span><span class="p">:{</span><span class="k">"tools"</span><span class="p">:[</span>
+  <span class="p">{</span><span class="k">"name"</span><span class="p">:</span><span class="s">"shim-mcp-discover-abilities"</span><span class="p">},</span>
+  <span class="p">{</span><span class="k">"name"</span><span class="p">:</span><span class="s">"shim-mcp-get-ability-info"</span><span class="p">},</span>
+  <span class="p">{</span><span class="k">"name"</span><span class="p">:</span><span class="s">"shim-mcp-execute-ability"</span><span class="p">}</span>
+<span class="p">]}}</span>  <span class="cm">// three tools. not fifty-eight.</span></pre></div>
+          <div class="frame in" data-step="5"><span class="gut">&rarr; stdin</span><pre><span class="p">{</span><span class="k">"jsonrpc"</span><span class="p">:</span><span class="s">"2.0"</span><span class="p">,</span><span class="k">"id"</span><span class="p">:</span><span class="n">3</span><span class="p">,</span><span class="k">"method"</span><span class="p">:</span><span class="s">"tools/call"</span><span class="p">,</span><span class="k">"params"</span><span class="p">:{</span>
+  <span class="k">"name"</span><span class="p">:</span><span class="s">"shim-mcp-execute-ability"</span><span class="p">,</span>
+  <span class="k">"arguments"</span><span class="p">:{</span><span class="k">"ability_name"</span><span class="p">:</span><span class="s">"shim-mcp/posts-list"</span><span class="p">,</span>
+  <span class="k">"parameters"</span><span class="p">:{</span><span class="k">"status"</span><span class="p">:</span><span class="s">"draft"</span><span class="p">}}}}</span>  <span class="cm">// abilities keep the slash</span></pre></div>
+          <div class="frame out" data-step="6"><span class="gut">&larr; stdout</span><pre><span class="p">{</span><span class="k">"jsonrpc"</span><span class="p">:</span><span class="s">"2.0"</span><span class="p">,</span><span class="k">"id"</span><span class="p">:</span><span class="n">3</span><span class="p">,</span><span class="k">"result"</span><span class="p">:{</span><span class="k">"content"</span><span class="p">:[{</span><span class="k">"type"</span><span class="p">:</span><span class="s">"text"</span><span class="p">,</span>
+  <span class="k">"text"</span><span class="p">:</span><span class="s">"{\"posts\":[{\"id\":214,\"title\":\"Draft: homelab notes\"}]}"</span><span class="p">}]}}</span>
+<span class="cm">// gated by edit_posts, then read_post on every row.</span></pre></div>
+        </div>
+        <div class="stepper-foot">
+          <button class="pill" type="button" data-goto="1" aria-current="true">1</button>
+          <button class="pill" type="button" data-goto="2">2</button>
+          <button class="pill" type="button" data-goto="3">3</button>
+          <button class="pill" type="button" data-goto="4">4</button>
+          <button class="pill" type="button" data-goto="5">5</button>
+          <button class="pill" type="button" data-goto="6">6</button>
+          <span class="hint">a session, abridged &middot; stepped by hand</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- SCOPE NOTICE -->
+<div class="s-dark notice-band">
+  <div class="wrap">
+    <div class="notice n-info reveal">
+      <strong>Your client sees three tools, not fifty-eight.</strong> <code>shim-mcp-discover-abilities</code>, <code>shim-mcp-get-ability-info</code> and <code>shim-mcp-execute-ability</code> are the entire wire-level tool surface. The 58 WordPress abilities are discovered at runtime and invoked through <code>execute-ability</code>, so your tool list stays small while the ability surface stays large. Mind the punctuation: abilities are named with a slash (<code>shim-mcp/posts-list</code>), but an MCP tool name cannot contain one, so the adapter rewrites it to a hyphen.
+    </div>
+  </div>
+</div>
+
+<!-- THE SEAM -->
+<section class="s-dark" id="pipe">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="kicker">The pipe</div>
+      <h2>Two transports. One server object. One permission chain.</h2>
+      <p>Most of the work in connecting an AI client to WordPress is authentication plumbing. On a site you already have checked out locally, none of it needs to exist.</p>
+    </div>
+
+    <figure class="diagram reveal">
+      <div class="diagram-scroll">
+        <svg viewBox="0 0 1120 400" role="img" aria-labelledby="dg-t" aria-describedby="dg-d">
+          <title id="dg-t">Two ways to reach WordPress from an MCP client</title>
+          <desc id="dg-d">The usual shape routes an MCP client through an HTTP POST, an application password and a REST route on port 443 before reaching WordPress, binding a port, issuing a credential and putting a request on the wire. Shim MCP over stdio connects the MCP client directly to a local wp shim-mcp serve process through a stdin and stdout pipe, with WordPress loaded in-process: zero ports bound, zero credentials issued and zero HTTP requests.</desc>
+          <defs>
+            <marker id="ah-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#3c434a"/></marker>
+            <clipPath id="cl-in"><rect x="292" y="252" width="336" height="28"/></clipPath>
+            <clipPath id="cl-out"><rect x="292" y="292" width="336" height="28"/></clipPath>
+          </defs>
+
+          <!-- LANE A -->
+          <text class="d-head" x="40" y="34">THE USUAL SHAPE</text>
+          <g>
+            <rect class="d-node" x="40" y="56" width="150" height="62" rx="4"/>
+            <text class="d-dim" x="115" y="93" text-anchor="middle">MCP client</text>
+
+            <rect class="d-node" x="250" y="56" width="150" height="62" rx="4"/>
+            <text class="d-dim" x="325" y="93" text-anchor="middle">HTTP POST</text>
+
+            <rect class="d-node" x="460" y="56" width="170" height="62" rx="4"/>
+            <text class="d-dim" x="545" y="93" text-anchor="middle">App password</text>
+
+            <rect class="d-node" x="690" y="56" width="180" height="62" rx="4"/>
+            <text class="d-dim" x="780" y="93" text-anchor="middle">REST route :443</text>
+
+            <rect class="d-node" x="930" y="56" width="150" height="62" rx="4"/>
+            <text class="d-dim" x="1005" y="93" text-anchor="middle">WordPress</text>
+
+            <path class="d-conn" d="M190 87 H244" marker-end="url(#ah-dim)"/>
+            <path class="d-conn" d="M400 87 H454" marker-end="url(#ah-dim)"/>
+            <path class="d-conn" d="M630 87 H684" marker-end="url(#ah-dim)"/>
+            <path class="d-conn" d="M870 87 H924" marker-end="url(#ah-dim)"/>
+
+            <text class="d-hazard" x="325" y="140" text-anchor="middle">request on the wire</text>
+            <text class="d-hazard" x="545" y="140" text-anchor="middle">credential issued</text>
+            <text class="d-hazard" x="780" y="140" text-anchor="middle">port bound</text>
+          </g>
+
+          <line x1="40" y1="186" x2="1080" y2="186" stroke="#2c3338" stroke-width="1"/>
+
+          <!-- LANE B -->
+          <g class="lane-b">
+            <text class="d-head-live" x="40" y="216">SHIM MCP &middot; STDIO</text>
+
+            <rect class="d-node-live" x="40" y="248" width="170" height="76" rx="4"/>
+            <text class="d-lbl" x="125" y="292" text-anchor="middle">MCP client</text>
+
+            <text class="d-sm d-sm-in" x="460" y="245" text-anchor="middle">STDIN &rarr;</text>
+            <rect class="d-chan" x="292" y="252" width="336" height="28" rx="3"/>
+            <g clip-path="url(#cl-in)">
+              <rect class="pkt-in" x="262" y="260" width="30" height="12" rx="3" style="animation-delay:0s"/>
+              <rect class="pkt-in" x="262" y="260" width="30" height="12" rx="3" style="animation-delay:-.9333s"/>
+              <rect class="pkt-in" x="262" y="260" width="30" height="12" rx="3" style="animation-delay:-1.8667s"/>
+            </g>
+
+            <rect class="d-chan-b" x="292" y="292" width="336" height="28" rx="3"/>
+            <g clip-path="url(#cl-out)">
+              <rect class="pkt-out" x="262" y="300" width="30" height="12" rx="3" style="animation-delay:0s"/>
+              <rect class="pkt-out" x="262" y="300" width="30" height="12" rx="3" style="animation-delay:-.9333s"/>
+              <rect class="pkt-out" x="262" y="300" width="30" height="12" rx="3" style="animation-delay:-1.8667s"/>
+            </g>
+
+            <text class="d-sm d-sm-out" x="460" y="337" text-anchor="middle">&larr; STDOUT</text>
+            <text class="d-sm d-sm-err" x="460" y="359" text-anchor="middle">STDERR (diagnostics)</text>
+
+            <rect class="d-node-live" x="710" y="248" width="370" height="76" rx="4"/>
+            <text class="d-lbl" x="895" y="280" text-anchor="middle">wp shim-mcp serve</text>
+            <text class="d-sm" x="895" y="302" text-anchor="middle">WordPress loaded in-process</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption><span class="scroll-hint">scroll the diagram sideways &rarr;</span>The stdio path removes the authentication surface rather than securing it.</figcaption>
+    </figure>
+
+    <div class="absences reveal">
+      <span>0 ports bound</span><span>0 credentials issued</span><span>0 HTTP requests</span>
+    </div>
+
+    <div class="three">
+      <div class="panel reveal">
+        <div class="tag tag-in">Transport 1 &middot; stdio</div>
+        <h3>A pipe, not a connection</h3>
+        <p><code>wp shim-mcp serve</code> reads newline-delimited JSON-RPC from STDIN, writes responses to STDOUT and diagnostics to STDERR. Identity comes from <code>--user</code>, which calls <code>wp_set_current_user()</code> before the loop starts. No REST route, no listening port, no token. The trust boundary is shell access to the box.</p>
+      </div>
+      <div class="panel reveal">
+        <div class="tag tag-out">Transport 2 &middot; Streamable HTTP</div>
+        <h3>One route, for sites you aren't sat in front of</h3>
+        <p>A single REST route at <code>/wp-json/mcp/shim-mcp</code> accepting POST (including batch), GET and DELETE, with session termination via the <code>Mcp-Session-Id</code> header. Authentication is WordPress Application Passwords over HTTP Basic. Both transports negotiate MCP <code>2025-06-18</code>, <code>2025-03-26</code> and <code>2024-11-05</code>.</p>
+      </div>
+      <div class="panel reveal">
+        <div class="tag tag-off">Not implemented</div>
+        <h3>SSE returns 405</h3>
+        <p><code>handle_sse_request()</code> returns HTTP 405 with an empty body, marked <em>not yet implemented</em> in the source. Streamable HTTP is the supported path. Worth saying out loud, because the bundled <code>readme.txt</code> still advertises SSE and it does not work.</p>
+      </div>
+    </div>
+
+    <div class="notice n-warn reveal" style="max-width:860px;margin:30px auto 0">
+      <strong>Always pass <code>--user</code>.</strong> <code>wp shim-mcp serve</code> with no <code>--user</code> runs with no current user: <code>is_user_logged_in()</code> is false and every ability's permission check fails. Pass an ID, login or email: <code>--user=admin</code>.
+    </div>
+  </div>
+</section>
+
+<!-- ABILITIES -->
+<section class="s-light" id="abilities">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="kicker">The surface</div>
+      <h2>58 abilities across 13 domains, registered through WordPress's own Abilities API.</h2>
+      <p>Nothing lives in a private tool registry. Every ability goes through <code>wp_register_ability()</code>, declares the capability that gates it, and is grouped here by the admin screen you already know it from.</p>
+    </div>
+
+    <ul class="subsubsub reveal">
+      <li>All (<b>58</b>)</li>
+      <li>Read-only (<b>25</b>)</li>
+      <li>Write (<b>33</b>)</li>
+      <li>Per-object re-check (<b>30</b>)</li>
+    </ul>
+
+    <div class="table-scroll reveal">
+      <table class="widefat">
+        <thead>
+          <tr><th scope="col">Domain</th><th scope="col">Abilities</th><th scope="col">Capability</th><th scope="col">Per-object check</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-th="Domain"><span class="dom">Posts</span></td>
+            <td data-th="Abilities"><details><summary>6 abilities</summary><ul><li>posts-list</li><li>posts-get</li><li>posts-create</li><li>posts-update</li><li>posts-delete</li><li>posts-replace-text</li></ul></details></td>
+            <td data-th="Capability" class="cap">edit_posts &middot; publish_posts &middot; delete_posts</td>
+            <td data-th="Per-object check" class="obj">read_post, edit_post, delete_post &middot; edit_others_posts to reassign an author</td>
+          </tr>
+          <tr>
+            <td data-th="Domain"><span class="dom">Pages</span></td>
+            <td data-th="Abilities"><details><summary>6 abilities</summary><ul><li>pages-list</li><li>pages-get</li><li>pages-create</li><li>pages-update</li><li>pages-delete</li><li>pages-replace-text</li></ul></details></td>
+            <td data-th="Capability" class="cap">edit_pages &middot; publish_pages &middot; delete_pages</td>
+            <td data-th="Per-object check" class="obj">read_post, edit_post, delete_post &middot; wp_kses_post unless unfiltered_html</td>
+          </tr>
+          <tr>
+            <td data-th="Domain"><span class="dom">Taxonomy</span><span class="screen">Posts &rsaquo; Categories &amp; Tags</span></td>
+            <td data-th="Abilities"><details><summary>4 abilities</summary><ul><li>taxonomy-list-categories</li><li>taxonomy-list-tags</li><li>taxonomy-create-term</li><li>taxonomy-update-term</li></ul></details></td>
+            <td data-th="Capability" class="cap">edit_posts &middot; manage_categories</td>
+            <td data-th="Per-object check" class="obj">the taxonomy's own edit_terms capability</td>
+          </tr>
+          <tr>
+            <td data-th="Domain"><span class="dom">Search</span><span class="screen">across post types</span></td>
+            <td data-th="Abilities"><details><summary>1 ability</summary><ul><li>content-search</li></ul></details></td>
+            <td data-th="Capability" class="cap">read <span class="ro">&mdash; the lowest gate in the set</span></td>
+            <td data-th="Per-object check" class="obj">read_post on every hit, so an unprivileged caller sees nothing new</td>
+          </tr>
+          <tr>
+            <td data-th="Domain"><span class="dom">Revisions</span><span class="screen">Posts &rsaquo; Revisions</span></td>
+            <td data-th="Abilities"><details><summary>2 abilities</summary><ul><li>revisions-list</li><li>revisions-restore</li></ul></details></td>
+            <td data-th="Capability" class="cap">edit_posts</td>
+            <td data-th="Per-object check" class="obj">edit_post on the revision's parent post</td>
+          </tr>
+          <tr>
+            <td data-th="Domain"><span class="dom">Media</span></td>
+            <td data-th="Abilities"><details><summary>5 abilities</summary><ul><li>media-list</li><li>media-get</li><li>media-upload</li><li>media-update</li><li>media-delete</li></ul></details></td>
+            <td data-th="Capability" class="cap">upload_files &middot; delete_posts</td>
+            <td data-th="Per-object check" class="obj">read_post, edit_post, delete_post &middot; uploads validated against allowed file types</td>
+          </tr>
+          <tr>
+            <td data-th="Domain"><span class="dom">Users</span></td>
+            <td data-th="Abilities"><details><summary>6 abilities</summary><ul><li>users-list</li><li>users-get</li><li>users-list-roles</li><li>users-create</li><li>users-update</li><li>users-delete</li></ul></details></td>
+            <td data-th="Capability" class="cap">list_users &middot; create_users &middot; edit_users &middot; delete_users</td>
+            <td data-th="Per-object check" class="obj">edit_user, delete_user &middot; promote_users guard refuses any role carrying a capability you lack</td>
+          </tr>
+          <tr>
+            <td data-th="Domain"><span class="dom">Plugins</span></td>
+            <td data-th="Abilities"><details><summary>6 abilities</summary><ul><li>plugins-list</li><li>plugins-install-from-zip</li><li>plugins-install-from-url</li><li>plugins-activate</li><li>plugins-deactivate</li><li>plugins-delete</li></ul></details></td>
+            <td data-th="Capability" class="cap">activate_plugins &middot; install_plugins &middot; delete_plugins</td>
+            <td data-th="Per-object check" class="obj">activate_plugin, deactivate_plugin &middot; install and delete are removed by WordPress under DISALLOW_FILE_MODS; activate and deactivate are not</td>
+          </tr>
+          <tr>
+            <td data-th="Domain"><span class="dom">Menus</span><span class="screen">Appearance &rsaquo; Menus</span></td>
+            <td data-th="Abilities"><details><summary>7 abilities</summary><ul><li>menus-list</li><li>menus-create</li><li>menus-list-items</li><li>menus-add-item</li><li>menus-update-item</li><li>menus-delete-item</li><li>menus-assign-location</li></ul></details></td>
+            <td data-th="Capability" class="cap">edit_theme_options</td>
+            <td data-th="Per-object check" class="obj">read_post when pointing an item at content, edit_post on update, delete_post on removal</td>
+          </tr>
+          <tr>
+            <td data-th="Domain"><span class="dom">Widgets</span><span class="screen">Appearance &rsaquo; Widgets</span></td>
+            <td data-th="Abilities"><details><summary>3 abilities</summary><ul><li>widgets-list-sidebars</li><li>widgets-list-types</li><li>widgets-list-in-sidebar</li></ul></details></td>
+            <td data-th="Capability" class="cap">edit_theme_options</td>
+            <td data-th="Per-object check" class="obj"><span class="ro">read-only domain &mdash; no add, move, configure or remove</span></td>
+          </tr>
+          <tr>
+            <td data-th="Domain"><span class="dom">Comments</span></td>
+            <td data-th="Abilities"><details><summary>6 abilities</summary><ul><li>comments-list</li><li>comments-get</li><li>comments-create</li><li>comments-set-status</li><li>comments-update</li><li>comments-delete</li></ul></details></td>
+            <td data-th="Capability" class="cap">moderate_comments</td>
+            <td data-th="Per-object check" class="obj">read_post before reading, edit_comment before mutating, edit_user to attribute to another account</td>
+          </tr>
+          <tr>
+            <td data-th="Domain"><span class="dom">Options</span><span class="screen">Settings</span></td>
+            <td data-th="Abilities"><details><summary>3 abilities</summary><ul><li>options-get</li><li>options-search</li><li>options-update</li></ul></details></td>
+            <td data-th="Capability" class="cap">manage_options</td>
+            <td data-th="Per-object check" class="obj">options-update refuses a 14-name blocklist, plus anything ending in user_roles</td>
+          </tr>
+          <tr>
+            <td data-th="Domain"><span class="dom">System</span><span class="screen">Tools</span></td>
+            <td data-th="Abilities"><details><summary>3 abilities</summary><ul><li>system-environment</li><li>system-read-debug-log</li><li>system-set-debug-constants</li></ul></details></td>
+            <td data-th="Capability" class="cap">manage_options</td>
+            <td data-th="Per-object check" class="obj">refused under DISALLOW_FILE_EDIT / DISALLOW_FILE_MODS, and by two pre-write sanity checks on the rewritten wp-config.php (opening tag intact, not shrunk below 80%)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- THE FILTER -->
+<section class="s-light" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="kicker">The filter</div>
+      <h2>Registered through WordPress, never a private registry.</h2>
+    </div>
+    <div class="two">
+      <div class="codecard reveal">
+        <div class="cc-bar">includes/Abilities/Registry.php</div>
+        <pre><span class="cm">// runs before every ability is stored</span>
+<span class="fn">add_filter</span>( <span class="st">'wp_register_ability_args'</span>,
+    [ self::class, <span class="st">'expose_all_abilities'</span> ], 10, 2 );
+
+<span class="kw">public static function</span> <span class="fn">expose_all_abilities</span>(
+    <span class="kw">array</span> $args, <span class="kw">string</span> $ability_name
+): <span class="kw">array</span> {
+    $args[<span class="st">'meta'</span>][<span class="st">'mcp'</span>][<span class="st">'public'</span>] = <span class="kw">true</span>;
+
+    <span class="kw">if</span> ( ! isset( $args[<span class="st">'meta'</span>][<span class="st">'mcp'</span>][<span class="st">'type'</span>] ) ) {
+        $args[<span class="st">'meta'</span>][<span class="st">'mcp'</span>][<span class="st">'type'</span>] = <span class="st">'tool'</span>;
+    }
+
+    <span class="kw">return</span> $args;
+}</pre>
+      </div>
+      <div class="notice n-warn reveal">
+        <strong>And the cost of that, stated plainly.</strong> Because <code>expose_all_abilities()</code> hooks the <code>wp_register_ability_args</code> filter, <em>every</em> ability registered on the site becomes MCP-visible: including ones registered by other plugins. There is no allowlist and no admin toggle. That is the trade-off in both directions: abilities from other plugins work over MCP with zero adapter code, and you do not get to choose which.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section class="s-light" id="security" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="kicker">The check</div>
+      <h2>Holding <code>edit_posts</code> is not permission to edit any post.</h2>
+      <p>Four links, in this order, on both transports. No code path in the plugin elevates, switches user, or short-circuits <code>current_user_can()</code>.</p>
+    </div>
+
+    <div class="chain">
+      <div class="link reveal">
+        <div class="n">01 &middot; TRANSPORT</div>
+        <h3>The transport gate</h3>
+        <p>Over HTTP, the REST route's own <code>permission_callback</code> runs first and defaults to <code>current_user_can('read')</code>. Over stdio there is no gate here at all: the identity is whatever <code>--user</code> named.</p>
+      </div>
+      <div class="link reveal">
+        <div class="n">02 &middot; META-TOOL</div>
+        <h3><code>execute-ability</code> delegates, it does not decide</h3>
+        <p>It requires a logged-in user, checks the ability is MCP-public, then hands off to the target ability's own <code>check_permissions()</code>. It never runs the callback on its own authority.</p>
+      </div>
+      <div class="link reveal">
+        <div class="n">03 &middot; ABILITY</div>
+        <h3>The declared capability</h3>
+        <p>All 58 abilities declare a <code>permission_callback</code> wrapping <code>current_user_can()</code> with a specific capability: <code>edit_posts</code>, <code>upload_files</code>, <code>moderate_comments</code>, <code>manage_options</code>, and so on.</p>
+      </div>
+      <div class="link reveal">
+        <div class="n">04 &middot; OBJECT</div>
+        <h3>The specific object</h3>
+        <p>30 of the 58 abilities then re-check the object-specific capability &mdash; <code>read_post</code>, <code>edit_post</code>, <code>delete_post</code>, <code>edit_user</code>, <code>delete_user</code>, <code>edit_comment</code>, <code>activate_plugin</code>, <code>deactivate_plugin</code> &mdash; against that object before reading or mutating it. A contributor's client cannot edit an editor's post.</p>
+      </div>
+    </div>
+
+    <div class="three">
+      <div class="panel reveal">
+        <h3>The options blocklist</h3>
+        <p><code>options-update</code> refuses 14 names outright: <code>siteurl</code>, <code>home</code>, <code>admin_email</code>, <code>new_admin_email</code>, <code>users_can_register</code>, <code>default_role</code>, <code>active_plugins</code>, <code>active_sitewide_plugins</code>, <code>recently_activated</code>, <code>template</code>, <code>stylesheet</code>, <code>db_version</code>, <code>initial_db_version</code>, <code>cron</code> &mdash; plus anything ending in <code>user_roles</code>.</p>
+      </div>
+      <div class="panel reveal">
+        <h3>The promote_users guard</h3>
+        <p><code>users-create</code> and <code>users-update</code> refuse to grant any role carrying a capability the caller does not itself hold. You cannot change your own role, and you cannot delete yourself.</p>
+      </div>
+      <div class="panel reveal">
+        <h3>Install-from-URL is fenced</h3>
+        <p><code>plugins-install-from-url</code> runs <code>wp_http_validate_url()</code> (blocking loopback and private ranges), restricts the scheme to http/https, and checks the downloaded file's first two bytes for the <code>PK</code> zip magic number before the installer ever sees it.</p>
+      </div>
+    </div>
+
+    <p class="chain-note">These guard against a <b>misbehaving client</b>, not against a privileged caller &mdash; the caller already holds <code>manage_options</code>. That distinction is <a href="https://github.com/justadityaraj/shim-mcp/blob/main/SECURITY.md" target="_blank" rel="noopener" style="color:var(--wp-blue);border-bottom:1px solid var(--wp-blue-l)">SECURITY.md</a>'s, not marketing's.</p>
+  </div>
+</section>
+
+<!-- INSTALL -->
+<section class="s-dark" id="install">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="kicker">Up and running</div>
+      <h2>Clone it, activate it, point a client at it.</h2>
+      <p>One plugin. No Composer, no npm, no companion plugin, no account anywhere.</p>
+    </div>
+
+    <fieldset class="tabs reveal">
+      <legend class="sr-only">Install method</legend>
+      <input type="radio" name="ins" id="t-cc" checked>
+      <input type="radio" name="ins" id="t-cur">
+      <input type="radio" name="ins" id="t-http">
+      <div class="tabbar">
+        <label for="t-cc">Claude Code</label>
+        <label for="t-cur">Cursor</label>
+        <label for="t-http">Remote / HTTP</label>
+      </div>
+
+      <div class="tabpanel p-cc">
+<pre><span class="cm"># 1 &middot; clone into your plugins directory</span>
+<span class="p">$</span> git clone https://github.com/justadityaraj/shim-mcp.git \
+    wp-content/plugins/shim-mcp
+
+<span class="cm"># 2 &middot; activate</span>
+<span class="p">$</span> wp plugin activate shim-mcp
+
+<span class="cm"># 3 &middot; register the server (stdio, no token, no port)</span>
+<span class="p">$</span> claude mcp add shim -- \
+    wp shim-mcp serve --user=admin --path=/full/path/to/wordpress</pre>
+        <p class="desc"><code>--path</code> matters because Claude Code will not be running from your WordPress root. <code>--user</code> is not optional.</p>
+      </div>
+
+      <div class="tabpanel p-cur">
+<pre><span class="cm">// .cursor/mcp.json</span>
+<span class="p">{</span>
+  <span class="k">"mcpServers"</span>: <span class="p">{</span>
+    <span class="k">"shim-mcp"</span>: <span class="p">{</span>
+      <span class="k">"command"</span>: <span class="st">"wp"</span>,
+      <span class="k">"args"</span>: [
+        <span class="st">"--path=/full/path/to/wordpress"</span>,
+        <span class="st">"shim-mcp"</span>, <span class="st">"serve"</span>, <span class="st">"--user=admin"</span>
+      ]
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></pre>
+        <p class="desc">Same stdio process, declared instead of registered. The <code>wp</code> binary has to be on Cursor's PATH.</p>
+      </div>
+
+      <div class="tabpanel p-http">
+<pre><span class="cm"># For a site you are not sat in front of.</span>
+<span class="cm"># Tools &rsaquo; Shim MCP &rsaquo; Generate mints an application password,</span>
+<span class="cm"># then copy the config snippet the dashboard shows you.</span>
+
+<span class="p">$</span> curl -sX POST https://your-site.com/wp-json/mcp/shim-mcp \
+    -u <span class="st">'user:xxxx xxxx xxxx xxxx xxxx xxxx'</span> \
+    -H <span class="st">'Content-Type: application/json'</span> \
+    -d <span class="st">'{"jsonrpc":"2.0","id":1,"method":"initialize",
+         "params":{"protocolVersion":"2025-06-18",
+                   "capabilities":{},"clientInfo":{"name":"curl"}}}'</span></pre>
+        <p class="desc">Serve it over HTTPS: application passwords travel as HTTP Basic credentials. The one-click generator mints the password for <em>your</em> account, so a least-privilege credential has to be created by hand from a lower-privileged user's profile.</p>
+      </div>
+    </fieldset>
+
+    <p class="install-foot">No tagged release yet &mdash; <code>git clone</code> is the install path.</p>
+  </div>
+</section>
+
+<!-- EDGES -->
+<section class="s-light">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="kicker">The edges</div>
+      <h2>What it doesn't do.</h2>
+      <p>Everything here is checkable against the source in about a minute. Better you read it from me than find it yourself.</p>
+    </div>
+    <div class="edges reveal">
+      <div class="edge">
+        <h3>No SSE</h3>
+        <p><code>handle_sse_request()</code> returns 405 with an empty body. Streamable HTTP over POST / GET / DELETE is the supported path, and it is the one the README documents.</p>
+      </div>
+      <div class="edge">
+        <h3>Widgets are read-only, end to end</h3>
+        <p>You can list sidebars, widget types and what sits in a given sidebar. You cannot add, move, configure or remove a widget. Three abilities, all reads.</p>
+      </div>
+      <div class="edge">
+        <h3>No tagged release, no CI, no test suite in the repo</h3>
+        <p>Clone is the install path today. The plugin is feature-complete and the abilities are documented, but it has not yet been exercised across a broad range of hosting environments.</p>
+      </div>
+      <div class="edge">
+        <h3>Installing for stdio still registers the HTTP route</h3>
+        <p><code>/wp-json/mcp/shim-mcp</code> comes up with the plugin whether or not you use it. It can be disabled through the <code>mcp_adapter_create_default_server</code> and <code>mcp_adapter_default_server_config</code> filters &mdash; PHP, not a setting.</p>
+      </div>
+      <div class="edge">
+        <h3>The annotation hints aren't uniformly consistent</h3>
+        <p><code>posts-replace-text</code> is flagged <code>destructive</code>; <code>pages-replace-text</code> is not. If your client keys its confirmation prompts off MCP annotations, don't lean on them here.</p>
+      </div>
+      <div class="edge">
+        <h3>Roughly half the PHP is not mine</h3>
+        <p>The protocol layer under <code>includes/Server/</code> derives from the <a href="https://github.com/WordPress/mcp-adapter" target="_blank" rel="noopener">WordPress MCP Adapter</a>, and the polyfill reproduces the <a href="https://github.com/WordPress/abilities-api" target="_blank" rel="noopener">WordPress Abilities API</a> for 6.7 and 6.8. Both GPL-2.0, both broken down in <a href="https://github.com/justadityaraj/shim-mcp/blob/main/CREDITS.md" target="_blank" rel="noopener">CREDITS.md</a>. The 58 abilities, the dashboard, the WP-CLI stdio bridge and the packaging are original.</p>
+      </div>
+      <div class="edge">
+        <h3>Not translation-ready yet</h3>
+        <p>Strings are wrapped and the text domain is declared, but <code>load_plugin_textdomain()</code> is never called and there is no <code>/languages</code> directory.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<section class="s-light author" id="author" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" style="margin-bottom:34px">
+      <h2 class="kicker">Who built this</h2>
+    </div>
+    <div class="card reveal">
+      <div class="avatar"><img src="author-aditya.jpg" alt="Aditya Raj Singh" width="76" height="76" loading="lazy"></div>
+      <div class="meta">
+        <div class="nm">Aditya Raj Singh</div>
+        <div class="rl">builder &middot; automation &amp; MCP servers &middot; homelab tinkerer</div>
+        <p>I keep wiring Claude into the tools I actually run. WordPress was the awkward one: every option meant a token, a port and an HTTP round trip to a site already sitting on my own disk. So the plugin makes WP-CLI the transport and gets out of the way. More of what I build over at <a href="https://adityarajsingh.com" target="_blank" rel="noopener">adityarajsingh.com</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="s-light faq" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="kicker">Questions</div>
+      <h2>WordPress MCP, answered.</h2>
+    </div>
+    <div class="faq-list">
+      <details open>
+        <summary><span class="q">What is Shim MCP?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">An open-source WordPress plugin that turns a WordPress site into a <b>Model Context Protocol (MCP) server</b>. It registers 58 abilities across 13 domains through WordPress's own Abilities API and exposes them to clients like Claude Code, Claude Desktop and Cursor over WP-CLI stdio or authenticated Streamable HTTP. A shim is a thin layer between two interfaces that changes neither: WordPress speaks the Abilities API, AI clients speak MCP, and this translates between them and does nothing else.</div>
+      </details>
+      <details>
+        <summary><span class="q">Does it need a companion plugin or a cloud service?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">No. The MCP server, the 58 abilities and an Abilities API polyfill for WordPress 6.7 and 6.8 all ship in the one plugin. No <code>composer.json</code>, no vendor directory, no npm install. There is no relay, no vendor account and no telemetry: only two HTTP calls exist anywhere in the codebase: the Test Connection probe against the site's own REST route, and the plugin zip fetch that <code>plugins-install-from-url</code> makes against a URL you supply.</div>
+      </details>
+      <details>
+        <summary><span class="q">Will I see 58 tools in my MCP client?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">No. <code>tools/list</code> returns exactly three: <code>shim-mcp-discover-abilities</code>, <code>shim-mcp-get-ability-info</code> and <code>shim-mcp-execute-ability</code> &mdash; an MCP tool name cannot contain a slash, so the adapter rewrites the ability prefix to a hyphen. The 58 abilities are discovered at runtime and invoked through <code>execute-ability</code>, so your tool list stays small while the ability surface stays large.</div>
+      </details>
+      <details>
+        <summary><span class="q">Does the stdio transport open a port or need an application password?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">No. The server runs as a local process: JSON-RPC on STDIN, responses on STDOUT, diagnostics on STDERR. No port bound, no application password issued, no HTTP request made. One caveat worth knowing: installing the plugin still registers the HTTP route at <code>/wp-json/mcp/shim-mcp</code>, and that route can only be turned off through the <code>mcp_adapter_*</code> PHP filters, not a setting.</div>
+      </details>
+      <details>
+        <summary><span class="q">What does <code>--user</code> actually do, and is it required?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">It sets the WordPress user the stdio session acts as, by calling <code>wp_set_current_user()</code> before the loop starts. It is effectively mandatory: without it no current user is set, <code>is_user_logged_in()</code> is false, and every ability's permission check fails. Pass an ID, login or email.</div>
+      </details>
+      <details>
+        <summary><span class="q">Is stdio more secure than HTTP?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">More accurately, it <em>removes the authentication surface</em> rather than securing it. There is no authentication on the stdio path at all: identity is whatever <code>--user</code> names, so the trust boundary is shell access to the machine. Authorization is identical on both transports, because both run off the same server object and the same permission chain: a client cannot get a weaker check by picking a transport.</div>
+      </details>
+      <details>
+        <summary><span class="q">Does it support SSE?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">No. The SSE request handler returns HTTP 405 with an empty body and is marked not yet implemented in the source. The supported HTTP path is Streamable HTTP over POST, GET and DELETE against a single REST route.</div>
+      </details>
+      <details>
+        <summary><span class="q">How do I install it?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">Clone into <code>wp-content/plugins/shim-mcp</code>, run <code>wp plugin activate shim-mcp</code>, then register it: <code>claude mcp add shim -- wp shim-mcp serve --user=admin --path=/full/path/to/wordpress</code>. There is no tagged release yet, so cloning is currently the only install path. Full commands are in the <a href="#install">install section</a> above.</div>
+      </details>
+      <details>
+        <summary><span class="q">How much of it is original code?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">Roughly half the PHP by line count. The 58 abilities, the admin dashboard, the WP-CLI stdio bridge and the packaging are original. The MCP protocol layer under <code>includes/Server/</code> derives from the WordPress MCP Adapter, and the polyfill reproduces the WordPress Abilities API: both GPL-2.0, both broken down in <a href="https://github.com/justadityaraj/shim-mcp/blob/main/CREDITS.md" target="_blank" rel="noopener">CREDITS.md</a>.</div>
+      </details>
+      <details>
+        <summary><span class="q">Is it on WordPress.org?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">Not at the moment: no directory listing, no tagged release, no ratings. GitHub is the source of truth, and the plugin is <b>GPL-2.0-or-later</b> per its plugin header. Requirements are WordPress 6.7+ and PHP 8.0+, plus WP-CLI for the stdio transport only.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final s-dark">
+  <div class="wrap">
+    <div class="term"><span class="p">$</span> wp shim-mcp serve --user=admin</div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://github.com/justadityaraj/shim-mcp" target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38l-.01-1.49c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        shim-mcp on GitHub
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/justadityaraj/shim-mcp/blob/main/SECURITY.md" target="_blank" rel="noopener">Read SECURITY.md</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="fl">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="5" rx="2.5" fill="none" stroke="#7ee787" stroke-width="1.6"/><rect x="2" y="14" width="20" height="5" rx="2.5" fill="none" stroke="#79c0ff" stroke-width="1.6"/></svg>
+      shim-mcp
+    </div>
+    <div class="fr">
+      <a href="https://github.com/justadityaraj/shim-mcp" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/justadityaraj/shim-mcp#readme" target="_blank" rel="noopener">README</a>
+      <a href="https://github.com/justadityaraj/shim-mcp/blob/main/docs/ABILITIES.md" target="_blank" rel="noopener">Abilities</a>
+      <a href="https://github.com/justadityaraj/shim-mcp/blob/main/SECURITY.md" target="_blank" rel="noopener">Security</a>
+      <a href="https://dev.adityarajsingh.com/">MCP Servers</a>
+      <a href="https://adityarajsingh.com" target="_blank" rel="noopener">adityarajsingh.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // staggered scroll reveal
+  var reveals = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var sibs = [].slice.call(e.target.parentElement.children).filter(function (c) {
+          return c.classList.contains('reveal');
+        });
+        var idx = sibs.indexOf(e.target);
+        e.target.style.transitionDelay = (idx >= 0 ? Math.min(idx, 5) * 70 : 0) + 'ms';
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
+  }
+
+  // frame stepper
+  var stepper = document.getElementById('stepper');
+  if (!stepper) return;
+  var log = document.getElementById('log');
+  var frames = [].slice.call(stepper.querySelectorAll('.frame'));
+  var pills = [].slice.call(stepper.querySelectorAll('.pill'));
+  var shown = 0;
+  var timer = null;
+
+  function render(n, scroll) {
+    shown = Math.max(1, Math.min(frames.length, n));
+    frames.forEach(function (f, i) { f.classList.toggle('on', i < shown); });
+    pills.forEach(function (p, i) { p.setAttribute('aria-current', i === shown - 1 ? 'true' : 'false'); });
+    if (scroll) { log.scrollTop = log.scrollHeight; }
+  }
+
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+  pills.forEach(function (p) {
+    p.addEventListener('click', function () {
+      stop();
+      render(parseInt(p.getAttribute('data-goto'), 10), true);
+    });
+  });
+
+  stepper.addEventListener('keydown', function (e) {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    stop();
+    render(shown + (e.key === 'ArrowRight' ? 1 : -1), true);
+    e.preventDefault();
+  });
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    render(frames.length, false);
+    return;
+  }
+
+  render(1, false);
+  var so = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      so.unobserve(e.target);
+      timer = setInterval(function () {
+        if (shown >= frames.length) { stop(); return; }
+        render(shown + 1, true);
+      }, 900);
+    });
+  }, { threshold: 0.3 });
+  so.observe(stepper);
+})();
+</script>
+
+</body>
+</html>
+<!-- by [Aditya Raj Singh](https://adityarajsingh.com/) -->
