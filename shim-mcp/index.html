@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shim MCP: WordPress MCP Server for Claude Code &amp; Cursor</title>
-<meta name="description" content="Open-source WordPress plugin that turns your site into an MCP server. 58 abilities over WP-CLI stdio or authenticated Streamable HTTP. GPL-2.0, zero dependencies.">
+<meta name="description" content="Open-source WordPress plugin that turns your site into an MCP server. 56 abilities over WP-CLI stdio or authenticated Streamable HTTP. GPL-2.0, zero dependencies.">
 <link rel="canonical" href="https://dev.adityarajsingh.com/shim-mcp/">
 <meta name="author" content="Aditya Raj Singh">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -47,7 +47,7 @@
       "@id": "https://dev.adityarajsingh.com/shim-mcp/#webpage",
       "url": "https://dev.adityarajsingh.com/shim-mcp/",
       "name": "Shim MCP: WordPress MCP Server for Claude Code & Cursor",
-      "description": "Open-source WordPress plugin that turns your site into an MCP server. 58 abilities over WP-CLI stdio or authenticated Streamable HTTP. GPL-2.0, zero dependencies.",
+      "description": "Open-source WordPress plugin that turns your site into an MCP server. 56 abilities over WP-CLI stdio or authenticated Streamable HTTP. GPL-2.0, zero dependencies.",
       "isPartOf": { "@id": "https://dev.adityarajsingh.com/#website" },
       "primaryImageOfPage": "https://dev.adityarajsingh.com/shim-mcp/og-image.png",
       "breadcrumb": { "@id": "https://dev.adityarajsingh.com/shim-mcp/#breadcrumb" },
@@ -65,7 +65,7 @@
       "@type": ["SoftwareSourceCode", "SoftwareApplication"],
       "@id": "https://dev.adityarajsingh.com/shim-mcp/#software",
       "name": "Shim MCP",
-      "description": "A self-contained WordPress plugin that turns a site into a Model Context Protocol (MCP) server. 58 abilities across 13 domains registered through WordPress's own Abilities API, reachable over WP-CLI stdio or authenticated Streamable HTTP, with no companion plugins, no dependencies and no telemetry.",
+      "description": "A self-contained WordPress plugin that turns a site into a Model Context Protocol (MCP) server. 56 abilities across 13 domains registered through WordPress's own Abilities API, reachable over WP-CLI stdio or authenticated Streamable HTTP, with no companion plugins, no dependencies and no telemetry.",
       "codeRepository": "https://github.com/justadityaraj/shim-mcp",
       "url": "https://dev.adityarajsingh.com/shim-mcp/",
       "programmingLanguage": "PHP",
@@ -90,15 +90,15 @@
       "@type": "FAQPage",
       "@id": "https://dev.adityarajsingh.com/shim-mcp/#faq",
       "mainEntity": [
-        { "@type": "Question", "name": "What is Shim MCP?", "acceptedAnswer": { "@type": "Answer", "text": "Shim MCP is an open-source WordPress plugin that turns a WordPress site into a Model Context Protocol (MCP) server. It registers 58 abilities across 13 domains through WordPress's own Abilities API and exposes them to MCP clients like Claude Code, Claude Desktop and Cursor over WP-CLI stdio or authenticated Streamable HTTP." } },
-        { "@type": "Question", "name": "Does Shim MCP need a companion plugin or a cloud service?", "acceptedAnswer": { "@type": "Answer", "text": "No. The MCP server, the 58 abilities and an Abilities API polyfill for WordPress 6.7 and 6.8 all ship in the one plugin. There is no composer.json, no vendor directory, no npm install and no companion plugin on any supported WordPress version. There is no relay, no vendor account and no telemetry: only two HTTP calls exist anywhere in the codebase: the Test Connection probe against the site's own REST route, and the plugin zip fetch that plugins-install-from-url makes against a URL you supply." } },
-        { "@type": "Question", "name": "Will I see 58 tools in my MCP client?", "acceptedAnswer": { "@type": "Answer", "text": "No. tools/list returns exactly three tools: shim-mcp-discover-abilities, shim-mcp-get-ability-info and shim-mcp-execute-ability (an MCP tool name cannot contain a slash, so the adapter rewrites the ability prefix to a hyphen). The 58 WordPress abilities are discovered at runtime and invoked through execute-ability, so the client's tool list stays small while the ability surface stays large." } },
+        { "@type": "Question", "name": "What is Shim MCP?", "acceptedAnswer": { "@type": "Answer", "text": "Shim MCP is an open-source WordPress plugin that turns a WordPress site into a Model Context Protocol (MCP) server. It registers 56 abilities across 13 domains through WordPress's own Abilities API and exposes them to MCP clients like Claude Code, Claude Desktop and Cursor over WP-CLI stdio or authenticated Streamable HTTP." } },
+        { "@type": "Question", "name": "Does Shim MCP need a companion plugin or a cloud service?", "acceptedAnswer": { "@type": "Answer", "text": "No. The MCP server and the 56 abilities ship in the one plugin. There is no composer.json, no vendor directory, no npm install and no companion plugin. Abilities register through the Abilities API that WordPress ships in core from 6.9, which is why 6.9 is the minimum. There is no relay, no vendor account and no telemetry: only one outbound HTTP call exists anywhere in the codebase: the Test Connection probe against the site's own REST route." } },
+        { "@type": "Question", "name": "Will I see 56 tools in my MCP client?", "acceptedAnswer": { "@type": "Answer", "text": "No. tools/list returns exactly three tools: shim-mcp-discover-abilities, shim-mcp-get-ability-info and shim-mcp-execute-ability (an MCP tool name cannot contain a slash, so the adapter rewrites the ability prefix to a hyphen). The 56 WordPress abilities are discovered at runtime and invoked through execute-ability, so the client's tool list stays small while the ability surface stays large." } },
         { "@type": "Question", "name": "Does the stdio transport open a port or need an application password?", "acceptedAnswer": { "@type": "Answer", "text": "No. On the stdio path the server runs as a local process: JSON-RPC arrives on STDIN, responses leave on STDOUT and diagnostics go to STDERR. No port is bound, no application password is issued and no HTTP request is made. Note that installing the plugin still registers the HTTP route at /wp-json/mcp/shim-mcp; that route can only be disabled through the mcp_adapter_* PHP filters, not through a setting." } },
         { "@type": "Question", "name": "What does the --user flag do, and is it required?", "acceptedAnswer": { "@type": "Answer", "text": "It sets the WordPress user the stdio session acts as, by calling wp_set_current_user() before the loop starts. It is effectively mandatory: without it no current user is set, is_user_logged_in() returns false and every ability's permission check fails. Pass --user with an ID, login or email." } },
         { "@type": "Question", "name": "Is the stdio transport more secure than HTTP?", "acceptedAnswer": { "@type": "Answer", "text": "It is more accurate to say it removes the authentication surface rather than secures it. There is no authentication on the stdio path at all: the identity is whatever --user names, so the trust boundary is shell access to the machine. Authorization is identical on both transports, because both run off the same server object and the same permission chain." } },
         { "@type": "Question", "name": "Does Shim MCP support SSE?", "acceptedAnswer": { "@type": "Answer", "text": "No. The SSE request handler returns HTTP 405 with an empty body and is marked not yet implemented in the source. The supported HTTP path is Streamable HTTP over POST, GET and DELETE against a single REST route." } },
         { "@type": "Question", "name": "How do I install Shim MCP?", "acceptedAnswer": { "@type": "Answer", "text": "Clone the repository into wp-content/plugins/shim-mcp, run wp plugin activate shim-mcp, then register the server with your client, for example: claude mcp add shim -- wp shim-mcp serve --user=admin --path=/full/path/to/wordpress. There is no tagged release yet, so cloning is currently the install path." } },
-        { "@type": "Question", "name": "How much of Shim MCP is original code?", "acceptedAnswer": { "@type": "Answer", "text": "Roughly half the PHP by line count. The 58 abilities, the admin dashboard, the WP-CLI stdio bridge and the packaging are original. The MCP protocol layer under includes/Server/ is derived from the WordPress MCP Adapter, and the Abilities API polyfill reproduces the WordPress Abilities API: both GPL-2.0, both credited in CREDITS.md." } },
+        { "@type": "Question", "name": "How much of Shim MCP is original code?", "acceptedAnswer": { "@type": "Answer", "text": "Roughly half the PHP by line count. The 56 abilities, the admin dashboard, the WP-CLI stdio bridge and the packaging are original. The MCP protocol layer under includes/Server/ is derived from the WordPress MCP Adapter (GPL-2.0), credited in CREDITS.md. Abilities register through the Abilities API that WordPress ships in core." } },
         { "@type": "Question", "name": "Is Shim MCP on WordPress.org?", "acceptedAnswer": { "@type": "Answer", "text": "Not at the moment. There is no directory listing, no tagged release and no ratings. GitHub is the source of truth, and the plugin is GPL-2.0-or-later per its plugin header." } }
       ]
     }
@@ -503,7 +503,7 @@
           <a class="btn btn-ghost" href="#install">Install it</a>
         </div>
         <div class="meta-line">
-          <b>58</b> abilities<span class="dot">&middot;</span><b>13</b> domains<span class="dot">&middot;</span><b>3</b> meta-tools<span class="dot">&middot;</span><b>0</b> dependencies<span class="dot">&middot;</span><b>0</b> telemetry endpoints<span class="dot">&middot;</span><b>1</b> required binary (<code>wp</code>)
+          <b>56</b> abilities<span class="dot">&middot;</span><b>13</b> domains<span class="dot">&middot;</span><b>3</b> meta-tools<span class="dot">&middot;</span><b>0</b> dependencies<span class="dot">&middot;</span><b>0</b> telemetry endpoints<span class="dot">&middot;</span><b>1</b> required binary (<code>wp</code>)
         </div>
         <div class="meta-honest">No tagged release yet &middot; not listed on WordPress.org &middot; no ratings</div>
       </div>
@@ -522,7 +522,7 @@
   <span class="p">{</span><span class="k">"name"</span><span class="p">:</span><span class="s">"shim-mcp-discover-abilities"</span><span class="p">},</span>
   <span class="p">{</span><span class="k">"name"</span><span class="p">:</span><span class="s">"shim-mcp-get-ability-info"</span><span class="p">},</span>
   <span class="p">{</span><span class="k">"name"</span><span class="p">:</span><span class="s">"shim-mcp-execute-ability"</span><span class="p">}</span>
-<span class="p">]}}</span>  <span class="cm">// three tools. not fifty-eight.</span></pre></div>
+<span class="p">]}}</span>  <span class="cm">// three tools. not fifty-six.</span></pre></div>
           <div class="frame in" data-step="5"><span class="gut">&rarr; stdin</span><pre><span class="p">{</span><span class="k">"jsonrpc"</span><span class="p">:</span><span class="s">"2.0"</span><span class="p">,</span><span class="k">"id"</span><span class="p">:</span><span class="n">3</span><span class="p">,</span><span class="k">"method"</span><span class="p">:</span><span class="s">"tools/call"</span><span class="p">,</span><span class="k">"params"</span><span class="p">:{</span>
   <span class="k">"name"</span><span class="p">:</span><span class="s">"shim-mcp-execute-ability"</span><span class="p">,</span>
   <span class="k">"arguments"</span><span class="p">:{</span><span class="k">"ability_name"</span><span class="p">:</span><span class="s">"shim-mcp/posts-list"</span><span class="p">,</span>
@@ -549,7 +549,7 @@
 <div class="s-dark notice-band">
   <div class="wrap">
     <div class="notice n-info reveal">
-      <strong>Your client sees three tools, not fifty-eight.</strong> <code>shim-mcp-discover-abilities</code>, <code>shim-mcp-get-ability-info</code> and <code>shim-mcp-execute-ability</code> are the entire wire-level tool surface. The 58 WordPress abilities are discovered at runtime and invoked through <code>execute-ability</code>, so your tool list stays small while the ability surface stays large. Mind the punctuation: abilities are named with a slash (<code>shim-mcp/posts-list</code>), but an MCP tool name cannot contain one, so the adapter rewrites it to a hyphen.
+      <strong>Your client sees three tools, not fifty-six.</strong> <code>shim-mcp-discover-abilities</code>, <code>shim-mcp-get-ability-info</code> and <code>shim-mcp-execute-ability</code> are the entire wire-level tool surface. The 56 WordPress abilities are discovered at runtime and invoked through <code>execute-ability</code>, so your tool list stays small while the ability surface stays large. Mind the punctuation: abilities are named with a slash (<code>shim-mcp/posts-list</code>), but an MCP tool name cannot contain one, so the adapter rewrites it to a hyphen.
     </div>
   </div>
 </div>
@@ -671,12 +671,12 @@
   <div class="wrap">
     <div class="sec-head center">
       <div class="kicker">The surface</div>
-      <h2>58 abilities across 13 domains, registered through WordPress's own Abilities API.</h2>
+      <h2>56 abilities across 13 domains, registered through WordPress's own Abilities API.</h2>
       <p>Nothing lives in a private tool registry. Every ability goes through <code>wp_register_ability()</code>, declares the capability that gates it, and is grouped here by the admin screen you already know it from.</p>
     </div>
 
     <ul class="subsubsub reveal">
-      <li>All (<b>58</b>)</li>
+      <li>All (<b>56</b>)</li>
       <li>Read-only (<b>25</b>)</li>
       <li>Write (<b>33</b>)</li>
       <li>Per-object re-check (<b>30</b>)</li>
@@ -732,7 +732,7 @@
           </tr>
           <tr>
             <td data-th="Domain"><span class="dom">Plugins</span></td>
-            <td data-th="Abilities"><details><summary>6 abilities</summary><ul><li>plugins-list</li><li>plugins-install-from-zip</li><li>plugins-install-from-url</li><li>plugins-activate</li><li>plugins-deactivate</li><li>plugins-delete</li></ul></details></td>
+            <td data-th="Abilities"><details><summary>4 abilities</summary><ul><li>plugins-list</li><li>plugins-activate</li><li>plugins-deactivate</li><li>plugins-delete</li></ul></details></td>
             <td data-th="Capability" class="cap">activate_plugins &middot; install_plugins &middot; delete_plugins</td>
             <td data-th="Per-object check" class="obj">activate_plugin, deactivate_plugin &middot; install and delete are removed by WordPress under DISALLOW_FILE_MODS; activate and deactivate are not</td>
           </tr>
@@ -828,12 +828,12 @@
       <div class="link reveal">
         <div class="n">03 &middot; ABILITY</div>
         <h3>The declared capability</h3>
-        <p>All 58 abilities declare a <code>permission_callback</code> wrapping <code>current_user_can()</code> with a specific capability: <code>edit_posts</code>, <code>upload_files</code>, <code>moderate_comments</code>, <code>manage_options</code>, and so on.</p>
+        <p>All 56 abilities declare a <code>permission_callback</code> wrapping <code>current_user_can()</code> with a specific capability: <code>edit_posts</code>, <code>upload_files</code>, <code>moderate_comments</code>, <code>manage_options</code>, and so on.</p>
       </div>
       <div class="link reveal">
         <div class="n">04 &middot; OBJECT</div>
         <h3>The specific object</h3>
-        <p>30 of the 58 abilities then re-check the object-specific capability &mdash; <code>read_post</code>, <code>edit_post</code>, <code>delete_post</code>, <code>edit_user</code>, <code>delete_user</code>, <code>edit_comment</code>, <code>activate_plugin</code>, <code>deactivate_plugin</code> &mdash; against that object before reading or mutating it. A contributor's client cannot edit an editor's post.</p>
+        <p>30 of the 56 abilities then re-check the object-specific capability &mdash; <code>read_post</code>, <code>edit_post</code>, <code>delete_post</code>, <code>edit_user</code>, <code>delete_user</code>, <code>edit_comment</code>, <code>activate_plugin</code>, <code>deactivate_plugin</code> &mdash; against that object before reading or mutating it. A contributor's client cannot edit an editor's post.</p>
       </div>
     </div>
 
@@ -848,7 +848,7 @@
       </div>
       <div class="panel reveal">
         <h3>Install-from-URL is fenced</h3>
-        <p><code>plugins-install-from-url</code> runs <code>wp_http_validate_url()</code> (blocking loopback and private ranges), restricts the scheme to http/https, and checks the downloaded file's first two bytes for the <code>PK</code> zip magic number before the installer ever sees it.</p>
+        <p>Installing plugins from an external source is not supported at all. The plugin abilities act only on what is already installed &mdash; list, activate, deactivate and delete &mdash; so no code is ever fetched and executed on your behalf.</p>
       </div>
     </div>
 
@@ -956,7 +956,7 @@
       </div>
       <div class="edge">
         <h3>Roughly half the PHP is not mine</h3>
-        <p>The protocol layer under <code>includes/Server/</code> derives from the <a href="https://github.com/WordPress/mcp-adapter" target="_blank" rel="noopener">WordPress MCP Adapter</a>, and the polyfill reproduces the <a href="https://github.com/WordPress/abilities-api" target="_blank" rel="noopener">WordPress Abilities API</a> for 6.7 and 6.8. Both GPL-2.0, both broken down in <a href="https://github.com/justadityaraj/shim-mcp/blob/main/CREDITS.md" target="_blank" rel="noopener">CREDITS.md</a>. The 58 abilities, the dashboard, the WP-CLI stdio bridge and the packaging are original.</p>
+        <p>The protocol layer under <code>includes/Server/</code> derives from the <a href="https://github.com/WordPress/mcp-adapter" target="_blank" rel="noopener">WordPress MCP Adapter</a>; abilities register through the Abilities API that WordPress ships in core from 6.9. Broken down in <a href="https://github.com/justadityaraj/shim-mcp/blob/main/CREDITS.md" target="_blank" rel="noopener">CREDITS.md</a>. The 56 abilities, the dashboard, the WP-CLI stdio bridge and the packaging are original.</p>
       </div>
       <div class="edge">
         <h3>Not translation-ready yet</h3>
@@ -993,15 +993,15 @@
     <div class="faq-list">
       <details open>
         <summary><span class="q">What is Shim MCP?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="ans">An open-source WordPress plugin that turns a WordPress site into a <b>Model Context Protocol (MCP) server</b>. It registers 58 abilities across 13 domains through WordPress's own Abilities API and exposes them to clients like Claude Code, Claude Desktop and Cursor over WP-CLI stdio or authenticated Streamable HTTP. A shim is a thin layer between two interfaces that changes neither: WordPress speaks the Abilities API, AI clients speak MCP, and this translates between them and does nothing else.</div>
+        <div class="ans">An open-source WordPress plugin that turns a WordPress site into a <b>Model Context Protocol (MCP) server</b>. It registers 56 abilities across 13 domains through WordPress's own Abilities API and exposes them to clients like Claude Code, Claude Desktop and Cursor over WP-CLI stdio or authenticated Streamable HTTP. A shim is a thin layer between two interfaces that changes neither: WordPress speaks the Abilities API, AI clients speak MCP, and this translates between them and does nothing else.</div>
       </details>
       <details>
         <summary><span class="q">Does it need a companion plugin or a cloud service?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="ans">No. The MCP server, the 58 abilities and an Abilities API polyfill for WordPress 6.7 and 6.8 all ship in the one plugin. No <code>composer.json</code>, no vendor directory, no npm install. There is no relay, no vendor account and no telemetry: only two HTTP calls exist anywhere in the codebase: the Test Connection probe against the site's own REST route, and the plugin zip fetch that <code>plugins-install-from-url</code> makes against a URL you supply.</div>
+        <div class="ans">No. The MCP server and the 56 abilities ship in the one plugin. No <code>composer.json</code>, no vendor directory, no npm install. There is no relay, no vendor account and no telemetry: only one outbound HTTP call exists anywhere in the codebase: the Test Connection probe against the site's own REST route.</div>
       </details>
       <details>
-        <summary><span class="q">Will I see 58 tools in my MCP client?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="ans">No. <code>tools/list</code> returns exactly three: <code>shim-mcp-discover-abilities</code>, <code>shim-mcp-get-ability-info</code> and <code>shim-mcp-execute-ability</code> &mdash; an MCP tool name cannot contain a slash, so the adapter rewrites the ability prefix to a hyphen. The 58 abilities are discovered at runtime and invoked through <code>execute-ability</code>, so your tool list stays small while the ability surface stays large.</div>
+        <summary><span class="q">Will I see 56 tools in my MCP client?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">No. <code>tools/list</code> returns exactly three: <code>shim-mcp-discover-abilities</code>, <code>shim-mcp-get-ability-info</code> and <code>shim-mcp-execute-ability</code> &mdash; an MCP tool name cannot contain a slash, so the adapter rewrites the ability prefix to a hyphen. The 56 abilities are discovered at runtime and invoked through <code>execute-ability</code>, so your tool list stays small while the ability surface stays large.</div>
       </details>
       <details>
         <summary><span class="q">Does the stdio transport open a port or need an application password?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
@@ -1025,11 +1025,11 @@
       </details>
       <details>
         <summary><span class="q">How much of it is original code?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="ans">Roughly half the PHP by line count. The 58 abilities, the admin dashboard, the WP-CLI stdio bridge and the packaging are original. The MCP protocol layer under <code>includes/Server/</code> derives from the WordPress MCP Adapter, and the polyfill reproduces the WordPress Abilities API: both GPL-2.0, both broken down in <a href="https://github.com/justadityaraj/shim-mcp/blob/main/CREDITS.md" target="_blank" rel="noopener">CREDITS.md</a>.</div>
+        <div class="ans">Roughly half the PHP by line count. The 56 abilities, the admin dashboard, the WP-CLI stdio bridge and the packaging are original. The MCP protocol layer under <code>includes/Server/</code> derives from the WordPress MCP Adapter (GPL-2.0); abilities register through the Abilities API that WordPress ships in core. Broken down in <a href="https://github.com/justadityaraj/shim-mcp/blob/main/CREDITS.md" target="_blank" rel="noopener">CREDITS.md</a>.</div>
       </details>
       <details>
         <summary><span class="q">Is it on WordPress.org?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="ans">Not at the moment: no directory listing, no tagged release, no ratings. GitHub is the source of truth, and the plugin is <b>GPL-2.0-or-later</b> per its plugin header. Requirements are WordPress 6.7+ and PHP 8.0+, plus WP-CLI for the stdio transport only.</div>
+        <div class="ans"><b>Submitted and awaiting review.</b> It is not approved or listed yet, so install it from the <a href="https://github.com/justadityaraj/shim-mcp/releases" target="_blank" rel="noopener">tagged release</a> or from source in the meantime. The plugin is <b>GPL-2.0-or-later</b> per its plugin header. Requirements are WordPress 6.9+ and PHP 8.0+, plus WP-CLI for the stdio transport only.</div>
       </details>
     </div>
   </div>
