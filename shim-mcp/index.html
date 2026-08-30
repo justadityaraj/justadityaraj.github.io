@@ -433,6 +433,7 @@
   .faq summary{list-style:none;cursor:pointer;padding:17px 20px;font-family:var(--mono);font-weight:600;font-size:.95rem;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:16px}
   .faq summary::-webkit-details-marker{display:none}
   .faq summary:focus-visible{outline:2px solid var(--wp-blue);outline-offset:-2px}
+  .faq summary .q{flex:1 1 auto;min-width:0}
   .faq summary .chev{flex:0 0 18px;width:18px;height:18px;transition:transform .22s}
   .faq summary .chev svg{width:18px;height:18px;stroke:var(--wp-blue);stroke-width:2.2;fill:none}
   .faq details[open] summary .chev{transform:rotate(180deg)}
@@ -991,43 +992,43 @@
     </div>
     <div class="faq-list">
       <details open>
-        <summary>What is Shim MCP?<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <summary><span class="q">What is Shim MCP?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
         <div class="ans">An open-source WordPress plugin that turns a WordPress site into a <b>Model Context Protocol (MCP) server</b>. It registers 58 abilities across 13 domains through WordPress's own Abilities API and exposes them to clients like Claude Code, Claude Desktop and Cursor over WP-CLI stdio or authenticated Streamable HTTP. A shim is a thin layer between two interfaces that changes neither: WordPress speaks the Abilities API, AI clients speak MCP, and this translates between them and does nothing else.</div>
       </details>
       <details>
-        <summary>Does it need a companion plugin or a cloud service?<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <summary><span class="q">Does it need a companion plugin or a cloud service?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
         <div class="ans">No. The MCP server, the 58 abilities and an Abilities API polyfill for WordPress 6.7 and 6.8 all ship in the one plugin. No <code>composer.json</code>, no vendor directory, no npm install. There is no relay, no vendor account and no telemetry: only two HTTP calls exist anywhere in the codebase: the Test Connection probe against the site's own REST route, and the plugin zip fetch that <code>plugins-install-from-url</code> makes against a URL you supply.</div>
       </details>
       <details>
-        <summary>Will I see 58 tools in my MCP client?<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <summary><span class="q">Will I see 58 tools in my MCP client?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
         <div class="ans">No. <code>tools/list</code> returns exactly three: <code>shim-mcp-discover-abilities</code>, <code>shim-mcp-get-ability-info</code> and <code>shim-mcp-execute-ability</code> &mdash; an MCP tool name cannot contain a slash, so the adapter rewrites the ability prefix to a hyphen. The 58 abilities are discovered at runtime and invoked through <code>execute-ability</code>, so your tool list stays small while the ability surface stays large.</div>
       </details>
       <details>
-        <summary>Does the stdio transport open a port or need an application password?<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <summary><span class="q">Does the stdio transport open a port or need an application password?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
         <div class="ans">No. The server runs as a local process: JSON-RPC on STDIN, responses on STDOUT, diagnostics on STDERR. No port bound, no application password issued, no HTTP request made. One caveat worth knowing: installing the plugin still registers the HTTP route at <code>/wp-json/mcp/shim-mcp</code>, and that route can only be turned off through the <code>mcp_adapter_*</code> PHP filters, not a setting.</div>
       </details>
       <details>
-        <summary>What does <code>--user</code> actually do, and is it required?<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <summary><span class="q">What does <code>--user</code> actually do, and is it required?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
         <div class="ans">It sets the WordPress user the stdio session acts as, by calling <code>wp_set_current_user()</code> before the loop starts. It is effectively mandatory: without it no current user is set, <code>is_user_logged_in()</code> is false, and every ability's permission check fails. Pass an ID, login or email.</div>
       </details>
       <details>
-        <summary>Is stdio more secure than HTTP?<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <summary><span class="q">Is stdio more secure than HTTP?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
         <div class="ans">More accurately, it <em>removes the authentication surface</em> rather than securing it. There is no authentication on the stdio path at all: identity is whatever <code>--user</code> names, so the trust boundary is shell access to the machine. Authorization is identical on both transports, because both run off the same server object and the same permission chain: a client cannot get a weaker check by picking a transport.</div>
       </details>
       <details>
-        <summary>Does it support SSE?<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <summary><span class="q">Does it support SSE?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
         <div class="ans">No. The SSE request handler returns HTTP 405 with an empty body and is marked not yet implemented in the source. The supported HTTP path is Streamable HTTP over POST, GET and DELETE against a single REST route.</div>
       </details>
       <details>
-        <summary>How do I install it?<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <summary><span class="q">How do I install it?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
         <div class="ans">Clone into <code>wp-content/plugins/shim-mcp</code>, run <code>wp plugin activate shim-mcp</code>, then register it: <code>claude mcp add shim -- wp shim-mcp serve --user=admin --path=/full/path/to/wordpress</code>. There is no tagged release yet, so cloning is currently the only install path. Full commands are in the <a href="#install">install section</a> above.</div>
       </details>
       <details>
-        <summary>How much of it is original code?<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <summary><span class="q">How much of it is original code?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
         <div class="ans">Roughly half the PHP by line count. The 58 abilities, the admin dashboard, the WP-CLI stdio bridge and the packaging are original. The MCP protocol layer under <code>includes/Server/</code> derives from the WordPress MCP Adapter, and the polyfill reproduces the WordPress Abilities API: both GPL-2.0, both broken down in <a href="https://github.com/justadityaraj/shim-mcp/blob/main/CREDITS.md" target="_blank" rel="noopener">CREDITS.md</a>.</div>
       </details>
       <details>
-        <summary>Is it on WordPress.org?<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <summary><span class="q">Is it on WordPress.org?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
         <div class="ans">Not at the moment: no directory listing, no tagged release, no ratings. GitHub is the source of truth, and the plugin is <b>GPL-2.0-or-later</b> per its plugin header. Requirements are WordPress 6.7+ and PHP 8.0+, plus WP-CLI for the stdio transport only.</div>
       </details>
     </div>
