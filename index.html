@@ -595,7 +595,7 @@
 
     .home-main { max-width: 1100px; margin: 0 auto; padding: 0 20px 20px; }
     .mcp-section { margin: 8px 0 64px; }
-    .mcp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+    .mcp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
     .mcp-card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--stroke); border-radius: 20px; padding: 22px; transition: transform .25s ease, border-color .25s ease, background .25s ease; }
     .mcp-card:hover { transform: translateY(-4px); border-color: var(--accent-b); background: var(--surface-2); }
     .mcp-card-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
@@ -603,6 +603,7 @@
     .mcp-icon svg { display: block; }
     .logo-az { width: 34px; height: auto; }
     .logo-slack { width: 26px; height: 26px; }
+    .logo-wp { width: 28px; height: 28px; }
     .fc-mark { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
     .fc-mark i { width: 9px; height: 9px; border-radius: 3px; display: block; }
     .mcp-lang { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
@@ -672,6 +673,19 @@
         <span class="oss-subtitle">Open-source Model Context Protocol servers I built &amp; maintain</span>
       </div>
       <div class="mcp-grid">
+          <div class="mcp-card">
+            <div class="mcp-card-head">
+              <div class="mcp-icon"><svg class="logo-wp" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10.4" fill="none" stroke="#21759B" stroke-width="1.5"/><path d="M6.2 7.9 9 16.1 12 10.3 15 16.1 17.8 7.9" fill="none" stroke="#21759B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="mcp-lang"><span class="lang-dot" style="background:#4F5D95"></span>PHP</div>
+            </div>
+            <h3 class="mcp-name">Shim MCP</h3>
+            <p class="mcp-desc">Turns a WordPress site into an MCP server. WP-CLI is the transport, not a tool: no port, no token, no HTTP. Streamable HTTP is there too.</p>
+            <div class="mcp-tags"><span>58 abilities</span><span>GPL-2.0</span><span>stdio + HTTP</span></div>
+            <div class="mcp-links">
+              <a class="mcp-open" href="/shim-mcp/">View ↗</a>
+              <a class="mcp-gh" href="https://github.com/justadityaraj/shim-mcp" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
           <div class="mcp-card">
             <div class="mcp-card-head">
               <div class="mcp-icon"><svg class="logo-az" viewBox="0 0 120 22" aria-hidden="true"><path d="M4 13c22 12 78 12 108 0" fill="none" stroke="#FF9900" stroke-width="5" stroke-linecap="round"/><path d="M104 8l10 5-6 8" fill="none" stroke="#FF9900" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -1070,7 +1084,7 @@
 
   <!-- Stats -->
   <section class="stats-strip">
-    <div><div class="stat-value">3</div><div class="stat-label">MCP Servers</div></div>
+    <div><div class="stat-value">4</div><div class="stat-label">MCP Servers</div></div>
     <div><div class="stat-value"><!-- oss:shipped:start -->28<!-- oss:shipped:end --></div><div class="stat-label">PRs Shipped</div></div>
     <a class="stat-link" href="https://github.com/justadityaraj?tab=stars" target="_blank" rel="noopener"><div class="stat-value">170+</div><div class="stat-label">Tools Starred ↗</div></a>
   </section>
