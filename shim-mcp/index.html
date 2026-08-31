@@ -97,9 +97,9 @@
         { "@type": "Question", "name": "What does the --user flag do, and is it required?", "acceptedAnswer": { "@type": "Answer", "text": "It sets the WordPress user the stdio session acts as, by calling wp_set_current_user() before the loop starts. It is effectively mandatory: without it no current user is set, is_user_logged_in() returns false and every ability's permission check fails. Pass --user with an ID, login or email." } },
         { "@type": "Question", "name": "Is the stdio transport more secure than HTTP?", "acceptedAnswer": { "@type": "Answer", "text": "It is more accurate to say it removes the authentication surface rather than secures it. There is no authentication on the stdio path at all: the identity is whatever --user names, so the trust boundary is shell access to the machine. Authorization is identical on both transports, because both run off the same server object and the same permission chain." } },
         { "@type": "Question", "name": "Does Shim MCP support SSE?", "acceptedAnswer": { "@type": "Answer", "text": "No. The SSE request handler returns HTTP 405 with an empty body and is marked not yet implemented in the source. The supported HTTP path is Streamable HTTP over POST, GET and DELETE against a single REST route." } },
-        { "@type": "Question", "name": "How do I install Shim MCP?", "acceptedAnswer": { "@type": "Answer", "text": "Clone the repository into wp-content/plugins/shim-mcp, run wp plugin activate shim-mcp, then register the server with your client, for example: claude mcp add shim -- wp shim-mcp serve --user=admin --path=/full/path/to/wordpress. There is no tagged release yet, so cloning is currently the install path." } },
+        { "@type": "Question", "name": "How do I install Shim MCP?", "acceptedAnswer": { "@type": "Answer", "text": "Clone the repository into wp-content/plugins/shim-mcp, run wp plugin activate shim-mcp, then register the server with your client, for example: claude mcp add shim -- wp shim-mcp serve --user=admin --path=/full/path/to/wordpress. Version 1.0.0 is tagged, so you can also download the zip from the releases page and install it through Plugins, Add New, Upload Plugin." } },
         { "@type": "Question", "name": "How much of Shim MCP is original code?", "acceptedAnswer": { "@type": "Answer", "text": "Roughly half the PHP by line count. The 56 abilities, the admin dashboard, the WP-CLI stdio bridge and the packaging are original. The MCP protocol layer under includes/Server/ is derived from the WordPress MCP Adapter (GPL-2.0), credited in CREDITS.md. Abilities register through the Abilities API that WordPress ships in core." } },
-        { "@type": "Question", "name": "Is Shim MCP on WordPress.org?", "acceptedAnswer": { "@type": "Answer", "text": "Not at the moment. There is no directory listing, no tagged release and no ratings. GitHub is the source of truth, and the plugin is GPL-2.0-or-later per its plugin header." } }
+        { "@type": "Question", "name": "Is Shim MCP on WordPress.org?", "acceptedAnswer": { "@type": "Answer", "text": "It has been submitted and is awaiting review, so there is no directory listing or ratings yet. Version 1.0.0 is tagged on GitHub, which is the source of truth in the meantime, and the plugin is GPL-2.0-or-later per its plugin header." } }
       ]
     }
   ]
@@ -505,7 +505,7 @@
         <div class="meta-line">
           <b>56</b> abilities<span class="dot">&middot;</span><b>13</b> domains<span class="dot">&middot;</span><b>3</b> meta-tools<span class="dot">&middot;</span><b>0</b> dependencies<span class="dot">&middot;</span><b>0</b> telemetry endpoints<span class="dot">&middot;</span><b>1</b> required binary (<code>wp</code>)
         </div>
-        <div class="meta-honest">No tagged release yet &middot; not listed on WordPress.org &middot; no ratings</div>
+        <div class="meta-honest">v1.0.0 tagged &middot; <a href="https://github.com/justadityaraj/shim-mcp/releases" target="_blank" rel="noopener">releases</a> &middot; submitted to WordPress.org, awaiting review</div>
       </div>
 
       <!-- SIGNATURE: the frame stepper -->
@@ -921,7 +921,7 @@
       </div>
     </fieldset>
 
-    <p class="install-foot">No tagged release yet &mdash; <code>git clone</code> is the install path.</p>
+    <p class="install-foot">Prefer a zip? <a href="https://github.com/justadityaraj/shim-mcp/releases" target="_blank" rel="noopener">v1.0.0 is tagged</a> &mdash; download it and use Plugins &rarr; Add New &rarr; Upload Plugin.</p>
   </div>
 </section>
 
@@ -943,8 +943,8 @@
         <p>You can list sidebars, widget types and what sits in a given sidebar. You cannot add, move, configure or remove a widget. Three abilities, all reads.</p>
       </div>
       <div class="edge">
-        <h3>No tagged release, no CI, no test suite in the repo</h3>
-        <p>Clone is the install path today. The plugin is feature-complete and the abilities are documented, but it has not yet been exercised across a broad range of hosting environments.</p>
+        <h3>No CI and no test suite in the repo</h3>
+        <p>Verification is done by hand: Plugin Check, PHP_CodeSniffer, PHPStan and a run against a live site. Nothing runs automatically on a commit. The plugin is feature-complete and the abilities are documented, but it has not yet been exercised across a broad range of hosting environments.</p>
       </div>
       <div class="edge">
         <h3>Installing for stdio still registers the HTTP route</h3>
@@ -1021,7 +1021,7 @@
       </details>
       <details>
         <summary><span class="q">How do I install it?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="ans">Clone into <code>wp-content/plugins/shim-mcp</code>, run <code>wp plugin activate shim-mcp</code>, then register it: <code>claude mcp add shim -- wp shim-mcp serve --user=admin --path=/full/path/to/wordpress</code>. There is no tagged release yet, so cloning is currently the only install path. Full commands are in the <a href="#install">install section</a> above.</div>
+        <div class="ans">Clone into <code>wp-content/plugins/shim-mcp</code>, run <code>wp plugin activate shim-mcp</code>, then register it: <code>claude mcp add shim -- wp shim-mcp serve --user=admin --path=/full/path/to/wordpress</code>. Version 1.0.0 is <a href="https://github.com/justadityaraj/shim-mcp/releases" target="_blank" rel="noopener">tagged</a>, so downloading the zip and uploading it through Plugins works too. Full commands are in the <a href="#install">install section</a> above.</div>
       </details>
       <details>
         <summary><span class="q">How much of it is original code?</span><span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
