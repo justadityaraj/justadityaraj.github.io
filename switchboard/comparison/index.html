@@ -114,7 +114,7 @@
   <h2 id="quick-picks">Quick picks</h2>
   <div class="cards">
     <div class="card"><h3>Most complete, worth paying for</h3><p><strong>Velja</strong> ($10). Profiles for nearly every browser, link cleanup, desktop-app handoff for Zoom, Teams and Figma links. The latest version needs macOS 26.</p></div>
-    <div class="card"><h3>Free and open source, with a GUI</h3><p><strong>Switchboard</strong> (MIT) for Chromium profiles and source-app rules. <strong>Browserino</strong> (GPL-3.0) for a simple picker with regex rules.</p></div>
+    <div class="card"><h3>Free and open source, with a GUI</h3><p><strong>Switchboard</strong> (MIT) for Chromium profiles, source-app rules and link cleanup. <strong>Browserino</strong> (GPL-3.0) for a simple picker with regex rules.</p></div>
     <div class="card"><h3>Rules as code</h3><p><strong>Finicky</strong> (MIT). Write rules in JavaScript or TypeScript, including rewrites and opener-app checks.</p></div>
     <div class="card"><h3>Free, closed source, link cleanup on by default</h3><p><strong>Switchbar</strong>. Profiles, wildcard rules and tracking removal. No source-app rules.</p></div>
   </div>
@@ -127,7 +127,7 @@
         <tr><th>App</th><th>Price</th><th>Open source</th><th>Min macOS</th><th>Picker on click</th><th>Site / URL rules</th><th>Source-app rules</th><th>Chromium profiles</th><th>Private windows</th><th>Link cleanup</th><th>Config</th></tr>
       </thead>
       <tbody>
-        <tr class="ours"><td><a href="../">Switchboard</a></td><td class="yes">Free</td><td class="yes">MIT</td><td>14</td><td class="yes">Yes</td><td class="yes">Yes, regex</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="no">No</td><td>GUI + JSON</td></tr>
+        <tr class="ours"><td><a href="../">Switchboard</a></td><td class="yes">Free</td><td class="yes">MIT</td><td>14</td><td class="yes">Yes</td><td class="yes">Yes, regex</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td><td>GUI + JSON</td></tr>
         <tr><td><a href="#velja">Velja</a></td><td>$10 once</td><td class="no">No</td><td>26 (older builds for 14, 15)</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes, widest</td><td class="yes">Yes</td><td class="yes">Yes</td><td>GUI + JS</td></tr>
         <tr><td><a href="#finicky">Finicky</a></td><td class="yes">Free</td><td class="yes">MIT</td><td>12</td><td class="no">No</td><td class="yes">Yes, regex + JS</td><td class="yes">Yes</td><td class="yes">Yes</td><td>Unknown</td><td class="yes">Yes</td><td>JS / TS file</td></tr>
         <tr><td><a href="#choosy">Choosy</a></td><td>$10 once</td><td class="no">No</td><td>15.6</td><td class="yes">Yes</td><td class="yes">Yes, regex</td><td class="yes">Yes</td><td class="part">Chrome, Edge, Brave, Vivaldi</td><td class="yes">Yes</td><td class="no">No</td><td>GUI</td></tr>
@@ -145,13 +145,13 @@
 
   <h2 id="switchboard">Switchboard Browser Picker</h2>
   <p><strong>Free · MIT · macOS 14+ · <a href="https://github.com/justadityaraj/switchboard-browser-picker">GitHub</a></strong></p>
-  <p>A native SwiftUI menu-bar app. Links with no matching rule open a picker at your cursor, with one row per Chrome, Brave, Edge, Vivaldi, Opera or Chromium profile. Rules match on any mix of sites, a regex URL pattern and the app you clicked in. Hold <kbd>⌘</kbd> while picking to save a rule. Hold <kbd>⌥</kbd> to open a private window.</p>
-  <p><strong>Where it falls short:</strong> no link cleanup or URL rewriting yet, no desktop-app handoff for Zoom or Figma, no Firefox profiles in the picker, and release builds aren't notarized by Apple yet, so the first launch needs one Terminal command.</p>
+  <p>A native SwiftUI menu-bar app. Links with no matching rule open a picker at your cursor, with one row per Chrome, Brave, Edge, Vivaldi, Opera or Chromium profile. Rules match on any mix of sites, a regex URL pattern and the app you clicked in. Hold <kbd>⌘</kbd> while picking to save a rule. Hold <kbd>⌥</kbd> to open a private window. Since v0.2.0 it also strips tracking parameters and unwraps Outlook SafeLinks, Google, Facebook, LinkedIn and Slack redirect links before rules match, entirely on your Mac.</p>
+  <p><strong>Where it falls short:</strong> no short-link expansion or custom URL rewriting, no desktop-app handoff for Zoom or Figma, no Firefox profiles in the picker, and release builds aren't notarized, so the first launch needs a click on Open Anyway in System Settings. Installing with Homebrew avoids that prompt.</p>
 
   <h2 id="velja">Velja: the most complete option</h2>
   <p><strong>$10 one-time · closed source · <a href="https://sindresorhus.com/velja" rel="noopener">sindresorhus.com/velja</a></strong></p>
   <p>Velja is the most polished app in this list. It supports browser profiles in almost every Chromium and Firefox-family browser. It removes more than 200 tracking parameters, expands short links, runs JavaScript URL transforms, opens Zoom, Teams and Figma links in their desktop apps, and sends Google Meet links to Chrome, all without setup. It has browser extensions and Shortcuts support too. The current version needs macOS 26, and older free builds remain for macOS 14 and 15. The trial is fully functional, with a reminder every 12 hours.</p>
-  <p><strong>Velja vs Switchboard:</strong> pick Velja if you want link cleanup, app handoff and the widest browser support, and $10 is fine. Pick Switchboard if you want something free and open source that covers profiles, source-app rules and a picker.</p>
+  <p><strong>Velja vs Switchboard:</strong> pick Velja if you want JavaScript URL transforms, short-link expansion, app handoff and the widest browser support, and $10 is fine. Pick Switchboard if you want something free and open source that covers profiles, source-app rules, link cleanup and a picker.</p>
 
   <h2 id="finicky">Finicky: rules as code</h2>
   <p><strong>Free · MIT · macOS 12+ · <a href="https://github.com/johnste/finicky" rel="noopener">github.com/johnste/finicky</a></strong></p>
@@ -181,7 +181,7 @@
   <h2 id="switchbar">Switchbar</h2>
   <p><strong>Free · closed source · macOS 13+ · <a href="https://switchbar.com/en" rel="noopener">switchbar.com</a></strong></p>
   <p>Switchbar is from the makers of WebCatalog. It's free with no account, supports Chromium and Firefox profiles, wildcard rules and private windows, and turns on tracking removal and short-link expansion by default. It also runs on Windows. Its own comparison page lists source-app rules as something it doesn't do.</p>
-  <p><strong>Switchbar vs Switchboard:</strong> Switchbar has link cleanup and app handoff. Switchboard is open source and can route by source app.</p>
+  <p><strong>Switchbar vs Switchboard:</strong> both clean links. Switchbar adds short-link expansion and app handoff. Switchboard is open source and can route by source app.</p>
 
   <h2 id="browserfairy">BrowserFairy</h2>
   <p><strong>Free tier · Pro $0.99/month or $8.99/year · closed source · macOS 13+ · <a href="https://www.browserfairy.com" rel="noopener">browserfairy.com</a></strong></p>
@@ -201,7 +201,7 @@
   <ul>
     <li><strong>Need Chrome or Brave profiles?</strong> Rule out Bumpr and Browserino. Use Switchboard, Velja, Choosy, OpenIn, Switchbar, or BrowserFairy Pro.</li>
     <li><strong>Want rules based on the app you clicked in?</strong> Switchboard, Velja, Finicky, Choosy, OpenIn and BrowserFairy support it. Switchbar, Browserino and Linkquisition don't.</li>
-    <li><strong>Want tracking parameters stripped?</strong> Velja, Finicky, OpenIn, Switchbar and Linkquisition can do it.</li>
+    <li><strong>Want tracking parameters stripped?</strong> Switchboard, Velja, Finicky, OpenIn, Switchbar and Linkquisition can do it.</li>
     <li><strong>Want free and open source?</strong> Switchboard, Finicky, Browserino and Linkquisition.</li>
     <li><strong>Older Mac?</strong> Bumpr runs on 10.13, Finicky on 12, Browserino and Switchbar on 13, Switchboard on 14.</li>
   </ul>
@@ -211,7 +211,7 @@
     <img src="../icon.png" alt="" width="64" height="64">
     <div class="txt">
       <h2>Try Switchboard Browser Picker</h2>
-      <p>Free and open source. A picker with your real profile names, plus rules by site, URL or app.</p>
+      <p>Free and open source. A picker with your real profile names, rules by site, URL or app, and link cleanup.</p>
     </div>
     <a class="btn btn-primary" href="https://github.com/justadityaraj/switchboard-browser-picker/releases/latest">Download free</a>
     <a class="btn btn-ghost" href="../">How it works</a>

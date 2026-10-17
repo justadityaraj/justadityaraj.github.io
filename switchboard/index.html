@@ -72,7 +72,7 @@
       "programmingLanguage": "Swift",
       "operatingSystem": "macOS 14 or later",
       "applicationCategory": "UtilitiesApplication",
-      "softwareVersion": "0.1.0",
+      "softwareVersion": "0.2.0",
       "license": "https://opensource.org/licenses/MIT",
       "keywords": "browser picker, default browser, macOS, Chrome profiles, Brave profiles, link routing, menu bar app",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -85,7 +85,7 @@
       "name": "Aditya Raj Singh",
       "url": "https://adityarajsingh.com/",
       "image": "https://dev.adityarajsingh.com/switchboard/author-aditya.jpg",
-      "jobTitle": "Builder: automation, MCP servers & Mac tools",
+      "jobTitle": "Open-source builder",
       "sameAs": [
         "https://github.com/justadityaraj",
         "https://adityarajsingh.com/"
@@ -118,7 +118,7 @@
         {
           "@type": "Question",
           "name": "Why does macOS warn me when I open it?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The release is ad-hoc signed but not notarized by Apple. After moving it to /Applications, run xattr -dr com.apple.quarantine /Applications/Switchboard.app once, or build it from source with Xcode." }
+          "acceptedAnswer": { "@type": "Answer", "text": "The release is not notarized by Apple, so the first launch shows Switchboard.app Not Opened. Click Done, then open System Settings, Privacy & Security, and click Open Anyway. You only do this once. To skip the prompt entirely, install with Homebrew: brew install justadityaraj/tap/switchboard, which builds the app on your Mac." }
         },
         {
           "@type": "Question",
@@ -245,6 +245,7 @@
   .feature .ic svg{width:22px;height:22px;stroke:#5b3fe0;stroke-width:2;fill:none}
   .feature h3{font-size:1.12rem}
   .feature p{margin-top:9px;font-size:.93rem;color:var(--ink-soft);line-height:1.55}
+  .feature.span{grid-column:1/-1}
   .feature kbd{font-size:.82em;background:var(--paper-2);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 6px}
 
   .problems{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -254,7 +255,7 @@
   .q h3{font-size:1.12rem;margin-bottom:8px}
   .q p{color:var(--ink-soft);font-size:.95rem}
   .q a,.compare-link a{color:var(--blue);font-weight:600;border-bottom:2px solid #cfc4ff}
-  .q kbd{font-family:var(--mono);font-size:.82em;background:var(--paper-2);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 6px}
+  .q code,.q kbd{font-family:var(--mono);font-size:.82em;background:var(--paper-2);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 6px}
   .compare-link{text-align:center;margin-top:30px;color:var(--ink-soft)}
   .shots{background:linear-gradient(170deg,var(--night-2),var(--night));color:#fff}
   .shots .sec-head h2{color:#fff}
@@ -276,6 +277,24 @@
   .keys-note{text-align:center;margin-top:18px;color:var(--muted);font-size:.93rem}
 
   .install{background:var(--paper-2)}
+  .install-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;max-width:1040px;margin:0 auto;align-items:start}
+  @media(max-width:900px){.install-grid{grid-template-columns:1fr}}
+  .route{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;min-width:0}
+  .route-tag{font-family:var(--mono);font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--violet)}
+  .route h3{font-size:1.35rem;margin:8px 0 14px}
+  .route p,.route li{color:var(--ink-soft);font-size:.96rem}
+  .route ol{margin-left:20px;display:grid;gap:9px}
+  .route a{color:var(--blue);font-weight:600}
+  .route .terminal{margin:16px 0 0;max-width:none}
+  .route .term-body{white-space:nowrap}
+  .route-note{margin-top:16px;font-size:.9rem!important}
+  .route-note code{font-family:var(--mono);font-size:.85em;background:var(--paper-2);padding:1px 6px;border-radius:5px}
+  .settings-btn{display:inline-block;margin-top:16px;background:var(--grad);color:#fff!important;padding:10px 16px;border-radius:10px;font-size:.92rem;text-decoration:none}
+  .first-launch{display:grid;grid-template-columns:auto 1fr;gap:14px;margin-top:20px;align-items:start}
+  @media(max-width:560px){.first-launch{grid-template-columns:1fr}}
+  .first-launch img{border-radius:10px;border:1px solid var(--line)}
+  .first-launch figure:first-child img{width:150px}
+  .first-launch figcaption{font-size:.8rem;color:var(--muted);margin-top:6px}
   .terminal{max-width:780px;margin:0 auto;background:#14112e;border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-md);color:#fff}
   .term-bar{display:flex;align-items:center;gap:8px;padding:13px 16px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.08)}
   .term-bar i{width:11px;height:11px;border-radius:50%;display:block}
@@ -285,7 +304,7 @@
   .term-body .p{color:var(--mint)}
   .term-body .y{color:#ffd479}
   .term-body .b{color:var(--lilac)}
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px auto 0;max-width:780px}
+  .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:22px auto 0;max-width:1040px}
   @media(max-width:700px){.steps{grid-template-columns:1fr}}
   .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px}
   .step .n{font-family:var(--mono);color:var(--violet);font-weight:700;font-size:.8rem}
@@ -294,6 +313,7 @@
   .author{border-top:1px solid var(--line)}
   .author .card{max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:20px;padding:34px 38px;display:flex;gap:24px;align-items:center;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
   .author .card::before{content:"";position:absolute;top:0;left:0;bottom:0;width:5px;background:var(--grad)}
+  .author .avatar{flex:none}
   .author .avatar img{width:76px;height:76px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 6px 18px rgba(22,20,43,.2)}
   .author .nm{font-family:var(--display);font-weight:700;font-size:1.18rem}
   .author .rl{font-family:var(--mono);font-size:.76rem;color:var(--violet);margin:2px 0 10px}
@@ -354,7 +374,7 @@
 <header class="hero" id="top">
   <div class="wrap">
     <div class="hero-copy">
-      <span class="eyebrow"><b>v0.1.0</b> · Switchboard Browser Picker for Mac</span>
+      <span class="eyebrow"><b>v0.2.0</b> · Switchboard Browser Picker for Mac</span>
       <h1 class="hero-title">Open every link in the <span class="hl">right browser</span>.</h1>
       <p class="hero-sub">Set Switchboard as your default browser. Each link then opens in the <b>right browser, profile or private window</b>: by rule, or from a picker at your cursor.</p>
       <div class="cta-row">
@@ -381,6 +401,7 @@
   <div class="wrap">
     <span><span class="dot"></span>one row per <b>browser profile</b></span>
     <span><span class="dot"></span>rules by <b>site, URL or source app</b></span>
+    <span><span class="dot"></span><b>link cleanup</b> built in</span>
     <span><span class="dot"></span><b>no network</b> requests, no account</span>
     <span><span class="dot"></span>macOS 14+</span>
   </div>
@@ -439,6 +460,10 @@
         <p>Hold <kbd>⌥</kbd> in the picker, or turn on <em>Private window</em> in a rule. Works with Chromium browsers and the Firefox family.</p>
       </article>
       <article class="q reveal">
+        <h3>How do I remove utm_source and other tracking from links?</h3>
+        <p>Switchboard strips tracking parameters such as <code>utm_*</code>, <code>fbclid</code>, <code>gclid</code> and <code>msclkid</code> from every link you open, and unwraps Outlook SafeLinks and Google, Facebook, LinkedIn and Slack redirects, all on your Mac.</p>
+      </article>
+      <article class="q reveal">
         <h3>How do I change my default browser on Mac?</h3>
         <p>System Settings → Desktop &amp; Dock → Default web browser. The full walkthrough, with fixes for when it doesn't stick, is in the <a href="change-default-browser-mac/">default browser guide</a>.</p>
       </article>
@@ -481,6 +506,11 @@
         <p>Hold <kbd>⌥</kbd> for an incognito or private window, or make a rule always open privately. Chromium and Firefox families.</p>
       </div>
       <div class="feature reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/><path d="M10 11v5M14 11v5"/></svg></div>
+        <h3>Link cleanup</h3>
+        <p>Strips <code>utm_source</code>, <code>fbclid</code>, <code>gclid</code> and other trackers, and unwraps Outlook SafeLinks, Google and Slack redirects before your rules run.</p>
+      </div>
+      <div class="feature span reveal">
         <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <h3>Local and private</h3>
         <p>No account, no analytics, no network calls. Settings live in one JSON file you can read, back up or edit by hand.</p>
@@ -498,7 +528,7 @@
     </div>
     <div class="shot-grid">
       <figure class="shot reveal">
-        <img src="settings.png" alt="Switchboard Settings with four rules and browser visibility toggles" width="1120" height="1240" loading="lazy">
+        <img src="settings.png" alt="Switchboard Settings with link cleanup, four rules and browser visibility toggles" width="1120" height="1400" loading="lazy">
         <figcaption><b>Settings.</b> Reorder, edit or delete rules, and hide apps that aren't really browsers.</figcaption>
       </figure>
       <figure class="shot reveal">
@@ -534,27 +564,46 @@
     <div class="sec-head">
       <div class="kicker">Install</div>
       <h2>Two minutes, start to finish.</h2>
-      <p>Download the DMG from GitHub Releases and drag it into Applications, or build it yourself with Xcode 16+.</p>
+      <p>Download the app, or install it with Homebrew to skip the security prompt entirely.</p>
     </div>
-    <div class="terminal reveal">
-      <div class="term-bar">
-        <i style="background:#ff5f56"></i><i style="background:#ffbd2e"></i><i style="background:#27c93f"></i>
-        <span class="t">zsh: install</span>
+    <div class="install-grid">
+      <div class="route reveal">
+        <span class="route-tag">Option 1 · Download</span>
+        <h3>Drag into Applications</h3>
+        <ol>
+          <li><a href="https://github.com/justadityaraj/switchboard-browser-picker/releases/latest" target="_blank" rel="noopener">Download <b>Switchboard.dmg</b></a>, open it and drag Switchboard into Applications.</li>
+          <li>Open Switchboard. macOS says <b>"Switchboard.app" Not Opened</b> because the app isn't notarized. Click <b>Done</b>.</li>
+          <li>Go to <b>System Settings → Privacy &amp; Security</b>, scroll to <b>Security</b> and click <b>Open Anyway</b>. Confirm, then click <b>Open</b>. Only needed once.</li>
+        </ol>
+        <a class="settings-btn" href="x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension">Open Privacy &amp; Security ↗</a>
+        <div class="first-launch">
+          <figure><img src="first-launch-blocked.png" alt="macOS dialog: Switchboard.app Not Opened. Apple could not verify it is free of malware." width="252" height="253" loading="lazy"><figcaption>What you'll see first. Click Done.</figcaption></figure>
+          <figure><img src="first-launch-open-anyway.png" alt="System Settings, Privacy and Security, with the Open Anyway button for Switchboard highlighted" width="620" height="170" loading="lazy"><figcaption>Then click Open Anyway in Privacy &amp; Security.</figcaption></figure>
+        </div>
       </div>
-      <div class="term-body">
-<span class="c"># 1 · download Switchboard.dmg from the latest release, open it,</span><br>
-<span class="c">#     and drag Switchboard into Applications</span><br><br>
-<span class="c"># 2 · not notarized yet, so clear the quarantine flag once</span><br>
-<span class="p">$</span> xattr -dr <span class="y">com.apple.quarantine</span> /Applications/Switchboard.app<br><br>
-<span class="c"># or build from source</span><br>
-<span class="p">$</span> git clone https://github.com/justadityaraj/<span class="b">switchboard-browser-picker</span>.git<br>
-<span class="p">$</span> cd switchboard-browser-picker &amp;&amp; ./scripts/build.sh <span class="y">--install</span>
+      <div class="route reveal">
+        <span class="route-tag">Option 2 · Homebrew</span>
+        <h3>No security prompt</h3>
+        <p>Homebrew builds Switchboard on your own Mac, so macOS never shows the "Not Opened" dialog.</p>
+        <div class="terminal">
+          <div class="term-bar">
+            <i style="background:#ff5f56"></i><i style="background:#ffbd2e"></i><i style="background:#27c93f"></i>
+            <span class="t">zsh</span>
+          </div>
+          <div class="term-body">
+<span class="p">$</span> brew install <span class="b">justadityaraj/tap/switchboard</span><br>
+<span class="p">$</span> ln -sf \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"$(brew --prefix)/opt/switchboard/Switchboard.app" \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/Applications/<br><br>
+<span class="c"># later: brew upgrade switchboard</span>
+          </div>
+        </div>
+        <p class="route-note">Prefer to build it yourself? <code>git clone</code> the <a href="https://github.com/justadityaraj/switchboard-browser-picker" target="_blank" rel="noopener">repo</a> and run <code>./scripts/build.sh --install</code>.</p>
       </div>
     </div>
     <div class="steps">
-      <div class="step reveal"><div class="n">01</div><p>Open Switchboard. Settings appears on first launch.</p></div>
-      <div class="step reveal"><div class="n">02</div><p>Click <b>Make Default</b> and confirm the macOS prompt.</p></div>
-      <div class="step reveal"><div class="n">03</div><p>Click any link. Pick a browser, or hold <b>⌘</b> to remember it.</p></div>
+      <div class="step reveal"><div class="n">Then</div><p>Click <b>Make Default</b> in Switchboard's Settings and confirm the macOS prompt.</p></div>
+      <div class="step reveal"><div class="n">Done</div><p>Click any link. Pick a browser, or hold <b>⌘</b> to remember it.</p></div>
     </div>
   </div>
 </section>
@@ -568,8 +617,8 @@
       <div class="avatar"><img src="author-aditya.jpg" alt="Aditya Raj Singh" width="76" height="76" loading="lazy"></div>
       <div>
         <div class="nm">Aditya Raj Singh</div>
-        <div class="rl">builder · Mac tools, automation &amp; MCP servers</div>
-        <p>I run eight Chrome and Brave profiles across a handful of companies, and every link was a coin toss. So I built the router I wanted: a picker that knows my profiles, and rules I can make with one key. More of what I build at <a href="https://adityarajsingh.com" target="_blank" rel="noopener">adityarajsingh.com</a>.</p>
+        <div class="rl">open-source builder</div>
+        <p>I build small, focused open-source tools for the Mac and for AI assistants. Switchboard started as the browser picker I wanted for myself. More of what I build at <a href="https://adityarajsingh.com" target="_blank" rel="noopener">adityarajsingh.com</a>.</p>
       </div>
     </div>
   </div>
@@ -600,7 +649,7 @@
       </details>
       <details>
         <summary>Why does macOS warn me when I open it?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="ans">The release is ad-hoc signed but not yet notarized by Apple. After moving it to <code>/Applications</code>, run <code>xattr -dr com.apple.quarantine /Applications/Switchboard.app</code> once, or build it from source with Xcode.</div>
+        <div class="ans">The release isn't notarized by Apple, so the first launch shows <b>"Switchboard.app" Not Opened</b>. Click Done, then go to <b>System Settings → Privacy &amp; Security</b> and click <b>Open Anyway</b>. You only do this once. To skip the prompt entirely, install with Homebrew: <code>brew install justadityaraj/tap/switchboard</code>, which builds the app on your Mac.</div>
       </details>
       <details>
         <summary>What do I need to run it?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
