@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Change the Default Browser on Mac (macOS Ventura to Tahoe)</title>
+<meta name="description" content="Change your default web browser on a Mac in System Settings, from the browser itself, or from Terminal. Plus fixes for a browser missing from the list, and how to use more than one default.">
+<link rel="canonical" href="https://dev.adityarajsingh.com/switchboard/change-default-browser-mac/">
+<meta name="author" content="Aditya Raj Singh">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#1b1640">
+<link rel="icon" href="../icon.png" type="image/png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Aditya Raj Singh">
+<meta property="og:title" content="How to Change the Default Browser on Mac">
+<meta property="og:description" content="System Settings, the browser itself, or Terminal. Plus what to do when you want different browsers for different links.">
+<meta property="og:image" content="https://dev.adityarajsingh.com/switchboard/og-image.png">
+<meta property="og:url" content="https://dev.adityarajsingh.com/switchboard/change-default-browser-mac/">
+<meta property="article:modified_time" content="2026-10-17">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Change the Default Browser on Mac">
+<meta name="twitter:description" content="System Settings, the browser itself, or Terminal, plus fixes when it doesn't stick.">
+<meta name="twitter:image" content="https://dev.adityarajsingh.com/switchboard/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://dev.adityarajsingh.com/switchboard/change-default-browser-mac/#article",
+      "headline": "How to Change the Default Browser on Mac",
+      "description": "Change your default web browser on a Mac in System Settings, from the browser itself, or from Terminal, with troubleshooting and how to use more than one default.",
+      "url": "https://dev.adityarajsingh.com/switchboard/change-default-browser-mac/",
+      "datePublished": "2026-10-17",
+      "dateModified": "2026-10-17",
+      "image": "https://dev.adityarajsingh.com/switchboard/og-image.png",
+      "proficiencyLevel": "Beginner",
+      "about": ["macOS", "Default web browser"],
+      "author": { "@id": "https://adityarajsingh.com/#person" },
+      "publisher": { "@id": "https://adityarajsingh.com/#person" },
+      "mainEntityOfPage": "https://dev.adityarajsingh.com/switchboard/change-default-browser-mac/",
+      "isPartOf": { "@id": "https://dev.adityarajsingh.com/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dev.adityarajsingh.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Switchboard Browser Picker", "item": "https://dev.adityarajsingh.com/switchboard/" },
+        { "@type": "ListItem", "position": 3, "name": "Change the default browser on Mac" }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://adityarajsingh.com/#person",
+      "name": "Aditya Raj Singh",
+      "url": "https://adityarajsingh.com/",
+      "sameAs": ["https://github.com/justadityaraj", "https://adityarajsingh.com/"]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../article.css">
+</head>
+<body>
+
+<nav>
+  <div class="bar">
+    <a class="brand" href="../"><img src="../icon.png" alt="" width="24" height="24">switchboard</a>
+    <div class="nav-right">
+      <a href="../">Browser Picker</a>
+      <a href="../comparison/">Comparison</a>
+      <a class="cta" href="https://github.com/justadityaraj/switchboard-browser-picker/releases/latest">Download</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="inner">
+    <div class="crumbs"><a href="/">Home</a> / <a href="../">Switchboard</a> / Default browser on Mac</div>
+    <h1>How to change the default browser on Mac</h1>
+    <p class="lede">Three ways to do it, what to do when it doesn't stick, and how to get around the one-default-browser limit.</p>
+    <div class="byline"><img src="../author-aditya.jpg" alt="" width="34" height="34"><span>By <b>Aditya Raj Singh</b> · Updated 17 October 2026 · macOS 13 Ventura to macOS 26 Tahoe</span></div>
+  </div>
+</header>
+
+<main>
+  <div class="answer">
+    <p><strong>Short answer:</strong> open the Apple menu, choose <strong>System Settings</strong>, click <strong>Desktop &amp; Dock</strong>, scroll down and pick a browser from the <strong>Default web browser</strong> menu. On macOS 12 Monterey or earlier, it's under <strong>System Preferences → General</strong>.</p>
+  </div>
+
+  <nav class="toc" aria-label="Contents">
+    <b>On this page</b>
+    <ol>
+      <li><a href="#system-settings">Change it in System Settings</a></li>
+      <li><a href="#older-macos">On macOS Monterey and earlier</a></li>
+      <li><a href="#from-browser">Change it from the browser</a></li>
+      <li><a href="#terminal">Change it from Terminal</a></li>
+      <li><a href="#not-working">When it doesn't work</a></li>
+      <li><a href="#more-than-one">Use more than one default browser</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="system-settings">1. Change it in System Settings (macOS Ventura 13 and later)</h2>
+  <p>This works on macOS 13 Ventura, 14 Sonoma, 15 Sequoia and 26 Tahoe.</p>
+  <ol>
+    <li>Install the browser you want to use, and open it once.</li>
+    <li>Open the Apple menu in the top-left corner and choose <strong>System Settings</strong>.</li>
+    <li>Click <strong>Desktop &amp; Dock</strong> in the sidebar.</li>
+    <li>Scroll down on the right to <strong>Default web browser</strong> and pick your browser.</li>
+  </ol>
+  <p>The change applies right away. Links you click in Mail, Messages, Slack, Notes and most other apps now open in that browser.</p>
+
+  <h2 id="older-macos">2. On macOS Monterey 12 and earlier</h2>
+  <ol>
+    <li>Open the Apple menu and choose <strong>System Preferences</strong>.</li>
+    <li>Click <strong>General</strong>.</li>
+    <li>Pick your browser from the <strong>Default web browser</strong> menu.</li>
+  </ol>
+  <p>These steps match Apple's own <a href="https://support.apple.com/en-us/102362" rel="noopener" target="_blank">support article</a>.</p>
+
+  <h2 id="from-browser">3. Change it from the browser itself</h2>
+  <p>Most browsers can ask macOS to make them the default. macOS then shows a dialog asking you to confirm the change.</p>
+  <ul>
+    <li><strong>Chrome:</strong> Settings → Default browser → <em>Make default</em>.</li>
+    <li><strong>Firefox:</strong> Settings → General → <em>Make Default</em>.</li>
+    <li><strong>Brave and Edge:</strong> open Settings, search for "default browser", then click <em>Make default</em>.</li>
+    <li><strong>Safari:</strong> Safari → Settings → General → <em>Set Default</em>.</li>
+  </ul>
+
+  <h2 id="terminal">4. Change it from Terminal</h2>
+  <p>macOS has no built-in command for this. The open-source <a href="https://github.com/kerma/defaultbrowser" rel="noopener" target="_blank">defaultbrowser</a> tool fills the gap. Install it with Homebrew:</p>
+  <p><code>brew install defaultbrowser</code></p>
+  <p>Run <code>defaultbrowser</code> on its own to list installed browsers, then pass a name from that list, such as <code>defaultbrowser chrome</code> or <code>defaultbrowser firefox</code>, to switch. macOS still asks you to confirm, so this helps with setup scripts but can't run fully unattended.</p>
+
+  <h2 id="not-working">5. When changing the default browser doesn't work</h2>
+  <h3>The browser isn't in the list</h3>
+  <p>macOS lists only apps that have registered as web browsers. Move the browser into <code>/Applications</code>, open it once, then check again. If you launched it straight from its downloaded disk image, install it properly first.</p>
+  <h3>The setting keeps changing back</h3>
+  <p>Another browser is probably asking to become the default when it starts. Turn off its "check if this is the default browser" or "make default" prompt in that browser's settings, then set your choice again.</p>
+  <h3>One app still opens links somewhere else</h3>
+  <p>Some apps ignore the system default because they have their own link setting or a built-in viewer. Look for an "open links in" option in that app's settings.</p>
+
+  <h2 id="more-than-one">6. What if you want more than one default browser?</h2>
+  <p>macOS allows exactly one default browser. That gets in the way fast when you:</p>
+  <ul>
+    <li>keep work and personal accounts in separate Chrome or Brave profiles</li>
+    <li>use Safari day to day but need Chrome for Google Meet or a web app</li>
+    <li>want links from Slack to open in your work profile, and links from Messages in your personal one</li>
+  </ul>
+  <p>The fix is a <strong>browser picker</strong>: a small app you set as the default browser, which then hands each link to the browser you want. <a href="../">Switchboard Browser Picker</a> is a free, open-source one I built for exactly this. It shows a picker at your cursor with one row per browser profile, and it can follow rules by site, URL pattern or the app you clicked the link in.</p>
+  <p>To set it up, make Switchboard the default browser using step 1 above (or its own <em>Make Default</em> button). Your other browsers stay installed and get links through Switchboard. Not sure which picker suits you? See the <a href="../comparison/">comparison of Mac browser pickers</a>.</p>
+
+  <div class="cta-box">
+    <img src="../icon.png" alt="" width="64" height="64">
+    <div class="txt">
+      <h2>Different links, different browsers</h2>
+      <p>Switchboard Browser Picker is free, open source and runs on macOS 14 or later.</p>
+    </div>
+    <a class="btn btn-primary" href="https://github.com/justadityaraj/switchboard-browser-picker/releases/latest">Download free</a>
+    <a class="btn btn-ghost" href="../">See how it works</a>
+  </div>
+
+  <h2 id="faq">FAQ</h2>
+  <h3>Where is the default browser setting on macOS Sonoma, Sequoia or Tahoe?</h3>
+  <p>System Settings → Desktop &amp; Dock → Default web browser. Apple moved it there from General in macOS Ventura.</p>
+  <h3>Can I make a specific Chrome profile the default?</h3>
+  <p>Not with macOS alone. macOS picks the browser, and Chrome decides which profile window gets the link. A browser picker such as Switchboard can open links in a named profile.</p>
+  <h3>Does changing the default browser change my default email app?</h3>
+  <p>No. The default email app is a separate setting, inside the Mail app's settings under General.</p>
+  <h3>Can I set a different default browser for each website?</h3>
+  <p>Not natively. A browser picker with per-site rules does this. For example, send <code>meet.google.com</code> to Chrome and everything else to Safari.</p>
+
+  <div class="related">
+    <b>Related</b>
+    <ul>
+      <li><a href="../">Switchboard Browser Picker for Mac</a></li>
+      <li><a href="../comparison/">Mac browser pickers compared</a></li>
+      <li><a href="../comparison/#velja">Velja alternative</a></li>
+      <li><a href="../comparison/#finicky">Finicky alternative</a></li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <div class="bar">
+    <span>Switchboard Browser Picker · MIT licensed</span>
+    <span><a href="https://github.com/justadityaraj/switchboard-browser-picker">GitHub</a><a href="/">dev.adityarajsingh.com</a><a href="https://adityarajsingh.com">adityarajsingh.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- by [Aditya Raj Singh](https://adityarajsingh.com/) -->
