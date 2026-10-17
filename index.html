@@ -604,6 +604,8 @@
     .logo-az { width: 34px; height: auto; }
     .logo-slack { width: 26px; height: 26px; }
     .logo-wp { width: 28px; height: 28px; }
+    #apps .mcp-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+    .logo-app { width: 30px; height: 30px; border-radius: 8px; display: block; }
     .fc-mark { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
     .fc-mark i { width: 9px; height: 9px; border-radius: 3px; display: block; }
     .mcp-lang { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
@@ -634,6 +636,7 @@
     <div class="nav-inner">
       <a href="/" class="nav-brand"><b>ARS</b><span>Aditya Raj Singh</span></a>
       <div class="nav-links">
+        <a href="#apps">Apps</a>
         <a href="#mcps">MCPs</a>
         <a href="#contributions">Contributions</a>
         <a href="https://adityarajsingh.com/blog/" target="_blank" rel="noopener">Blog ↗</a>
@@ -665,6 +668,29 @@
 
   <!-- Home content -->
   <main class="home-main" id="explore">
+
+    <!-- My Apps -->
+    <section class="mcp-section" id="apps">
+      <div class="oss-header">
+        <h2 class="oss-title">My Apps</h2>
+        <span class="oss-subtitle">Open-source Mac tools I built for my own workflow</span>
+      </div>
+      <div class="mcp-grid">
+          <div class="mcp-card">
+            <div class="mcp-card-head">
+              <div class="mcp-icon"><img class="logo-app" src="/switchboard/icon.png" alt="" width="30" height="30"></div>
+              <div class="mcp-lang"><span class="lang-dot" style="background:#F05138"></span>Swift</div>
+            </div>
+            <h3 class="mcp-name">Switchboard</h3>
+            <p class="mcp-desc">A menu-bar browser picker for macOS. Every link opens in the right browser, Chrome or Brave profile, or private window, by rule or from a picker at the cursor.</p>
+            <div class="mcp-tags"><span>macOS 14+</span><span>MIT</span><span>menu bar</span></div>
+            <div class="mcp-links">
+              <a class="mcp-open" href="/switchboard/">View ↗</a>
+              <a class="mcp-gh" href="https://github.com/justadityaraj/switchboard" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
+      </div>
+    </section>
 
     <!-- My MCP Servers -->
     <section class="mcp-section" id="mcps">
