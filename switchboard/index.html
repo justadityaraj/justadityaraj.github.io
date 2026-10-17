@@ -118,7 +118,7 @@
         {
           "@type": "Question",
           "name": "Why does macOS warn me when I open it?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The release is ad-hoc signed but not notarized by Apple. After moving it to /Applications, run xattr -dr com.apple.quarantine /Applications/Switchboard.app once, or build it from source with Xcode." }
+          "acceptedAnswer": { "@type": "Answer", "text": "The release is not notarized by Apple yet, so macOS blocks the first launch. Open System Settings, go to Privacy & Security, and click Open Anyway next to the Switchboard message. You only do this once. Building from source avoids the prompt entirely." }
         },
         {
           "@type": "Question",
@@ -555,15 +555,13 @@
       <div class="term-body">
 <span class="c"># 1 · download Switchboard.dmg from the latest release, open it,</span><br>
 <span class="c">#     and drag Switchboard into Applications</span><br><br>
-<span class="c"># 2 · not notarized yet, so clear the quarantine flag once</span><br>
-<span class="p">$</span> xattr -dr <span class="y">com.apple.quarantine</span> /Applications/Switchboard.app<br><br>
 <span class="c"># or build from source</span><br>
 <span class="p">$</span> git clone https://github.com/justadityaraj/<span class="b">switchboard-browser-picker</span>.git<br>
 <span class="p">$</span> cd switchboard-browser-picker &amp;&amp; ./scripts/build.sh <span class="y">--install</span>
       </div>
     </div>
     <div class="steps">
-      <div class="step reveal"><div class="n">01</div><p>Open Switchboard. Settings appears on first launch.</p></div>
+      <div class="step reveal"><div class="n">01</div><p>Open Switchboard. First time only: <b>System Settings → Privacy &amp; Security → Open Anyway</b>.</p></div>
       <div class="step reveal"><div class="n">02</div><p>Click <b>Make Default</b> and confirm the macOS prompt.</p></div>
       <div class="step reveal"><div class="n">03</div><p>Click any link. Pick a browser, or hold <b>⌘</b> to remember it.</p></div>
     </div>
@@ -611,7 +609,7 @@
       </details>
       <details>
         <summary>Why does macOS warn me when I open it?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="ans">The release is ad-hoc signed but not yet notarized by Apple. After moving it to <code>/Applications</code>, run <code>xattr -dr com.apple.quarantine /Applications/Switchboard.app</code> once, or build it from source with Xcode.</div>
+        <div class="ans">The release isn't notarized by Apple yet, so macOS blocks the first launch. Open <b>System Settings → Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b> next to the Switchboard message. You only do this once. Building from source avoids the prompt entirely.</div>
       </details>
       <details>
         <summary>What do I need to run it?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
