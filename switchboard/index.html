@@ -485,7 +485,7 @@
     <div class="sec-head">
       <div class="kicker">Install</div>
       <h2>Two minutes, start to finish.</h2>
-      <p>Download the universal build from GitHub Releases, or build it yourself with Xcode 16+.</p>
+      <p>Download the DMG from GitHub Releases and drag it into Applications, or build it yourself with Xcode 16+.</p>
     </div>
     <div class="terminal reveal">
       <div class="term-bar">
@@ -493,8 +493,8 @@
         <span class="t">zsh: install</span>
       </div>
       <div class="term-body">
-<span class="c"># 1 · download Switchboard.zip from the latest release, unzip, move to Applications</span><br>
-<span class="p">$</span> mv ~/Downloads/<span class="b">Switchboard.app</span> /Applications/<br><br>
+<span class="c"># 1 · download Switchboard.dmg from the latest release, open it,</span><br>
+<span class="c">#     and drag Switchboard into Applications</span><br><br>
 <span class="c"># 2 · not notarized yet, so clear the quarantine flag once</span><br>
 <span class="p">$</span> xattr -dr <span class="y">com.apple.quarantine</span> /Applications/Switchboard.app<br><br>
 <span class="c"># or build from source</span><br>
