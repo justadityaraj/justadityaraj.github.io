@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Switchboard: A Free, Open-Source Browser Picker for macOS</title>
+<meta name="description" content="Switchboard is a free, open-source macOS menu-bar app that opens every link in the right browser, Chrome or Brave profile, or private window, with rules or a picker at the cursor.">
+<link rel="canonical" href="https://dev.adityarajsingh.com/switchboard/">
+<meta name="author" content="Aditya Raj Singh">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#1b1640">
+<meta name="keywords" content="browser picker mac, default browser chooser macOS, open links in specific browser, Chrome profile picker, Brave profile, link router macOS, open source menu bar app">
+<link rel="icon" href="icon.png" type="image/png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aditya Raj Singh">
+<meta property="og:title" content="Switchboard: Every Link, in the Right Browser">
+<meta property="og:description" content="A free, open-source macOS menu-bar app. A picker at the cursor with one row per browser profile, plus rules by site, URL pattern or source app.">
+<meta property="og:image" content="https://dev.adityarajsingh.com/switchboard/og-image.png">
+<meta property="og:image:alt" content="Switchboard: every link, in the right browser">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:url" content="https://dev.adityarajsingh.com/switchboard/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Switchboard: Every Link, in the Right Browser">
+<meta name="twitter:description" content="Free, open-source browser picker for macOS: one row per Chrome/Brave profile, rules by site, URL or source app.">
+<meta name="twitter:image" content="https://dev.adityarajsingh.com/switchboard/og-image.png">
+<meta name="twitter:image:alt" content="Switchboard: every link, in the right browser">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://dev.adityarajsingh.com/#website",
+      "url": "https://dev.adityarajsingh.com/",
+      "name": "Aditya Raj Singh",
+      "publisher": { "@id": "https://adityarajsingh.com/#person" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://dev.adityarajsingh.com/switchboard/#webpage",
+      "url": "https://dev.adityarajsingh.com/switchboard/",
+      "name": "Switchboard: A Free, Open-Source Browser Picker for macOS",
+      "description": "Switchboard is a free, open-source macOS menu-bar app that opens every link in the right browser, Chrome or Brave profile, or private window.",
+      "isPartOf": { "@id": "https://dev.adityarajsingh.com/#website" },
+      "primaryImageOfPage": "https://dev.adityarajsingh.com/switchboard/og-image.png",
+      "breadcrumb": { "@id": "https://dev.adityarajsingh.com/switchboard/#breadcrumb" },
+      "about": { "@id": "https://dev.adityarajsingh.com/switchboard/#software" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://dev.adityarajsingh.com/switchboard/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dev.adityarajsingh.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Switchboard" }
+      ]
+    },
+    {
+      "@type": ["SoftwareSourceCode", "SoftwareApplication"],
+      "@id": "https://dev.adityarajsingh.com/switchboard/#software",
+      "name": "Switchboard",
+      "description": "A macOS menu-bar app that becomes the default browser and routes each link to the right browser, Chromium profile or private window, using rules by site, URL pattern or source app, or a picker at the cursor.",
+      "codeRepository": "https://github.com/justadityaraj/switchboard",
+      "downloadUrl": "https://github.com/justadityaraj/switchboard/releases/latest",
+      "url": "https://dev.adityarajsingh.com/switchboard/",
+      "programmingLanguage": "Swift",
+      "operatingSystem": "macOS 14 or later",
+      "applicationCategory": "UtilitiesApplication",
+      "softwareVersion": "0.1.0",
+      "license": "https://opensource.org/licenses/MIT",
+      "keywords": "browser picker, default browser, macOS, Chrome profiles, Brave profiles, link routing, menu bar app",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "screenshot": "https://dev.adityarajsingh.com/switchboard/picker.png",
+      "author": { "@id": "https://adityarajsingh.com/#person" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://adityarajsingh.com/#person",
+      "name": "Aditya Raj Singh",
+      "url": "https://adityarajsingh.com/",
+      "image": "https://dev.adityarajsingh.com/switchboard/author-aditya.jpg",
+      "jobTitle": "Builder: automation, MCP servers & Mac tools",
+      "sameAs": [
+        "https://github.com/justadityaraj",
+        "https://adityarajsingh.com/"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://dev.adityarajsingh.com/switchboard/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Switchboard?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Switchboard is a free, open-source macOS menu-bar app that you set as your default browser. Every link you click goes through it, and it opens the link in the right browser, Chrome or Brave profile, or private window, either from a rule or from a small picker that appears at your cursor." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Switchboard open links in a specific Chrome or Brave profile?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Switchboard reads each Chromium browser's profile list and shows one picker row per profile. It supports Chrome, Brave, Edge, Vivaldi, Opera and Chromium, and rules can target a profile directly." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do rules work?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A rule matches on any mix of sites, the app the link was clicked in, and a URL pattern, and sends the link to a browser, profile or private window. Rules are checked top to bottom and the first match wins. You manage them in the Settings window, or create one instantly by holding Command while picking a browser." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Switchboard free? Does it collect data?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It is free and MIT-licensed. It has no account, no analytics and makes no network requests; your settings live in one local JSON file." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does macOS warn me when I open it?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The release is ad-hoc signed but not notarized by Apple. After moving it to /Applications, run xattr -dr com.apple.quarantine /Applications/Switchboard.app once, or build it from source with Xcode." }
+        },
+        {
+          "@type": "Question",
+          "name": "What do I need to run Switchboard?",
+          "acceptedAnswer": { "@type": "Answer", "text": "macOS 14 Sonoma or later, on Apple Silicon or Intel. Building from source needs Xcode 16 or later." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --blue:#3352F2;
+    --violet:#8C33E6;
+    --indigo:#1b1640;
+    --night:#110f2b;
+    --night-2:#191538;
+    --lilac:#9EA8FF;
+    --mint:#3ddc97;
+
+    --ink:#16142b;
+    --ink-soft:#45425e;
+    --muted:#6b6886;
+    --paper:#FAFAFD;
+    --paper-2:#F2F1FA;
+    --line:#E4E2F0;
+
+    --shadow-sm:0 1px 2px rgba(22,20,43,.06), 0 2px 8px rgba(22,20,43,.05);
+    --shadow-md:0 14px 34px rgba(22,20,43,.10), 0 2px 6px rgba(22,20,43,.06);
+    --shadow-lg:0 34px 80px rgba(10,8,30,.45);
+
+    --display:"Bricolage Grotesque", system-ui, sans-serif;
+    --body:"Inter", system-ui, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, monospace;
+
+    --grad:linear-gradient(120deg,var(--blue),var(--violet));
+    --maxw:1120px;
+    --radius:18px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%;height:auto}
+  ::selection{background:var(--violet);color:#fff}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spacing:-.02em}
+  code,kbd{font-family:var(--mono)}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(17,15,43,.88);backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;color:#fff;font-family:var(--mono);font-weight:500;font-size:.95rem}
+  .brand img{width:26px;height:26px;border-radius:7px}
+  .nav-right{display:flex;align-items:center;gap:22px}
+  .nav-link{color:rgba(255,255,255,.75);font-size:.92rem;transition:color .2s}
+  .nav-link:hover{color:#fff}
+  .nav-gh{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--indigo)!important;padding:8px 15px;border-radius:9px;font-weight:700;font-size:.88rem;transition:transform .18s, box-shadow .18s}
+  .nav-gh:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.3)}
+  @media(max-width:680px){.nav-right .nav-link{display:none}}
+
+  .hero{position:relative;color:#fff;overflow:hidden;padding:80px 0 104px;
+    background:
+      radial-gradient(900px 520px at 85% -5%, rgba(140,51,230,.38), transparent 60%),
+      radial-gradient(760px 520px at 5% 105%, rgba(51,82,242,.32), transparent 55%),
+      linear-gradient(165deg, var(--night-2) 0%, var(--night) 100%)}
+  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);background-size:22px 22px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 78%);mask-image:linear-gradient(180deg,#000,transparent 78%)}
+  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero .wrap>*{min-width:0}
+  @media(max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:48px}}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);padding:7px 13px;border-radius:100px;margin-bottom:24px}
+  .eyebrow b{color:var(--mint)}
+  h1.hero-title{font-size:clamp(2.6rem,5.6vw,4.2rem);letter-spacing:-.035em}
+  h1 .hl{background:linear-gradient(120deg,#8ea0ff,#d29bff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .hero-sub{margin-top:22px;font-size:1.15rem;color:rgba(255,255,255,.8);max-width:36ch}
+  .hero-sub b{color:#fff}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;padding:14px 24px;border-radius:12px;transition:transform .18s, box-shadow .18s, background .2s;border:0}
+  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 12px 28px rgba(92,64,240,.45)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(92,64,240,.55)}
+  .btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.26)}
+  .btn-ghost:hover{background:rgba(255,255,255,.15);transform:translateY(-2px)}
+  .hero-meta{margin-top:26px;display:flex;gap:20px;flex-wrap:wrap;font-size:.83rem;color:rgba(255,255,255,.62);font-family:var(--mono)}
+  .hero-meta span{display:inline-flex;align-items:center;gap:7px}
+  .hero-meta svg{width:15px;height:15px;stroke:var(--mint)}
+  .hero-visual{position:relative;display:flex;justify-content:center}
+  .hero-visual img{width:min(100%,380px);border-radius:14px;box-shadow:var(--shadow-lg);transform:rotate(1deg)}
+  .cursor-chip{position:absolute;left:-8px;bottom:-78px;background:rgba(255,255,255,.96);color:var(--ink);border-radius:13px;padding:12px 15px;max-width:270px;box-shadow:var(--shadow-md);transform:rotate(-1.5deg);font-size:.86rem;line-height:1.45}
+  .cursor-chip b{color:var(--violet)}
+  @media(max-width:900px){.cursor-chip{position:static;margin-top:18px;transform:none;max-width:none}.hero-visual{flex-direction:column;align-items:center}}
+
+  .strip{background:var(--night);color:rgba(255,255,255,.7);padding:18px 0;border-top:1px solid rgba(255,255,255,.06)}
+  .strip .wrap{display:flex;flex-wrap:wrap;gap:12px 38px;justify-content:center;font-family:var(--mono);font-size:.82rem}
+  .strip b{color:#fff}
+  .strip .dot{width:5px;height:5px;border-radius:50%;background:var(--mint);display:inline-block;margin-right:9px;vertical-align:middle}
+
+  section{padding:96px 0}
+  .sec-head{max-width:690px;margin:0 auto 56px;text-align:center}
+  .kicker{font-family:var(--mono);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--violet);margin-bottom:14px}
+  .sec-head h2{font-size:clamp(2rem,3.8vw,2.85rem)}
+  .sec-head p{margin-top:18px;font-size:1.1rem;color:var(--ink-soft)}
+
+  .flow{background:var(--paper-2)}
+  .flow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:step}
+  @media(max-width:860px){.flow-grid{grid-template-columns:1fr}}
+  .flow-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;position:relative;overflow:hidden}
+  .flow-card::before{counter-increment:step;content:"0" counter(step);font-family:var(--mono);font-weight:700;font-size:.8rem;color:var(--violet);display:block;margin-bottom:14px}
+  .flow-card::after{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad);opacity:.85}
+  .flow-card h3{font-size:1.3rem;margin-bottom:10px}
+  .flow-card p{color:var(--ink-soft);font-size:.97rem}
+
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:960px){.features{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.features{grid-template-columns:1fr}}
+  .feature{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 24px;transition:transform .22s cubic-bezier(.2,.7,.3,1), box-shadow .22s, border-color .22s}
+  .feature:hover{transform:translateY(-6px);box-shadow:0 18px 38px rgba(92,64,240,.16);border-color:transparent}
+  .feature .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;margin-bottom:18px;background:linear-gradient(135deg,#e7eaff,#f1e5ff)}
+  .feature .ic svg{width:22px;height:22px;stroke:#5b3fe0;stroke-width:2;fill:none}
+  .feature h3{font-size:1.12rem}
+  .feature p{margin-top:9px;font-size:.93rem;color:var(--ink-soft);line-height:1.55}
+  .feature kbd{font-size:.82em;background:var(--paper-2);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 6px}
+
+  .shots{background:linear-gradient(170deg,var(--night-2),var(--night));color:#fff}
+  .shots .sec-head h2{color:#fff}
+  .shots .kicker{color:var(--lilac)}
+  .shots .sec-head p{color:rgba(255,255,255,.75)}
+  .shot-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:start}
+  @media(max-width:900px){.shot-grid{grid-template-columns:1fr}}
+  .shot{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:14px;box-shadow:var(--shadow-lg)}
+  .shot img{border-radius:10px}
+  .shot figcaption{font-size:.88rem;color:rgba(255,255,255,.7);padding:12px 6px 4px}
+  .shot figcaption b{color:#fff}
+
+  .keys{max-width:760px;margin:0 auto;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:var(--shadow-sm)}
+  .keys table{width:100%;border-collapse:collapse}
+  .keys td{padding:15px 22px;border-bottom:1px solid var(--line);font-size:.97rem;color:var(--ink-soft)}
+  .keys tr:last-child td{border-bottom:0}
+  .keys td:first-child{width:38%;white-space:nowrap}
+  .keys kbd{font-size:.85rem;background:var(--paper-2);border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:3px 9px;color:var(--ink)}
+  .keys-note{text-align:center;margin-top:18px;color:var(--muted);font-size:.93rem}
+
+  .install{background:var(--paper-2)}
+  .terminal{max-width:780px;margin:0 auto;background:#14112e;border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-md);color:#fff}
+  .term-bar{display:flex;align-items:center;gap:8px;padding:13px 16px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.08)}
+  .term-bar i{width:11px;height:11px;border-radius:50%;display:block}
+  .term-bar .t{margin-left:8px;font-family:var(--mono);font-size:.76rem;color:rgba(255,255,255,.5)}
+  .term-body{padding:22px 22px 26px;font-family:var(--mono);font-size:.86rem;line-height:1.85;overflow-x:auto;white-space:nowrap}
+  .term-body .c{color:rgba(255,255,255,.42)}
+  .term-body .p{color:var(--mint)}
+  .term-body .y{color:#ffd479}
+  .term-body .b{color:var(--lilac)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px auto 0;max-width:780px}
+  @media(max-width:700px){.steps{grid-template-columns:1fr}}
+  .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .step .n{font-family:var(--mono);color:var(--violet);font-weight:700;font-size:.8rem}
+  .step p{font-size:.9rem;color:var(--ink-soft);margin-top:6px}
+
+  .author{border-top:1px solid var(--line)}
+  .author .card{max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:20px;padding:34px 38px;display:flex;gap:24px;align-items:center;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+  .author .card::before{content:"";position:absolute;top:0;left:0;bottom:0;width:5px;background:var(--grad)}
+  .author .avatar img{width:76px;height:76px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 6px 18px rgba(22,20,43,.2)}
+  .author .nm{font-family:var(--display);font-weight:700;font-size:1.18rem}
+  .author .rl{font-family:var(--mono);font-size:.76rem;color:var(--violet);margin:2px 0 10px}
+  .author p{font-size:.95rem;color:var(--ink-soft)}
+  .author p a{color:var(--blue);font-weight:700;border-bottom:2px solid #cfc4ff}
+  @media(max-width:560px){.author .card{flex-direction:column;text-align:center;padding:30px 24px}.author .card::before{width:100%;height:5px;bottom:auto}}
+
+  .faq{background:var(--paper-2);border-top:1px solid var(--line)}
+  .faq-list{max-width:760px;margin:0 auto;display:grid;gap:14px}
+  .faq details{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .2s}
+  .faq details[open]{box-shadow:var(--shadow-sm)}
+  .faq summary{list-style:none;cursor:pointer;padding:22px 24px;font-family:var(--display);font-weight:700;font-size:1.08rem;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq .chev{flex:0 0 20px;transition:transform .25s}
+  .faq .chev svg{width:20px;height:20px;stroke:var(--violet);stroke-width:2.4;fill:none}
+  .faq details[open] .chev{transform:rotate(180deg)}
+  .faq .ans{padding:0 24px 22px;color:var(--ink-soft);font-size:.97rem;line-height:1.65}
+  .faq .ans code{font-size:.85em;background:var(--paper-2);padding:2px 6px;border-radius:5px;word-break:break-word}
+
+  .final{text-align:center;padding:104px 0}
+  .final h2{font-size:clamp(2.1rem,4.4vw,3.2rem);max-width:16ch;margin:0 auto}
+  .final p{margin:20px auto 0;font-size:1.1rem;color:var(--ink-soft);max-width:46ch}
+  .final .cta-row{justify-content:center}
+  .final .btn-ghost{color:var(--ink);border-color:var(--line);background:#fff}
+
+  footer{background:var(--night);color:rgba(255,255,255,.6);padding:40px 0;font-size:.88rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+  footer .fl{display:flex;align-items:center;gap:10px;font-family:var(--mono);color:#fff}
+  footer .fl img{width:20px;height:20px;border-radius:5px}
+  footer .fr{display:flex;gap:22px;flex-wrap:wrap}
+  footer a{color:rgba(255,255,255,.78);transition:color .2s}
+  footer a:hover{color:var(--lilac)}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="icon.png" alt="" width="26" height="26">switchboard</a>
+    <div class="nav-right">
+      <a class="nav-link" href="#features">Features</a>
+      <a class="nav-link" href="#install">Install</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+      <a class="nav-gh" href="https://github.com/justadityaraj/switchboard" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38l-.01-1.49c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        View on GitHub
+      </a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow"><b>v0.1.0</b> · free macOS menu-bar app</span>
+      <h1 class="hero-title">Every link, in the <span class="hl">right browser</span>.</h1>
+      <p class="hero-sub">Set Switchboard as your default browser. Each link then opens in the <b>right browser, profile or private window</b>: by rule, or from a picker at your cursor.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/justadityaraj/switchboard/releases/latest" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download for Mac
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/justadityaraj/switchboard" target="_blank" rel="noopener">View source</a>
+      </div>
+      <div class="hero-meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>MIT licensed</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Swift · SwiftUI</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Apple Silicon + Intel</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="picker.png" alt="The Switchboard picker listing Brave, three Chrome profiles and Safari for a github.com link" width="640" height="615">
+      <div class="cursor-chip">Click a link in Slack, Mail or anywhere. Press <b>3</b> and it opens in <b>Chrome · Work</b>. Hold <b>⌘</b> and it always will.</div>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <span><span class="dot"></span>one row per <b>browser profile</b></span>
+    <span><span class="dot"></span>rules by <b>site, URL or source app</b></span>
+    <span><span class="dot"></span><b>no network</b> requests, no account</span>
+    <span><span class="dot"></span>macOS 14+</span>
+  </div>
+</div>
+
+<section class="flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">How it works</div>
+      <h2>One click. The right window.</h2>
+      <p>Switchboard sits between every app and every browser. It decides on its own, and asks you only when it should.</p>
+    </div>
+    <div class="flow-grid">
+      <div class="flow-card reveal">
+        <h3>You click a link</h3>
+        <p>In Slack, Mail, Notes, a terminal or any other app. macOS hands it to Switchboard, your default browser.</p>
+      </div>
+      <div class="flow-card reveal">
+        <h3>Rules decide</h3>
+        <p>Work domains go to your work profile. Meeting links go to the browser you trust for calls. The first matching rule wins.</p>
+      </div>
+      <div class="flow-card reveal">
+        <h3>Or you pick</h3>
+        <p>No rule? A small picker opens at your cursor. Press a number and the link opens. Hold <b>⌘</b> to turn that choice into a rule.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Features</div>
+      <h2>Small app. Sharp edges sanded off.</h2>
+      <p>Everything you need to stop copy-pasting links between browsers. Nothing you have to babysit.</p>
+    </div>
+    <div class="features">
+      <div class="feature reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 4l7 17 2.5-7.5L21 11z"/></svg></div>
+        <h3>Picker at the cursor</h3>
+        <p>Opens right where you clicked. Press <kbd>1</kbd>–<kbd>9</kbd>, <kbd>Return</kbd> for the first row, or <kbd>Esc</kbd> to cancel.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><circle cx="17.5" cy="9" r="2.5"/><path d="M16.5 14.6c2.6.2 4.4 1.9 5 5.4"/></svg></div>
+        <h3>Every profile, one row each</h3>
+        <p>Chrome, Brave, Edge, Vivaldi, Opera and Chromium profiles are read from disk and listed by their real names.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v12M18 9v12M6 15a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM18 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM6 15c0-4 12-2 12-6"/></svg></div>
+        <h3>Rules that read like English</h3>
+        <p>“When a link is on <b>zoom.us</b> and was clicked in <b>Mail</b>, open it in <b>Safari</b>.” Sites, source apps and URL patterns.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M9 9h6v6H9z"/><path d="M5 9V5h4M15 5h4v4M19 15v4h-4M9 19H5v-4"/></svg></div>
+        <h3>Remember with <kbd>⌘</kbd></h3>
+        <p>Hold Command while picking and Switchboard saves a rule for that site. Most rules get made without opening Settings.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+        <h3>Private on demand</h3>
+        <p>Hold <kbd>⌥</kbd> for an incognito or private window, or make a rule always open privately. Chromium and Firefox families.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Local and private</h3>
+        <p>No account, no analytics, no network calls. Settings live in one JSON file you can read, back up or edit by hand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Settings</div>
+      <h2>No config files required.</h2>
+      <p>A native Settings window covers everything: default-browser status, what happens to links without a rule, your rules, and which apps appear in the picker.</p>
+    </div>
+    <div class="shot-grid">
+      <figure class="shot reveal">
+        <img src="settings.png" alt="Switchboard Settings with four rules and browser visibility toggles" width="1120" height="1240" loading="lazy">
+        <figcaption><b>Settings.</b> Reorder, edit or delete rules, and hide apps that aren't really browsers.</figcaption>
+      </figure>
+      <figure class="shot reveal">
+        <img src="rule-editor.png" alt="Rule editor: zoom.us links clicked in Mail open in Safari" width="960" height="940" loading="lazy">
+        <figcaption><b>Rule editor.</b> Paste a full URL and it trims to the domain. Advanced regex hides until you need it.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Keyboard</div>
+      <h2>Built for fingers, not mice.</h2>
+    </div>
+    <div class="keys reveal">
+      <table>
+        <tr><td><kbd>1</kbd> – <kbd>9</kbd></td><td>Open in that row</td></tr>
+        <tr><td><kbd>Return</kbd></td><td>Open in the first row</td></tr>
+        <tr><td><kbd>⌘</kbd> + choice</td><td>Open there, and always use it for this site</td></tr>
+        <tr><td><kbd>⌥</kbd> + choice</td><td>Open in a private window</td></tr>
+        <tr><td><kbd>⌘</kbd> <kbd>C</kbd></td><td>Copy the link instead</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Cancel</td></tr>
+      </table>
+    </div>
+    <p class="keys-note">Hold <b>Shift</b> when you click a link to get the picker even when a rule matches.</p>
+  </div>
+</section>
+
+<section class="install" id="install">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Install</div>
+      <h2>Two minutes, start to finish.</h2>
+      <p>Download the universal build from GitHub Releases, or build it yourself with Xcode 16+.</p>
+    </div>
+    <div class="terminal reveal">
+      <div class="term-bar">
+        <i style="background:#ff5f56"></i><i style="background:#ffbd2e"></i><i style="background:#27c93f"></i>
+        <span class="t">zsh: install</span>
+      </div>
+      <div class="term-body">
+<span class="c"># 1 · download Switchboard.zip from the latest release, unzip, move to Applications</span><br>
+<span class="p">$</span> mv ~/Downloads/<span class="b">Switchboard.app</span> /Applications/<br><br>
+<span class="c"># 2 · not notarized yet, so clear the quarantine flag once</span><br>
+<span class="p">$</span> xattr -dr <span class="y">com.apple.quarantine</span> /Applications/Switchboard.app<br><br>
+<span class="c"># or build from source</span><br>
+<span class="p">$</span> git clone https://github.com/justadityaraj/<span class="b">switchboard</span>.git<br>
+<span class="p">$</span> cd switchboard &amp;&amp; ./scripts/build.sh <span class="y">--install</span>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">01</div><p>Open Switchboard. Settings appears on first launch.</p></div>
+      <div class="step reveal"><div class="n">02</div><p>Click <b>Make Default</b> and confirm the macOS prompt.</p></div>
+      <div class="step reveal"><div class="n">03</div><p>Click any link. Pick a browser, or hold <b>⌘</b> to remember it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="author" id="author">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:36px">
+      <div class="kicker">Who built this</div>
+    </div>
+    <div class="card reveal">
+      <div class="avatar"><img src="author-aditya.jpg" alt="Aditya Raj Singh" width="76" height="76" loading="lazy"></div>
+      <div>
+        <div class="nm">Aditya Raj Singh</div>
+        <div class="rl">builder · Mac tools, automation &amp; MCP servers</div>
+        <p>I run eight Chrome and Brave profiles across a handful of companies, and every link was a coin toss. So I built the router I wanted: a picker that knows my profiles, and rules I can make with one key. More of what I build at <a href="https://adityarajsingh.com" target="_blank" rel="noopener">adityarajsingh.com</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Questions</div>
+      <h2>Switchboard, answered.</h2>
+    </div>
+    <div class="faq-list">
+      <details open>
+        <summary>What is Switchboard?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">A free, open-source macOS menu-bar app that you set as your default browser. Every link you click goes through it, and it opens the link in the right browser, Chrome or Brave profile, or private window, from a rule or from a small picker at your cursor.</div>
+      </details>
+      <details>
+        <summary>Can it open links in a specific Chrome or Brave profile?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">Yes. Switchboard reads each Chromium browser's profile list and shows one picker row per profile, by its real name. It supports Chrome, Brave, Edge, Vivaldi, Opera and Chromium, and rules can target a profile directly.</div>
+      </details>
+      <details>
+        <summary>How do rules work?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">A rule matches on any mix of sites, the app the link was clicked in, and a URL pattern. It sends the link to a browser, profile or private window. Rules are checked top to bottom, and the first match wins. Manage them in Settings, or hold <code>⌘</code> while picking a browser to create one instantly.</div>
+      </details>
+      <details>
+        <summary>Is it free? Does it collect any data?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">It's free and <b>MIT-licensed</b>. There's no account and no analytics, and it makes no network requests. Your settings live in <code>~/Library/Application Support/Switchboard/config.json</code>.</div>
+      </details>
+      <details>
+        <summary>Why does macOS warn me when I open it?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">The release is ad-hoc signed but not yet notarized by Apple. After moving it to <code>/Applications</code>, run <code>xattr -dr com.apple.quarantine /Applications/Switchboard.app</code> once, or build it from source with Xcode.</div>
+      </details>
+      <details>
+        <summary>What do I need to run it?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">macOS 14 Sonoma or later, on Apple Silicon or Intel. Building from source needs Xcode 16 or later.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Stop sending links to the wrong browser.</h2>
+    <p>Free, open source, and two minutes to set up.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://github.com/justadityaraj/switchboard/releases/latest" target="_blank" rel="noopener">Download for Mac</a>
+      <a class="btn btn-ghost" href="https://github.com/justadityaraj/switchboard" target="_blank" rel="noopener">Star it on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fl"><img src="icon.png" alt="" width="20" height="20">switchboard</div>
+    <div class="fr">
+      <a href="https://github.com/justadityaraj/switchboard" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/justadityaraj/switchboard/releases" target="_blank" rel="noopener">Releases</a>
+      <a href="https://github.com/justadityaraj/switchboard#readme" target="_blank" rel="noopener">Docs</a>
+      <a href="/">dev.adityarajsingh.com</a>
+      <a href="https://adityarajsingh.com" target="_blank" rel="noopener">adityarajsingh.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach((e)=>{
+      if(e.isIntersecting){
+        const sibs = [...e.target.parentElement.children].filter(c=>c.classList.contains('reveal'));
+        const idx = sibs.indexOf(e.target);
+        e.target.style.transitionDelay = (idx>=0 ? Math.min(idx,6)*70 : 0) + 'ms';
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.16, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
+<!-- by [Aditya Raj Singh](https://adityarajsingh.com/) -->
