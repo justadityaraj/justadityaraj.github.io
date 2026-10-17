@@ -72,7 +72,7 @@
       "programmingLanguage": "Swift",
       "operatingSystem": "macOS 14 or later",
       "applicationCategory": "UtilitiesApplication",
-      "softwareVersion": "0.1.0",
+      "softwareVersion": "0.2.0",
       "license": "https://opensource.org/licenses/MIT",
       "keywords": "browser picker, default browser, macOS, Chrome profiles, Brave profiles, link routing, menu bar app",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -245,6 +245,7 @@
   .feature .ic svg{width:22px;height:22px;stroke:#5b3fe0;stroke-width:2;fill:none}
   .feature h3{font-size:1.12rem}
   .feature p{margin-top:9px;font-size:.93rem;color:var(--ink-soft);line-height:1.55}
+  .feature.span{grid-column:1/-1}
   .feature kbd{font-size:.82em;background:var(--paper-2);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 6px}
 
   .problems{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -254,7 +255,7 @@
   .q h3{font-size:1.12rem;margin-bottom:8px}
   .q p{color:var(--ink-soft);font-size:.95rem}
   .q a,.compare-link a{color:var(--blue);font-weight:600;border-bottom:2px solid #cfc4ff}
-  .q kbd{font-family:var(--mono);font-size:.82em;background:var(--paper-2);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 6px}
+  .q code,.q kbd{font-family:var(--mono);font-size:.82em;background:var(--paper-2);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 6px}
   .compare-link{text-align:center;margin-top:30px;color:var(--ink-soft)}
   .shots{background:linear-gradient(170deg,var(--night-2),var(--night));color:#fff}
   .shots .sec-head h2{color:#fff}
@@ -354,7 +355,7 @@
 <header class="hero" id="top">
   <div class="wrap">
     <div class="hero-copy">
-      <span class="eyebrow"><b>v0.1.0</b> · Switchboard Browser Picker for Mac</span>
+      <span class="eyebrow"><b>v0.2.0</b> · Switchboard Browser Picker for Mac</span>
       <h1 class="hero-title">Open every link in the <span class="hl">right browser</span>.</h1>
       <p class="hero-sub">Set Switchboard as your default browser. Each link then opens in the <b>right browser, profile or private window</b>: by rule, or from a picker at your cursor.</p>
       <div class="cta-row">
@@ -381,6 +382,7 @@
   <div class="wrap">
     <span><span class="dot"></span>one row per <b>browser profile</b></span>
     <span><span class="dot"></span>rules by <b>site, URL or source app</b></span>
+    <span><span class="dot"></span><b>link cleanup</b> built in</span>
     <span><span class="dot"></span><b>no network</b> requests, no account</span>
     <span><span class="dot"></span>macOS 14+</span>
   </div>
@@ -439,6 +441,10 @@
         <p>Hold <kbd>⌥</kbd> in the picker, or turn on <em>Private window</em> in a rule. Works with Chromium browsers and the Firefox family.</p>
       </article>
       <article class="q reveal">
+        <h3>How do I remove utm_source and other tracking from links?</h3>
+        <p>Switchboard strips tracking parameters such as <code>utm_*</code>, <code>fbclid</code>, <code>gclid</code> and <code>msclkid</code> from every link you open, and unwraps Outlook SafeLinks and Google, Facebook, LinkedIn and Slack redirects, all on your Mac.</p>
+      </article>
+      <article class="q reveal">
         <h3>How do I change my default browser on Mac?</h3>
         <p>System Settings → Desktop &amp; Dock → Default web browser. The full walkthrough, with fixes for when it doesn't stick, is in the <a href="change-default-browser-mac/">default browser guide</a>.</p>
       </article>
@@ -481,6 +487,11 @@
         <p>Hold <kbd>⌥</kbd> for an incognito or private window, or make a rule always open privately. Chromium and Firefox families.</p>
       </div>
       <div class="feature reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/><path d="M10 11v5M14 11v5"/></svg></div>
+        <h3>Link cleanup</h3>
+        <p>Strips <code>utm_source</code>, <code>fbclid</code>, <code>gclid</code> and other trackers, and unwraps Outlook SafeLinks, Google and Slack redirects before your rules run.</p>
+      </div>
+      <div class="feature span reveal">
         <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <h3>Local and private</h3>
         <p>No account, no analytics, no network calls. Settings live in one JSON file you can read, back up or edit by hand.</p>
@@ -498,7 +509,7 @@
     </div>
     <div class="shot-grid">
       <figure class="shot reveal">
-        <img src="settings.png" alt="Switchboard Settings with four rules and browser visibility toggles" width="1120" height="1240" loading="lazy">
+        <img src="settings.png" alt="Switchboard Settings with link cleanup, four rules and browser visibility toggles" width="1120" height="1400" loading="lazy">
         <figcaption><b>Settings.</b> Reorder, edit or delete rules, and hide apps that aren't really browsers.</figcaption>
       </figure>
       <figure class="shot reveal">
