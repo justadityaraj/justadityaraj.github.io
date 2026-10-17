@@ -30,7 +30,7 @@ nav .bar{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;align-items:
 .page-head h1{color:#fff;font-size:clamp(2rem,4.6vw,3.1rem)}
 .page-head .lede{margin-top:18px;font-size:1.12rem;color:rgba(255,255,255,.8)}
 .byline{margin-top:22px;display:flex;align-items:center;gap:12px;font-size:.86rem;color:rgba(255,255,255,.65)}
-.byline img{width:34px;height:34px;border-radius:50%;border:2px solid rgba(255,255,255,.3)}
+.byline img{flex:none;width:34px;object-fit:cover;height:34px;border-radius:50%;border:2px solid rgba(255,255,255,.3)}
 .byline b{color:#fff;font-weight:600}
 
 main{max-width:820px;margin:0 auto;padding:48px 24px 24px}
@@ -70,7 +70,7 @@ td:first-child,th:first-child{font-weight:600;color:var(--ink);white-space:nowra
 .card .pick{margin-top:12px;font-size:.92rem;color:var(--ink)}
 
 .cta-box{margin:56px 0 24px;background:linear-gradient(165deg,var(--night-2),var(--night));color:#fff;border-radius:18px;padding:34px;display:flex;gap:24px;align-items:center;flex-wrap:wrap}
-.cta-box img{width:64px;height:64px;border-radius:14px}
+.cta-box img{flex:none;width:64px;height:64px;border-radius:14px}
 .cta-box .txt{flex:1;min-width:240px}
 .cta-box h2{color:#fff;margin:0 0 6px;font-size:1.5rem}
 .cta-box p{color:rgba(255,255,255,.78);font-size:.98rem}
