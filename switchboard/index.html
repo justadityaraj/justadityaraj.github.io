@@ -131,8 +131,8 @@
         },
         {
           "@type": "Question",
-          "name": "Why does macOS warn me when I open it?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The release is not notarized by Apple, so the first launch shows Switchboard.app Not Opened. Click Done, then open System Settings, Privacy & Security, and click Open Anyway. You only do this once. To skip the prompt entirely, install with Homebrew: brew install justadityaraj/tap/switchboard, which builds the app on your Mac." }
+          "name": "Is Switchboard signed and notarized?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. From version 0.2.1 the download is signed with a Developer ID certificate and notarized by Apple, so it opens without a security warning. The certificate belongs to Swagloop Ventures Private Limited, a company Aditya Raj Singh is a director of. Switchboard itself stays his personal, MIT-licensed project. Homebrew installs build from source on your Mac." }
         },
         {
           "@type": "Question",
@@ -308,12 +308,6 @@
   .route .term-body{white-space:nowrap}
   .route-note{margin-top:16px;font-size:.9rem!important}
   .route-note code{font-family:var(--mono);font-size:.85em;background:var(--paper-2);padding:1px 6px;border-radius:5px}
-  .settings-btn{display:inline-block;margin-top:16px;background:var(--grad);color:#fff!important;padding:10px 16px;border-radius:10px;font-size:.92rem;text-decoration:none}
-  .first-launch{display:grid;grid-template-columns:auto 1fr;gap:14px;margin-top:20px;align-items:start}
-  @media(max-width:560px){.first-launch{grid-template-columns:1fr}}
-  .first-launch img{border-radius:10px;border:1px solid var(--line)}
-  .first-launch figure:first-child img{width:150px}
-  .first-launch figcaption{font-size:.8rem;color:var(--muted);margin-top:6px}
   .terminal{max-width:780px;margin:0 auto;background:#14112e;border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-md);color:#fff}
   .term-bar{display:flex;align-items:center;gap:8px;padding:13px 16px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.08)}
   .term-bar i{width:11px;height:11px;border-radius:50%;display:block}
@@ -599,7 +593,7 @@
     <div class="sec-head">
       <div class="kicker">Install</div>
       <h2>Two minutes, start to finish.</h2>
-      <p>Download the app, or install it with Homebrew to skip the security prompt entirely.</p>
+      <p>Download the notarized app, or install it with Homebrew.</p>
     </div>
     <div class="install-grid">
       <div class="route reveal">
@@ -607,19 +601,14 @@
         <h3>Drag into Applications</h3>
         <ol>
           <li><a href="https://github.com/justadityaraj/switchboard-browser-picker/releases/latest" target="_blank" rel="noopener">Download <b>Switchboard.dmg</b></a>, open it and drag Switchboard into Applications.</li>
-          <li>Open Switchboard. macOS says <b>"Switchboard.app" Not Opened</b> because the app isn't notarized. Click <b>Done</b>.</li>
-          <li>Go to <b>System Settings → Privacy &amp; Security</b>, scroll to <b>Security</b> and click <b>Open Anyway</b>. Confirm, then click <b>Open</b>. Only needed once.</li>
+          <li>Open Switchboard. It's notarized by Apple, so macOS only asks you to confirm an app from the internet. Click <b>Open</b>.</li>
+          <li>Settings opens. Click <b>Make Default</b> and confirm the macOS prompt.</li>
         </ol>
-        <a class="settings-btn" href="x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension">Open Privacy &amp; Security ↗</a>
-        <div class="first-launch">
-          <figure><img src="first-launch-blocked.png" alt="macOS dialog: Switchboard.app Not Opened. Apple could not verify it is free of malware." width="252" height="253" loading="lazy"><figcaption>What you'll see first. Click Done.</figcaption></figure>
-          <figure><img src="first-launch-open-anyway.png" alt="System Settings, Privacy and Security, with the Open Anyway button for Switchboard highlighted" width="620" height="170" loading="lazy"><figcaption>Then click Open Anyway in Privacy &amp; Security.</figcaption></figure>
-        </div>
       </div>
       <div class="route reveal">
         <span class="route-tag">Option 2 · Homebrew</span>
-        <h3>No security prompt</h3>
-        <p>Homebrew builds Switchboard on your own Mac, so macOS never shows the "Not Opened" dialog.</p>
+        <h3>Build it on your Mac</h3>
+        <p>Homebrew builds Switchboard from source and updates it with <code>brew upgrade</code>.</p>
         <div class="terminal">
           <div class="term-bar">
             <i style="background:#ff5f56"></i><i style="background:#ffbd2e"></i><i style="background:#27c93f"></i>
@@ -683,8 +672,8 @@
         <div class="ans">It's free and <b>MIT-licensed</b>. There's no account and no analytics, and it makes no network requests. Your settings live in <code>~/Library/Application Support/Switchboard/config.json</code>.</div>
       </details>
       <details>
-        <summary>Why does macOS warn me when I open it?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="ans">The release isn't notarized by Apple, so the first launch shows <b>"Switchboard.app" Not Opened</b>. Click Done, then go to <b>System Settings → Privacy &amp; Security</b> and click <b>Open Anyway</b>. You only do this once. To skip the prompt entirely, install with Homebrew: <code>brew install justadityaraj/tap/switchboard</code>, which builds the app on your Mac.</div>
+        <summary>Is Switchboard signed and notarized?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">Yes. From version 0.2.1 the download is signed with a Developer ID certificate and notarized by Apple, so it opens without a security warning. The certificate belongs to Swagloop Ventures Private Limited, a company I'm a director of. Switchboard itself stays my personal, MIT-licensed project. Homebrew installs build from source on your Mac.</div>
       </details>
       <details>
         <summary>What do I need to run it?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
