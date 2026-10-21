@@ -126,8 +126,8 @@
         },
         {
           "@type": "Question",
-          "name": "Why does macOS warn me when I open it?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The downloaded app is not notarized by Apple, so the first launch shows Foldout.app Not Opened. Click Done, then open System Settings, Privacy & Security, and click Open Anyway. To skip the prompt, install with Homebrew: brew install justadityaraj/tap/foldout, which builds the app on your Mac." }
+          "name": "Is Foldout signed and notarized?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. From version 0.1.3 the download is signed with a Developer ID certificate and notarized by Apple, so it opens without a security warning. The certificate belongs to Swagloop Ventures Private Limited, a company Aditya Raj Singh is a director of. Foldout itself stays his personal, MIT-licensed project. Homebrew installs build from source on your Mac." }
         },
         {
           "@type": "Question",
@@ -308,12 +308,6 @@
   .route .term-body{white-space:nowrap}
   .route-note{margin-top:16px;font-size:.9rem!important}
   .route-note code{font-family:var(--mono);font-size:.85em;background:var(--paper-2);padding:1px 6px;border-radius:5px}
-  .settings-btn{display:inline-block;margin-top:16px;background:var(--grad);color:#fff!important;padding:10px 16px;border-radius:10px;font-size:.92rem;text-decoration:none}
-  .first-launch{display:grid;grid-template-columns:auto 1fr;gap:14px;margin-top:20px;align-items:start}
-  @media(max-width:560px){.first-launch{grid-template-columns:1fr}}
-  .first-launch img{border-radius:10px;border:1px solid var(--line)}
-  .first-launch figure:first-child img{width:150px}
-  .first-launch figcaption{font-size:.8rem;color:var(--muted);margin-top:6px}
   .terminal{max-width:780px;margin:0 auto;background:#1c120c;border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-md);color:#fff}
   .term-bar{display:flex;align-items:center;gap:8px;padding:13px 16px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.08)}
   .term-bar i{width:11px;height:11px;border-radius:50%;display:block}
@@ -603,13 +597,13 @@
     <div class="sec-head">
       <div class="kicker">Install</div>
       <h2>Two minutes, start to finish.</h2>
-      <p>Homebrew builds Foldout on your Mac, so there's no security prompt. Or download the app.</p>
+      <p>Install with Homebrew, or download the notarized app.</p>
     </div>
     <div class="install-grid">
       <div class="route reveal">
-        <span class="route-tag">Option 1 · Homebrew (recommended)</span>
-        <h3>No security prompt</h3>
-        <p>Homebrew builds Foldout from source on your own Mac, so macOS never shows the "Not Opened" dialog.</p>
+        <span class="route-tag">Option 1 · Homebrew</span>
+        <h3>Build it on your Mac</h3>
+        <p>Homebrew builds Foldout from source and updates it with <code>brew upgrade</code>.</p>
         <div class="terminal">
           <div class="term-bar">
             <i style="background:#ff5f56"></i><i style="background:#ffbd2e"></i><i style="background:#27c93f"></i>
@@ -631,10 +625,9 @@
         <h3>Drag into Applications</h3>
         <ol>
           <li><a href="https://github.com/justadityaraj/foldout-folder-preview/releases/latest" target="_blank" rel="noopener">Download <b>Foldout.dmg</b></a>, open it and drag Foldout into Applications.</li>
-          <li>Open Foldout. macOS says <b>"Foldout.app" Not Opened</b> because the app isn't notarized. Click <b>Done</b>.</li>
-          <li>Go to <b>System Settings → Privacy &amp; Security</b>, scroll to <b>Security</b> and click <b>Open Anyway</b>. Confirm, then click <b>Open</b>. Only needed once.</li>
+          <li>Open Foldout. It's notarized by Apple, so macOS only asks you to confirm an app from the internet. Click <b>Open</b>.</li>
+          <li>Foldout's window shows <b>Quick Look extension is on</b>. Select a folder and press Space.</li>
         </ol>
-        <a class="settings-btn" href="x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension">Open Privacy &amp; Security ↗</a>
       </div>
     </div>
     <div class="steps">
@@ -680,8 +673,8 @@
         <div class="ans">It reads the <code>.git</code> folder directly: <code>HEAD</code> and refs for the branch, the commit object for the last commit, and the index to count modified and deleted tracked files. Packed repos and linked worktrees work too. Untracked files aren't counted.</div>
       </details>
       <details>
-        <summary>Why does macOS warn me when I open it?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="ans">The downloaded app isn't notarized by Apple, so the first launch shows <b>"Foldout.app" Not Opened</b>. Click Done, then go to <b>System Settings → Privacy &amp; Security</b> and click <b>Open Anyway</b>. To skip the prompt, install with Homebrew: <code>brew install justadityaraj/tap/foldout</code>, which builds the app on your Mac.</div>
+        <summary>Is Foldout signed and notarized?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">Yes. From version 0.1.3 the download is signed with a Developer ID certificate and notarized by Apple, so it opens without a security warning. The certificate belongs to Swagloop Ventures Private Limited, a company I'm a director of. Foldout itself stays my personal, MIT-licensed project. Homebrew installs build from source on your Mac.</div>
       </details>
       <details>
         <summary>Another app's folder preview shows up instead. What do I do?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
