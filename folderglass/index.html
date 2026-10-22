@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Folderglass for Mac: See Folder Size, Contents and Git Status with Quick Look</title>
+<meta name="description" content="Folderglass is a free, open-source Quick Look extension for Mac. Press Space on any folder to see its real size, file types, largest and newest files, git branch and README. Zip and Markdown too.">
+<link rel="canonical" href="https://dev.adityarajsingh.com/folderglass/">
+<meta name="author" content="Aditya Raj Singh">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#22140c">
+<meta name="keywords" content="quick look folder, folder preview mac, folder size mac, preview folder contents finder, quick look extension, zip preview mac, markdown quick look, git status finder">
+<link rel="icon" href="https://media.stallioncognitive.com/file/dev-site/foldout-icon.png" type="image/png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aditya Raj Singh">
+<meta property="og:title" content="Folderglass for Mac: Press Space, See Inside">
+<meta property="og:description" content="Free, open-source Quick Look for folders: real size, file-type breakdown, largest and newest files, git branch and README. Zip and Markdown too.">
+<meta property="og:image" content="https://media.stallioncognitive.com/file/dev-site/folderglass-og-image.png">
+<meta property="og:image:alt" content="Folderglass previewing a code project in Quick Look">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:url" content="https://dev.adityarajsingh.com/folderglass/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Folderglass for Mac">
+<meta name="twitter:description" content="Press Space on a folder in Finder: real size, file types, largest files, git status and README. Free and open source.">
+<meta name="twitter:image" content="https://media.stallioncognitive.com/file/dev-site/folderglass-og-image.png">
+<meta name="twitter:image:alt" content="Folderglass previewing a code project in Quick Look">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://dev.adityarajsingh.com/#website",
+      "url": "https://dev.adityarajsingh.com/",
+      "name": "Aditya Raj Singh",
+      "publisher": { "@id": "https://adityarajsingh.com/#person" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://dev.adityarajsingh.com/folderglass/#webpage",
+      "url": "https://dev.adityarajsingh.com/folderglass/",
+      "name": "Folderglass for Mac: See Folder Size, Contents and Git Status with Quick Look",
+      "description": "Folderglass is a free, open-source Quick Look extension for macOS that previews folders, zip archives and Markdown files.",
+      "isPartOf": { "@id": "https://dev.adityarajsingh.com/#website" },
+      "primaryImageOfPage": "https://media.stallioncognitive.com/file/dev-site/folderglass-og-image.png",
+      "video": { "@id": "https://dev.adityarajsingh.com/folderglass/#video" },
+      "breadcrumb": { "@id": "https://dev.adityarajsingh.com/folderglass/#breadcrumb" },
+      "about": { "@id": "https://dev.adityarajsingh.com/folderglass/#software" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://dev.adityarajsingh.com/folderglass/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dev.adityarajsingh.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Folderglass" }
+      ]
+    },
+    {
+      "@type": ["SoftwareSourceCode", "SoftwareApplication"],
+      "@id": "https://dev.adityarajsingh.com/folderglass/#software",
+      "name": "Folderglass",
+      "alternateName": "Folderglass",
+      "description": "A macOS Quick Look extension. Press Space on a folder in Finder to see its recursive size, a file-type breakdown, the largest and most recently changed files, an image thumbnail grid, and for git repositories the branch, last commit, uncommitted changes and rendered README. Also previews zip archive contents and Markdown files.",
+      "codeRepository": "https://github.com/justadityaraj/folderglass",
+      "sameAs": ["https://github.com/justadityaraj/folderglass"],
+      "downloadUrl": "https://github.com/justadityaraj/folderglass/releases/latest",
+      "url": "https://dev.adityarajsingh.com/folderglass/",
+      "programmingLanguage": "Swift",
+      "operatingSystem": "macOS 14 or later",
+      "applicationCategory": "UtilitiesApplication",
+      "softwareVersion": "0.2.0",
+      "license": "https://opensource.org/licenses/MIT",
+      "keywords": "Quick Look, folder preview, folder size, Finder, git, Markdown, zip, macOS",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "screenshot": "https://media.stallioncognitive.com/file/dev-site/foldout-repo-readme.png",
+      "author": { "@id": "https://adityarajsingh.com/#person" }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://dev.adityarajsingh.com/folderglass/#video",
+      "name": "Folderglass for Mac in 74 seconds",
+      "description": "Why pressing Space on a folder in Finder shows only an icon, and how Folderglass's Quick Look extension shows the real size, file types, largest and newest files, git branch and status, the README, photo grids, zip contents and Markdown.",
+      "thumbnailUrl": "https://media.stallioncognitive.com/file/dev-site/folderglass-poster.jpg",
+      "contentUrl": "https://media.stallioncognitive.com/file/dev-site/folderglass-demo-1080p.mp4",
+      "uploadDate": "2026-10-21",
+      "duration": "PT1M14S",
+      "inLanguage": "en",
+      "isFamilyFriendly": true,
+      "about": { "@id": "https://dev.adityarajsingh.com/folderglass/#software" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://adityarajsingh.com/#person",
+      "name": "Aditya Raj Singh",
+      "url": "https://adityarajsingh.com/",
+      "image": "https://dev.adityarajsingh.com/switchboard/author-aditya.jpg",
+      "jobTitle": "Open-source builder",
+      "sameAs": [
+        "https://github.com/justadityaraj",
+        "https://adityarajsingh.com/"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://dev.adityarajsingh.com/folderglass/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Folderglass?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Folderglass is a free, open-source Quick Look extension for macOS. Select a folder in Finder and press Space to see its real size including subfolders, a file-type breakdown, the largest and newest files, and for code projects the git branch, last commit, uncommitted changes and rendered README. It also previews zip archive contents and Markdown files." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Folderglass change or upload my files?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. The extension is sandboxed, read-only and has no network access. It never writes to the folders you preview and collects no analytics." }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Folderglass read git information without git installed?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It reads the .git folder directly: HEAD and refs for the branch, the commit object for the last commit, and the index to count modified and deleted tracked files. It never runs the git command." }
+        },
+        {
+          "@type": "Question",
+          "name": "Was Folderglass called Foldout?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. It was named Foldout until version 0.2.0 in October 2026, and was renamed because another, unrelated Mac app already uses that name. Homebrew users move to Folderglass with brew upgrade. If you used the download, drag Foldout to the Trash and install Folderglass." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Folderglass signed and notarized?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. From version 0.1.3 the download is signed with a Developer ID certificate and notarized by Apple, so it opens without a security warning. The certificate belongs to Swagloop Ventures Private Limited, a company Aditya Raj Singh is a director of. Folderglass itself stays his personal, MIT-licensed project. Homebrew installs build from source on your Mac." }
+        },
+        {
+          "@type": "Question",
+          "name": "Another app's folder preview shows up instead of Folderglass. What do I do?",
+          "acceptedAnswer": { "@type": "Answer", "text": "macOS uses one Quick Look extension per file type. Open System Settings, General, Login Items & Extensions, Quick Look, and turn off the other folder preview extensions." }
+        },
+        {
+          "@type": "Question",
+          "name": "What do I need to run Folderglass?",
+          "acceptedAnswer": { "@type": "Answer", "text": "macOS 14 Sonoma or later, on Apple Silicon or Intel. Building from source needs the Xcode Command Line Tools." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --blue:#E8553D;
+    --violet:#F28A2E;
+    --indigo:#2a160c;
+    --night:#140c08;
+    --night-2:#22140c;
+    --lilac:#FFB46B;
+    --mint:#3ddc97;
+
+    --ink:#1d140f;
+    --ink-soft:#4d4038;
+    --muted:#7a6b62;
+    --paper:#FDFBF9;
+    --paper-2:#F8F1EB;
+    --line:#EEE3DA;
+
+    --shadow-sm:0 1px 2px rgba(40,22,12,.06), 0 2px 8px rgba(40,22,12,.05);
+    --shadow-md:0 14px 34px rgba(40,22,12,.10), 0 2px 6px rgba(40,22,12,.06);
+    --shadow-lg:0 34px 80px rgba(30,14,6,.45);
+
+    --display:"Bricolage Grotesque", system-ui, sans-serif;
+    --body:"Inter", system-ui, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, monospace;
+
+    --grad:linear-gradient(120deg,var(--blue),var(--violet));
+    --maxw:1120px;
+    --radius:18px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%;height:auto}
+  ::selection{background:var(--violet);color:#fff}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spacing:-.02em}
+  code,kbd{font-family:var(--mono)}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(20,12,8,.9);backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;color:#fff;font-family:var(--mono);font-weight:500;font-size:.95rem}
+  .brand img{width:26px;height:26px;border-radius:7px}
+  .nav-right{display:flex;align-items:center;gap:22px}
+  .nav-link{color:rgba(255,255,255,.75);font-size:.92rem;transition:color .2s}
+  .nav-link:hover{color:#fff}
+  .nav-gh{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--indigo)!important;padding:8px 15px;border-radius:9px;font-weight:700;font-size:.88rem;transition:transform .18s, box-shadow .18s}
+  .nav-gh:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.3)}
+  @media(max-width:680px){.nav-right .nav-link{display:none}}
+
+  .hero{position:relative;color:#fff;overflow:hidden;padding:80px 0 104px;
+    background:
+      radial-gradient(900px 520px at 85% -5%, rgba(242,138,46,.30), transparent 60%),
+      radial-gradient(760px 520px at 5% 105%, rgba(232,85,61,.26), transparent 55%),
+      linear-gradient(165deg, var(--night-2) 0%, var(--night) 100%)}
+  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);background-size:22px 22px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 78%);mask-image:linear-gradient(180deg,#000,transparent 78%)}
+  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero .wrap>*{min-width:0}
+  @media(max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:48px}}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);padding:7px 13px;border-radius:100px;margin-bottom:24px}
+  .eyebrow b{color:var(--mint)}
+  h1.hero-title{font-size:clamp(2.6rem,5.6vw,4.2rem);letter-spacing:-.035em}
+  h1 .hl{background:linear-gradient(120deg,#ffc27a,#ff8a5c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .hero-sub{margin-top:22px;font-size:1.15rem;color:rgba(255,255,255,.8);max-width:36ch}
+  .hero-sub b{color:#fff}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;padding:14px 24px;border-radius:12px;transition:transform .18s, box-shadow .18s, background .2s;border:0}
+  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 12px 28px rgba(232,100,50,.45)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(232,100,50,.55)}
+  .btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.26)}
+  .btn-ghost:hover{background:rgba(255,255,255,.15);transform:translateY(-2px)}
+  .hero-meta{margin-top:26px;display:flex;gap:20px;flex-wrap:wrap;font-size:.83rem;color:rgba(255,255,255,.62);font-family:var(--mono)}
+  .hero-meta span{display:inline-flex;align-items:center;gap:7px}
+  .hero-meta svg{width:15px;height:15px;stroke:var(--mint)}
+  .hero-visual{position:relative;display:flex;justify-content:center}
+  .hero-visual img{width:min(100%,380px);border-radius:14px;box-shadow:var(--shadow-lg);transform:rotate(1deg)}
+  .cursor-chip{position:absolute;left:-8px;bottom:-78px;background:rgba(255,255,255,.96);color:var(--ink);border-radius:13px;padding:12px 15px;max-width:270px;box-shadow:var(--shadow-md);transform:rotate(-1.5deg);font-size:.86rem;line-height:1.45}
+  .cursor-chip b{color:var(--violet)}
+  @media(max-width:900px){.cursor-chip{position:static;margin-top:18px;transform:none;max-width:none}.hero-visual{flex-direction:column;align-items:center}}
+
+  .strip{background:var(--night);color:rgba(255,255,255,.7);padding:18px 0;border-top:1px solid rgba(255,255,255,.06)}
+  .strip .wrap{display:flex;flex-wrap:wrap;gap:12px 38px;justify-content:center;font-family:var(--mono);font-size:.82rem}
+  .strip b{color:#fff}
+  .strip .dot{width:5px;height:5px;border-radius:50%;background:var(--mint);display:inline-block;margin-right:9px;vertical-align:middle}
+
+  section{padding:96px 0}
+  .sec-head{max-width:690px;margin:0 auto 56px;text-align:center}
+  .kicker{font-family:var(--mono);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--violet);margin-bottom:14px}
+  .sec-head h2{font-size:clamp(2rem,3.8vw,2.85rem)}
+  .sec-head p{margin-top:18px;font-size:1.1rem;color:var(--ink-soft)}
+
+  .demo{padding:80px 0 88px;background:linear-gradient(180deg,var(--night),var(--night-2));color:#fff}
+  .demo .sec-head h2{color:#fff}
+  .demo .kicker{color:var(--lilac)}
+  .video-frame{max-width:1040px;margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 40px 90px rgba(0,0,0,.5);background:#000}
+  .video-frame video{display:block;width:100%;height:auto;aspect-ratio:16/9}
+  .flow{background:var(--paper-2)}
+  .flow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:step}
+  @media(max-width:860px){.flow-grid{grid-template-columns:1fr}}
+  .flow-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;position:relative;overflow:hidden}
+  .flow-card::before{counter-increment:step;content:"0" counter(step);font-family:var(--mono);font-weight:700;font-size:.8rem;color:var(--violet);display:block;margin-bottom:14px}
+  .flow-card::after{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad);opacity:.85}
+  .flow-card h3{font-size:1.3rem;margin-bottom:10px}
+  .flow-card p{color:var(--ink-soft);font-size:.97rem}
+
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:960px){.features{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.features{grid-template-columns:1fr}}
+  .feature{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 24px;transition:transform .22s cubic-bezier(.2,.7,.3,1), box-shadow .22s, border-color .22s}
+  .feature:hover{transform:translateY(-6px);box-shadow:0 18px 38px rgba(232,100,50,.16);border-color:transparent}
+  .feature .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;margin-bottom:18px;background:linear-gradient(135deg,#fff0e2,#ffe4dc)}
+  .feature .ic svg{width:22px;height:22px;stroke:#d4562c;stroke-width:2;fill:none}
+  .feature h3{font-size:1.12rem}
+  .feature p{margin-top:9px;font-size:.93rem;color:var(--ink-soft);line-height:1.55}
+  .feature.span{grid-column:1/-1}
+  .feature kbd{font-size:.82em;background:var(--paper-2);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 6px}
+
+  .problems{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .q-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:820px){.q-grid{grid-template-columns:1fr}}
+  .q{border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--paper)}
+  .q h3{font-size:1.12rem;margin-bottom:8px}
+  .q p{color:var(--ink-soft);font-size:.95rem}
+  .q a,.compare-link a{color:var(--blue);font-weight:600;border-bottom:2px solid #ffd2b3}
+  .q code,.q kbd{font-family:var(--mono);font-size:.82em;background:var(--paper-2);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 6px}
+  .compare-link{text-align:center;margin-top:30px;color:var(--ink-soft)}
+  .shots{background:linear-gradient(170deg,var(--night-2),var(--night));color:#fff}
+  .shots .sec-head h2{color:#fff}
+  .shots .kicker{color:var(--lilac)}
+  .shots .sec-head p{color:rgba(255,255,255,.75)}
+  .shot-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:start}
+  @media(max-width:900px){.shot-grid{grid-template-columns:1fr}}
+  .shot{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:14px;box-shadow:var(--shadow-lg)}
+  .shot img{border-radius:10px}
+  .shot figcaption{font-size:.88rem;color:rgba(255,255,255,.7);padding:12px 6px 4px}
+  .shot figcaption b{color:#fff}
+
+  .keys{max-width:760px;margin:0 auto;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:var(--shadow-sm)}
+  .keys table{width:100%;border-collapse:collapse}
+  .keys td{padding:15px 22px;border-bottom:1px solid var(--line);font-size:.97rem;color:var(--ink-soft)}
+  .keys tr:last-child td{border-bottom:0}
+  .keys td:first-child{width:38%;white-space:nowrap}
+  .keys kbd{font-size:.85rem;background:var(--paper-2);border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:3px 9px;color:var(--ink)}
+  .keys-note{text-align:center;margin-top:18px;color:var(--muted);font-size:.93rem}
+
+  .install{background:var(--paper-2)}
+  .install-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;max-width:1040px;margin:0 auto;align-items:start}
+  @media(max-width:900px){.install-grid{grid-template-columns:1fr}}
+  .route{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;min-width:0}
+  .route-tag{font-family:var(--mono);font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--violet)}
+  .route h3{font-size:1.35rem;margin:8px 0 14px}
+  .route p,.route li{color:var(--ink-soft);font-size:.96rem}
+  .route ol{margin-left:20px;display:grid;gap:9px}
+  .route a{color:var(--blue);font-weight:600}
+  .route .terminal{margin:16px 0 0;max-width:none}
+  .route .term-body{white-space:nowrap}
+  .route-note{margin-top:16px;font-size:.9rem!important}
+  .route-note code{font-family:var(--mono);font-size:.85em;background:var(--paper-2);padding:1px 6px;border-radius:5px}
+  .terminal{max-width:780px;margin:0 auto;background:#1c120c;border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-md);color:#fff}
+  .term-bar{display:flex;align-items:center;gap:8px;padding:13px 16px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.08)}
+  .term-bar i{width:11px;height:11px;border-radius:50%;display:block}
+  .term-bar .t{margin-left:8px;font-family:var(--mono);font-size:.76rem;color:rgba(255,255,255,.5)}
+  .term-body{padding:22px 22px 26px;font-family:var(--mono);font-size:.86rem;line-height:1.85;overflow-x:auto;white-space:nowrap}
+  .term-body .c{color:rgba(255,255,255,.42)}
+  .term-body .p{color:var(--mint)}
+  .term-body .y{color:#ffd479}
+  .term-body .b{color:var(--lilac)}
+  .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:22px auto 0;max-width:1040px}
+  @media(max-width:700px){.steps{grid-template-columns:1fr}}
+  .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .step .n{font-family:var(--mono);color:var(--violet);font-weight:700;font-size:.8rem}
+  .step p{font-size:.9rem;color:var(--ink-soft);margin-top:6px}
+
+  .author{border-top:1px solid var(--line)}
+  .author .card{max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:20px;padding:34px 38px;display:flex;gap:24px;align-items:center;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+  .author .card::before{content:"";position:absolute;top:0;left:0;bottom:0;width:5px;background:var(--grad)}
+  .author .avatar{flex:none}
+  .author .avatar img{width:76px;height:76px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 6px 18px rgba(40,22,12,.2)}
+  .author .nm{font-family:var(--display);font-weight:700;font-size:1.18rem}
+  .author .rl{font-family:var(--mono);font-size:.76rem;color:var(--violet);margin:2px 0 10px}
+  .author p{font-size:.95rem;color:var(--ink-soft)}
+  .author p a{color:var(--blue);font-weight:700;border-bottom:2px solid #ffd2b3}
+  @media(max-width:560px){.author .card{flex-direction:column;text-align:center;padding:30px 24px}.author .card::before{width:100%;height:5px;bottom:auto}}
+
+  .faq{background:var(--paper-2);border-top:1px solid var(--line)}
+  .faq-list{max-width:760px;margin:0 auto;display:grid;gap:14px}
+  .faq details{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .2s}
+  .faq details[open]{box-shadow:var(--shadow-sm)}
+  .faq summary{list-style:none;cursor:pointer;padding:22px 24px;font-family:var(--display);font-weight:700;font-size:1.08rem;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq .chev{flex:0 0 20px;transition:transform .25s}
+  .faq .chev svg{width:20px;height:20px;stroke:var(--violet);stroke-width:2.4;fill:none}
+  .faq details[open] .chev{transform:rotate(180deg)}
+  .faq .ans{padding:0 24px 22px;color:var(--ink-soft);font-size:.97rem;line-height:1.65}
+  .faq .ans code{font-size:.85em;background:var(--paper-2);padding:2px 6px;border-radius:5px;word-break:break-word}
+
+  .final{text-align:center;padding:104px 0}
+  .final h2{font-size:clamp(2.1rem,4.4vw,3.2rem);max-width:16ch;margin:0 auto}
+  .final p{margin:20px auto 0;font-size:1.1rem;color:var(--ink-soft);max-width:46ch}
+  .final .cta-row{justify-content:center}
+  .final .btn-ghost{color:var(--ink);border-color:var(--line);background:#fff}
+
+  footer{background:var(--night);color:rgba(255,255,255,.6);padding:40px 0;font-size:.88rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+  footer .fl{display:flex;align-items:center;gap:10px;font-family:var(--mono);color:#fff}
+  footer .fl img{width:20px;height:20px;border-radius:5px}
+  footer .fr{display:flex;gap:22px;flex-wrap:wrap}
+  footer a{color:rgba(255,255,255,.78);transition:color .2s}
+  footer a:hover{color:var(--lilac)}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+  .hero-visual img{width:min(100%,560px);transform:rotate(.6deg)}
+  .shot-grid.three{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:900px){.shot-grid.three{grid-template-columns:1fr}}
+  .shot-wide{grid-column:1/-1}
+</style><noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="https://media.stallioncognitive.com/file/dev-site/foldout-icon.png" alt="" width="26" height="26">folderglass</a>
+    <div class="nav-right">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#features">Features</a>
+      <a class="nav-link" href="#install">Install</a>
+      <a class="nav-link" href="comparison/">Compare</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+      <a class="nav-gh" href="https://github.com/justadityaraj/folderglass" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38l-.01-1.49c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        View on GitHub
+      </a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow"><b>v0.2.0</b> · Folderglass for Mac</span>
+      <h1 class="hero-title">Press Space. <span class="hl">See inside</span> any folder.</h1>
+      <p class="hero-sub">Folderglass turns Quick Look into a <b>folder X-ray</b>: real size, what fills it, the biggest and newest files, and for code projects the <b>git branch and README</b>.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/justadityaraj/folderglass/releases/latest" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download for Mac
+        </a>
+        <a class="btn btn-ghost" href="#demo">Watch the demo</a>
+      </div>
+      <div class="hero-meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>MIT licensed</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>No network access</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Apple Silicon + Intel</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="https://media.stallioncognitive.com/file/dev-site/foldout-repo-readme.png" alt="Folderglass previewing a code project: size and file-type bar, git branch with two modified files, last commit and the rendered README" width="1640" height="1200">
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <span><span class="dot"></span><b>real size</b>, subfolders included</span>
+    <span><span class="dot"></span><b>git branch</b> and last commit</span>
+    <span><span class="dot"></span><b>README</b> rendered inline</span>
+    <span><span class="dot"></span><b>zip + Markdown</b> previews</span>
+    <span><span class="dot"></span>macOS 14+</span>
+  </div>
+</div>
+
+<section class="demo" id="demo">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">See it in action</div>
+      <h2>74 seconds, start to finish.</h2>
+    </div>
+    <div class="video-frame reveal">
+      <video controls playsinline preload="metadata" poster="https://media.stallioncognitive.com/file/dev-site/folderglass-poster.jpg" width="1920" height="1080">
+        <source src="https://media.stallioncognitive.com/file/dev-site/folderglass-demo-1080p.mp4" type="video/mp4">
+        <a href="https://media.stallioncognitive.com/file/dev-site/folderglass-demo-1080p.mp4">Watch the Folderglass demo</a>
+      </video>
+    </div>
+  </div>
+</section>
+
+<section class="flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">How it works</div>
+      <h2>Select. Space. Know.</h2>
+      <p>Finder's Quick Look shows a folder as a big blue icon. Folderglass shows you what's actually in it.</p>
+    </div>
+    <div class="flow-grid">
+      <div class="flow-card reveal">
+        <h3>Select a folder</h3>
+        <p>In Finder, on the Desktop, or in any app that uses Quick Look. Downloads, projects, photo shoots, client handoffs.</p>
+      </div>
+      <div class="flow-card reveal">
+        <h3>Press Space</h3>
+        <p>Folderglass scans everything inside in the background. Numbers fill in live, so you never wait on a spinner.</p>
+      </div>
+      <div class="flow-card reveal">
+        <h3>See what matters</h3>
+        <p>Size and file types at the top. Contents, largest and recent files in tabs. Git and README when it's a project.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="problems" id="problems">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Problems it solves</div>
+      <h2>If you've ever searched for one of these…</h2>
+      <p>Finder hides most of what you want to know about a folder until you open it, or open Get Info, or open Terminal.</p>
+    </div>
+    <div class="q-grid">
+      <article class="q reveal">
+        <h3>How do I see a folder's size on Mac without Get Info?</h3>
+        <p>Select it and press <kbd>Space</kbd>. Folderglass adds up every file in every subfolder and shows the total, the file count and when anything inside last changed.</p>
+      </article>
+      <article class="q reveal">
+        <h3>What's taking up space in this folder?</h3>
+        <p>The type bar shows how much is video, images, code or documents. The <b>Largest</b> tab lists the 100 biggest files anywhere inside, with the subfolder each one lives in.</p>
+      </article>
+      <article class="q reveal">
+        <h3>How do I preview a folder's contents in Quick Look?</h3>
+        <p>macOS doesn't do it on its own. With Folderglass, Quick Look shows a sortable table of everything in the folder, with sizes that include subfolders.</p>
+      </article>
+      <article class="q reveal">
+        <h3>Which files in this folder changed most recently?</h3>
+        <p>The <b>Recent</b> tab lists the 100 newest files from all subfolders, not just the top level. Handy for downloads and shared drives.</p>
+      </article>
+      <article class="q reveal">
+        <h3>Can I see a repo's git branch from Finder?</h3>
+        <p>Yes. Press Space on a project folder to see the branch, the last commit and its author, and how many tracked files are modified or deleted.</p>
+      </article>
+      <article class="q reveal">
+        <h3>How do I look inside a zip without unzipping it?</h3>
+        <p>Select the <code>.zip</code> and press Space. Folderglass lists its files with their real, uncompressed sizes. Nothing is extracted.</p>
+      </article>
+      <article class="q reveal">
+        <h3>How do I preview Markdown files in Finder?</h3>
+        <p>Folderglass renders <code>.md</code> files with headings, lists, code blocks, quotes and tables, offline, in light or dark mode.</p>
+      </article>
+      <article class="q reveal">
+        <h3>Is there a free Quick Look folder preview?</h3>
+        <p>Folderglass is free and MIT-licensed. The <a href="comparison/">comparison page</a> lines it up against the paid and free alternatives.</p>
+      </article>
+    </div>
+    <p class="compare-link">Comparing options? See <a href="comparison/">Folderglass vs Folder Preview, PeekX, Unfold and other Quick Look folder apps</a>.</p>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Features</div>
+      <h2>A folder dashboard, one keypress away.</h2>
+      <p>Everything below runs on your Mac, in a sandboxed, read-only extension with no network access.</p>
+    </div>
+    <div class="features">
+      <div class="feature reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M8 13h8"/></svg></div>
+        <h3>Real folder size</h3>
+        <p>Every file in every subfolder, counted in the background. Huge folders stop after 15 seconds and show what they found.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="5" rx="2.5"/><path d="M9 10v5M15 10v5"/></svg></div>
+        <h3>File-type breakdown</h3>
+        <p>One bar shows how much space video, images, code, documents, archives and audio take, with counts.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h6"/></svg></div>
+        <h3>Contents, Largest, Recent</h3>
+        <p>Sortable tables: what's at the top level with full sizes, the 100 biggest files inside, and the 100 newest.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M6 3v12M18 9v12M6 15a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM18 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM6 15c0-4 12-2 12-6"/></svg></div>
+        <h3>Git at a glance</h3>
+        <p>Branch, last commit, author, date, and counts of modified and deleted files. Read straight from <code>.git</code>, linked worktrees included.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 11h7M9 15h7M9 7h3"/></svg></div>
+        <h3>README inside the preview</h3>
+        <p>A project's README opens rendered: headings, lists, code blocks, quotes and tables. Standalone <code>.md</code> files too.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg></div>
+        <h3>Image grid</h3>
+        <p>Folders that are mostly photos open straight to thumbnails, sorted by name.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M7 3h10v18H7z"/><path d="M12 3v2M12 7v2M12 11v2M11 15h2v3h-2z"/></svg></div>
+        <h3>Zip contents</h3>
+        <p>Press Space on a <code>.zip</code> to see every file, the uncompressed size and the type breakdown, without extracting.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></div>
+        <h3>Light and dark</h3>
+        <p>Native SwiftUI that follows your system appearance. Universal binary for Apple Silicon and Intel.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Private by design</h3>
+        <p>Sandboxed and read-only. No network access, no analytics. It skips other apps' data and cloud drives instead of asking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Screenshots</div>
+      <h2>What you see when you press Space.</h2>
+      <p>Sample folders, generated for these screenshots.</p>
+    </div>
+    <div class="shot-grid three">
+      <figure class="shot reveal">
+        <img src="https://media.stallioncognitive.com/file/dev-site/foldout-repo-contents.png" alt="A code project in dark mode: type bar, git card and the Contents table sorted by size" width="1640" height="1200" loading="lazy">
+        <figcaption><b>Code project.</b> Branch, last commit and uncommitted changes above a size-sorted table.</figcaption>
+      </figure>
+      <figure class="shot reveal">
+        <img src="https://media.stallioncognitive.com/file/dev-site/foldout-photos.png" alt="A folder of product photos shown as a thumbnail grid" width="1640" height="1200" loading="lazy">
+        <figcaption><b>Photo folder.</b> Mostly images? It opens straight to the grid.</figcaption>
+      </figure>
+      <figure class="shot reveal">
+        <img src="https://media.stallioncognitive.com/file/dev-site/foldout-largest.png" alt="The Largest tab listing the biggest files across all subfolders" width="1640" height="1200" loading="lazy">
+        <figcaption><b>Largest files.</b> The 100 biggest files anywhere inside, with their subfolder.</figcaption>
+      </figure>
+      <figure class="shot reveal">
+        <img src="https://media.stallioncognitive.com/file/dev-site/foldout-zip.png" alt="A zip archive previewed without extracting, listing its files and sizes" width="1640" height="1040" loading="lazy">
+        <figcaption><b>Zip archive.</b> Files and uncompressed sizes, nothing extracted.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="install" id="install">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Install</div>
+      <h2>Two minutes, start to finish.</h2>
+      <p>Install with Homebrew, or download the notarized app.</p>
+    </div>
+    <div class="install-grid">
+      <div class="route reveal">
+        <span class="route-tag">Option 1 · Homebrew</span>
+        <h3>Build it on your Mac</h3>
+        <p>Homebrew builds Folderglass from source and updates it with <code>brew upgrade</code>.</p>
+        <div class="terminal">
+          <div class="term-bar">
+            <i style="background:#ff5f56"></i><i style="background:#ffbd2e"></i><i style="background:#27c93f"></i>
+            <span class="t">zsh</span>
+          </div>
+          <div class="term-body">
+<span class="p">$</span> brew install <span class="b">justadityaraj/tap/folderglass</span><br>
+<span class="p">$</span> ln -sf \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"$(brew --prefix)/opt/folderglass/Folderglass.app" \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/Applications/<br>
+<span class="p">$</span> open /Applications/Folderglass.app<br><br>
+<span class="c"># later: brew upgrade folderglass</span>
+          </div>
+        </div>
+        <p class="route-note">Prefer to build it yourself? <code>git clone</code> the <a href="https://github.com/justadityaraj/folderglass" target="_blank" rel="noopener">repo</a> and run <code>./scripts/build.sh --install</code>.</p>
+      </div>
+      <div class="route reveal">
+        <span class="route-tag">Option 2 · Download</span>
+        <h3>Drag into Applications</h3>
+        <ol>
+          <li><a href="https://github.com/justadityaraj/folderglass/releases/latest" target="_blank" rel="noopener">Download <b>Folderglass.dmg</b></a>, open it and drag Folderglass into Applications.</li>
+          <li>Open Folderglass. It's notarized by Apple, so macOS only asks you to confirm an app from the internet. Click <b>Open</b>.</li>
+          <li>Folderglass's window shows <b>Quick Look extension is on</b>. Select a folder and press Space.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">Then</div><p>Folderglass's window shows <b>Quick Look extension is on</b>. Opening the app once is all it needs.</p></div>
+      <div class="step reveal"><div class="n">Done</div><p>Select any folder in Finder and press <b>Space</b>.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="author" id="author">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:36px">
+      <div class="kicker">Who built this</div>
+    </div>
+    <div class="card reveal">
+      <div class="avatar"><img src="/switchboard/author-aditya.jpg" alt="Aditya Raj Singh" width="76" height="76" loading="lazy"></div>
+      <div>
+        <div class="nm">Aditya Raj Singh</div>
+        <div class="rl">open-source builder</div>
+        <p>I build small, focused open-source tools for the Mac. Folderglass started because I kept opening folders just to find out what was in them. Also by me: <a href="/switchboard/">Switchboard Browser Picker</a>. More at <a href="https://adityarajsingh.com" target="_blank" rel="noopener">adityarajsingh.com</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Questions</div>
+      <h2>Folderglass, answered.</h2>
+    </div>
+    <div class="faq-list">
+      <details open>
+        <summary>What is Folderglass?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">A free, open-source Quick Look extension for macOS. Select a folder in Finder and press Space to see its real size including subfolders, a file-type breakdown, the largest and newest files, and for code projects the git branch, last commit, uncommitted changes and rendered README. It also previews zip archive contents and Markdown files.</div>
+      </details>
+      <details>
+        <summary>Does Folderglass change or upload my files?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">No. The extension is sandboxed, <b>read-only</b> and has <b>no network access</b>. It never writes to the folders you preview and collects no analytics. It skips Mail, Messages, other apps' data and cloud-drive folders rather than asking you for access.</div>
+      </details>
+      <details>
+        <summary>How does it read git info without running git?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">It reads the <code>.git</code> folder directly: <code>HEAD</code> and refs for the branch, the commit object for the last commit, and the index to count modified and deleted tracked files. Packed repos and linked worktrees work too. Untracked files aren't counted.</div>
+      </details>
+      <details>
+        <summary>Was Folderglass called Foldout?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">Yes. It was named Foldout until version 0.2.0 in October 2026, and was renamed because another, unrelated Mac app already uses that name. Homebrew users move to Folderglass with <code>brew upgrade</code>. If you used the download, drag Foldout to the Trash and install Folderglass.</div>
+      </details>
+      <details>
+        <summary>Is Folderglass signed and notarized?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">Yes. From version 0.1.3 the download is signed with a Developer ID certificate and notarized by Apple, so it opens without a security warning. The certificate belongs to Swagloop Ventures Private Limited, a company I'm a director of. Folderglass itself stays my personal, MIT-licensed project. Homebrew installs build from source on your Mac.</div>
+      </details>
+      <details>
+        <summary>Another app's folder preview shows up instead. What do I do?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">macOS uses one Quick Look extension per file type. Open <b>System Settings → General → Login Items &amp; Extensions → Quick Look</b> and turn off the other folder preview extensions. Then run <code>qlmanage -r</code> in Terminal.</div>
+      </details>
+      <details>
+        <summary>What do I need to run it?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+        <div class="ans">macOS 14 Sonoma or later, on Apple Silicon or Intel. Building from source needs the Xcode Command Line Tools.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Stop opening folders just to see what's inside.</h2>
+    <p>Free, open source, and two minutes to set up.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://github.com/justadityaraj/folderglass/releases/latest" target="_blank" rel="noopener">Download for Mac</a>
+      <a class="btn btn-ghost" href="https://github.com/justadityaraj/folderglass" target="_blank" rel="noopener">Star it on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fl"><img src="https://media.stallioncognitive.com/file/dev-site/foldout-icon.png" alt="" width="20" height="20">folderglass</div>
+    <div class="fr">
+      <a href="https://github.com/justadityaraj/folderglass" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/justadityaraj/folderglass/releases" target="_blank" rel="noopener">Releases</a>
+      <a href="https://github.com/justadityaraj/folderglass#readme" target="_blank" rel="noopener">Docs</a>
+      <a href="comparison/">Comparison</a>
+      <a href="/">dev.adityarajsingh.com</a>
+      <a href="https://adityarajsingh.com" target="_blank" rel="noopener">adityarajsingh.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach((e)=>{
+      if(e.isIntersecting){
+        const sibs = [...e.target.parentElement.children].filter(c=>c.classList.contains('reveal'));
+        const idx = sibs.indexOf(e.target);
+        e.target.style.transitionDelay = (idx>=0 ? Math.min(idx,6)*70 : 0) + 'ms';
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.16, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
+<!-- by [Aditya Raj Singh](https://adityarajsingh.com/) -->
