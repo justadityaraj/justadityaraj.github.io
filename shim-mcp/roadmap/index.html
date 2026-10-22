@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shim MCP Roadmap: Building the Safest WordPress MCP Plugin</title>
+<meta name="description" content="Shim MCP's goal is to be the safest way to connect AI to WordPress. The roadmap: ability switches, a read-only mode, approvals, an activity log, undo and scoped sign-in for claude.ai and ChatGPT, then more of WordPress. Live status from GitHub.">
+<link rel="canonical" href="https://dev.adityarajsingh.com/shim-mcp/roadmap/">
+<meta name="author" content="Aditya Raj Singh">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#1d2327">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Aditya Raj Singh">
+<meta property="og:title" content="Shim MCP roadmap: building the safest WordPress MCP plugin">
+<meta property="og:description" content="Safety first: ability switches, read-only mode, approvals, an activity log, undo and scoped sign-in. Every item is a GitHub issue you can follow.">
+<meta property="og:image" content="https://dev.adityarajsingh.com/shim-mcp/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://dev.adityarajsingh.com/shim-mcp/roadmap/">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://dev.adityarajsingh.com/shim-mcp/roadmap/#article",
+      "headline": "Shim MCP roadmap: building the safest WordPress MCP plugin",
+      "description": "Planned safety controls, connections and abilities for Shim MCP, the open-source WordPress MCP server plugin, with live status from GitHub.",
+      "datePublished": "2026-10-22",
+      "dateModified": "2026-10-22",
+      "author": { "@id": "https://adityarajsingh.com/#person" },
+      "publisher": { "@id": "https://adityarajsingh.com/#person" },
+      "mainEntityOfPage": "https://dev.adityarajsingh.com/shim-mcp/roadmap/",
+      "image": "https://dev.adityarajsingh.com/shim-mcp/og-image.png",
+      "about": { "@type": "SoftwareApplication", "name": "Shim MCP", "url": "https://dev.adityarajsingh.com/shim-mcp/", "applicationCategory": "DeveloperApplication", "operatingSystem": "WordPress 6.9+", "softwareVersion": "1.1.0" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dev.adityarajsingh.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Shim MCP", "item": "https://dev.adityarajsingh.com/shim-mcp/" },
+        { "@type": "ListItem", "position": 3, "name": "Roadmap" }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://adityarajsingh.com/#person",
+      "name": "Aditya Raj Singh",
+      "url": "https://adityarajsingh.com/",
+      "sameAs": ["https://github.com/justadityaraj", "https://adityarajsingh.com/"]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../article.css">
+<style>
+.brand svg{width:24px;height:24px}
+.items{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:12px}
+.item{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:grid;gap:6px}
+.item-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.item-head h3{margin:0;font-size:1.05rem;flex:1;min-width:200px}
+.item .num{font-family:var(--mono);font-size:.84rem;text-decoration:none}
+.item p{font-size:.96rem}
+.status{font-family:var(--mono);font-size:.74rem;font-weight:700;padding:3px 10px;border-radius:999px;background:#f0f6fc;color:var(--violet);white-space:nowrap}
+.s-progress{background:#fcf9e8;color:#946c00}
+.s-shipped{background:#edfaef;color:#0a7a4f}
+.s-dropped{background:var(--paper-2);color:var(--muted)}
+.label{justify-self:start;font-family:var(--mono);font-size:.72rem;border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--ink-soft);background:var(--paper)}
+.safe{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:20px;align-items:start}
+@media(max-width:760px){.safe{grid-template-columns:1fr}}
+.safe .card ul{margin-top:10px}
+.safe .card li{font-size:.95rem}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="bar">
+    <a class="brand" href="../"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="5" rx="2.5" fill="none" stroke="#7ee787" stroke-width="1.6"/><rect x="2" y="14" width="20" height="5" rx="2.5" fill="none" stroke="#79c0ff" stroke-width="1.6"/><circle cx="9" cy="7.5" r="1.6" fill="#7ee787"/><circle cx="15" cy="16.5" r="1.6" fill="#79c0ff"/></svg>shim-mcp</a>
+    <div class="nav-right">
+      <a href="../">Shim MCP</a>
+      <a href="https://github.com/justadityaraj/shim-mcp/issues/65">Roadmap issue</a>
+      <a class="cta" href="https://wordpress.org/plugins/shim-mcp/">Get the plugin</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="inner">
+    <div class="crumbs"><a href="/">Home</a> / <a href="../">Shim MCP</a> / Roadmap</div>
+    <h1>Shim MCP roadmap</h1>
+    <p class="lede">The goal is for Shim MCP to be the safest way to connect an AI assistant to WordPress. Safety work comes first, then more of WordPress. Every item is a GitHub issue you can follow, comment on or pick up.</p>
+    <div class="byline"><img src="/switchboard/author-aditya.jpg" alt="" width="34" height="34"><span>By <b>Aditya Raj Singh</b> · Updated 22 October 2026</span></div>
+  </div>
+</header>
+
+<main>
+  <div class="answer">
+    <p><strong>Current release: 1.1.0</strong>, out on <a href="https://wordpress.org/plugins/shim-mcp/">WordPress.org</a> and <a href="https://github.com/justadityaraj/shim-mcp/releases/latest">GitHub</a> since 22 October 2026. <span id="progress">18 items are planned.</span> The status on each item comes live from GitHub, so it changes the moment an issue closes. There are no dates. Fixes come first, then the safety controls, then everything else.</p>
+  </div>
+
+  <h2 id="safe">What safe means in Shim</h2>
+  <div class="safe">
+    <div class="card">
+      <h3>Already true in 1.1.0</h3>
+      <ul>
+        <li>Every ability checks a WordPress capability. Abilities that touch a specific post, page, user or comment also check your permission on that exact item.</li>
+        <li>Plugins install only from WordPress.org, by slug. No URLs, uploads or file paths.</li>
+        <li>No ability runs PHP code or shell commands.</li>
+        <li>Options that look like credentials can't be read. Site-critical settings such as the site URL, admin email, default role and active plugins can't be changed. Option search returns names only.</li>
+        <li><code>wp-config.php</code> stays untouched unless you define <code>SHIM_MCP_ALLOW_CONFIG_WRITES</code>.</li>
+        <li>Nothing leaves your site. There is no relay, account or telemetry. The only outside call is to WordPress.org when you install a plugin.</li>
+        <li>Local use over WP-CLI needs no password and opens no port.</li>
+        <li>Every change runs through automated tests on WordPress 6.9, the latest release and multisite.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Safe by default, as the items below ship</h3>
+      <ul>
+        <li>Abilities added by other plugins start switched off until you turn them on (<a href="https://github.com/justadityaraj/shim-mcp/issues/55">#55</a>).</li>
+        <li>A read-only mode for assistants that should look but not touch (<a href="https://github.com/justadityaraj/shim-mcp/issues/55">#55</a>).</li>
+        <li>Destructive actions wait for a person to approve them (<a href="https://github.com/justadityaraj/shim-mcp/issues/56">#56</a>).</li>
+        <li>An activity log, switched on, that never leaves your site (<a href="https://github.com/justadityaraj/shim-mcp/issues/57">#57</a>).</li>
+        <li>Changes you can undo (<a href="https://github.com/justadityaraj/shim-mcp/issues/66">#66</a>).</li>
+        <li>Web connectors get scoped access you can revoke, instead of a password with your full permissions (<a href="https://github.com/justadityaraj/shim-mcp/issues/54">#54</a>).</li>
+      </ul>
+    </div>
+  </div>
+  <p class="src">All safety work carries the <a href="https://github.com/justadityaraj/shim-mcp/issues?q=label%3Asafety">safety label</a> on GitHub.</p>
+
+  <h2 id="fixes">Fixing first</h2>
+  <ul class="items">
+    <li class="item" data-issue="50">
+      <div class="item-head"><a class="num" href="https://github.com/justadityaraj/shim-mcp/issues/50">#50</a><h3>Respect abilities that opt out of MCP</h3><span class="status">Planned</span></div>
+      <p>Plugins can mark an ability as not meant for MCP. Shim exposes those today. It will stop.</p>
+    </li>
+    <li class="item" data-issue="51">
+      <div class="item-head"><a class="num" href="https://github.com/justadityaraj/shim-mcp/issues/51">#51</a><h3>Check the Origin header</h3><span class="status">Planned</span></div>
+      <p>The HTTP transport will refuse requests from unexpected web origins, as the MCP spec requires, to block DNS rebinding attacks.</p>
+    </li>
+    <li class="item" data-issue="49">
+      <div class="item-head"><a class="num" href="https://github.com/justadityaraj/shim-mcp/issues/49">#49</a><h3>Work alongside the official MCP Adapter</h3><span class="status">Planned</span></div>
+      <p>When the MCP Adapter plugin is also loaded, for example because another plugin bundles it, Shim's server lists no tools. Shim will register its tools at the right moment and keep the two servers apart.</p>
+    </li>
+  </ul>
+
+  <h2 id="controls">Safety controls</h2>
+  <ul class="items">
+    <li class="item" data-issue="55">
+      <div class="item-head"><a class="num" href="https://github.com/justadityaraj/shim-mcp/issues/55">#55</a><h3>Choose which abilities clients can use</h3><span class="status">Planned</span></div>
+      <p>Switch abilities on and off in Tools &gt; Shim MCP, with other plugins' abilities off until you enable them, plus a read-only mode.</p>
+    </li>
+    <li class="item" data-issue="56">
+      <div class="item-head"><a class="num" href="https://github.com/justadityaraj/shim-mcp/issues/56">#56</a><h3>Approve destructive actions</h3><span class="status">Planned</span></div>
+      <p>Deletes and other destructive actions wait for a person to approve them, in the AI client or in wp-admin. The assistant can't approve its own request.</p>
+    </li>
+    <li class="item" data-issue="57">
+      <div class="item-head"><a class="num" href="https://github.com/justadityaraj/shim-mcp/issues/57">#57</a><h3>Activity log</h3><span class="status">Planned</span></div>
+      <p>A record in wp-admin of every call a client made, including refused ones: who, what, when and whether it worked, with secrets left out.</p>
+    </li>
+    <li class="item" data-issue="66">
+      <div class="item-head"><a class="num" href="https://github.com/justadityaraj/shim-mcp/issues/66">#66</a><h3>Undo</h3><span class="status">Planned</span></div>
+      <p>Each change made over MCP gets an ID you can undo from the client or from wp-admin, for posts, options, terms, menus, users and plugin settings.</p>
+      <span class="label">Help wanted</span>
+    </li>
+    <li class="item" data-issue="53">
+      <div class="item-head"><a class="num" href="https://github.com/justadityaraj/shim-mcp/issues/53">#53</a><h3>Hooks around tool calls</h3><span class="status">Planned</span></div>
+      <p>Two filters, before and after every tool call, so developers can log, block or reshape calls. The log and approvals build on them.</p>
+      <span class="label">Good first issue</span>
+    </li>
+  </ul>
+
+  <h2 id="connections">Safe connections</h2>
+  <ul class="items">
+    <li class="item" data-issue="54">
+      <div class="item-head"><a class="num" href="https://github.com/justadityaraj/shim-mcp/issues/54">#54</a><h3>Connect from claude.ai and ChatGPT</h3><span class="status">Planned</span></div>
+      <p>An OAuth 2.1 sign-in you approve in wp-admin. Each connection gets its own scoped access, read-only if you like, and you can revoke it at any time. Application passwords keep working.</p>
+      <span class="label">Help wanted</span>
+    </li>
+    <li class="item" data-issue="52">
+      <div class="item-head"><a class="num" href="https://github.com/justadityaraj/shim-mcp/issues/52">#52</a><h3>Newer MCP versions</h3><span class="status">Planned</span></div>
+      <p>Support for the 2025-11-25 and 2026-07-28 versions of the protocol, next to the three Shim speaks today.</p>
+      <span class="label">Help wanted</span>
+    </li>
+    <li class="item" data-issue="64">
+      <div class="item-head"><a class="num" href="https://github.com/justadityaraj/shim-mcp/issues/64">#64</a><h3>More clients and a better connection test</h3><span class="status">Planned</span></div>
+      <p>Ready-made setup for VS Code, Windsurf and Codex CLI, with no password ever placed in an install link, and a test that says exactly why a connection fails.</p>
+    </li>
+  </ul>
+
+  <h2 id="coverage">More of WordPress, with the same guards</h2>
+  <ul class="items">
+    <li class="item" data-issue="58">
+      <div class="item-head"><a class="num" href="https://github.com/justadityaraj/shim-mcp/issues/58">#58</a><h3>Media from a URL and featured images</h3><span class="status">Planned</span></div>
+      <p>Upload an image from a link instead of base64, with private and internal addresses refused, and set or clear a post's featured image.</p>
+      <span class="label">Good first issue</span>
+    </li>
+    <li class="item" data-issue="59">
+      <div class="item-head"><a class="num" href="https://github.com/justadityaraj/shim-mcp/issues/59">#59</a><h3>Custom fields</h3><span class="status">Planned</span></div>
+      <p>Read and write post meta, including ACF values, with WordPress's internal keys kept out of reach.</p>
+    </li>
+    <li class="item" data-issue="60">
+      <div class="item-head"><a class="num" href="https://github.com/justadityaraj/shim-mcp/issues/60">#60</a><h3>SEO fields</h3><span class="status">Planned</span></div>
+      <p>Titles, descriptions, canonical URLs and robots settings for Yoast SEO, Rank Math, All in One SEO and SEOPress, through one set of abilities.</p>
+      <span class="label">Help wanted</span>
+    </li>
+    <li class="item" data-issue="61">
+      <div class="item-head"><a class="num" href="https://github.com/justadityaraj/shim-mcp/issues/61">#61</a><h3>Block themes</h3><span class="status">Planned</span></div>
+      <p>Templates, template parts such as the header and footer, global styles and patterns, with a reset to the theme's version.</p>
+      <span class="label">Help wanted</span>
+    </li>
+    <li class="item" data-issue="62">
+      <div class="item-head"><a class="num" href="https://github.com/justadityaraj/shim-mcp/issues/62">#62</a><h3>Themes and updates</h3><span class="status">Planned</span></div>
+      <p>Activate and install themes, and apply plugin and theme updates, from WordPress.org only.</p>
+    </li>
+    <li class="item" data-issue="67">
+      <div class="item-head"><a class="num" href="https://github.com/justadityaraj/shim-mcp/issues/67">#67</a><h3>WooCommerce</h3><span class="status">Planned</span></div>
+      <p>Products, orders and customers, through WooCommerce's own abilities where your version has them. Customer data goes only to users allowed to see it.</p>
+      <span class="label">Help wanted</span>
+    </li>
+    <li class="item" data-issue="63">
+      <div class="item-head"><a class="num" href="https://github.com/justadityaraj/shim-mcp/issues/63">#63</a><h3>Search in discovery</h3><span class="status">Planned</span></div>
+      <p>Filter the ability list by category or text, so clients spend less context finding the right tool.</p>
+      <span class="label">Good first issue</span>
+    </li>
+  </ul>
+
+  <h2 id="not-planned">Not planned</h2>
+  <ul>
+    <li><strong>A hosted relay or an account.</strong> Your site's data would pass through someone else's server. Shim talks only to your site.</li>
+    <li><strong>Running PHP, shell or WP-CLI commands for the assistant.</strong> One mistaken command could do anything on your server.</li>
+    <li><strong>Installing plugins from a URL or a zip.</strong> WordPress.org only, so every plugin has been through the directory's review.</li>
+    <li><strong>Page builder editing</strong> for Elementor, Divi or Bricks, for now. Each builder stores content its own way.</li>
+    <li><strong>Rate limits and IP allowlists</strong>, for now. Your host or a security plugin does these better.</li>
+  </ul>
+  <p>Think something here should be on the list? Say so on the <a href="https://github.com/justadityaraj/shim-mcp/issues/65">roadmap issue</a>.</p>
+
+  <h2 id="help">How to help</h2>
+  <ul>
+    <li><strong>Tell us what matters to you.</strong> A comment on an issue is how it moves up the list.</li>
+    <li><strong>Pick up a <a href="https://github.com/justadityaraj/shim-mcp/issues?q=is%3Aopen+label%3A%22good+first+issue%22">good first issue</a>.</strong> Send pull requests to the <code>dev</code> branch. The README explains how to run the tests.</li>
+    <li><strong>Found a security problem?</strong> Report it privately, as described in <a href="https://github.com/justadityaraj/shim-mcp/blob/main/SECURITY.md">SECURITY.md</a>. For anything else, <a href="https://github.com/justadityaraj/shim-mcp/issues/new">open an issue</a>.</li>
+  </ul>
+
+  <div class="cta-box">
+    <div class="txt">
+      <h2>Try Shim MCP today</h2>
+      <p>57 WordPress abilities over WP-CLI stdio or Streamable HTTP, with a permission check on every one. Free, GPL, and nothing to sign up for.</p>
+    </div>
+    <a class="btn btn-primary" href="https://wordpress.org/plugins/shim-mcp/">Get it on WordPress.org</a>
+    <a class="btn btn-ghost" href="../">How it works</a>
+  </div>
+</main>
+
+<footer>
+  <div class="bar">
+    <span>Shim MCP · GPL-2.0-or-later</span>
+    <span><a href="https://github.com/justadityaraj/shim-mcp">GitHub</a><a href="/">dev.adityarajsingh.com</a><a href="https://adityarajsingh.com">adityarajsingh.com</a></span>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const items = [...document.querySelectorAll("[data-issue]")];
+  const labels = { planned: "Planned", progress: "In progress", shipped: "Shipped", dropped: "Not planned" };
+  const pages = Math.ceil(Math.max(...items.map((el) => Number(el.dataset.issue))) / 100);
+  const fetchPage = (page) =>
+    fetch(`https://api.github.com/repos/justadityaraj/shim-mcp/issues?state=all&sort=created&direction=asc&per_page=100&page=${page}`)
+      .then((response) => (response.ok ? response.json() : []));
+  Promise.all(Array.from({ length: pages }, (_, i) => fetchPage(i + 1)))
+    .then((lists) => {
+      const byNumber = new Map(lists.flat().map((issue) => [issue.number, issue]));
+      let shipped = 0;
+      for (const el of items) {
+        const issue = byNumber.get(Number(el.dataset.issue));
+        if (!issue) continue;
+        const state = issue.state === "closed"
+          ? (issue.state_reason === "not_planned" ? "dropped" : "shipped")
+          : (issue.assignees.length ? "progress" : "planned");
+        if (state === "shipped") shipped += 1;
+        const pill = el.querySelector(".status");
+        pill.className = `status s-${state}`;
+        pill.textContent = labels[state];
+      }
+      if (byNumber.size) {
+        document.getElementById("progress").textContent = `${shipped} of ${items.length} items shipped so far.`;
+      }
+    })
+    .catch(() => {});
+})();
+</script>
+
+</body>
+</html>
+<!-- by [Aditya Raj Singh](https://adityarajsingh.com/) -->
