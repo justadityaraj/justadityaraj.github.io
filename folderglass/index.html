@@ -73,7 +73,7 @@
       "programmingLanguage": "Swift",
       "operatingSystem": "macOS 14 or later",
       "applicationCategory": "UtilitiesApplication",
-      "softwareVersion": "0.2.0",
+      "softwareVersion": "0.3.0",
       "license": "https://opensource.org/licenses/MIT",
       "keywords": "Quick Look, folder preview, folder size, Finder, git, Markdown, zip, macOS",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -117,7 +117,7 @@
         {
           "@type": "Question",
           "name": "Does Folderglass change or upload my files?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. The extension is sandboxed, read-only and has no network access. It never writes to the folders you preview and collects no analytics." }
+          "acceptedAnswer": { "@type": "Answer", "text": "No. The extension is sandboxed, read-only and has no network access. It never writes to the folders you preview and collects no analytics. The app itself only checks GitHub for a newer version when you open it, and you can turn that off in its settings." }
         },
         {
           "@type": "Question",
@@ -396,7 +396,7 @@
 <header class="hero" id="top">
   <div class="wrap">
     <div class="hero-copy">
-      <span class="eyebrow"><b>v0.2.0</b> · Folderglass for Mac</span>
+      <span class="eyebrow"><b>v0.3.0</b> · Folderglass for Mac</span>
       <h1 class="hero-title">Press Space. <span class="hl">See inside</span> any folder.</h1>
       <p class="hero-sub">Folderglass turns Quick Look into a <b>folder X-ray</b>: real size, what fills it, the biggest and newest files, and for code projects the <b>git branch and README</b>.</p>
       <div class="cta-row">
@@ -408,7 +408,7 @@
       </div>
       <div class="hero-meta">
         <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>MIT licensed</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>No network access</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Offline previews</span>
         <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Apple Silicon + Intel</span>
       </div>
     </div>
@@ -523,7 +523,7 @@
       <div class="feature reveal">
         <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M8 13h8"/></svg></div>
         <h3>Real folder size</h3>
-        <p>Every file in every subfolder, counted in the background. Huge folders stop after 15 seconds and show what they found.</p>
+        <p>Every file in every subfolder, counted in the background. Huge folders stop after 15 seconds by default, a limit you can change, and show what they found.</p>
       </div>
       <div class="feature reveal">
         <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="5" rx="2.5"/><path d="M9 10v5M15 10v5"/></svg></div>
@@ -556,14 +556,14 @@
         <p>Press Space on a <code>.zip</code> to see every file, the uncompressed size and the type breakdown, without extracting.</p>
       </div>
       <div class="feature reveal">
-        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></div>
-        <h3>Light and dark</h3>
-        <p>Native SwiftUI that follows your system appearance. Universal binary for Apple Silicon and Intel.</p>
-      </div>
-      <div class="feature reveal">
         <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <h3>Private by design</h3>
-        <p>Sandboxed and read-only. No network access, no analytics. It skips other apps' data and cloud drives instead of asking.</p>
+        <p>The preview is sandboxed, read-only and never goes online, and there are no analytics. It skips other apps' data and cloud drives instead of asking. The app only checks GitHub for updates, and you can turn that off.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg></div>
+        <h3>Your settings</h3>
+        <p>Show hidden files, pick the tab previews open on, set how long big folders are counted, and count only the top level on network drives. Follows light and dark mode, on Apple Silicon and Intel.</p>
       </div>
     </div>
   </div>
@@ -671,7 +671,7 @@
       </details>
       <details>
         <summary>Does Folderglass change or upload my files?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="ans">No. The extension is sandboxed, <b>read-only</b> and has <b>no network access</b>. It never writes to the folders you preview and collects no analytics. It skips Mail, Messages, other apps' data and cloud-drive folders rather than asking you for access.</div>
+        <div class="ans">No. The extension is sandboxed, <b>read-only</b> and has <b>no network access</b>. It never writes to the folders you preview and collects no analytics. The app itself only checks GitHub for a newer version when you open it, and you can turn that off in its settings. It skips Mail, Messages, other apps' data and cloud-drive folders rather than asking you for access.</div>
       </details>
       <details>
         <summary>How does it read git info without running git?<span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></summary>
