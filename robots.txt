@@ -3,7 +3,6 @@
 
 User-agent: *
 Allow: /
-Disallow: /blog-archive/
 
 Sitemap: https://dev.adityarajsingh.com/sitemap.xml
 
