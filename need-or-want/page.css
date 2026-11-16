@@ -56,6 +56,7 @@ section { padding-block: var(--section-gap-s); }
 .box-score div { padding: var(--space-lg) var(--space-lg) var(--space-lg) 0; }
 .box-score div + div { padding-left: var(--space-lg); border-left: var(--rule-hair) solid var(--color-rule); }
 .box-score strong { display: block; font: 700 clamp(2.5rem, 4vw, 3.75rem)/1 var(--font-display); letter-spacing: var(--tracking-display); font-variant-numeric: tabular-nums; }
+.scale { margin-top: var(--space-lg); max-width: var(--measure); font-size: var(--text-lead); line-height: 1.45; color: var(--color-ink-2); }
 .box-score p { margin-top: var(--space-xs); max-width: 30ch; }
 
 .split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3xl); }
