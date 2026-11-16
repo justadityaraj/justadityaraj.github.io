@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Need or Want: An MCP That Stops Impulse Buying</title>
+<meta name="description" content="Open-source MCP server for Claude that checks whether a purchase is a need or a want before you buy. Fixed maths, not flattery: BUY, WAIT or SKIP. Free.">
+<link rel="canonical" href="https://dev.adityarajsingh.com/need-or-want/">
+<meta name="author" content="Aditya Raj Singh">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#f7f6f3">
+<meta name="keywords" content="need or want, need vs want, stop impulse buying, how to stop impulse buying, should I buy it, impulse purchase, MCP server, Claude MCP, Model Context Protocol, purchase decision, cooling-off period, need-or-want-mcp">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Radio+Canada+Big:wght@400;700&family=Radio+Canada:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="page.css">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aditya Raj Singh">
+<meta property="og:title" content="Need or Want: An MCP That Stops Impulse Buying">
+<meta property="og:description" content="Ask Claude before you buy. Need or Want answers with fixed maths: BUY, WAIT or SKIP. Arguing doesn't move it. Facts do.">
+<meta property="og:image" content="https://dev.adityarajsingh.com/need-or-want/og-image.png">
+<meta property="og:image:alt" content="Need or Want: stop impulse buying. A $300 pair of headphones you don't need scores 46 out of 100: SKIP.">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:type" content="image/png">
+<meta property="og:url" content="https://dev.adityarajsingh.com/need-or-want/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Need or Want: An MCP That Stops Impulse Buying">
+<meta name="twitter:description" content="Ask Claude before you buy. Fixed maths answers: BUY, WAIT or SKIP. Arguing doesn't move it. Facts do.">
+<meta name="twitter:image" content="https://dev.adityarajsingh.com/need-or-want/og-image.png">
+<meta name="twitter:image:alt" content="Need or Want: stop impulse buying. A $300 pair of headphones you don't need scores 46 out of 100: SKIP.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://dev.adityarajsingh.com/#website",
+      "url": "https://dev.adityarajsingh.com/",
+      "name": "Aditya Raj Singh",
+      "publisher": { "@id": "https://adityarajsingh.com/#person" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://dev.adityarajsingh.com/need-or-want/#webpage",
+      "url": "https://dev.adityarajsingh.com/need-or-want/",
+      "name": "Need or Want: An MCP That Stops Impulse Buying",
+      "description": "Open-source MCP server for Claude that checks whether a purchase is a need or a want before you buy, with a deterministic BUY, WAIT or SKIP verdict.",
+      "isPartOf": { "@id": "https://dev.adityarajsingh.com/#website" },
+      "primaryImageOfPage": "https://dev.adityarajsingh.com/need-or-want/og-image.png",
+      "breadcrumb": { "@id": "https://dev.adityarajsingh.com/need-or-want/#breadcrumb" },
+      "about": { "@id": "https://dev.adityarajsingh.com/need-or-want/#software" },
+      "datePublished": "2026-11-16",
+      "dateModified": "2026-11-16",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://dev.adityarajsingh.com/need-or-want/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dev.adityarajsingh.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Need or Want MCP" }
+      ]
+    },
+    {
+      "@type": ["SoftwareSourceCode", "SoftwareApplication"],
+      "@id": "https://dev.adityarajsingh.com/need-or-want/#software",
+      "name": "Need or Want",
+      "alternateName": "need-or-want-mcp",
+      "description": "MCP server that checks a purchase before you make it. It asks fixed multiple-choice questions, scores the purchase from 0 to 100 with deterministic arithmetic, returns BUY, WAIT or SKIP with a NEED, MIXED or WANT label, and logs every decision for 30- and 90-day reviews. Arguments change the verdict only when a fact changes.",
+      "codeRepository": "https://github.com/justadityaraj/need-or-want-mcp",
+      "downloadUrl": "https://www.npmjs.com/package/need-or-want-mcp",
+      "programmingLanguage": "TypeScript",
+      "runtimePlatform": "Node.js 22+",
+      "license": "https://opensource.org/licenses/MIT",
+      "applicationCategory": "DeveloperApplication",
+      "applicationSubCategory": "Model Context Protocol server",
+      "operatingSystem": "macOS, Windows, Linux",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@id": "https://adityarajsingh.com/#person" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://adityarajsingh.com/#person",
+      "name": "Aditya Raj Singh",
+      "url": "https://adityarajsingh.com/",
+      "sameAs": ["https://github.com/justadityaraj"]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://dev.adityarajsingh.com/need-or-want/#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is Need or Want?", "acceptedAnswer": { "@type": "Answer", "text": "An open-source MCP server for Claude Code and Claude Desktop that checks a purchase before you make it. It asks a few fixed multiple-choice questions, scores the purchase from 0 to 100 and returns BUY, WAIT or SKIP, labelled NEED, MIXED or WANT." } },
+        { "@type": "Question", "name": "How does it decide if something is a need or a want?", "acceptedAnswer": { "@type": "Answer", "text": "Three questions: what's prompting the purchase, whether you already own something that does the job, and what would happen if you waited 30 days. Each answer has a fixed value. A weighted score of 0.70 or more is a NEED, under 0.35 is a WANT, and anything between is MIXED." } },
+        { "@type": "Question", "name": "Can I argue with the verdict?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, but only facts move it. Changing the price, the category, what you own or what happens if you wait re-runs the score. A revised estimate of how often you'll use it counts at 50%, once. Repeating yourself, saying you deserve it, or pointing at a sale or a countdown timer changes nothing." } },
+        { "@type": "Question", "name": "Does an AI decide the verdict?", "acceptedAnswer": { "@type": "Answer", "text": "No. The verdict is plain arithmetic in the server: the same inputs always give the same result. Claude only asks the questions and relays the answer, because research shows language models give up correct answers when users push back." } },
+        { "@type": "Question", "name": "Can I still buy something it says to skip?", "acceptedAnswer": { "@type": "Answer", "text": "Always. Buying anyway is logged as an override with no other friction, and reviewed at 30 and 90 days like any other purchase, so you can see whether the verdict or the override was right." } },
+        { "@type": "Question", "name": "Where is my data stored?", "acceptedAnswer": { "@type": "Answer", "text": "In a folder on your own machine, ~/.need-or-want/. The server makes no network calls, needs no account and sends no telemetry. A test fails the build if any source file could reach the network." } },
+        { "@type": "Question", "name": "Is it free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. It's MIT-licensed, free, with the full source on GitHub." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="sheet top">
+  <header class="nav">
+    <a class="wordmark" href="#main" aria-label="Need or Want, top of page"><span>Need</span><span>or want</span></a>
+    <nav aria-label="Page">
+      <ul>
+        <li><a href="#score">How it scores</a></li>
+        <li><a href="#install">Install</a></li>
+        <li><a href="https://github.com/justadityaraj/need-or-want-mcp" rel="noopener">GitHub</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="hero">
+    <div class="hero-head">
+      <h1>Stop impulse buying before you click buy</h1>
+      <p class="h1 overprint" aria-hidden="true">Stop impulse buying before you click buy</p>
+    </div>
+    <div class="hero-copy">
+      <p class="lead">An MCP server for Claude that answers with fixed maths, not flattery.</p>
+      <div class="actions">
+        <a class="btn btn--primary" href="#install">Install for Claude</a>
+        <a class="btn btn--secondary" href="https://github.com/justadityaraj/need-or-want-mcp" rel="noopener">Read the source</a>
+      </div>
+    </div>
+    <div class="hero-figure">
+      <strong>46</strong>
+      <p>out of 100 for $300 headphones when your current pair works fine. Verdict: skip.</p>
+    </div>
+  </main>
+</div>
+
+<section class="sheet try field--mark" aria-labelledby="try-title">
+  <div class="section-head">
+    <h2 id="try-title">Change one fact, not your tone</h2>
+    <p>Same headphones, same budget. Pick a different answer and the score moves.</p>
+  </div>
+  <div class="try-body">
+    <fieldset class="choices">
+      <legend>What’s prompting this purchase?</legend>
+      <button class="choice" type="button" aria-pressed="false" data-verdict="Wait" data-score="59" data-label="Mixed" data-wait="Replacing something broken: wait 2 days, then buy if you still want it.">Something I rely on broke</button>
+      <button class="choice" type="button" aria-pressed="false" data-verdict="Wait" data-score="54" data-label="Want" data-wait="A real problem, but still a want: wait 21 days.">A problem I’ve had for weeks</button>
+      <button class="choice" type="button" aria-pressed="true" data-verdict="Skip" data-score="46" data-label="Want" data-wait="An upgrade to something that works: skip it.">An upgrade, mine still works</button>
+      <button class="choice" type="button" aria-pressed="false" data-verdict="Skip" data-score="43" data-label="Want" data-wait="Seen, wanted, not needed: skip it.">I saw it and want it</button>
+    </fieldset>
+    <div class="result" aria-live="polite">
+      <div class="result-verdict"><span data-out="verdict">Skip</span><small data-out="score">46</small></div>
+      <p data-out="wait">An upgrade to something that works: skip it.</p>
+    </div>
+    <p class="note">Real verdicts from the engine: $300 headphones, a $2,000 monthly budget with $1,100 left, used 20 times a month.</p>
+  </div>
+</section>
+
+<section class="sheet" id="score" aria-labelledby="score-title">
+  <div class="section-head">
+    <h2 id="score-title">Five numbers decide, the same way every time</h2>
+    <p>A score from 0 to 100. Seventy or more buys after a wait; under fifty skips.</p>
+  </div>
+  <div class="bento">
+    <div class="cell cell--need"><strong>40<span>%</span></strong><div><h3>Need</h3><p>What’s prompting it, what you already own, and what happens if you wait 30 days.</p></div></div>
+    <div class="cell cell--budget"><strong>25<span>%</span></strong><div><h3>Budget fit</h3><p>Squared, so spending most of what’s left scores low.</p></div></div>
+    <div class="cell cell--cpu"><strong>20<span>%</span></strong><div><h3>Honest cost per use</h3><p>Your planned use, halved, because people overestimate it.</p></div></div>
+    <div class="cell cell--history"><strong>10<span>%</span></strong><div><h3>Your track record</h3><p>How your past purchases in the category turned out.</p></div></div>
+    <div class="cell cell--deal"><strong>5<span>%</span></strong><div><h3>Real discount</h3><p>Against the price you’ve seen before. MRP doesn’t count.</p></div></div>
+  </div>
+</section>
+
+<section class="sheet pressure" aria-labelledby="pressure-title">
+  <div class="section-head">
+    <h2 id="pressure-title">Pressure gets a fixed reply</h2>
+    <p>Language models give up correct answers when you push. This one can’t.</p>
+  </div>
+  <table>
+    <thead><tr><th scope="col">You say</th><th scope="col">It says</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">“It’s 60% off.”</th><td>A discount against MRP is an anchor. Only this product’s own price history counts. The verdict stands.</td></tr>
+      <tr><th scope="row">“I deserve it.”</th><td>That’s the licensing effect, not a fact about this purchase. The verdict stands.</td></tr>
+      <tr><th scope="row">“Only two left.”</th><td>Countdowns and stock warnings are pressure, not facts. The verdict stands.</td></tr>
+      <tr class="fact"><th scope="row">“My old pair broke.”</th><td>That’s a fact. The score runs again.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="sheet install field" id="install" aria-labelledby="install-title">
+  <div class="section-head">
+    <h2 id="install-title">Install in one line</h2>
+    <p>Local only. No account, no network calls, no telemetry.</p>
+  </div>
+  <ol class="steps">
+    <li><h3>Claude Code</h3><pre tabindex="0"><code>claude mcp add --scope user need-or-want -- npx -y need-or-want-mcp</code></pre></li>
+    <li><h3>Claude Desktop</h3><pre tabindex="0"><code>{ "mcpServers": { "need-or-want": {
+  "command": “npx”, "args": ["-y", "need-or-want-mcp"] } } }</code></pre></li>
+    <li><h3>Set your budget</h3><p>Tell Claude: “Set up Need or Want. My currency is USD and my monthly budget is 2000.”</p></li>
+    <li><h3>What it needs</h3><p>Node 22 or later. Your data stays in ~/.need-or-want/ on your machine.</p></li>
+  </ol>
+  <div class="actions">
+    <a class="btn btn--primary" href="https://github.com/justadityaraj/need-or-want-mcp" rel="noopener">View on GitHub</a>
+    <a class="btn btn--secondary" href="https://github.com/justadityaraj/need-or-want-mcp/blob/main/docs/DESIGN.md" rel="noopener">The maths and the research</a>
+  </div>
+</section>
+
+<section class="sheet faq" aria-labelledby="faq-title">
+  <div class="section-head"><h2 id="faq-title">Questions</h2></div>
+  <div class="faq-list">
+    <details><summary>What is Need or Want?</summary><p>An open-source MCP server for Claude Code and Claude Desktop that checks a purchase before you make it. It asks a few fixed multiple-choice questions, scores the purchase from 0 to 100 and returns BUY, WAIT or SKIP, labelled NEED, MIXED or WANT.</p></details>
+    <details><summary>How does it decide if something is a need or a want?</summary><p>Three questions: what’s prompting the purchase, whether you already own something that does the job, and what would happen if you waited 30 days. Each answer has a fixed value. A weighted score of 0.70 or more is a need, under 0.35 is a want, and anything between is mixed.</p></details>
+    <details><summary>Can I argue with the verdict?</summary><p>Yes, but only facts move it. Changing the price, the category, what you own or what happens if you wait re-runs the score. A revised estimate of how often you’ll use it counts at 50%, once. Repeating yourself, saying you deserve it, or pointing at a sale changes nothing.</p></details>
+    <details><summary>Does an AI decide the verdict?</summary><p>No. The verdict is plain arithmetic in the server: the same inputs always give the same result. Claude only asks the questions and relays the answer.</p></details>
+    <details><summary>Can I still buy something it says to skip?</summary><p>Always. Buying anyway is logged as an override, then reviewed at 30 and 90 days like any other purchase, so you can see whether the verdict or the override was right.</p></details>
+    <details><summary>Where is my data stored?</summary><p>In ~/.need-or-want/ on your own machine. The server makes no network calls, needs no account and sends no telemetry.</p></details>
+    <details><summary>Is it free?</summary><p>Yes. It’s MIT-licensed and free, with the full source on GitHub.</p></details>
+  </div>
+</section>
+
+<footer class="sheet foot">
+  <p class="foot-statement">A verdict you can’t talk down.</p>
+  <div class="foot-grid">
+    <div class="author">
+      <img src="author-aditya.jpg" alt="Aditya Raj Singh" width="56" height="56" loading="lazy">
+      <p>Built by <a href="https://adityarajsingh.com/">Aditya Raj Singh</a> to stop his own impulse buys.</p>
+    </div>
+    <ul class="foot-links">
+      <li><a href="https://github.com/justadityaraj/need-or-want-mcp" rel="noopener">GitHub</a></li>
+      <li><a href="https://github.com/justadityaraj/need-or-want-mcp/blob/main/docs/DESIGN.md" rel="noopener">Design and research</a></li>
+      <li><a href="/#mcps">More MCP servers</a></li>
+      <li><a href="/">dev.adityarajsingh.com</a></li>
+    </ul>
+    <p class="legal">MIT licence. Not financial advice: a tool for your own decisions.</p>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.choice').forEach((b) => b.addEventListener('click', () => {
+  document.querySelectorAll('.choice').forEach((o) => o.setAttribute('aria-pressed', String(o === b)));
+  document.querySelector('[data-out="verdict"]').textContent = b.dataset.verdict;
+  document.querySelector('[data-out="score"]').textContent = b.dataset.score;
+  document.querySelector('[data-out="wait"]').textContent = b.dataset.wait;
+}));
+</script>
+</body>
+</html>
