@@ -94,6 +94,7 @@
         { "@type": "Question", "name": "Can I argue with the verdict?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, but only facts move it. Changing the price, the category, what you own or what happens if you wait re-runs the score. A revised estimate of how often you'll use it counts at 50%, once. Repeating yourself, saying you deserve it, or pointing at a sale or a countdown timer changes nothing." } },
         { "@type": "Question", "name": "Can I still buy something it says to skip?", "acceptedAnswer": { "@type": "Answer", "text": "Always. Buying anyway is logged as an override, then reviewed at 30 and 90 days like any other purchase, so you can see whether the verdict or the override was right." } },
         { "@type": "Question", "name": "Where is my data stored?", "acceptedAnswer": { "@type": "Answer", "text": "In ~/.need-or-want/ on your own machine. The server makes no network calls, needs no account and sends no telemetry. A test fails the build if any source file could reach the network." } },
+        { "@type": "Question", "name": "Does it work in rupees, euros or any currency?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, in any currency and any country. You set the currency once, and every formula works on shares of your own monthly budget." } },
         { "@type": "Question", "name": "Is it free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. It's MIT-licensed and free, with the full source on GitHub." } }
       ]
     }
@@ -403,7 +404,7 @@
       <li><h3>Claude Code</h3><pre tabindex="0"><code>claude mcp add --scope user need-or-want -- npx -y need-or-want-mcp</code></pre></li>
       <li><h3>Claude Desktop</h3><pre tabindex="0"><code>{ "mcpServers": { "need-or-want": {
   "command": "npx", "args": ["-y", "need-or-want-mcp"] } } }</code></pre></li>
-      <li><h3>Set your budget</h3><p>Tell Claude: “Set up Need or Want. My currency is USD and my monthly budget is 2000.”</p></li>
+      <li><h3>Set your budget</h3><p>Tell Claude: “Set up Need or Want. My currency is USD and my monthly budget is 2000.” Any currency works: “INR and 50000” is fine too.</p></li>
       <li><h3>Then shop as usual</h3><p>Talk about buying something and Claude runs the check. Your data stays in ~/.need-or-want/.</p></li>
     </ol>
     <div class="actions">
@@ -423,6 +424,7 @@
       <details><summary>Can I argue with the verdict?</summary><p>Yes, but only facts move it. Changing the price, the category, what you own or what happens if you wait re-runs the score. A revised estimate of how often you’ll use it counts at 50%, once. Repeating yourself, saying you deserve it, or pointing at a sale changes nothing.</p></details>
       <details><summary>Can I still buy something it says to skip?</summary><p>Always. Buying anyway is logged as an override, then reviewed at 30 and 90 days like any other purchase, so you can see whether the verdict or the override was right.</p></details>
       <details><summary>Where is my data stored?</summary><p>In ~/.need-or-want/ on your own machine. The server makes no network calls, needs no account and sends no telemetry.</p></details>
+      <details><summary>Does it work in rupees, euros or any currency?</summary><p>Yes, in any currency and any country. You set the currency once, and every formula works on shares of your own monthly budget, so ₹4,000 out of a ₹50,000 budget scores the same as $160 out of $2,000: both are 8% of the month.</p></details>
       <details><summary>Is it free?</summary><p>Yes. It’s MIT-licensed and free, with the full source on GitHub.</p></details>
     </div>
   </section>
