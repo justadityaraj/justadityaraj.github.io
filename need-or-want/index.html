@@ -129,7 +129,7 @@
             <a class="btn btn--primary" href="#install">Install for Claude</a>
             <a class="btn btn--secondary" href="#formulas">Read the formulas</a>
           </div>
-          <p class="meta front-note">You can argue with it. The verdict moves only when a fact changes.</p>
+          <p class="meta front-note">The verdict is worked out by code, not by the AI. Arguing can’t change it. Only a new fact can.</p>
         </div>
         <table class="ledger">
           <caption><strong>One check, itemised.</strong><span class="meta">Wireless headphones. A $2,000 monthly budget, $900 spent. The current pair still works.</span></caption>
@@ -146,6 +146,23 @@
       </div>
     </div>
   </main>
+
+  <section class="notice" aria-labelledby="notice-title">
+    <div class="notice-lead">
+      <h2 id="notice-title">Why not just ask your AI?</h2>
+      <p>Because it tends to agree with you. Chat models are trained to please, and they lean towards what you already want. Here the verdict is fixed arithmetic on your machine. Claude asks the questions and reads out the answer. It can’t change the result.</p>
+      <p class="meta">Still in development: the rules are published, and new checks are added in the open on GitHub.</p>
+    </div>
+    <table class="compare">
+      <thead><tr><th scope="col"><span class="visually-hidden">Question</span></th><th scope="col">Ask an AI directly</th><th scope="col">Ask Need or Want</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Who decides</th><td>The model, from how you word it</td><td>Fixed code, from your answers</td></tr>
+        <tr><th scope="row">You push back</th><td>It often gives in</td><td>Only a changed fact moves it</td></tr>
+        <tr><th scope="row">Ask again tomorrow</th><td>The answer can change</td><td>Same answers, same verdict</td></tr>
+        <tr><th scope="row">Last month’s buys</th><td>Forgotten</td><td>Logged and reviewed at 30 and 90 days</td></tr>
+      </tbody>
+    </table>
+  </section>
 
   <hr class="rule--double">
   <section aria-labelledby="split-title">
@@ -416,7 +433,7 @@
 </section>
 
 <div class="page">
-  <section aria-labelledby="faq-title">
+  <section class="faq" aria-labelledby="faq-title">
     <div class="section-head"><h2 id="faq-title">Questions.</h2></div>
     <div class="faq-list">
       <details><summary>What is Need or Want?</summary><p>An open-source MCP server for Claude Code and Claude Desktop that checks a purchase before you make it. It asks a few fixed multiple-choice questions, scores the purchase from 0 to 100 and returns BUY, WAIT or SKIP, labelled NEED, MIXED or WANT.</p></details>
